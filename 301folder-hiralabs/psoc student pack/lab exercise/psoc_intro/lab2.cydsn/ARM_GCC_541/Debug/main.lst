@@ -1,0 +1,534 @@
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3OPNiA.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** 
+   2:main.c        **** /* ========================================
+   3:main.c        ****  * Laboratory Exercise 2
+   4:main.c        ****  *
+   5:main.c        ****  * Program timer to flash LED at 1Hz, i.e. 0.5s ON and 0.5s sec OFF
+   6:main.c        ****  *
+   7:main.c        ****  * Copyright Univ of Auckland, 2016
+   8:main.c        ****  * All Rights Reserved
+   9:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+  10:main.c        ****  *
+  11:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+  12:main.c        ****  * WHICH IS THE PROPERTY OF Univ of Auckland.
+  13:main.c        ****  *
+  14:main.c        ****  * ========================================
+  15:main.c        **** */
+  16:main.c        **** #include <project.h>
+  17:main.c        **** 
+  18:main.c        **** int main()
+  19:main.c        **** {
+  28              		.loc 1 19 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  20:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  37              		.loc 1 20 0
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3OPNiA.s 			page 2
+
+
+  38              		.syntax unified
+  39              	@ 20 "main.c" 1
+  40 0002 62B6     		CPSIE   i
+  41              	@ 0 "" 2
+  21:main.c        ****     
+  22:main.c        ****     Timer_1_Start();
+  42              		.loc 1 22 0
+  43              		.thumb
+  44              		.syntax unified
+  45 0004 FFF7FEFF 		bl	Timer_1_Start
+  46              	.LVL0:
+  23:main.c        ****     
+  24:main.c        ****     Timer_1_WritePeriod(500);
+  47              		.loc 1 24 0
+  48 0008 4FF4FA70 		mov	r0, #500
+  49 000c FFF7FEFF 		bl	Timer_1_WritePeriod
+  50              	.LVL1:
+  51              	.L2:
+  52 0010 FEE7     		b	.L2
+  53              		.cfi_endproc
+  54              	.LFE63:
+  55              		.size	main, .-main
+  56 0012 00BF     		.text
+  57              	.Letext0:
+  58              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  59              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  60              		.file 4 "Generated_Source\\PSoC5/Timer_1.h"
+  61              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+  62              		.section	.debug_info,"",%progbits
+  63              	.Ldebug_info0:
+  64 0000 FC000000 		.4byte	0xfc
+  65 0004 0400     		.2byte	0x4
+  66 0006 00000000 		.4byte	.Ldebug_abbrev0
+  67 000a 04       		.byte	0x4
+  68 000b 01       		.uleb128 0x1
+  69 000c 48000000 		.4byte	.LASF18
+  70 0010 0C       		.byte	0xc
+  71 0011 3C000000 		.4byte	.LASF19
+  72 0015 FF000000 		.4byte	.LASF20
+  73 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  74 001d 00000000 		.4byte	0
+  75 0021 00000000 		.4byte	.Ldebug_line0
+  76 0025 02       		.uleb128 0x2
+  77 0026 01       		.byte	0x1
+  78 0027 06       		.byte	0x6
+  79 0028 8F010000 		.4byte	.LASF0
+  80 002c 02       		.uleb128 0x2
+  81 002d 01       		.byte	0x1
+  82 002e 08       		.byte	0x8
+  83 002f 2E000000 		.4byte	.LASF1
+  84 0033 02       		.uleb128 0x2
+  85 0034 02       		.byte	0x2
+  86 0035 05       		.byte	0x5
+  87 0036 B7010000 		.4byte	.LASF2
+  88 003a 02       		.uleb128 0x2
+  89 003b 02       		.byte	0x2
+  90 003c 07       		.byte	0x7
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3OPNiA.s 			page 3
+
+
+  91 003d 0E000000 		.4byte	.LASF3
+  92 0041 03       		.uleb128 0x3
+  93 0042 A7010000 		.4byte	.LASF9
+  94 0046 02       		.byte	0x2
+  95 0047 3F       		.byte	0x3f
+  96 0048 4C000000 		.4byte	0x4c
+  97 004c 02       		.uleb128 0x2
+  98 004d 04       		.byte	0x4
+  99 004e 05       		.byte	0x5
+ 100 004f 72010000 		.4byte	.LASF4
+ 101 0053 02       		.uleb128 0x2
+ 102 0054 04       		.byte	0x4
+ 103 0055 07       		.byte	0x7
+ 104 0056 D6000000 		.4byte	.LASF5
+ 105 005a 02       		.uleb128 0x2
+ 106 005b 08       		.byte	0x8
+ 107 005c 05       		.byte	0x5
+ 108 005d 00000000 		.4byte	.LASF6
+ 109 0061 02       		.uleb128 0x2
+ 110 0062 08       		.byte	0x8
+ 111 0063 07       		.byte	0x7
+ 112 0064 E8000000 		.4byte	.LASF7
+ 113 0068 04       		.uleb128 0x4
+ 114 0069 04       		.byte	0x4
+ 115 006a 05       		.byte	0x5
+ 116 006b 696E7400 		.ascii	"int\000"
+ 117 006f 02       		.uleb128 0x2
+ 118 0070 04       		.byte	0x4
+ 119 0071 07       		.byte	0x7
+ 120 0072 21000000 		.4byte	.LASF8
+ 121 0076 03       		.uleb128 0x3
+ 122 0077 C1010000 		.4byte	.LASF10
+ 123 007b 03       		.byte	0x3
+ 124 007c 2C       		.byte	0x2c
+ 125 007d 41000000 		.4byte	0x41
+ 126 0081 02       		.uleb128 0x2
+ 127 0082 04       		.byte	0x4
+ 128 0083 04       		.byte	0x4
+ 129 0084 B1010000 		.4byte	.LASF11
+ 130 0088 02       		.uleb128 0x2
+ 131 0089 08       		.byte	0x8
+ 132 008a 04       		.byte	0x4
+ 133 008b 7B010000 		.4byte	.LASF12
+ 134 008f 02       		.uleb128 0x2
+ 135 0090 01       		.byte	0x1
+ 136 0091 08       		.byte	0x8
+ 137 0092 6D010000 		.4byte	.LASF13
+ 138 0096 02       		.uleb128 0x2
+ 139 0097 08       		.byte	0x8
+ 140 0098 04       		.byte	0x4
+ 141 0099 9B010000 		.4byte	.LASF14
+ 142 009d 02       		.uleb128 0x2
+ 143 009e 04       		.byte	0x4
+ 144 009f 07       		.byte	0x7
+ 145 00a0 C9010000 		.4byte	.LASF15
+ 146 00a4 05       		.uleb128 0x5
+ 147 00a5 43000000 		.4byte	.LASF21
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3OPNiA.s 			page 4
+
+
+ 148 00a9 01       		.byte	0x1
+ 149 00aa 12       		.byte	0x12
+ 150 00ab 68000000 		.4byte	0x68
+ 151 00af 00000000 		.4byte	.LFB63
+ 152 00b3 12000000 		.4byte	.LFE63-.LFB63
+ 153 00b7 01       		.uleb128 0x1
+ 154 00b8 9C       		.byte	0x9c
+ 155 00b9 D8000000 		.4byte	0xd8
+ 156 00bd 06       		.uleb128 0x6
+ 157 00be 08000000 		.4byte	.LVL0
+ 158 00c2 E9000000 		.4byte	0xe9
+ 159 00c6 07       		.uleb128 0x7
+ 160 00c7 10000000 		.4byte	.LVL1
+ 161 00cb F4000000 		.4byte	0xf4
+ 162 00cf 08       		.uleb128 0x8
+ 163 00d0 01       		.uleb128 0x1
+ 164 00d1 50       		.byte	0x50
+ 165 00d2 03       		.uleb128 0x3
+ 166 00d3 0A       		.byte	0xa
+ 167 00d4 F401     		.2byte	0x1f4
+ 168 00d6 00       		.byte	0
+ 169 00d7 00       		.byte	0
+ 170 00d8 09       		.uleb128 0x9
+ 171 00d9 82010000 		.4byte	.LASF22
+ 172 00dd 05       		.byte	0x5
+ 173 00de 1207     		.2byte	0x712
+ 174 00e0 E4000000 		.4byte	0xe4
+ 175 00e4 0A       		.uleb128 0xa
+ 176 00e5 76000000 		.4byte	0x76
+ 177 00e9 0B       		.uleb128 0xb
+ 178 00ea 4B010000 		.4byte	.LASF16
+ 179 00ee 4B010000 		.4byte	.LASF16
+ 180 00f2 04       		.byte	0x4
+ 181 00f3 5A       		.byte	0x5a
+ 182 00f4 0B       		.uleb128 0xb
+ 183 00f5 59010000 		.4byte	.LASF17
+ 184 00f9 59010000 		.4byte	.LASF17
+ 185 00fd 04       		.byte	0x4
+ 186 00fe 68       		.byte	0x68
+ 187 00ff 00       		.byte	0
+ 188              		.section	.debug_abbrev,"",%progbits
+ 189              	.Ldebug_abbrev0:
+ 190 0000 01       		.uleb128 0x1
+ 191 0001 11       		.uleb128 0x11
+ 192 0002 01       		.byte	0x1
+ 193 0003 25       		.uleb128 0x25
+ 194 0004 0E       		.uleb128 0xe
+ 195 0005 13       		.uleb128 0x13
+ 196 0006 0B       		.uleb128 0xb
+ 197 0007 03       		.uleb128 0x3
+ 198 0008 0E       		.uleb128 0xe
+ 199 0009 1B       		.uleb128 0x1b
+ 200 000a 0E       		.uleb128 0xe
+ 201 000b 55       		.uleb128 0x55
+ 202 000c 17       		.uleb128 0x17
+ 203 000d 11       		.uleb128 0x11
+ 204 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3OPNiA.s 			page 5
+
+
+ 205 000f 10       		.uleb128 0x10
+ 206 0010 17       		.uleb128 0x17
+ 207 0011 00       		.byte	0
+ 208 0012 00       		.byte	0
+ 209 0013 02       		.uleb128 0x2
+ 210 0014 24       		.uleb128 0x24
+ 211 0015 00       		.byte	0
+ 212 0016 0B       		.uleb128 0xb
+ 213 0017 0B       		.uleb128 0xb
+ 214 0018 3E       		.uleb128 0x3e
+ 215 0019 0B       		.uleb128 0xb
+ 216 001a 03       		.uleb128 0x3
+ 217 001b 0E       		.uleb128 0xe
+ 218 001c 00       		.byte	0
+ 219 001d 00       		.byte	0
+ 220 001e 03       		.uleb128 0x3
+ 221 001f 16       		.uleb128 0x16
+ 222 0020 00       		.byte	0
+ 223 0021 03       		.uleb128 0x3
+ 224 0022 0E       		.uleb128 0xe
+ 225 0023 3A       		.uleb128 0x3a
+ 226 0024 0B       		.uleb128 0xb
+ 227 0025 3B       		.uleb128 0x3b
+ 228 0026 0B       		.uleb128 0xb
+ 229 0027 49       		.uleb128 0x49
+ 230 0028 13       		.uleb128 0x13
+ 231 0029 00       		.byte	0
+ 232 002a 00       		.byte	0
+ 233 002b 04       		.uleb128 0x4
+ 234 002c 24       		.uleb128 0x24
+ 235 002d 00       		.byte	0
+ 236 002e 0B       		.uleb128 0xb
+ 237 002f 0B       		.uleb128 0xb
+ 238 0030 3E       		.uleb128 0x3e
+ 239 0031 0B       		.uleb128 0xb
+ 240 0032 03       		.uleb128 0x3
+ 241 0033 08       		.uleb128 0x8
+ 242 0034 00       		.byte	0
+ 243 0035 00       		.byte	0
+ 244 0036 05       		.uleb128 0x5
+ 245 0037 2E       		.uleb128 0x2e
+ 246 0038 01       		.byte	0x1
+ 247 0039 3F       		.uleb128 0x3f
+ 248 003a 19       		.uleb128 0x19
+ 249 003b 03       		.uleb128 0x3
+ 250 003c 0E       		.uleb128 0xe
+ 251 003d 3A       		.uleb128 0x3a
+ 252 003e 0B       		.uleb128 0xb
+ 253 003f 3B       		.uleb128 0x3b
+ 254 0040 0B       		.uleb128 0xb
+ 255 0041 49       		.uleb128 0x49
+ 256 0042 13       		.uleb128 0x13
+ 257 0043 8701     		.uleb128 0x87
+ 258 0045 19       		.uleb128 0x19
+ 259 0046 11       		.uleb128 0x11
+ 260 0047 01       		.uleb128 0x1
+ 261 0048 12       		.uleb128 0x12
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3OPNiA.s 			page 6
+
+
+ 262 0049 06       		.uleb128 0x6
+ 263 004a 40       		.uleb128 0x40
+ 264 004b 18       		.uleb128 0x18
+ 265 004c 9742     		.uleb128 0x2117
+ 266 004e 19       		.uleb128 0x19
+ 267 004f 01       		.uleb128 0x1
+ 268 0050 13       		.uleb128 0x13
+ 269 0051 00       		.byte	0
+ 270 0052 00       		.byte	0
+ 271 0053 06       		.uleb128 0x6
+ 272 0054 898201   		.uleb128 0x4109
+ 273 0057 00       		.byte	0
+ 274 0058 11       		.uleb128 0x11
+ 275 0059 01       		.uleb128 0x1
+ 276 005a 31       		.uleb128 0x31
+ 277 005b 13       		.uleb128 0x13
+ 278 005c 00       		.byte	0
+ 279 005d 00       		.byte	0
+ 280 005e 07       		.uleb128 0x7
+ 281 005f 898201   		.uleb128 0x4109
+ 282 0062 01       		.byte	0x1
+ 283 0063 11       		.uleb128 0x11
+ 284 0064 01       		.uleb128 0x1
+ 285 0065 31       		.uleb128 0x31
+ 286 0066 13       		.uleb128 0x13
+ 287 0067 00       		.byte	0
+ 288 0068 00       		.byte	0
+ 289 0069 08       		.uleb128 0x8
+ 290 006a 8A8201   		.uleb128 0x410a
+ 291 006d 00       		.byte	0
+ 292 006e 02       		.uleb128 0x2
+ 293 006f 18       		.uleb128 0x18
+ 294 0070 9142     		.uleb128 0x2111
+ 295 0072 18       		.uleb128 0x18
+ 296 0073 00       		.byte	0
+ 297 0074 00       		.byte	0
+ 298 0075 09       		.uleb128 0x9
+ 299 0076 34       		.uleb128 0x34
+ 300 0077 00       		.byte	0
+ 301 0078 03       		.uleb128 0x3
+ 302 0079 0E       		.uleb128 0xe
+ 303 007a 3A       		.uleb128 0x3a
+ 304 007b 0B       		.uleb128 0xb
+ 305 007c 3B       		.uleb128 0x3b
+ 306 007d 05       		.uleb128 0x5
+ 307 007e 49       		.uleb128 0x49
+ 308 007f 13       		.uleb128 0x13
+ 309 0080 3F       		.uleb128 0x3f
+ 310 0081 19       		.uleb128 0x19
+ 311 0082 3C       		.uleb128 0x3c
+ 312 0083 19       		.uleb128 0x19
+ 313 0084 00       		.byte	0
+ 314 0085 00       		.byte	0
+ 315 0086 0A       		.uleb128 0xa
+ 316 0087 35       		.uleb128 0x35
+ 317 0088 00       		.byte	0
+ 318 0089 49       		.uleb128 0x49
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3OPNiA.s 			page 7
+
+
+ 319 008a 13       		.uleb128 0x13
+ 320 008b 00       		.byte	0
+ 321 008c 00       		.byte	0
+ 322 008d 0B       		.uleb128 0xb
+ 323 008e 2E       		.uleb128 0x2e
+ 324 008f 00       		.byte	0
+ 325 0090 3F       		.uleb128 0x3f
+ 326 0091 19       		.uleb128 0x19
+ 327 0092 3C       		.uleb128 0x3c
+ 328 0093 19       		.uleb128 0x19
+ 329 0094 6E       		.uleb128 0x6e
+ 330 0095 0E       		.uleb128 0xe
+ 331 0096 03       		.uleb128 0x3
+ 332 0097 0E       		.uleb128 0xe
+ 333 0098 3A       		.uleb128 0x3a
+ 334 0099 0B       		.uleb128 0xb
+ 335 009a 3B       		.uleb128 0x3b
+ 336 009b 0B       		.uleb128 0xb
+ 337 009c 00       		.byte	0
+ 338 009d 00       		.byte	0
+ 339 009e 00       		.byte	0
+ 340              		.section	.debug_aranges,"",%progbits
+ 341 0000 1C000000 		.4byte	0x1c
+ 342 0004 0200     		.2byte	0x2
+ 343 0006 00000000 		.4byte	.Ldebug_info0
+ 344 000a 04       		.byte	0x4
+ 345 000b 00       		.byte	0
+ 346 000c 0000     		.2byte	0
+ 347 000e 0000     		.2byte	0
+ 348 0010 00000000 		.4byte	.LFB63
+ 349 0014 12000000 		.4byte	.LFE63-.LFB63
+ 350 0018 00000000 		.4byte	0
+ 351 001c 00000000 		.4byte	0
+ 352              		.section	.debug_ranges,"",%progbits
+ 353              	.Ldebug_ranges0:
+ 354 0000 00000000 		.4byte	.LFB63
+ 355 0004 12000000 		.4byte	.LFE63
+ 356 0008 00000000 		.4byte	0
+ 357 000c 00000000 		.4byte	0
+ 358              		.section	.debug_line,"",%progbits
+ 359              	.Ldebug_line0:
+ 360 0000 64010000 		.section	.debug_str,"MS",%progbits,1
+ 360      02004C01 
+ 360      00000201 
+ 360      FB0E0D00 
+ 360      01010101 
+ 361              	.LASF6:
+ 362 0000 6C6F6E67 		.ascii	"long long int\000"
+ 362      206C6F6E 
+ 362      6720696E 
+ 362      7400
+ 363              	.LASF3:
+ 364 000e 73686F72 		.ascii	"short unsigned int\000"
+ 364      7420756E 
+ 364      7369676E 
+ 364      65642069 
+ 364      6E7400
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3OPNiA.s 			page 8
+
+
+ 365              	.LASF8:
+ 366 0021 756E7369 		.ascii	"unsigned int\000"
+ 366      676E6564 
+ 366      20696E74 
+ 366      00
+ 367              	.LASF1:
+ 368 002e 756E7369 		.ascii	"unsigned char\000"
+ 368      676E6564 
+ 368      20636861 
+ 368      7200
+ 369              	.LASF19:
+ 370 003c 6D61696E 		.ascii	"main.c\000"
+ 370      2E6300
+ 371              	.LASF21:
+ 372 0043 6D61696E 		.ascii	"main\000"
+ 372      00
+ 373              	.LASF18:
+ 374 0048 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 374      43313120 
+ 374      352E342E 
+ 374      31203230 
+ 374      31363036 
+ 375 007b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 375      20726576 
+ 375      6973696F 
+ 375      6E203233 
+ 375      37373135 
+ 376 00ae 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 376      66756E63 
+ 376      74696F6E 
+ 376      2D736563 
+ 376      74696F6E 
+ 377              	.LASF5:
+ 378 00d6 6C6F6E67 		.ascii	"long unsigned int\000"
+ 378      20756E73 
+ 378      69676E65 
+ 378      6420696E 
+ 378      7400
+ 379              	.LASF7:
+ 380 00e8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 380      206C6F6E 
+ 380      6720756E 
+ 380      7369676E 
+ 380      65642069 
+ 381              	.LASF20:
+ 382 00ff 483A5C44 		.ascii	"H:\\Documents\\301folder\\psoc student pack\\lab ex"
+ 382      6F63756D 
+ 382      656E7473 
+ 382      5C333031 
+ 382      666F6C64 
+ 383 012e 65726369 		.ascii	"ercise\\psoc_intro\\lab2.cydsn\000"
+ 383      73655C70 
+ 383      736F635F 
+ 383      696E7472 
+ 383      6F5C6C61 
+ 384              	.LASF16:
+ 385 014b 54696D65 		.ascii	"Timer_1_Start\000"
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3OPNiA.s 			page 9
+
+
+ 385      725F315F 
+ 385      53746172 
+ 385      7400
+ 386              	.LASF17:
+ 387 0159 54696D65 		.ascii	"Timer_1_WritePeriod\000"
+ 387      725F315F 
+ 387      57726974 
+ 387      65506572 
+ 387      696F6400 
+ 388              	.LASF13:
+ 389 016d 63686172 		.ascii	"char\000"
+ 389      00
+ 390              	.LASF4:
+ 391 0172 6C6F6E67 		.ascii	"long int\000"
+ 391      20696E74 
+ 391      00
+ 392              	.LASF12:
+ 393 017b 646F7562 		.ascii	"double\000"
+ 393      6C6500
+ 394              	.LASF22:
+ 395 0182 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 395      52784275 
+ 395      66666572 
+ 395      00
+ 396              	.LASF0:
+ 397 018f 7369676E 		.ascii	"signed char\000"
+ 397      65642063 
+ 397      68617200 
+ 398              	.LASF14:
+ 399 019b 6C6F6E67 		.ascii	"long double\000"
+ 399      20646F75 
+ 399      626C6500 
+ 400              	.LASF9:
+ 401 01a7 5F5F696E 		.ascii	"__int32_t\000"
+ 401      7433325F 
+ 401      7400
+ 402              	.LASF11:
+ 403 01b1 666C6F61 		.ascii	"float\000"
+ 403      7400
+ 404              	.LASF2:
+ 405 01b7 73686F72 		.ascii	"short int\000"
+ 405      7420696E 
+ 405      7400
+ 406              	.LASF10:
+ 407 01c1 696E7433 		.ascii	"int32_t\000"
+ 407      325F7400 
+ 408              	.LASF15:
+ 409 01c9 73697A65 		.ascii	"sizetype\000"
+ 409      74797065 
+ 409      00
+ 410              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
