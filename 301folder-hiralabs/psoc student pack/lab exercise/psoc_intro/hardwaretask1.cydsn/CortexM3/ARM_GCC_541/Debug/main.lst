@@ -1,0 +1,1908 @@
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.eoc,"ax",%progbits
+  20              		.align	2
+  21              		.global	eoc
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	eoc, %function
+  25              	eoc:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  * Fully working code: 
+   3:main.c        ****  * PWM      : 
+   4:main.c        ****  * Encoder  : 
+   5:main.c        ****  * ADC      :
+   6:main.c        ****  * USB      : port displays speed and position.
+   7:main.c        ****  * CMD: "PW xx"
+   8:main.c        ****  * Copyright Univ of Auckland, 2016
+   9:main.c        ****  * All Rights Reserved
+  10:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+  11:main.c        ****  *
+  12:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+  13:main.c        ****  * WHICH IS THE PROPERTY OF Univ of Auckland.
+  14:main.c        ****  *
+  15:main.c        ****  * ========================================
+  16:main.c        **** */
+  17:main.c        **** #include <stdio.h>
+  18:main.c        **** #include <string.h>
+  19:main.c        **** #include <stdlib.h>
+  20:main.c        **** #include <project.h>
+  21:main.c        **** //* ========================================
+  22:main.c        **** #include "defines.h"
+  23:main.c        **** #include "vars.h"
+  24:main.c        **** //* ========================================
+  25:main.c        **** void usbPutString(char *s);
+  26:main.c        **** void usbPutChar(char c);
+  27:main.c        **** //* ========================================
+  28:main.c        **** 
+  29:main.c        **** volatile int flag = 0;
+  30:main.c        **** volatile int result = 0;
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 2
+
+
+  31:main.c        **** 
+  32:main.c        **** 
+  33:main.c        **** CY_ISR(eoc) {
+  28              		.loc 1 33 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  34:main.c        ****     // Some Logic
+  35:main.c        ****     flag = 1;
+  33              		.loc 1 35 0
+  34 0000 0122     		movs	r2, #1
+  35 0002 014B     		ldr	r3, .L2
+  36 0004 1A60     		str	r2, [r3]
+  37 0006 7047     		bx	lr
+  38              	.L3:
+  39              		.align	2
+  40              	.L2:
+  41 0008 00000000 		.word	.LANCHOR0
+  42              		.cfi_endproc
+  43              	.LFE64:
+  44              		.size	eoc, .-eoc
+  45              		.section	.text.usbPutString,"ax",%progbits
+  46              		.align	2
+  47              		.global	usbPutString
+  48              		.thumb
+  49              		.thumb_func
+  50              		.type	usbPutString, %function
+  51              	usbPutString:
+  52              	.LFB66:
+  36:main.c        **** }
+  37:main.c        **** 
+  38:main.c        **** int main()
+  39:main.c        **** {
+  40:main.c        ****     
+  41:main.c        **** 
+  42:main.c        **** // --------------------------------    
+  43:main.c        **** // ----- INITIALIZATIONS ----------
+  44:main.c        ****     CYGlobalIntEnable;
+  45:main.c        **** 
+  46:main.c        **** // ------USB SETUP ----------------    
+  47:main.c        ****   
+  48:main.c        ****     USBUART_Start(0,USBUART_5V_OPERATION);     
+  49:main.c        ****         
+  50:main.c        ****     //RF_BT_SELECT_Write(0);
+  51:main.c        ****     ADC_SAR_1_Start();
+  52:main.c        ****     ADC_SAR_1_StartConvert();
+  53:main.c        ****     isr_1_StartEx(eoc);
+  54:main.c        ****     
+  55:main.c        ****     for(;;)
+  56:main.c        ****     {   
+  57:main.c        ****         
+  58:main.c        ****         if (flag == 1) {
+  59:main.c        ****             
+  60:main.c        ****             ADC_SAR_1_IRQ_Disable();
+  61:main.c        ****             
+  62:main.c        ****             usbPutString("te");
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 3
+
+
+  63:main.c        ****             usbPutString("\r\n");
+  64:main.c        ****             /* Place your application code here. */
+  65:main.c        ****             if (flag_KB_string == 1)
+  66:main.c        ****             {
+  67:main.c        ****                 usbPutString(line);
+  68:main.c        ****                 flag_KB_string = 0;
+  69:main.c        ****                 
+  70:main.c        ****             }
+  71:main.c        ****             flag = 0;
+  72:main.c        ****             
+  73:main.c        ****             ADC_SAR_1_IRQ_Enable();
+  74:main.c        ****         }
+  75:main.c        ****         
+  76:main.c        ****         
+  77:main.c        ****         
+  78:main.c        ****        
+  79:main.c        ****     }   
+  80:main.c        **** }
+  81:main.c        **** //* ========================================
+  82:main.c        **** void usbPutString(char *s)
+  83:main.c        **** {
+  53              		.loc 1 83 0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57              	.LVL0:
+  58 0000 10B5     		push	{r4, lr}
+  59              		.cfi_def_cfa_offset 8
+  60              		.cfi_offset 4, -8
+  61              		.cfi_offset 14, -4
+  62 0002 0446     		mov	r4, r0
+  63              	.LVL1:
+  64              	.L5:
+  84:main.c        **** // !! Assumes that *s is a string with allocated space >=64 chars     
+  85:main.c        **** //  Since USB implementation retricts data packets to 64 chars, this function truncates the
+  86:main.c        **** //  length to 62 char (63rd char is a '!')
+  87:main.c        **** 
+  88:main.c        **** #ifdef USE_USB     
+  89:main.c        ****     while (USBUART_CDCIsReady() == 0);
+  65              		.loc 1 89 0 discriminator 1
+  66 0004 FFF7FEFF 		bl	USBUART_CDCIsReady
+  67              	.LVL2:
+  68 0008 0028     		cmp	r0, #0
+  69 000a FBD0     		beq	.L5
+  90:main.c        ****     s[63]='\0';
+  70              		.loc 1 90 0
+  71 000c 0023     		movs	r3, #0
+  72 000e 84F83F30 		strb	r3, [r4, #63]
+  91:main.c        ****     s[62]='!';
+  73              		.loc 1 91 0
+  74 0012 2123     		movs	r3, #33
+  75 0014 84F83E30 		strb	r3, [r4, #62]
+  92:main.c        ****     USBUART_PutData((uint8*)s,strlen(s));
+  76              		.loc 1 92 0
+  77 0018 2046     		mov	r0, r4
+  78 001a FFF7FEFF 		bl	strlen
+  79              	.LVL3:
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 4
+
+
+  80 001e 81B2     		uxth	r1, r0
+  81 0020 2046     		mov	r0, r4
+  82 0022 FFF7FEFF 		bl	USBUART_PutData
+  83              	.LVL4:
+  84 0026 10BD     		pop	{r4, pc}
+  85              		.cfi_endproc
+  86              	.LFE66:
+  87              		.size	usbPutString, .-usbPutString
+  88              		.section	.text.main,"ax",%progbits
+  89              		.align	2
+  90              		.global	main
+  91              		.thumb
+  92              		.thumb_func
+  93              		.type	main, %function
+  94              	main:
+  95              	.LFB65:
+  39:main.c        ****     
+  96              		.loc 1 39 0
+  97              		.cfi_startproc
+  98              		@ Volatile: function does not return.
+  99              		@ args = 0, pretend = 0, frame = 0
+ 100              		@ frame_needed = 0, uses_anonymous_args = 0
+ 101 0000 08B5     		push	{r3, lr}
+ 102              		.cfi_def_cfa_offset 8
+ 103              		.cfi_offset 3, -8
+ 104              		.cfi_offset 14, -4
+  44:main.c        **** 
+ 105              		.loc 1 44 0
+ 106              		.syntax unified
+ 107              	@ 44 "main.c" 1
+ 108 0002 62B6     		CPSIE   i
+ 109              	@ 0 "" 2
+  48:main.c        ****         
+ 110              		.loc 1 48 0
+ 111              		.thumb
+ 112              		.syntax unified
+ 113 0004 0121     		movs	r1, #1
+ 114 0006 0020     		movs	r0, #0
+ 115 0008 FFF7FEFF 		bl	USBUART_Start
+ 116              	.LVL5:
+  51:main.c        ****     ADC_SAR_1_StartConvert();
+ 117              		.loc 1 51 0
+ 118 000c FFF7FEFF 		bl	ADC_SAR_1_Start
+ 119              	.LVL6:
+  52:main.c        ****     isr_1_StartEx(eoc);
+ 120              		.loc 1 52 0
+ 121 0010 FFF7FEFF 		bl	ADC_SAR_1_StartConvert
+ 122              	.LVL7:
+  53:main.c        ****     
+ 123              		.loc 1 53 0
+ 124 0014 0F48     		ldr	r0, .L12
+ 125 0016 FFF7FEFF 		bl	isr_1_StartEx
+ 126              	.LVL8:
+ 127              	.L8:
+  58:main.c        ****             
+ 128              		.loc 1 58 0
+ 129 001a 0F4B     		ldr	r3, .L12+4
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 5
+
+
+ 130 001c 1B68     		ldr	r3, [r3]
+ 131 001e 012B     		cmp	r3, #1
+ 132 0020 FBD1     		bne	.L8
+  60:main.c        ****             
+ 133              		.loc 1 60 0
+ 134 0022 FFF7FEFF 		bl	ADC_SAR_1_IRQ_Disable
+ 135              	.LVL9:
+  62:main.c        ****             usbPutString("\r\n");
+ 136              		.loc 1 62 0
+ 137 0026 0D48     		ldr	r0, .L12+8
+ 138 0028 FFF7FEFF 		bl	usbPutString
+ 139              	.LVL10:
+  63:main.c        ****             /* Place your application code here. */
+ 140              		.loc 1 63 0
+ 141 002c 0C48     		ldr	r0, .L12+12
+ 142 002e FFF7FEFF 		bl	usbPutString
+ 143              	.LVL11:
+  65:main.c        ****             {
+ 144              		.loc 1 65 0
+ 145 0032 094B     		ldr	r3, .L12+4
+ 146 0034 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 147 0036 012B     		cmp	r3, #1
+ 148 0038 05D1     		bne	.L9
+  67:main.c        ****                 flag_KB_string = 0;
+ 149              		.loc 1 67 0
+ 150 003a 0A48     		ldr	r0, .L12+16
+ 151 003c FFF7FEFF 		bl	usbPutString
+ 152              	.LVL12:
+  68:main.c        ****                 
+ 153              		.loc 1 68 0
+ 154 0040 0022     		movs	r2, #0
+ 155 0042 054B     		ldr	r3, .L12+4
+ 156 0044 1A71     		strb	r2, [r3, #4]
+ 157              	.L9:
+  71:main.c        ****             
+ 158              		.loc 1 71 0
+ 159 0046 0022     		movs	r2, #0
+ 160 0048 034B     		ldr	r3, .L12+4
+ 161 004a 1A60     		str	r2, [r3]
+  73:main.c        ****         }
+ 162              		.loc 1 73 0
+ 163 004c FFF7FEFF 		bl	ADC_SAR_1_IRQ_Enable
+ 164              	.LVL13:
+ 165 0050 E3E7     		b	.L8
+ 166              	.L13:
+ 167 0052 00BF     		.align	2
+ 168              	.L12:
+ 169 0054 00000000 		.word	eoc
+ 170 0058 00000000 		.word	.LANCHOR0
+ 171 005c 00000000 		.word	.LC0
+ 172 0060 04000000 		.word	.LC1
+ 173 0064 00000000 		.word	line
+ 174              		.cfi_endproc
+ 175              	.LFE65:
+ 176              		.size	main, .-main
+ 177              		.section	.text.usbPutChar,"ax",%progbits
+ 178              		.align	2
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 6
+
+
+ 179              		.global	usbPutChar
+ 180              		.thumb
+ 181              		.thumb_func
+ 182              		.type	usbPutChar, %function
+ 183              	usbPutChar:
+ 184              	.LFB67:
+  93:main.c        **** #endif
+  94:main.c        **** }
+  95:main.c        **** //* ========================================
+  96:main.c        **** void usbPutChar(char c)
+  97:main.c        **** {
+ 185              		.loc 1 97 0
+ 186              		.cfi_startproc
+ 187              		@ args = 0, pretend = 0, frame = 0
+ 188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 189              	.LVL14:
+ 190 0000 10B5     		push	{r4, lr}
+ 191              		.cfi_def_cfa_offset 8
+ 192              		.cfi_offset 4, -8
+ 193              		.cfi_offset 14, -4
+ 194 0002 0446     		mov	r4, r0
+ 195              	.LVL15:
+ 196              	.L15:
+  98:main.c        **** #ifdef USE_USB     
+  99:main.c        ****     while (USBUART_CDCIsReady() == 0);
+ 197              		.loc 1 99 0 discriminator 1
+ 198 0004 FFF7FEFF 		bl	USBUART_CDCIsReady
+ 199              	.LVL16:
+ 200 0008 0028     		cmp	r0, #0
+ 201 000a FBD0     		beq	.L15
+ 100:main.c        ****     USBUART_PutChar(c);
+ 202              		.loc 1 100 0
+ 203 000c 2046     		mov	r0, r4
+ 204 000e FFF7FEFF 		bl	USBUART_PutChar
+ 205              	.LVL17:
+ 206 0012 10BD     		pop	{r4, pc}
+ 207              		.cfi_endproc
+ 208              	.LFE67:
+ 209              		.size	usbPutChar, .-usbPutChar
+ 210              		.global	result
+ 211              		.global	flag
+ 212              		.comm	system_state,32,4
+ 213              		.comm	usbBuffer,64,4
+ 214              		.comm	entry,64,4
+ 215              		.comm	line,64,4
+ 216              		.global	displaystring
+ 217              		.global	flag_rf_transmission_active
+ 218              		.global	dataready_flag
+ 219              		.global	flag_KB_string
+ 220              		.global	flag_packet
+ 221              		.global	flag_rx
+ 222              		.global	flag_ts_display
+ 223              		.global	flag_ts_speed
+ 224              		.global	flag_ts_update
+ 225              		.global	flag_ts_enc
+ 226              		.global	ts_display
+ 227              		.global	ts_speed
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 7
+
+
+ 228              		.global	ts_update
+ 229              		.global	ts_enc
+ 230              		.global	ts
+ 231              		.data
+ 232              		.align	2
+ 233              		.type	displaystring, %object
+ 234              		.size	displaystring, 64
+ 235              	displaystring:
+ 236 0000 43533330 		.ascii	"CS301 2016\012\000"
+ 236      31203230 
+ 236      31360A00 
+ 237 000c 00000000 		.space	52
+ 237      00000000 
+ 237      00000000 
+ 237      00000000 
+ 237      00000000 
+ 238              		.type	flag_rf_transmission_active, %object
+ 239              		.size	flag_rf_transmission_active, 1
+ 240              	flag_rf_transmission_active:
+ 241 0040 0A       		.byte	10
+ 242              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 243              		.align	2
+ 244              	.LC0:
+ 245 0000 746500   		.ascii	"te\000"
+ 246 0003 00       		.space	1
+ 247              	.LC1:
+ 248 0004 0D0A00   		.ascii	"\015\012\000"
+ 249              		.bss
+ 250              		.align	2
+ 251              		.set	.LANCHOR0,. + 0
+ 252              		.type	flag, %object
+ 253              		.size	flag, 4
+ 254              	flag:
+ 255 0000 00000000 		.space	4
+ 256              		.type	flag_KB_string, %object
+ 257              		.size	flag_KB_string, 1
+ 258              	flag_KB_string:
+ 259 0004 00       		.space	1
+ 260 0005 000000   		.space	3
+ 261              		.type	result, %object
+ 262              		.size	result, 4
+ 263              	result:
+ 264 0008 00000000 		.space	4
+ 265              		.type	dataready_flag, %object
+ 266              		.size	dataready_flag, 1
+ 267              	dataready_flag:
+ 268 000c 00       		.space	1
+ 269              		.type	flag_packet, %object
+ 270              		.size	flag_packet, 1
+ 271              	flag_packet:
+ 272 000d 00       		.space	1
+ 273              		.type	flag_rx, %object
+ 274              		.size	flag_rx, 1
+ 275              	flag_rx:
+ 276 000e 00       		.space	1
+ 277              		.type	flag_ts_display, %object
+ 278              		.size	flag_ts_display, 1
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 8
+
+
+ 279              	flag_ts_display:
+ 280 000f 00       		.space	1
+ 281              		.type	flag_ts_speed, %object
+ 282              		.size	flag_ts_speed, 1
+ 283              	flag_ts_speed:
+ 284 0010 00       		.space	1
+ 285              		.type	flag_ts_update, %object
+ 286              		.size	flag_ts_update, 1
+ 287              	flag_ts_update:
+ 288 0011 00       		.space	1
+ 289              		.type	flag_ts_enc, %object
+ 290              		.size	flag_ts_enc, 1
+ 291              	flag_ts_enc:
+ 292 0012 00       		.space	1
+ 293 0013 00       		.space	1
+ 294              		.type	ts_display, %object
+ 295              		.size	ts_display, 2
+ 296              	ts_display:
+ 297 0014 0000     		.space	2
+ 298              		.type	ts_speed, %object
+ 299              		.size	ts_speed, 2
+ 300              	ts_speed:
+ 301 0016 0000     		.space	2
+ 302              		.type	ts_update, %object
+ 303              		.size	ts_update, 2
+ 304              	ts_update:
+ 305 0018 0000     		.space	2
+ 306              		.type	ts_enc, %object
+ 307              		.size	ts_enc, 2
+ 308              	ts_enc:
+ 309 001a 0000     		.space	2
+ 310              		.type	ts, %object
+ 311              		.size	ts, 1
+ 312              	ts:
+ 313 001c 00       		.space	1
+ 314              		.text
+ 315              	.Letext0:
+ 316              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 317              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 318              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 319              		.file 5 "vars.h"
+ 320              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+ 321              		.file 7 "Generated_Source\\PSoC5/USBUART_cdc.h"
+ 322              		.file 8 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 323              		.file 9 "Generated_Source\\PSoC5/USBUART.h"
+ 324              		.file 10 "Generated_Source\\PSoC5/ADC_SAR_1.h"
+ 325              		.file 11 "Generated_Source\\PSoC5/isr_1.h"
+ 326              		.file 12 "Generated_Source\\PSoC5/ADC_SAR_1_IRQ.h"
+ 327              		.section	.debug_info,"",%progbits
+ 328              	.Ldebug_info0:
+ 329 0000 08050000 		.4byte	0x508
+ 330 0004 0400     		.2byte	0x4
+ 331 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 332 000a 04       		.byte	0x4
+ 333 000b 01       		.uleb128 0x1
+ 334 000c 9A030000 		.4byte	.LASF70
+ 335 0010 0C       		.byte	0xc
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 9
+
+
+ 336 0011 82020000 		.4byte	.LASF71
+ 337 0015 D6020000 		.4byte	.LASF72
+ 338 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 339 001d 00000000 		.4byte	0
+ 340 0021 00000000 		.4byte	.Ldebug_line0
+ 341 0025 02       		.uleb128 0x2
+ 342 0026 01       		.byte	0x1
+ 343 0027 06       		.byte	0x6
+ 344 0028 90010000 		.4byte	.LASF0
+ 345 002c 02       		.uleb128 0x2
+ 346 002d 01       		.byte	0x1
+ 347 002e 08       		.byte	0x8
+ 348 002f 6A010000 		.4byte	.LASF1
+ 349 0033 02       		.uleb128 0x2
+ 350 0034 02       		.byte	0x2
+ 351 0035 05       		.byte	0x5
+ 352 0036 59000000 		.4byte	.LASF2
+ 353 003a 02       		.uleb128 0x2
+ 354 003b 02       		.byte	0x2
+ 355 003c 07       		.byte	0x7
+ 356 003d E0010000 		.4byte	.LASF3
+ 357 0041 03       		.uleb128 0x3
+ 358 0042 CC020000 		.4byte	.LASF12
+ 359 0046 02       		.byte	0x2
+ 360 0047 3F       		.byte	0x3f
+ 361 0048 4C000000 		.4byte	0x4c
+ 362 004c 02       		.uleb128 0x2
+ 363 004d 04       		.byte	0x4
+ 364 004e 05       		.byte	0x5
+ 365 004f 29010000 		.4byte	.LASF4
+ 366 0053 02       		.uleb128 0x2
+ 367 0054 04       		.byte	0x4
+ 368 0055 07       		.byte	0x7
+ 369 0056 89020000 		.4byte	.LASF5
+ 370 005a 02       		.uleb128 0x2
+ 371 005b 08       		.byte	0x8
+ 372 005c 05       		.byte	0x5
+ 373 005d DD000000 		.4byte	.LASF6
+ 374 0061 02       		.uleb128 0x2
+ 375 0062 08       		.byte	0x8
+ 376 0063 07       		.byte	0x7
+ 377 0064 9C010000 		.4byte	.LASF7
+ 378 0068 04       		.uleb128 0x4
+ 379 0069 04       		.byte	0x4
+ 380 006a 05       		.byte	0x5
+ 381 006b 696E7400 		.ascii	"int\000"
+ 382 006f 02       		.uleb128 0x2
+ 383 0070 04       		.byte	0x4
+ 384 0071 07       		.byte	0x7
+ 385 0072 B3010000 		.4byte	.LASF8
+ 386 0076 02       		.uleb128 0x2
+ 387 0077 08       		.byte	0x8
+ 388 0078 04       		.byte	0x4
+ 389 0079 5E010000 		.4byte	.LASF9
+ 390 007d 02       		.uleb128 0x2
+ 391 007e 04       		.byte	0x4
+ 392 007f 07       		.byte	0x7
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 10
+
+
+ 393 0080 70000000 		.4byte	.LASF10
+ 394 0084 05       		.uleb128 0x5
+ 395 0085 04       		.byte	0x4
+ 396 0086 8A000000 		.4byte	0x8a
+ 397 008a 02       		.uleb128 0x2
+ 398 008b 01       		.byte	0x1
+ 399 008c 08       		.byte	0x8
+ 400 008d FD010000 		.4byte	.LASF11
+ 401 0091 03       		.uleb128 0x3
+ 402 0092 20020000 		.4byte	.LASF13
+ 403 0096 03       		.byte	0x3
+ 404 0097 2C       		.byte	0x2c
+ 405 0098 41000000 		.4byte	0x41
+ 406 009c 06       		.uleb128 0x6
+ 407 009d A9000000 		.4byte	.LASF14
+ 408 00a1 04       		.byte	0x4
+ 409 00a2 E701     		.2byte	0x1e7
+ 410 00a4 2C000000 		.4byte	0x2c
+ 411 00a8 06       		.uleb128 0x6
+ 412 00a9 96000000 		.4byte	.LASF15
+ 413 00ad 04       		.byte	0x4
+ 414 00ae E801     		.2byte	0x1e8
+ 415 00b0 3A000000 		.4byte	0x3a
+ 416 00b4 06       		.uleb128 0x6
+ 417 00b5 F8000000 		.4byte	.LASF16
+ 418 00b9 04       		.byte	0x4
+ 419 00ba EA01     		.2byte	0x1ea
+ 420 00bc 25000000 		.4byte	0x25
+ 421 00c0 06       		.uleb128 0x6
+ 422 00c1 A3000000 		.4byte	.LASF17
+ 423 00c5 04       		.byte	0x4
+ 424 00c6 EB01     		.2byte	0x1eb
+ 425 00c8 33000000 		.4byte	0x33
+ 426 00cc 02       		.uleb128 0x2
+ 427 00cd 04       		.byte	0x4
+ 428 00ce 04       		.byte	0x4
+ 429 00cf D7000000 		.4byte	.LASF18
+ 430 00d3 02       		.uleb128 0x2
+ 431 00d4 08       		.byte	0x8
+ 432 00d5 04       		.byte	0x4
+ 433 00d6 AB020000 		.4byte	.LASF19
+ 434 00da 07       		.uleb128 0x7
+ 435 00db F3010000 		.4byte	.LASF73
+ 436 00df 20       		.byte	0x20
+ 437 00e0 05       		.byte	0x5
+ 438 00e1 29       		.byte	0x29
+ 439 00e2 B3010000 		.4byte	0x1b3
+ 440 00e6 08       		.uleb128 0x8
+ 441 00e7 28040000 		.4byte	.LASF20
+ 442 00eb 05       		.byte	0x5
+ 443 00ec 2A       		.byte	0x2a
+ 444 00ed B4000000 		.4byte	0xb4
+ 445 00f1 00       		.byte	0
+ 446 00f2 08       		.uleb128 0x8
+ 447 00f3 9D000000 		.4byte	.LASF21
+ 448 00f7 05       		.byte	0x5
+ 449 00f8 2B       		.byte	0x2b
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 11
+
+
+ 450 00f9 9C000000 		.4byte	0x9c
+ 451 00fd 01       		.byte	0x1
+ 452 00fe 08       		.uleb128 0x8
+ 453 00ff 77020000 		.4byte	.LASF22
+ 454 0103 05       		.byte	0x5
+ 455 0104 2C       		.byte	0x2c
+ 456 0105 C0000000 		.4byte	0xc0
+ 457 0109 02       		.byte	0x2
+ 458 010a 08       		.uleb128 0x8
+ 459 010b 82030000 		.4byte	.LASF23
+ 460 010f 05       		.byte	0x5
+ 461 0110 2D       		.byte	0x2d
+ 462 0111 C0000000 		.4byte	0xc0
+ 463 0115 04       		.byte	0x4
+ 464 0116 08       		.uleb128 0x8
+ 465 0117 2D040000 		.4byte	.LASF24
+ 466 011b 05       		.byte	0x5
+ 467 011c 2E       		.byte	0x2e
+ 468 011d C0000000 		.4byte	0xc0
+ 469 0121 06       		.byte	0x6
+ 470 0122 08       		.uleb128 0x8
+ 471 0123 21010000 		.4byte	.LASF25
+ 472 0127 05       		.byte	0x5
+ 473 0128 2F       		.byte	0x2f
+ 474 0129 C0000000 		.4byte	0xc0
+ 475 012d 08       		.byte	0x8
+ 476 012e 08       		.uleb128 0x8
+ 477 012f 42030000 		.4byte	.LASF26
+ 478 0133 05       		.byte	0x5
+ 479 0134 30       		.byte	0x30
+ 480 0135 C0000000 		.4byte	0xc0
+ 481 0139 0A       		.byte	0xa
+ 482 013a 08       		.uleb128 0x8
+ 483 013b 78010000 		.4byte	.LASF27
+ 484 013f 05       		.byte	0x5
+ 485 0140 31       		.byte	0x31
+ 486 0141 C0000000 		.4byte	0xc0
+ 487 0145 0C       		.byte	0xc
+ 488 0146 08       		.uleb128 0x8
+ 489 0147 14010000 		.4byte	.LASF28
+ 490 014b 05       		.byte	0x5
+ 491 014c 32       		.byte	0x32
+ 492 014d C0000000 		.4byte	0xc0
+ 493 0151 0E       		.byte	0xe
+ 494 0152 08       		.uleb128 0x8
+ 495 0153 D8010000 		.4byte	.LASF29
+ 496 0157 05       		.byte	0x5
+ 497 0158 33       		.byte	0x33
+ 498 0159 C0000000 		.4byte	0xc0
+ 499 015d 10       		.byte	0x10
+ 500 015e 08       		.uleb128 0x8
+ 501 015f 28020000 		.4byte	.LASF30
+ 502 0163 05       		.byte	0x5
+ 503 0164 34       		.byte	0x34
+ 504 0165 C0000000 		.4byte	0xc0
+ 505 0169 12       		.byte	0x12
+ 506 016a 08       		.uleb128 0x8
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 12
+
+
+ 507 016b 50020000 		.4byte	.LASF31
+ 508 016f 05       		.byte	0x5
+ 509 0170 35       		.byte	0x35
+ 510 0171 C0000000 		.4byte	0xc0
+ 511 0175 14       		.byte	0x14
+ 512 0176 08       		.uleb128 0x8
+ 513 0177 AF000000 		.4byte	.LASF32
+ 514 017b 05       		.byte	0x5
+ 515 017c 36       		.byte	0x36
+ 516 017d C0000000 		.4byte	0xc0
+ 517 0181 16       		.byte	0x16
+ 518 0182 08       		.uleb128 0x8
+ 519 0183 51000000 		.4byte	.LASF33
+ 520 0187 05       		.byte	0x5
+ 521 0188 37       		.byte	0x37
+ 522 0189 C0000000 		.4byte	0xc0
+ 523 018d 18       		.byte	0x18
+ 524 018e 08       		.uleb128 0x8
+ 525 018f 0C010000 		.4byte	.LASF34
+ 526 0193 05       		.byte	0x5
+ 527 0194 38       		.byte	0x38
+ 528 0195 C0000000 		.4byte	0xc0
+ 529 0199 1A       		.byte	0x1a
+ 530 019a 08       		.uleb128 0x8
+ 531 019b CF010000 		.4byte	.LASF35
+ 532 019f 05       		.byte	0x5
+ 533 01a0 39       		.byte	0x39
+ 534 01a1 C0000000 		.4byte	0xc0
+ 535 01a5 1C       		.byte	0x1c
+ 536 01a6 08       		.uleb128 0x8
+ 537 01a7 30020000 		.4byte	.LASF36
+ 538 01ab 05       		.byte	0x5
+ 539 01ac 3A       		.byte	0x3a
+ 540 01ad C0000000 		.4byte	0xc0
+ 541 01b1 1E       		.byte	0x1e
+ 542 01b2 00       		.byte	0
+ 543 01b3 09       		.uleb128 0x9
+ 544 01b4 656F6300 		.ascii	"eoc\000"
+ 545 01b8 01       		.byte	0x1
+ 546 01b9 21       		.byte	0x21
+ 547 01ba 00000000 		.4byte	.LFB64
+ 548 01be 0C000000 		.4byte	.LFE64-.LFB64
+ 549 01c2 01       		.uleb128 0x1
+ 550 01c3 9C       		.byte	0x9c
+ 551 01c4 0A       		.uleb128 0xa
+ 552 01c5 EB000000 		.4byte	.LASF37
+ 553 01c9 01       		.byte	0x1
+ 554 01ca 52       		.byte	0x52
+ 555 01cb 00000000 		.4byte	.LFB66
+ 556 01cf 28000000 		.4byte	.LFE66-.LFB66
+ 557 01d3 01       		.uleb128 0x1
+ 558 01d4 9C       		.byte	0x9c
+ 559 01d5 14020000 		.4byte	0x214
+ 560 01d9 0B       		.uleb128 0xb
+ 561 01da 7300     		.ascii	"s\000"
+ 562 01dc 01       		.byte	0x1
+ 563 01dd 52       		.byte	0x52
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 13
+
+
+ 564 01de 84000000 		.4byte	0x84
+ 565 01e2 00000000 		.4byte	.LLST0
+ 566 01e6 0C       		.uleb128 0xc
+ 567 01e7 08000000 		.4byte	.LVL2
+ 568 01eb 9C040000 		.4byte	0x49c
+ 569 01ef 0D       		.uleb128 0xd
+ 570 01f0 1E000000 		.4byte	.LVL3
+ 571 01f4 A7040000 		.4byte	0x4a7
+ 572 01f8 03020000 		.4byte	0x203
+ 573 01fc 0E       		.uleb128 0xe
+ 574 01fd 01       		.uleb128 0x1
+ 575 01fe 50       		.byte	0x50
+ 576 01ff 02       		.uleb128 0x2
+ 577 0200 74       		.byte	0x74
+ 578 0201 00       		.sleb128 0
+ 579 0202 00       		.byte	0
+ 580 0203 0F       		.uleb128 0xf
+ 581 0204 26000000 		.4byte	.LVL4
+ 582 0208 B2040000 		.4byte	0x4b2
+ 583 020c 0E       		.uleb128 0xe
+ 584 020d 01       		.uleb128 0x1
+ 585 020e 50       		.byte	0x50
+ 586 020f 02       		.uleb128 0x2
+ 587 0210 74       		.byte	0x74
+ 588 0211 00       		.sleb128 0
+ 589 0212 00       		.byte	0
+ 590 0213 00       		.byte	0
+ 591 0214 10       		.uleb128 0x10
+ 592 0215 83000000 		.4byte	.LASF74
+ 593 0219 01       		.byte	0x1
+ 594 021a 26       		.byte	0x26
+ 595 021b 68000000 		.4byte	0x68
+ 596 021f 00000000 		.4byte	.LFB65
+ 597 0223 68000000 		.4byte	.LFE65-.LFB65
+ 598 0227 01       		.uleb128 0x1
+ 599 0228 9C       		.byte	0x9c
+ 600 0229 C6020000 		.4byte	0x2c6
+ 601 022d 0D       		.uleb128 0xd
+ 602 022e 0C000000 		.4byte	.LVL5
+ 603 0232 BD040000 		.4byte	0x4bd
+ 604 0236 45020000 		.4byte	0x245
+ 605 023a 0E       		.uleb128 0xe
+ 606 023b 01       		.uleb128 0x1
+ 607 023c 50       		.byte	0x50
+ 608 023d 01       		.uleb128 0x1
+ 609 023e 30       		.byte	0x30
+ 610 023f 0E       		.uleb128 0xe
+ 611 0240 01       		.uleb128 0x1
+ 612 0241 51       		.byte	0x51
+ 613 0242 01       		.uleb128 0x1
+ 614 0243 31       		.byte	0x31
+ 615 0244 00       		.byte	0
+ 616 0245 0C       		.uleb128 0xc
+ 617 0246 10000000 		.4byte	.LVL6
+ 618 024a C9040000 		.4byte	0x4c9
+ 619 024e 0C       		.uleb128 0xc
+ 620 024f 14000000 		.4byte	.LVL7
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 14
+
+
+ 621 0253 D4040000 		.4byte	0x4d4
+ 622 0257 0D       		.uleb128 0xd
+ 623 0258 1A000000 		.4byte	.LVL8
+ 624 025c DF040000 		.4byte	0x4df
+ 625 0260 6E020000 		.4byte	0x26e
+ 626 0264 0E       		.uleb128 0xe
+ 627 0265 01       		.uleb128 0x1
+ 628 0266 50       		.byte	0x50
+ 629 0267 05       		.uleb128 0x5
+ 630 0268 03       		.byte	0x3
+ 631 0269 00000000 		.4byte	eoc
+ 632 026d 00       		.byte	0
+ 633 026e 0C       		.uleb128 0xc
+ 634 026f 26000000 		.4byte	.LVL9
+ 635 0273 EA040000 		.4byte	0x4ea
+ 636 0277 0D       		.uleb128 0xd
+ 637 0278 2C000000 		.4byte	.LVL10
+ 638 027c C4010000 		.4byte	0x1c4
+ 639 0280 8E020000 		.4byte	0x28e
+ 640 0284 0E       		.uleb128 0xe
+ 641 0285 01       		.uleb128 0x1
+ 642 0286 50       		.byte	0x50
+ 643 0287 05       		.uleb128 0x5
+ 644 0288 03       		.byte	0x3
+ 645 0289 00000000 		.4byte	.LC0
+ 646 028d 00       		.byte	0
+ 647 028e 0D       		.uleb128 0xd
+ 648 028f 32000000 		.4byte	.LVL11
+ 649 0293 C4010000 		.4byte	0x1c4
+ 650 0297 A5020000 		.4byte	0x2a5
+ 651 029b 0E       		.uleb128 0xe
+ 652 029c 01       		.uleb128 0x1
+ 653 029d 50       		.byte	0x50
+ 654 029e 05       		.uleb128 0x5
+ 655 029f 03       		.byte	0x3
+ 656 02a0 04000000 		.4byte	.LC1
+ 657 02a4 00       		.byte	0
+ 658 02a5 0D       		.uleb128 0xd
+ 659 02a6 40000000 		.4byte	.LVL12
+ 660 02aa C4010000 		.4byte	0x1c4
+ 661 02ae BC020000 		.4byte	0x2bc
+ 662 02b2 0E       		.uleb128 0xe
+ 663 02b3 01       		.uleb128 0x1
+ 664 02b4 50       		.byte	0x50
+ 665 02b5 05       		.uleb128 0x5
+ 666 02b6 03       		.byte	0x3
+ 667 02b7 00000000 		.4byte	line
+ 668 02bb 00       		.byte	0
+ 669 02bc 0C       		.uleb128 0xc
+ 670 02bd 50000000 		.4byte	.LVL13
+ 671 02c1 F5040000 		.4byte	0x4f5
+ 672 02c5 00       		.byte	0
+ 673 02c6 0A       		.uleb128 0xa
+ 674 02c7 38000000 		.4byte	.LASF38
+ 675 02cb 01       		.byte	0x1
+ 676 02cc 60       		.byte	0x60
+ 677 02cd 00000000 		.4byte	.LFB67
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 15
+
+
+ 678 02d1 14000000 		.4byte	.LFE67-.LFB67
+ 679 02d5 01       		.uleb128 0x1
+ 680 02d6 9C       		.byte	0x9c
+ 681 02d7 02030000 		.4byte	0x302
+ 682 02db 0B       		.uleb128 0xb
+ 683 02dc 6300     		.ascii	"c\000"
+ 684 02de 01       		.byte	0x1
+ 685 02df 60       		.byte	0x60
+ 686 02e0 8A000000 		.4byte	0x8a
+ 687 02e4 1E000000 		.4byte	.LLST1
+ 688 02e8 0C       		.uleb128 0xc
+ 689 02e9 08000000 		.4byte	.LVL16
+ 690 02ed 9C040000 		.4byte	0x49c
+ 691 02f1 0F       		.uleb128 0xf
+ 692 02f2 12000000 		.4byte	.LVL17
+ 693 02f6 00050000 		.4byte	0x500
+ 694 02fa 0E       		.uleb128 0xe
+ 695 02fb 01       		.uleb128 0x1
+ 696 02fc 50       		.byte	0x50
+ 697 02fd 02       		.uleb128 0x2
+ 698 02fe 74       		.byte	0x74
+ 699 02ff 00       		.sleb128 0
+ 700 0300 00       		.byte	0
+ 701 0301 00       		.byte	0
+ 702 0302 11       		.uleb128 0x11
+ 703 0303 8D030000 		.4byte	.LASF39
+ 704 0307 06       		.byte	0x6
+ 705 0308 1207     		.2byte	0x712
+ 706 030a 0E030000 		.4byte	0x30e
+ 707 030e 12       		.uleb128 0x12
+ 708 030f 91000000 		.4byte	0x91
+ 709 0313 13       		.uleb128 0x13
+ 710 0314 747300   		.ascii	"ts\000"
+ 711 0317 05       		.byte	0x5
+ 712 0318 10       		.byte	0x10
+ 713 0319 9C000000 		.4byte	0x9c
+ 714 031d 05       		.uleb128 0x5
+ 715 031e 03       		.byte	0x3
+ 716 031f 00000000 		.4byte	ts
+ 717 0323 14       		.uleb128 0x14
+ 718 0324 55030000 		.4byte	.LASF40
+ 719 0328 05       		.byte	0x5
+ 720 0329 11       		.byte	0x11
+ 721 032a A8000000 		.4byte	0xa8
+ 722 032e 05       		.uleb128 0x5
+ 723 032f 03       		.byte	0x3
+ 724 0330 00000000 		.4byte	ts_enc
+ 725 0334 14       		.uleb128 0x14
+ 726 0335 5C030000 		.4byte	.LASF41
+ 727 0339 05       		.byte	0x5
+ 728 033a 12       		.byte	0x12
+ 729 033b A8000000 		.4byte	0xa8
+ 730 033f 05       		.uleb128 0x5
+ 731 0340 03       		.byte	0x3
+ 732 0341 00000000 		.4byte	ts_update
+ 733 0345 14       		.uleb128 0x14
+ 734 0346 B7020000 		.4byte	.LASF42
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 16
+
+
+ 735 034a 05       		.byte	0x5
+ 736 034b 13       		.byte	0x13
+ 737 034c A8000000 		.4byte	0xa8
+ 738 0350 05       		.uleb128 0x5
+ 739 0351 03       		.byte	0x3
+ 740 0352 00000000 		.4byte	ts_speed
+ 741 0356 14       		.uleb128 0x14
+ 742 0357 4A030000 		.4byte	.LASF43
+ 743 035b 05       		.byte	0x5
+ 744 035c 14       		.byte	0x14
+ 745 035d A8000000 		.4byte	0xa8
+ 746 0361 05       		.uleb128 0x5
+ 747 0362 03       		.byte	0x3
+ 748 0363 00000000 		.4byte	ts_display
+ 749 0367 14       		.uleb128 0x14
+ 750 0368 C0020000 		.4byte	.LASF44
+ 751 036c 05       		.byte	0x5
+ 752 036d 16       		.byte	0x16
+ 753 036e 9C000000 		.4byte	0x9c
+ 754 0372 05       		.uleb128 0x5
+ 755 0373 03       		.byte	0x3
+ 756 0374 00000000 		.4byte	flag_ts_enc
+ 757 0378 14       		.uleb128 0x14
+ 758 0379 FD000000 		.4byte	.LASF45
+ 759 037d 05       		.byte	0x5
+ 760 037e 17       		.byte	0x17
+ 761 037f 9C000000 		.4byte	0x9c
+ 762 0383 05       		.uleb128 0x5
+ 763 0384 03       		.byte	0x3
+ 764 0385 00000000 		.4byte	flag_ts_update
+ 765 0389 14       		.uleb128 0x14
+ 766 038a 43000000 		.4byte	.LASF46
+ 767 038e 05       		.byte	0x5
+ 768 038f 18       		.byte	0x18
+ 769 0390 9C000000 		.4byte	0x9c
+ 770 0394 05       		.uleb128 0x5
+ 771 0395 03       		.byte	0x3
+ 772 0396 00000000 		.4byte	flag_ts_speed
+ 773 039a 14       		.uleb128 0x14
+ 774 039b 40010000 		.4byte	.LASF47
+ 775 039f 05       		.byte	0x5
+ 776 03a0 19       		.byte	0x19
+ 777 03a1 9C000000 		.4byte	0x9c
+ 778 03a5 05       		.uleb128 0x5
+ 779 03a6 03       		.byte	0x3
+ 780 03a7 00000000 		.4byte	flag_ts_display
+ 781 03ab 14       		.uleb128 0x14
+ 782 03ac 50010000 		.4byte	.LASF48
+ 783 03b0 05       		.byte	0x5
+ 784 03b1 1C       		.byte	0x1c
+ 785 03b2 9C000000 		.4byte	0x9c
+ 786 03b6 05       		.uleb128 0x5
+ 787 03b7 03       		.byte	0x3
+ 788 03b8 00000000 		.4byte	flag_rx
+ 789 03bc 14       		.uleb128 0x14
+ 790 03bd 2C000000 		.4byte	.LASF49
+ 791 03c1 05       		.byte	0x5
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 17
+
+
+ 792 03c2 1D       		.byte	0x1d
+ 793 03c3 9C000000 		.4byte	0x9c
+ 794 03c7 05       		.uleb128 0x5
+ 795 03c8 03       		.byte	0x3
+ 796 03c9 00000000 		.4byte	flag_packet
+ 797 03cd 14       		.uleb128 0x14
+ 798 03ce C0010000 		.4byte	.LASF50
+ 799 03d2 05       		.byte	0x5
+ 800 03d3 1E       		.byte	0x1e
+ 801 03d4 9C000000 		.4byte	0x9c
+ 802 03d8 05       		.uleb128 0x5
+ 803 03d9 03       		.byte	0x3
+ 804 03da 00000000 		.4byte	flag_KB_string
+ 805 03de 14       		.uleb128 0x14
+ 806 03df 81010000 		.4byte	.LASF51
+ 807 03e3 05       		.byte	0x5
+ 808 03e4 20       		.byte	0x20
+ 809 03e5 9C000000 		.4byte	0x9c
+ 810 03e9 05       		.uleb128 0x5
+ 811 03ea 03       		.byte	0x3
+ 812 03eb 00000000 		.4byte	dataready_flag
+ 813 03ef 14       		.uleb128 0x14
+ 814 03f0 66030000 		.4byte	.LASF52
+ 815 03f4 05       		.byte	0x5
+ 816 03f5 22       		.byte	0x22
+ 817 03f6 9C000000 		.4byte	0x9c
+ 818 03fa 05       		.uleb128 0x5
+ 819 03fb 03       		.byte	0x3
+ 820 03fc 00000000 		.4byte	flag_rf_transmission_active
+ 821 0400 15       		.uleb128 0x15
+ 822 0401 8A000000 		.4byte	0x8a
+ 823 0405 10040000 		.4byte	0x410
+ 824 0409 16       		.uleb128 0x16
+ 825 040a 7D000000 		.4byte	0x7d
+ 826 040e 3F       		.byte	0x3f
+ 827 040f 00       		.byte	0
+ 828 0410 14       		.uleb128 0x14
+ 829 0411 69020000 		.4byte	.LASF53
+ 830 0415 05       		.byte	0x5
+ 831 0416 25       		.byte	0x25
+ 832 0417 00040000 		.4byte	0x400
+ 833 041b 05       		.uleb128 0x5
+ 834 041c 03       		.byte	0x3
+ 835 041d 00000000 		.4byte	displaystring
+ 836 0421 14       		.uleb128 0x14
+ 837 0422 BC000000 		.4byte	.LASF54
+ 838 0426 05       		.byte	0x5
+ 839 0427 26       		.byte	0x26
+ 840 0428 00040000 		.4byte	0x400
+ 841 042c 05       		.uleb128 0x5
+ 842 042d 03       		.byte	0x3
+ 843 042e 00000000 		.4byte	line
+ 844 0432 14       		.uleb128 0x14
+ 845 0433 58010000 		.4byte	.LASF55
+ 846 0437 05       		.byte	0x5
+ 847 0438 26       		.byte	0x26
+ 848 0439 00040000 		.4byte	0x400
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 18
+
+
+ 849 043d 05       		.uleb128 0x5
+ 850 043e 03       		.byte	0x3
+ 851 043f 00000000 		.4byte	entry
+ 852 0443 15       		.uleb128 0x15
+ 853 0444 9C000000 		.4byte	0x9c
+ 854 0448 53040000 		.4byte	0x453
+ 855 044c 16       		.uleb128 0x16
+ 856 044d 7D000000 		.4byte	0x7d
+ 857 0451 3F       		.byte	0x3f
+ 858 0452 00       		.byte	0
+ 859 0453 14       		.uleb128 0x14
+ 860 0454 79000000 		.4byte	.LASF56
+ 861 0458 05       		.byte	0x5
+ 862 0459 27       		.byte	0x27
+ 863 045a 43040000 		.4byte	0x443
+ 864 045e 05       		.uleb128 0x5
+ 865 045f 03       		.byte	0x3
+ 866 0460 00000000 		.4byte	usbBuffer
+ 867 0464 14       		.uleb128 0x14
+ 868 0465 63000000 		.4byte	.LASF57
+ 869 0469 05       		.byte	0x5
+ 870 046a 3C       		.byte	0x3c
+ 871 046b DA000000 		.4byte	0xda
+ 872 046f 05       		.uleb128 0x5
+ 873 0470 03       		.byte	0x3
+ 874 0471 00000000 		.4byte	system_state
+ 875 0475 14       		.uleb128 0x14
+ 876 0476 B2020000 		.4byte	.LASF58
+ 877 047a 01       		.byte	0x1
+ 878 047b 1D       		.byte	0x1d
+ 879 047c 86040000 		.4byte	0x486
+ 880 0480 05       		.uleb128 0x5
+ 881 0481 03       		.byte	0x3
+ 882 0482 00000000 		.4byte	flag
+ 883 0486 12       		.uleb128 0x12
+ 884 0487 68000000 		.4byte	0x68
+ 885 048b 14       		.uleb128 0x14
+ 886 048c 15000000 		.4byte	.LASF59
+ 887 0490 01       		.byte	0x1
+ 888 0491 1E       		.byte	0x1e
+ 889 0492 86040000 		.4byte	0x486
+ 890 0496 05       		.uleb128 0x5
+ 891 0497 03       		.byte	0x3
+ 892 0498 00000000 		.4byte	result
+ 893 049c 17       		.uleb128 0x17
+ 894 049d 3D020000 		.4byte	.LASF60
+ 895 04a1 3D020000 		.4byte	.LASF60
+ 896 04a5 07       		.byte	0x7
+ 897 04a6 28       		.byte	0x28
+ 898 04a7 17       		.uleb128 0x17
+ 899 04a8 19020000 		.4byte	.LASF61
+ 900 04ac 19020000 		.4byte	.LASF61
+ 901 04b0 08       		.byte	0x8
+ 902 04b1 21       		.byte	0x21
+ 903 04b2 17       		.uleb128 0x17
+ 904 04b3 9B020000 		.4byte	.LASF62
+ 905 04b7 9B020000 		.4byte	.LASF62
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 19
+
+
+ 906 04bb 07       		.byte	0x7
+ 907 04bc 23       		.byte	0x23
+ 908 04bd 18       		.uleb128 0x18
+ 909 04be 88000000 		.4byte	.LASF63
+ 910 04c2 88000000 		.4byte	.LASF63
+ 911 04c6 09       		.byte	0x9
+ 912 04c7 2A01     		.2byte	0x12a
+ 913 04c9 17       		.uleb128 0x17
+ 914 04ca 1C000000 		.4byte	.LASF64
+ 915 04ce 1C000000 		.4byte	.LASF64
+ 916 04d2 0A       		.byte	0xa
+ 917 04d3 34       		.byte	0x34
+ 918 04d4 17       		.uleb128 0x17
+ 919 04d5 02020000 		.4byte	.LASF65
+ 920 04d9 02020000 		.4byte	.LASF65
+ 921 04dd 0A       		.byte	0xa
+ 922 04de D1       		.byte	0xd1
+ 923 04df 17       		.uleb128 0x17
+ 924 04e0 32010000 		.4byte	.LASF66
+ 925 04e4 32010000 		.4byte	.LASF66
+ 926 04e8 0B       		.byte	0xb
+ 927 04e9 18       		.byte	0x18
+ 928 04ea 17       		.uleb128 0x17
+ 929 04eb C1000000 		.4byte	.LASF67
+ 930 04ef C1000000 		.4byte	.LASF67
+ 931 04f3 0C       		.byte	0xc
+ 932 04f4 25       		.byte	0x25
+ 933 04f5 17       		.uleb128 0x17
+ 934 04f6 00000000 		.4byte	.LASF68
+ 935 04fa 00000000 		.4byte	.LASF68
+ 936 04fe 0C       		.byte	0xc
+ 937 04ff 23       		.byte	0x23
+ 938 0500 17       		.uleb128 0x17
+ 939 0501 59020000 		.4byte	.LASF69
+ 940 0505 59020000 		.4byte	.LASF69
+ 941 0509 07       		.byte	0x7
+ 942 050a 25       		.byte	0x25
+ 943 050b 00       		.byte	0
+ 944              		.section	.debug_abbrev,"",%progbits
+ 945              	.Ldebug_abbrev0:
+ 946 0000 01       		.uleb128 0x1
+ 947 0001 11       		.uleb128 0x11
+ 948 0002 01       		.byte	0x1
+ 949 0003 25       		.uleb128 0x25
+ 950 0004 0E       		.uleb128 0xe
+ 951 0005 13       		.uleb128 0x13
+ 952 0006 0B       		.uleb128 0xb
+ 953 0007 03       		.uleb128 0x3
+ 954 0008 0E       		.uleb128 0xe
+ 955 0009 1B       		.uleb128 0x1b
+ 956 000a 0E       		.uleb128 0xe
+ 957 000b 55       		.uleb128 0x55
+ 958 000c 17       		.uleb128 0x17
+ 959 000d 11       		.uleb128 0x11
+ 960 000e 01       		.uleb128 0x1
+ 961 000f 10       		.uleb128 0x10
+ 962 0010 17       		.uleb128 0x17
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 20
+
+
+ 963 0011 00       		.byte	0
+ 964 0012 00       		.byte	0
+ 965 0013 02       		.uleb128 0x2
+ 966 0014 24       		.uleb128 0x24
+ 967 0015 00       		.byte	0
+ 968 0016 0B       		.uleb128 0xb
+ 969 0017 0B       		.uleb128 0xb
+ 970 0018 3E       		.uleb128 0x3e
+ 971 0019 0B       		.uleb128 0xb
+ 972 001a 03       		.uleb128 0x3
+ 973 001b 0E       		.uleb128 0xe
+ 974 001c 00       		.byte	0
+ 975 001d 00       		.byte	0
+ 976 001e 03       		.uleb128 0x3
+ 977 001f 16       		.uleb128 0x16
+ 978 0020 00       		.byte	0
+ 979 0021 03       		.uleb128 0x3
+ 980 0022 0E       		.uleb128 0xe
+ 981 0023 3A       		.uleb128 0x3a
+ 982 0024 0B       		.uleb128 0xb
+ 983 0025 3B       		.uleb128 0x3b
+ 984 0026 0B       		.uleb128 0xb
+ 985 0027 49       		.uleb128 0x49
+ 986 0028 13       		.uleb128 0x13
+ 987 0029 00       		.byte	0
+ 988 002a 00       		.byte	0
+ 989 002b 04       		.uleb128 0x4
+ 990 002c 24       		.uleb128 0x24
+ 991 002d 00       		.byte	0
+ 992 002e 0B       		.uleb128 0xb
+ 993 002f 0B       		.uleb128 0xb
+ 994 0030 3E       		.uleb128 0x3e
+ 995 0031 0B       		.uleb128 0xb
+ 996 0032 03       		.uleb128 0x3
+ 997 0033 08       		.uleb128 0x8
+ 998 0034 00       		.byte	0
+ 999 0035 00       		.byte	0
+ 1000 0036 05       		.uleb128 0x5
+ 1001 0037 0F       		.uleb128 0xf
+ 1002 0038 00       		.byte	0
+ 1003 0039 0B       		.uleb128 0xb
+ 1004 003a 0B       		.uleb128 0xb
+ 1005 003b 49       		.uleb128 0x49
+ 1006 003c 13       		.uleb128 0x13
+ 1007 003d 00       		.byte	0
+ 1008 003e 00       		.byte	0
+ 1009 003f 06       		.uleb128 0x6
+ 1010 0040 16       		.uleb128 0x16
+ 1011 0041 00       		.byte	0
+ 1012 0042 03       		.uleb128 0x3
+ 1013 0043 0E       		.uleb128 0xe
+ 1014 0044 3A       		.uleb128 0x3a
+ 1015 0045 0B       		.uleb128 0xb
+ 1016 0046 3B       		.uleb128 0x3b
+ 1017 0047 05       		.uleb128 0x5
+ 1018 0048 49       		.uleb128 0x49
+ 1019 0049 13       		.uleb128 0x13
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 21
+
+
+ 1020 004a 00       		.byte	0
+ 1021 004b 00       		.byte	0
+ 1022 004c 07       		.uleb128 0x7
+ 1023 004d 13       		.uleb128 0x13
+ 1024 004e 01       		.byte	0x1
+ 1025 004f 03       		.uleb128 0x3
+ 1026 0050 0E       		.uleb128 0xe
+ 1027 0051 0B       		.uleb128 0xb
+ 1028 0052 0B       		.uleb128 0xb
+ 1029 0053 3A       		.uleb128 0x3a
+ 1030 0054 0B       		.uleb128 0xb
+ 1031 0055 3B       		.uleb128 0x3b
+ 1032 0056 0B       		.uleb128 0xb
+ 1033 0057 01       		.uleb128 0x1
+ 1034 0058 13       		.uleb128 0x13
+ 1035 0059 00       		.byte	0
+ 1036 005a 00       		.byte	0
+ 1037 005b 08       		.uleb128 0x8
+ 1038 005c 0D       		.uleb128 0xd
+ 1039 005d 00       		.byte	0
+ 1040 005e 03       		.uleb128 0x3
+ 1041 005f 0E       		.uleb128 0xe
+ 1042 0060 3A       		.uleb128 0x3a
+ 1043 0061 0B       		.uleb128 0xb
+ 1044 0062 3B       		.uleb128 0x3b
+ 1045 0063 0B       		.uleb128 0xb
+ 1046 0064 49       		.uleb128 0x49
+ 1047 0065 13       		.uleb128 0x13
+ 1048 0066 38       		.uleb128 0x38
+ 1049 0067 0B       		.uleb128 0xb
+ 1050 0068 00       		.byte	0
+ 1051 0069 00       		.byte	0
+ 1052 006a 09       		.uleb128 0x9
+ 1053 006b 2E       		.uleb128 0x2e
+ 1054 006c 00       		.byte	0
+ 1055 006d 3F       		.uleb128 0x3f
+ 1056 006e 19       		.uleb128 0x19
+ 1057 006f 03       		.uleb128 0x3
+ 1058 0070 08       		.uleb128 0x8
+ 1059 0071 3A       		.uleb128 0x3a
+ 1060 0072 0B       		.uleb128 0xb
+ 1061 0073 3B       		.uleb128 0x3b
+ 1062 0074 0B       		.uleb128 0xb
+ 1063 0075 27       		.uleb128 0x27
+ 1064 0076 19       		.uleb128 0x19
+ 1065 0077 11       		.uleb128 0x11
+ 1066 0078 01       		.uleb128 0x1
+ 1067 0079 12       		.uleb128 0x12
+ 1068 007a 06       		.uleb128 0x6
+ 1069 007b 40       		.uleb128 0x40
+ 1070 007c 18       		.uleb128 0x18
+ 1071 007d 9742     		.uleb128 0x2117
+ 1072 007f 19       		.uleb128 0x19
+ 1073 0080 00       		.byte	0
+ 1074 0081 00       		.byte	0
+ 1075 0082 0A       		.uleb128 0xa
+ 1076 0083 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 22
+
+
+ 1077 0084 01       		.byte	0x1
+ 1078 0085 3F       		.uleb128 0x3f
+ 1079 0086 19       		.uleb128 0x19
+ 1080 0087 03       		.uleb128 0x3
+ 1081 0088 0E       		.uleb128 0xe
+ 1082 0089 3A       		.uleb128 0x3a
+ 1083 008a 0B       		.uleb128 0xb
+ 1084 008b 3B       		.uleb128 0x3b
+ 1085 008c 0B       		.uleb128 0xb
+ 1086 008d 27       		.uleb128 0x27
+ 1087 008e 19       		.uleb128 0x19
+ 1088 008f 11       		.uleb128 0x11
+ 1089 0090 01       		.uleb128 0x1
+ 1090 0091 12       		.uleb128 0x12
+ 1091 0092 06       		.uleb128 0x6
+ 1092 0093 40       		.uleb128 0x40
+ 1093 0094 18       		.uleb128 0x18
+ 1094 0095 9742     		.uleb128 0x2117
+ 1095 0097 19       		.uleb128 0x19
+ 1096 0098 01       		.uleb128 0x1
+ 1097 0099 13       		.uleb128 0x13
+ 1098 009a 00       		.byte	0
+ 1099 009b 00       		.byte	0
+ 1100 009c 0B       		.uleb128 0xb
+ 1101 009d 05       		.uleb128 0x5
+ 1102 009e 00       		.byte	0
+ 1103 009f 03       		.uleb128 0x3
+ 1104 00a0 08       		.uleb128 0x8
+ 1105 00a1 3A       		.uleb128 0x3a
+ 1106 00a2 0B       		.uleb128 0xb
+ 1107 00a3 3B       		.uleb128 0x3b
+ 1108 00a4 0B       		.uleb128 0xb
+ 1109 00a5 49       		.uleb128 0x49
+ 1110 00a6 13       		.uleb128 0x13
+ 1111 00a7 02       		.uleb128 0x2
+ 1112 00a8 17       		.uleb128 0x17
+ 1113 00a9 00       		.byte	0
+ 1114 00aa 00       		.byte	0
+ 1115 00ab 0C       		.uleb128 0xc
+ 1116 00ac 898201   		.uleb128 0x4109
+ 1117 00af 00       		.byte	0
+ 1118 00b0 11       		.uleb128 0x11
+ 1119 00b1 01       		.uleb128 0x1
+ 1120 00b2 31       		.uleb128 0x31
+ 1121 00b3 13       		.uleb128 0x13
+ 1122 00b4 00       		.byte	0
+ 1123 00b5 00       		.byte	0
+ 1124 00b6 0D       		.uleb128 0xd
+ 1125 00b7 898201   		.uleb128 0x4109
+ 1126 00ba 01       		.byte	0x1
+ 1127 00bb 11       		.uleb128 0x11
+ 1128 00bc 01       		.uleb128 0x1
+ 1129 00bd 31       		.uleb128 0x31
+ 1130 00be 13       		.uleb128 0x13
+ 1131 00bf 01       		.uleb128 0x1
+ 1132 00c0 13       		.uleb128 0x13
+ 1133 00c1 00       		.byte	0
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 23
+
+
+ 1134 00c2 00       		.byte	0
+ 1135 00c3 0E       		.uleb128 0xe
+ 1136 00c4 8A8201   		.uleb128 0x410a
+ 1137 00c7 00       		.byte	0
+ 1138 00c8 02       		.uleb128 0x2
+ 1139 00c9 18       		.uleb128 0x18
+ 1140 00ca 9142     		.uleb128 0x2111
+ 1141 00cc 18       		.uleb128 0x18
+ 1142 00cd 00       		.byte	0
+ 1143 00ce 00       		.byte	0
+ 1144 00cf 0F       		.uleb128 0xf
+ 1145 00d0 898201   		.uleb128 0x4109
+ 1146 00d3 01       		.byte	0x1
+ 1147 00d4 11       		.uleb128 0x11
+ 1148 00d5 01       		.uleb128 0x1
+ 1149 00d6 31       		.uleb128 0x31
+ 1150 00d7 13       		.uleb128 0x13
+ 1151 00d8 00       		.byte	0
+ 1152 00d9 00       		.byte	0
+ 1153 00da 10       		.uleb128 0x10
+ 1154 00db 2E       		.uleb128 0x2e
+ 1155 00dc 01       		.byte	0x1
+ 1156 00dd 3F       		.uleb128 0x3f
+ 1157 00de 19       		.uleb128 0x19
+ 1158 00df 03       		.uleb128 0x3
+ 1159 00e0 0E       		.uleb128 0xe
+ 1160 00e1 3A       		.uleb128 0x3a
+ 1161 00e2 0B       		.uleb128 0xb
+ 1162 00e3 3B       		.uleb128 0x3b
+ 1163 00e4 0B       		.uleb128 0xb
+ 1164 00e5 49       		.uleb128 0x49
+ 1165 00e6 13       		.uleb128 0x13
+ 1166 00e7 8701     		.uleb128 0x87
+ 1167 00e9 19       		.uleb128 0x19
+ 1168 00ea 11       		.uleb128 0x11
+ 1169 00eb 01       		.uleb128 0x1
+ 1170 00ec 12       		.uleb128 0x12
+ 1171 00ed 06       		.uleb128 0x6
+ 1172 00ee 40       		.uleb128 0x40
+ 1173 00ef 18       		.uleb128 0x18
+ 1174 00f0 9742     		.uleb128 0x2117
+ 1175 00f2 19       		.uleb128 0x19
+ 1176 00f3 01       		.uleb128 0x1
+ 1177 00f4 13       		.uleb128 0x13
+ 1178 00f5 00       		.byte	0
+ 1179 00f6 00       		.byte	0
+ 1180 00f7 11       		.uleb128 0x11
+ 1181 00f8 34       		.uleb128 0x34
+ 1182 00f9 00       		.byte	0
+ 1183 00fa 03       		.uleb128 0x3
+ 1184 00fb 0E       		.uleb128 0xe
+ 1185 00fc 3A       		.uleb128 0x3a
+ 1186 00fd 0B       		.uleb128 0xb
+ 1187 00fe 3B       		.uleb128 0x3b
+ 1188 00ff 05       		.uleb128 0x5
+ 1189 0100 49       		.uleb128 0x49
+ 1190 0101 13       		.uleb128 0x13
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 24
+
+
+ 1191 0102 3F       		.uleb128 0x3f
+ 1192 0103 19       		.uleb128 0x19
+ 1193 0104 3C       		.uleb128 0x3c
+ 1194 0105 19       		.uleb128 0x19
+ 1195 0106 00       		.byte	0
+ 1196 0107 00       		.byte	0
+ 1197 0108 12       		.uleb128 0x12
+ 1198 0109 35       		.uleb128 0x35
+ 1199 010a 00       		.byte	0
+ 1200 010b 49       		.uleb128 0x49
+ 1201 010c 13       		.uleb128 0x13
+ 1202 010d 00       		.byte	0
+ 1203 010e 00       		.byte	0
+ 1204 010f 13       		.uleb128 0x13
+ 1205 0110 34       		.uleb128 0x34
+ 1206 0111 00       		.byte	0
+ 1207 0112 03       		.uleb128 0x3
+ 1208 0113 08       		.uleb128 0x8
+ 1209 0114 3A       		.uleb128 0x3a
+ 1210 0115 0B       		.uleb128 0xb
+ 1211 0116 3B       		.uleb128 0x3b
+ 1212 0117 0B       		.uleb128 0xb
+ 1213 0118 49       		.uleb128 0x49
+ 1214 0119 13       		.uleb128 0x13
+ 1215 011a 3F       		.uleb128 0x3f
+ 1216 011b 19       		.uleb128 0x19
+ 1217 011c 02       		.uleb128 0x2
+ 1218 011d 18       		.uleb128 0x18
+ 1219 011e 00       		.byte	0
+ 1220 011f 00       		.byte	0
+ 1221 0120 14       		.uleb128 0x14
+ 1222 0121 34       		.uleb128 0x34
+ 1223 0122 00       		.byte	0
+ 1224 0123 03       		.uleb128 0x3
+ 1225 0124 0E       		.uleb128 0xe
+ 1226 0125 3A       		.uleb128 0x3a
+ 1227 0126 0B       		.uleb128 0xb
+ 1228 0127 3B       		.uleb128 0x3b
+ 1229 0128 0B       		.uleb128 0xb
+ 1230 0129 49       		.uleb128 0x49
+ 1231 012a 13       		.uleb128 0x13
+ 1232 012b 3F       		.uleb128 0x3f
+ 1233 012c 19       		.uleb128 0x19
+ 1234 012d 02       		.uleb128 0x2
+ 1235 012e 18       		.uleb128 0x18
+ 1236 012f 00       		.byte	0
+ 1237 0130 00       		.byte	0
+ 1238 0131 15       		.uleb128 0x15
+ 1239 0132 01       		.uleb128 0x1
+ 1240 0133 01       		.byte	0x1
+ 1241 0134 49       		.uleb128 0x49
+ 1242 0135 13       		.uleb128 0x13
+ 1243 0136 01       		.uleb128 0x1
+ 1244 0137 13       		.uleb128 0x13
+ 1245 0138 00       		.byte	0
+ 1246 0139 00       		.byte	0
+ 1247 013a 16       		.uleb128 0x16
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 25
+
+
+ 1248 013b 21       		.uleb128 0x21
+ 1249 013c 00       		.byte	0
+ 1250 013d 49       		.uleb128 0x49
+ 1251 013e 13       		.uleb128 0x13
+ 1252 013f 2F       		.uleb128 0x2f
+ 1253 0140 0B       		.uleb128 0xb
+ 1254 0141 00       		.byte	0
+ 1255 0142 00       		.byte	0
+ 1256 0143 17       		.uleb128 0x17
+ 1257 0144 2E       		.uleb128 0x2e
+ 1258 0145 00       		.byte	0
+ 1259 0146 3F       		.uleb128 0x3f
+ 1260 0147 19       		.uleb128 0x19
+ 1261 0148 3C       		.uleb128 0x3c
+ 1262 0149 19       		.uleb128 0x19
+ 1263 014a 6E       		.uleb128 0x6e
+ 1264 014b 0E       		.uleb128 0xe
+ 1265 014c 03       		.uleb128 0x3
+ 1266 014d 0E       		.uleb128 0xe
+ 1267 014e 3A       		.uleb128 0x3a
+ 1268 014f 0B       		.uleb128 0xb
+ 1269 0150 3B       		.uleb128 0x3b
+ 1270 0151 0B       		.uleb128 0xb
+ 1271 0152 00       		.byte	0
+ 1272 0153 00       		.byte	0
+ 1273 0154 18       		.uleb128 0x18
+ 1274 0155 2E       		.uleb128 0x2e
+ 1275 0156 00       		.byte	0
+ 1276 0157 3F       		.uleb128 0x3f
+ 1277 0158 19       		.uleb128 0x19
+ 1278 0159 3C       		.uleb128 0x3c
+ 1279 015a 19       		.uleb128 0x19
+ 1280 015b 6E       		.uleb128 0x6e
+ 1281 015c 0E       		.uleb128 0xe
+ 1282 015d 03       		.uleb128 0x3
+ 1283 015e 0E       		.uleb128 0xe
+ 1284 015f 3A       		.uleb128 0x3a
+ 1285 0160 0B       		.uleb128 0xb
+ 1286 0161 3B       		.uleb128 0x3b
+ 1287 0162 05       		.uleb128 0x5
+ 1288 0163 00       		.byte	0
+ 1289 0164 00       		.byte	0
+ 1290 0165 00       		.byte	0
+ 1291              		.section	.debug_loc,"",%progbits
+ 1292              	.Ldebug_loc0:
+ 1293              	.LLST0:
+ 1294 0000 00000000 		.4byte	.LVL0
+ 1295 0004 04000000 		.4byte	.LVL1
+ 1296 0008 0100     		.2byte	0x1
+ 1297 000a 50       		.byte	0x50
+ 1298 000b 04000000 		.4byte	.LVL1
+ 1299 000f 28000000 		.4byte	.LFE66
+ 1300 0013 0100     		.2byte	0x1
+ 1301 0015 54       		.byte	0x54
+ 1302 0016 00000000 		.4byte	0
+ 1303 001a 00000000 		.4byte	0
+ 1304              	.LLST1:
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 26
+
+
+ 1305 001e 00000000 		.4byte	.LVL14
+ 1306 0022 04000000 		.4byte	.LVL15
+ 1307 0026 0100     		.2byte	0x1
+ 1308 0028 50       		.byte	0x50
+ 1309 0029 04000000 		.4byte	.LVL15
+ 1310 002d 14000000 		.4byte	.LFE67
+ 1311 0031 0400     		.2byte	0x4
+ 1312 0033 F3       		.byte	0xf3
+ 1313 0034 01       		.uleb128 0x1
+ 1314 0035 50       		.byte	0x50
+ 1315 0036 9F       		.byte	0x9f
+ 1316 0037 00000000 		.4byte	0
+ 1317 003b 00000000 		.4byte	0
+ 1318              		.section	.debug_aranges,"",%progbits
+ 1319 0000 34000000 		.4byte	0x34
+ 1320 0004 0200     		.2byte	0x2
+ 1321 0006 00000000 		.4byte	.Ldebug_info0
+ 1322 000a 04       		.byte	0x4
+ 1323 000b 00       		.byte	0
+ 1324 000c 0000     		.2byte	0
+ 1325 000e 0000     		.2byte	0
+ 1326 0010 00000000 		.4byte	.LFB64
+ 1327 0014 0C000000 		.4byte	.LFE64-.LFB64
+ 1328 0018 00000000 		.4byte	.LFB66
+ 1329 001c 28000000 		.4byte	.LFE66-.LFB66
+ 1330 0020 00000000 		.4byte	.LFB65
+ 1331 0024 68000000 		.4byte	.LFE65-.LFB65
+ 1332 0028 00000000 		.4byte	.LFB67
+ 1333 002c 14000000 		.4byte	.LFE67-.LFB67
+ 1334 0030 00000000 		.4byte	0
+ 1335 0034 00000000 		.4byte	0
+ 1336              		.section	.debug_ranges,"",%progbits
+ 1337              	.Ldebug_ranges0:
+ 1338 0000 00000000 		.4byte	.LFB64
+ 1339 0004 0C000000 		.4byte	.LFE64
+ 1340 0008 00000000 		.4byte	.LFB66
+ 1341 000c 28000000 		.4byte	.LFE66
+ 1342 0010 00000000 		.4byte	.LFB65
+ 1343 0014 68000000 		.4byte	.LFE65
+ 1344 0018 00000000 		.4byte	.LFB67
+ 1345 001c 14000000 		.4byte	.LFE67
+ 1346 0020 00000000 		.4byte	0
+ 1347 0024 00000000 		.4byte	0
+ 1348              		.section	.debug_line,"",%progbits
+ 1349              	.Ldebug_line0:
+ 1350 0000 76020000 		.section	.debug_str,"MS",%progbits,1
+ 1350      02001502 
+ 1350      00000201 
+ 1350      FB0E0D00 
+ 1350      01010101 
+ 1351              	.LASF68:
+ 1352 0000 4144435F 		.ascii	"ADC_SAR_1_IRQ_Enable\000"
+ 1352      5341525F 
+ 1352      315F4952 
+ 1352      515F456E 
+ 1352      61626C65 
+ 1353              	.LASF59:
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 27
+
+
+ 1354 0015 72657375 		.ascii	"result\000"
+ 1354      6C7400
+ 1355              	.LASF64:
+ 1356 001c 4144435F 		.ascii	"ADC_SAR_1_Start\000"
+ 1356      5341525F 
+ 1356      315F5374 
+ 1356      61727400 
+ 1357              	.LASF49:
+ 1358 002c 666C6167 		.ascii	"flag_packet\000"
+ 1358      5F706163 
+ 1358      6B657400 
+ 1359              	.LASF38:
+ 1360 0038 75736250 		.ascii	"usbPutChar\000"
+ 1360      75744368 
+ 1360      617200
+ 1361              	.LASF46:
+ 1362 0043 666C6167 		.ascii	"flag_ts_speed\000"
+ 1362      5F74735F 
+ 1362      73706565 
+ 1362      6400
+ 1363              	.LASF33:
+ 1364 0051 67325F78 		.ascii	"g2_xpos\000"
+ 1364      706F7300 
+ 1365              	.LASF2:
+ 1366 0059 73686F72 		.ascii	"short int\000"
+ 1366      7420696E 
+ 1366      7400
+ 1367              	.LASF57:
+ 1368 0063 73797374 		.ascii	"system_state\000"
+ 1368      656D5F73 
+ 1368      74617465 
+ 1368      00
+ 1369              	.LASF10:
+ 1370 0070 73697A65 		.ascii	"sizetype\000"
+ 1370      74797065 
+ 1370      00
+ 1371              	.LASF56:
+ 1372 0079 75736242 		.ascii	"usbBuffer\000"
+ 1372      75666665 
+ 1372      7200
+ 1373              	.LASF74:
+ 1374 0083 6D61696E 		.ascii	"main\000"
+ 1374      00
+ 1375              	.LASF63:
+ 1376 0088 55534255 		.ascii	"USBUART_Start\000"
+ 1376      4152545F 
+ 1376      53746172 
+ 1376      7400
+ 1377              	.LASF15:
+ 1378 0096 75696E74 		.ascii	"uint16\000"
+ 1378      313600
+ 1379              	.LASF21:
+ 1380 009d 696E6465 		.ascii	"index\000"
+ 1380      7800
+ 1381              	.LASF17:
+ 1382 00a3 696E7431 		.ascii	"int16\000"
+ 1382      3600
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 28
+
+
+ 1383              	.LASF14:
+ 1384 00a9 75696E74 		.ascii	"uint8\000"
+ 1384      3800
+ 1385              	.LASF32:
+ 1386 00af 67315F64 		.ascii	"g1_direction\000"
+ 1386      69726563 
+ 1386      74696F6E 
+ 1386      00
+ 1387              	.LASF54:
+ 1388 00bc 6C696E65 		.ascii	"line\000"
+ 1388      00
+ 1389              	.LASF67:
+ 1390 00c1 4144435F 		.ascii	"ADC_SAR_1_IRQ_Disable\000"
+ 1390      5341525F 
+ 1390      315F4952 
+ 1390      515F4469 
+ 1390      7361626C 
+ 1391              	.LASF18:
+ 1392 00d7 666C6F61 		.ascii	"float\000"
+ 1392      7400
+ 1393              	.LASF6:
+ 1394 00dd 6C6F6E67 		.ascii	"long long int\000"
+ 1394      206C6F6E 
+ 1394      6720696E 
+ 1394      7400
+ 1395              	.LASF37:
+ 1396 00eb 75736250 		.ascii	"usbPutString\000"
+ 1396      75745374 
+ 1396      72696E67 
+ 1396      00
+ 1397              	.LASF16:
+ 1398 00f8 696E7438 		.ascii	"int8\000"
+ 1398      00
+ 1399              	.LASF45:
+ 1400 00fd 666C6167 		.ascii	"flag_ts_update\000"
+ 1400      5F74735F 
+ 1400      75706461 
+ 1400      746500
+ 1401              	.LASF34:
+ 1402 010c 67325F79 		.ascii	"g2_ypos\000"
+ 1402      706F7300 
+ 1403              	.LASF28:
+ 1404 0114 67305F64 		.ascii	"g0_direction\000"
+ 1404      69726563 
+ 1404      74696F6E 
+ 1404      00
+ 1405              	.LASF25:
+ 1406 0121 67305F78 		.ascii	"g0_xpos\000"
+ 1406      706F7300 
+ 1407              	.LASF4:
+ 1408 0129 6C6F6E67 		.ascii	"long int\000"
+ 1408      20696E74 
+ 1408      00
+ 1409              	.LASF66:
+ 1410 0132 6973725F 		.ascii	"isr_1_StartEx\000"
+ 1410      315F5374 
+ 1410      61727445 
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 29
+
+
+ 1410      7800
+ 1411              	.LASF47:
+ 1412 0140 666C6167 		.ascii	"flag_ts_display\000"
+ 1412      5F74735F 
+ 1412      64697370 
+ 1412      6C617900 
+ 1413              	.LASF48:
+ 1414 0150 666C6167 		.ascii	"flag_rx\000"
+ 1414      5F727800 
+ 1415              	.LASF55:
+ 1416 0158 656E7472 		.ascii	"entry\000"
+ 1416      7900
+ 1417              	.LASF9:
+ 1418 015e 6C6F6E67 		.ascii	"long double\000"
+ 1418      20646F75 
+ 1418      626C6500 
+ 1419              	.LASF1:
+ 1420 016a 756E7369 		.ascii	"unsigned char\000"
+ 1420      676E6564 
+ 1420      20636861 
+ 1420      7200
+ 1421              	.LASF27:
+ 1422 0178 67305F73 		.ascii	"g0_speed\000"
+ 1422      70656564 
+ 1422      00
+ 1423              	.LASF51:
+ 1424 0181 64617461 		.ascii	"dataready_flag\000"
+ 1424      72656164 
+ 1424      795F666C 
+ 1424      616700
+ 1425              	.LASF0:
+ 1426 0190 7369676E 		.ascii	"signed char\000"
+ 1426      65642063 
+ 1426      68617200 
+ 1427              	.LASF7:
+ 1428 019c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1428      206C6F6E 
+ 1428      6720756E 
+ 1428      7369676E 
+ 1428      65642069 
+ 1429              	.LASF8:
+ 1430 01b3 756E7369 		.ascii	"unsigned int\000"
+ 1430      676E6564 
+ 1430      20696E74 
+ 1430      00
+ 1431              	.LASF50:
+ 1432 01c0 666C6167 		.ascii	"flag_KB_string\000"
+ 1432      5F4B425F 
+ 1432      73747269 
+ 1432      6E6700
+ 1433              	.LASF35:
+ 1434 01cf 67325F73 		.ascii	"g2_speed\000"
+ 1434      70656564 
+ 1434      00
+ 1435              	.LASF29:
+ 1436 01d8 67315F78 		.ascii	"g1_xpos\000"
+ 1436      706F7300 
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 30
+
+
+ 1437              	.LASF3:
+ 1438 01e0 73686F72 		.ascii	"short unsigned int\000"
+ 1438      7420756E 
+ 1438      7369676E 
+ 1438      65642069 
+ 1438      6E7400
+ 1439              	.LASF73:
+ 1440 01f3 64617461 		.ascii	"data_main\000"
+ 1440      5F6D6169 
+ 1440      6E00
+ 1441              	.LASF11:
+ 1442 01fd 63686172 		.ascii	"char\000"
+ 1442      00
+ 1443              	.LASF65:
+ 1444 0202 4144435F 		.ascii	"ADC_SAR_1_StartConvert\000"
+ 1444      5341525F 
+ 1444      315F5374 
+ 1444      61727443 
+ 1444      6F6E7665 
+ 1445              	.LASF61:
+ 1446 0219 7374726C 		.ascii	"strlen\000"
+ 1446      656E00
+ 1447              	.LASF13:
+ 1448 0220 696E7433 		.ascii	"int32_t\000"
+ 1448      325F7400 
+ 1449              	.LASF30:
+ 1450 0228 67315F79 		.ascii	"g1_ypos\000"
+ 1450      706F7300 
+ 1451              	.LASF36:
+ 1452 0230 67325F64 		.ascii	"g2_direction\000"
+ 1452      69726563 
+ 1452      74696F6E 
+ 1452      00
+ 1453              	.LASF60:
+ 1454 023d 55534255 		.ascii	"USBUART_CDCIsReady\000"
+ 1454      4152545F 
+ 1454      43444349 
+ 1454      73526561 
+ 1454      647900
+ 1455              	.LASF31:
+ 1456 0250 67315F73 		.ascii	"g1_speed\000"
+ 1456      70656564 
+ 1456      00
+ 1457              	.LASF69:
+ 1458 0259 55534255 		.ascii	"USBUART_PutChar\000"
+ 1458      4152545F 
+ 1458      50757443 
+ 1458      68617200 
+ 1459              	.LASF53:
+ 1460 0269 64697370 		.ascii	"displaystring\000"
+ 1460      6C617973 
+ 1460      7472696E 
+ 1460      6700
+ 1461              	.LASF22:
+ 1462 0277 726F626F 		.ascii	"robot_xpos\000"
+ 1462      745F7870 
+ 1462      6F7300
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 31
+
+
+ 1463              	.LASF71:
+ 1464 0282 6D61696E 		.ascii	"main.c\000"
+ 1464      2E6300
+ 1465              	.LASF5:
+ 1466 0289 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1466      20756E73 
+ 1466      69676E65 
+ 1466      6420696E 
+ 1466      7400
+ 1467              	.LASF62:
+ 1468 029b 55534255 		.ascii	"USBUART_PutData\000"
+ 1468      4152545F 
+ 1468      50757444 
+ 1468      61746100 
+ 1469              	.LASF19:
+ 1470 02ab 646F7562 		.ascii	"double\000"
+ 1470      6C6500
+ 1471              	.LASF58:
+ 1472 02b2 666C6167 		.ascii	"flag\000"
+ 1472      00
+ 1473              	.LASF42:
+ 1474 02b7 74735F73 		.ascii	"ts_speed\000"
+ 1474      70656564 
+ 1474      00
+ 1475              	.LASF44:
+ 1476 02c0 666C6167 		.ascii	"flag_ts_enc\000"
+ 1476      5F74735F 
+ 1476      656E6300 
+ 1477              	.LASF12:
+ 1478 02cc 5F5F696E 		.ascii	"__int32_t\000"
+ 1478      7433325F 
+ 1478      7400
+ 1479              	.LASF72:
+ 1480 02d6 483A5C44 		.ascii	"H:\\Documents\\GitHub\\team14\\301folder-hiralabs\\"
+ 1480      6F63756D 
+ 1480      656E7473 
+ 1480      5C476974 
+ 1480      4875625C 
+ 1481 0304 70736F63 		.ascii	"psoc student pack\\lab exercise\\psoc_intro\\hardwa"
+ 1481      20737475 
+ 1481      64656E74 
+ 1481      20706163 
+ 1481      6B5C6C61 
+ 1482 0334 72657461 		.ascii	"retask1.cydsn\000"
+ 1482      736B312E 
+ 1482      63796473 
+ 1482      6E00
+ 1483              	.LASF26:
+ 1484 0342 67305F79 		.ascii	"g0_ypos\000"
+ 1484      706F7300 
+ 1485              	.LASF43:
+ 1486 034a 74735F64 		.ascii	"ts_display\000"
+ 1486      6973706C 
+ 1486      617900
+ 1487              	.LASF40:
+ 1488 0355 74735F65 		.ascii	"ts_enc\000"
+ 1488      6E6300
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccC65npr.s 			page 32
+
+
+ 1489              	.LASF41:
+ 1490 035c 74735F75 		.ascii	"ts_update\000"
+ 1490      70646174 
+ 1490      6500
+ 1491              	.LASF52:
+ 1492 0366 666C6167 		.ascii	"flag_rf_transmission_active\000"
+ 1492      5F72665F 
+ 1492      7472616E 
+ 1492      736D6973 
+ 1492      73696F6E 
+ 1493              	.LASF23:
+ 1494 0382 726F626F 		.ascii	"robot_ypos\000"
+ 1494      745F7970 
+ 1494      6F7300
+ 1495              	.LASF39:
+ 1496 038d 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1496      52784275 
+ 1496      66666572 
+ 1496      00
+ 1497              	.LASF70:
+ 1498 039a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1498      43313120 
+ 1498      352E342E 
+ 1498      31203230 
+ 1498      31363036 
+ 1499 03cd 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1499      20726576 
+ 1499      6973696F 
+ 1499      6E203233 
+ 1499      37373135 
+ 1500 0400 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1500      66756E63 
+ 1500      74696F6E 
+ 1500      2D736563 
+ 1500      74696F6E 
+ 1501              	.LASF20:
+ 1502 0428 72737369 		.ascii	"rssi\000"
+ 1502      00
+ 1503              	.LASF24:
+ 1504 042d 726F626F 		.ascii	"robot_orientation\000"
+ 1504      745F6F72 
+ 1504      69656E74 
+ 1504      6174696F 
+ 1504      6E00
+ 1505              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

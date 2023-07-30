@@ -2,7 +2,7 @@
 --	Conversion of CS301_Class.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Jul 21 14:19:18 2023
+--	Wed Jul 26 12:15:44 2023
 --
 
 USE cypress.cypress.all;

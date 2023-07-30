@@ -27,7 +27,7 @@ void usbPutChar(char c);
 void handle_usb();
 //* ========================================
 
-
+int periodMode = 1;
 int main()
 {
     
@@ -47,6 +47,7 @@ int main()
     PWM_1_WriteCompare(204);
 
     usbPutString(displaystring);
+    
     for(;;)
     {
         /* Place your application code here. */
@@ -106,12 +107,25 @@ void handle_usb()
         {  
             c = USBUART_GetChar();
 
-            if ((c == 13) || (c == 10))
+            if ((c == 13) || (c == 10)) // when enter pressed 
             {
 //                if (usbBufCount > 0)
                 {
                     entry[usbBufCount]= '\0';
-                    strcpy(line,entry);
+                    strcpy(line,entry); // user input : entry, address : line, line = entry
+                    char type = line[0]; // p period, d duty cycle e.g. p30
+                    if (type == 'p') { // in period mode
+                        periodMode = 1;
+                    } else if (type == 'd') { // in duty mode
+                        periodMode = 0;
+                    } else {
+                        int num = atoi(line); // atoi converts string to integer 
+                        if (periodMode) { // in period mode
+                            PWM_1_WritePeriod(num);
+                        } else { // assume its in duty cycle mode
+                            PWM_1_WriteCompare(num); 
+                        }
+                    }
                     usbBufCount = 0;
                     flag_KB_string = 1;
                 }
