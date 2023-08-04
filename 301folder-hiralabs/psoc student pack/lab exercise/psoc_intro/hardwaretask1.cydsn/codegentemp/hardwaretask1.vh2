@@ -2,7 +2,7 @@
 --	Conversion of hardwaretask1.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Jul 28 15:29:58 2023
+--	Fri Aug 04 12:23:30 2023
 --
 
 USE cypress.cypress.all;
@@ -144,7 +144,7 @@ one <=  ('1') ;
 		id=>"e4b62c01-a613-4b73-a85c-c3db4d901310/696a0979-21fc-4185-bf38-6c79febcde7a",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"166666333.334",
+		period=>"999994000.036",
 		is_direct=>'0',
 		is_digital=>'0')
 	PORT MAP(clock_out=>\ADC_SAR_1:Net_385\,

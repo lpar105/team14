@@ -27,7 +27,8 @@ void usbPutChar(char c);
 //* ========================================
 
 volatile int flag = 0;
-char result[RESULT_BUFFER_SIZE];
+char result[1000][8]; // Character array
+volatile int count = 0;
 
 
 CY_ISR(eoc) {
@@ -51,23 +52,34 @@ int main()
     ADC_SAR_1_Start();
     ADC_SAR_1_StartConvert();
     isr_1_StartEx(eoc);
-    
+
     for(;;)
     {   
         
         if (flag == 1) {
-            
+            // goal: store 100 values into an array then display ALL together to solve frequency timing issues we hope
             ADC_SAR_1_IRQ_Disable();
-            result = itoa(ADC_SAR_1_GetResult8 , result, 10);
-            usbPutString(result);
-            usbPutString("\r\n");
-            /* Place your application code here. */
-            if (flag_KB_string == 1)
-            {
-                usbPutString(line);
-                flag_KB_string = 0;
+            int num = ADC_SAR_1_GetResult8();
+            
+            if (num < 0) {
+                num = num +255;
+            }
+            utoa(num, result[count], 10);
+            count++;
+            if (count == 1000){
+                count = 0;
+                
+                for (int i = 0; i < 1000; i++){
+                usbPutString(result[i]);
+                usbPutString("\r\n");
+                /* Place your application code here. */
+                
+                
                 
             }
+                
+            }
+            
             flag = 0;
             
             ADC_SAR_1_IRQ_Enable();
