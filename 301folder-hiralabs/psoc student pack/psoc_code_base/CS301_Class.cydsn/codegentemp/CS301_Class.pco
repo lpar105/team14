@@ -1,5 +1,5 @@
 # CS301_Class
-# 2023-08-04 01:17:41Z
+# 2023-08-09 00:08:24Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -96,7 +96,7 @@ set_location "\ADC:TempBuf\" drqcell -1 -1 1
 set_location "\ADC:FinalBuf\" drqcell -1 -1 0
 set_location "\ADC:IRQ\" interrupt -1 -1 0
 set_location "\ADC:Sync:genblk1[0]:INST\" 2 2 5 0
-set_location "isr_TS" interrupt -1 -1 6
+set_location "isr_TS" interrupt -1 -1 7
 set_location "\Timer_TS:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 0 2 6
 set_location "\Timer_TS:TimerUDB:rstSts:stsreg\" 1 2 4
 set_location "\Timer_TS:TimerUDB:sT24:timerdp:u0\" 0 2 2
@@ -111,7 +111,7 @@ set_location "\USBUART:ep_0\" interrupt -1 -1 24
 set_location "\USBUART:bus_reset\" interrupt -1 -1 23
 set_location "\USBUART:arb_int\" interrupt -1 -1 22
 set_location "\USBUART:sof_int\" interrupt -1 -1 21
-set_location "isr_eoc" interrupt -1 -1 7
+set_location "isr_2" interrupt -1 -1 5
 set_location "\CONTROL:Sync:ctrl_reg\" 2 0 6
 set_location "\UART:BUART:sTX:TxShifter:u0\" 1 2 2
 set_location "\UART:BUART:sTX:sCLOCK:TxBitClkGen\" 0 1 2
@@ -121,8 +121,8 @@ set_location "\UART:BUART:sRX:RxBitCounter\" 1 5 7
 set_location "\UART:BUART:sRX:RxSts\" 1 1 4
 set_location "\PWM_1:PWMHW\" timercell -1 -1 0
 set_location "\PWM_2:PWMHW\" timercell -1 -1 1
-set_location "isrRF_TX" interrupt -1 -1 5
-set_location "isrRF_RX" interrupt -1 -1 4
+set_location "isr_1" interrupt -1 -1 4
+set_location "isr_3" interrupt -1 -1 6
 set_location "\RF_BT_SELECT:Sync:ctrl_reg\" 1 4 6
 set_location "\QuadDec_M1:Net_1251\" 3 0 0 0
 set_location "\QuadDec_M1:Cnt16:CounterUDB:overflow_reg_i\" 2 0 0 1

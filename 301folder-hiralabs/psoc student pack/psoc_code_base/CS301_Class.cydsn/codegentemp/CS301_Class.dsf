@@ -96,7 +96,6 @@ Stub-:dsiswitch_top@[DSI=(0,0)][side=top]:dsihc_top:v32+:dsiswitch_top@[DSI=(0,0
 :udbswitch@[UDB=(2,2)][side=top]:102,53_f
 :udbswitch@[UDB=(2,2)][side=top]:102,90_f
 :udbswitch@[UDB=(2,2)][side=top]:102,92_f
-Stub-:dsiswitch_top@[DSI=(0,4)][side=top]:dsihc_top:v20+:dsiswitch_top@[DSI=(0,4)][side=top]:dsihc_top:v22==>:interrupt_idmux_6.in_0
 :udbswitch@[UDB=(0,2)][side=top]:103,19_f
 :udbswitch@[UDB=(0,2)][side=top]:103,22_f
 :udbswitch@[UDB=(0,2)][side=top]:103,25_f
@@ -105,7 +104,6 @@ Stub-:dsiswitch_top@[DSI=(0,4)][side=top]:dsihc_top:v20+:dsiswitch_top@[DSI=(0,4
 :udbswitch@[UDB=(0,2)][side=top]:103,52_f
 :udbswitch@[UDB=(0,2)][side=top]:103,90_f
 :udbswitch@[UDB=(0,2)][side=top]:103,93_f
-Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v40+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v42==>:interrupt_idmux_7.in_0
 :udbswitch@[UDB=(0,3)][side=top]:102,18_f
 :udbswitch@[UDB=(0,3)][side=top]:102,22_f
 :udbswitch@[UDB=(0,3)][side=top]:102,25_f
@@ -122,7 +120,6 @@ Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v40+:dsiswitch_bott
 :udbswitch@[UDB=(0,1)][side=top]:103,52_f
 :udbswitch@[UDB=(0,1)][side=top]:103,90_f
 :udbswitch@[UDB=(0,1)][side=top]:103,93_f
-Stub-:dsiswitch_bottom@[DSI=(1,4)][side=bottom]:dsihc_bottom:v45+:dsiswitch_bottom@[DSI=(1,4)][side=bottom]:dsihc_bottom:v47==>:interrupt_idmux_4.in_0
 :udbswitch@[UDB=(0,4)][side=top]:97,1_f
 :udbswitch@[UDB=(0,4)][side=top]:97,4_f
 :udbswitch@[UDB=(0,4)][side=top]:97,43_f

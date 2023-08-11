@@ -21,8 +21,6 @@
 #include "cydisabledsheets.h"
 #include "SW1_aliases.h"
 #include "SW1.h"
-#include "LED_aliases.h"
-#include "LED.h"
 #include "Clock_1.h"
 #include "cy_em_eeprom.h"
 #include "core_cm3_psoc5.h"

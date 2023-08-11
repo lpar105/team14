@@ -1,6 +1,6 @@
 // ======================================================================
 // CS301_Class.v generated from TopDesign.cysch
-// 08/04/2023 at 13:15
+// 08/09/2023 at 12:06
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -3722,7 +3722,7 @@ module top ;
 
 
 	cy_isr_v1_0
-		#(.int_type(2'b00))
+		#(.int_type(2'b10))
 		isr_TS
 		 (.int_signal(Net_1619));
 
@@ -3841,9 +3841,9 @@ module top ;
 
 
 	cy_isr_v1_0
-		#(.int_type(2'b00))
-		isr_eoc
-		 (.int_signal(Net_1497));
+		#(.int_type(2'b10))
+		isr_2
+		 (.int_signal(Net_1898));
 
 
     CyControlReg_v1_80 CONTROL (
@@ -4469,15 +4469,15 @@ module top ;
 
 	cy_isr_v1_0
 		#(.int_type(2'b10))
-		isrRF_TX
+		isr_1
 		 (.int_signal(Net_3406));
 
 
 
 	cy_isr_v1_0
-		#(.int_type(2'b00))
-		isrRF_RX
-		 (.int_signal(Net_1898));
+		#(.int_type(2'b10))
+		isr_3
+		 (.int_signal(Net_1497));
 
 
     // -- Mux start --

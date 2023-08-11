@@ -1,19 +1,4 @@
-/* ========================================
- * Fully working code:
- * PWM      :
- * Encoder  :
- * ADC      :
- * USB      : port displays speed and position.
- * CMD: "PW xx"
- * Copyright Univ of Auckland, 2016
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF Univ of Auckland.
- *
- * ========================================
- */
+
 #include <stdio.h>
 
 #include <string.h>
@@ -31,10 +16,17 @@ void usbPutChar(char c);
 void handle_usb();
 //* ========================================
 
-volatile int v1; 
-volatile int v2;
-volatile int step = 0;
-volatile int interruptFlag = 0;
+volatile int v1L; // allocating storage for measure number of holes (ahead) - LEFT WHEEL
+volatile int v2L; // allocating storage for measure number of holes (behind) - LEFT WHEEL
+
+volatile int v1R; // allocating storage for measure number of holes (ahead) - RIGHT WHEEL
+volatile int v2R; // allocating storage for measure number of holes (behind) - RIGHT WHEEL
+
+volatile int step = 0; // are we on first measuring step or second step?
+volatile int shaftSpeedL = 0; // shaft speed to convert to rads/s
+volatile int shaftSpeedR = 0; // shaft speed to convert to rad/s
+volatile int interruptFlag = 0; // interrupt flag
+
 CY_ISR(MyISR) {
   interruptFlag = 1;
 }
@@ -47,51 +39,95 @@ int main() {
 
   // ------USB SETUP ----------------    
   #ifdef USE_USB
-  USBUART_Start(0, USBUART_5V_OPERATION);
+  USBUART_Start(0, USBUART_5V_OPERATION); // datasheet
   #endif
 
   RF_BT_SELECT_Write(0);
 
+ // to set speed, little component will look at duty cycle of signal coming in
+ // if duty cycle close to 100, then 100% of speed 
+ // setting duty cycle to 100% (255)
+
+  QuadDec_M1_Start(); // this is the counter for the left wheel
+  QuadDec_M2_Start(); // this is the counter for the right wheel
+
+ // left wheel
+  PWM_1_Start();
+  PWM_1_WriteCompare(255); // the fastest the motor could go, can mess around with it 
+  PWM_1_WritePeriod(255);
+
+// right wheel
   PWM_2_Start();
   PWM_2_WriteCompare(255); // the fastest the motor could go, can mess around with it 
   PWM_2_WritePeriod(255);
 
-  isr_TS_StartEx(MyISR);
-  Timer_TS_Start();
+  isr_TS_StartEx(MyISR); // starting interrupt (linked to timer)(1 second period)
+  Timer_TS_Start(); // starting  timer
 
-  QuadDec_M2_Start();
+  usbPutString(displaystring); // CS301 in putty 
 
-  usbPutString(displaystring);
-  for (;;) {
+  for (;;) { // ;; forever
     if (interruptFlag == 1) { // timer has counted 1s 
       isr_TS_Disable(); // disabling the interrupts
       if (step == 0) { //takes the first measurement, sets steps to 2, the next time the timer goes off, it will do the second measurement
-        v1 = QuadDec_M2_GetCounter();
+        
+        v1L = QuadDec_M1_GetCounter(); // first measurement taken - LEFT
+        v1R = QuadDec_M2_GetCounter(); // first measurement taken - RIGHT
+        
         step++;
-      } else {
+      } else { // second measure and sending out to UART
         step = 0;
-        char result[24];
-        char result1[24];
-        char result2[24];
-        v2 = QuadDec_M2_GetCounter();
-        itoa((v2 - v1), result, 10);
-        itoa(v2, result1, 10);
-        itoa(v1, result2, 10);
-        usbPutString(result);
+        // Allocating space for debugging and speed values
+        char speedL[24];
+        char initSpeedL[24];
+        char finalSpeedL[24];
+        
+        char speedR[24];
+        char initSpeedR[24];
+        char finalSpeedR[24];
+        
+        v2L = QuadDec_M1_GetCounter(); // second measurement taken - LEFT
+        v2R = QuadDec_M2_GetCounter(); // second measurement taken - RIGHT
+        // integer to string conversion, base 10, storing, hardwaretask2 sheet for more info
+        
+        // converting to rad/s (v2-v1/360)*(360/16) for the left wheel
+        shaftSpeedL= (((v2L - v1L)/16)*6.28319); // rads/sec
+        itoa(shaftSpeedL, speedL, 10);
+        itoa(v1L, initSpeedL, 10);
+        itoa(v2L, finalSpeedL, 10);
+        
+        // converting to rad/s (v2-v1/360)*(360/16) for the right wheel
+        shaftSpeedR = (((v2R - v1R)/16)*6.28319); // rads/sec
+        itoa(shaftSpeedR, speedR, 10);
+        itoa(v1R, initSpeedR, 10);
+        itoa(v2R, finalSpeedR, 10);
+        
+        // printing the results on putty
+        usbPutString(speedL);
+        usbPutString(":");                                                                                                                                                                                     
+        usbPutString(initSpeedL);
         usbPutString(":");
-        usbPutString(result1);
+        usbPutString(finalSpeedL);
+        
+        usbPutString("    < LEFT      RIGHT >    ");
+        
+        usbPutString(speedR);
+        usbPutString(":");                                                                                                                                                                                     
+        usbPutString(initSpeedR);
         usbPutString(":");
-        usbPutString(result2);
+        usbPutString(finalSpeedR);
         usbPutString("\r\n");
-        QuadDec_M2_SetCounter(0);
+        
+        QuadDec_M1_SetCounter(0); // set quad counter to 0 to avoid overflow
+        QuadDec_M2_SetCounter(0); // set quad counter to 0 to avoid overflow
       }
      
-      interruptFlag = 0;
-      isr_TS_Enable();
+      interruptFlag = 0; // interrupt flag is back to 0
+      isr_TS_Enable(); // interrupt enabled
     }
-
   }
 }
+
 //* ========================================
 void usbPutString(char * s) {
   // !! Assumes that *s is a string with allocated space >=64 chars    

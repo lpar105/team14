@@ -56,7 +56,7 @@ int main()
     for(;;)
     {   
         
-        if (flag == 1) {
+        /*if (flag == 1) {
             // goal: store 100 values into an array then display ALL together to solve frequency timing issues we hope
             ADC_SAR_1_IRQ_Disable();
             int num = ADC_SAR_1_GetResult8();
@@ -74,7 +74,7 @@ int main()
                 usbPutString("\r\n");
                 /* Place your application code here. */
                 
-                
+             /*  
                 
             }
                 
@@ -87,7 +87,8 @@ int main()
         
         
         
-       
+       */
+    }
     }   
 }
 //* ========================================

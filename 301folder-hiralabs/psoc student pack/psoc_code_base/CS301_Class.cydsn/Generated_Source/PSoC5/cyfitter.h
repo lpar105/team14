@@ -986,6 +986,36 @@
 #define PWM_2_PWMHW__RT1 CYREG_TMR1_RT1
 #define PWM_2_PWMHW__SR0 CYREG_TMR1_SR0
 
+/* isr_1 */
+#define isr_1__INTC_CLR_EN_REG CYREG_NVIC_CLRENA0
+#define isr_1__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
+#define isr_1__INTC_MASK 0x10u
+#define isr_1__INTC_NUMBER 4u
+#define isr_1__INTC_PRIOR_NUM 7u
+#define isr_1__INTC_PRIOR_REG CYREG_NVIC_PRI_4
+#define isr_1__INTC_SET_EN_REG CYREG_NVIC_SETENA0
+#define isr_1__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
+
+/* isr_2 */
+#define isr_2__INTC_CLR_EN_REG CYREG_NVIC_CLRENA0
+#define isr_2__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
+#define isr_2__INTC_MASK 0x20u
+#define isr_2__INTC_NUMBER 5u
+#define isr_2__INTC_PRIOR_NUM 7u
+#define isr_2__INTC_PRIOR_REG CYREG_NVIC_PRI_5
+#define isr_2__INTC_SET_EN_REG CYREG_NVIC_SETENA0
+#define isr_2__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
+
+/* isr_3 */
+#define isr_3__INTC_CLR_EN_REG CYREG_NVIC_CLRENA0
+#define isr_3__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
+#define isr_3__INTC_MASK 0x40u
+#define isr_3__INTC_NUMBER 6u
+#define isr_3__INTC_PRIOR_NUM 7u
+#define isr_3__INTC_PRIOR_REG CYREG_NVIC_PRI_6
+#define isr_3__INTC_SET_EN_REG CYREG_NVIC_SETENA0
+#define isr_3__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
+
 /* Clock2 */
 #define Clock2__CFG0 CYREG_CLKDIST_DCFG4_CFG0
 #define Clock2__CFG1 CYREG_CLKDIST_DCFG4_CFG1
@@ -1134,10 +1164,10 @@
 /* isr_TS */
 #define isr_TS__INTC_CLR_EN_REG CYREG_NVIC_CLRENA0
 #define isr_TS__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
-#define isr_TS__INTC_MASK 0x40u
-#define isr_TS__INTC_NUMBER 6u
+#define isr_TS__INTC_MASK 0x80u
+#define isr_TS__INTC_NUMBER 7u
 #define isr_TS__INTC_PRIOR_NUM 7u
-#define isr_TS__INTC_PRIOR_REG CYREG_NVIC_PRI_6
+#define isr_TS__INTC_PRIOR_REG CYREG_NVIC_PRI_7
 #define isr_TS__INTC_SET_EN_REG CYREG_NVIC_SETENA0
 #define isr_TS__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
 
@@ -1421,16 +1451,6 @@
 #define USBUART_USB__USBIO_CR0 CYREG_USB_USBIO_CR0
 #define USBUART_USB__USBIO_CR1 CYREG_USB_USBIO_CR1
 
-/* isr_eoc */
-#define isr_eoc__INTC_CLR_EN_REG CYREG_NVIC_CLRENA0
-#define isr_eoc__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
-#define isr_eoc__INTC_MASK 0x80u
-#define isr_eoc__INTC_NUMBER 7u
-#define isr_eoc__INTC_PRIOR_NUM 7u
-#define isr_eoc__INTC_PRIOR_REG CYREG_NVIC_PRI_7
-#define isr_eoc__INTC_SET_EN_REG CYREG_NVIC_SETENA0
-#define isr_eoc__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
-
 /* Timer_TS */
 #define Timer_TS_TimerUDB_rstSts_stsreg__0__MASK 0x01u
 #define Timer_TS_TimerUDB_rstSts_stsreg__0__POS 0
@@ -1519,26 +1539,6 @@
 #define Timer_TS_TimerUDB_sT24_timerdp_u2__F1_REG CYREG_B0_UDB11_F1
 #define Timer_TS_TimerUDB_sT24_timerdp_u2__MSK_DP_AUX_CTL_REG CYREG_B0_UDB11_MSK_ACTL
 #define Timer_TS_TimerUDB_sT24_timerdp_u2__PER_DP_AUX_CTL_REG CYREG_B0_UDB11_MSK_ACTL
-
-/* isrRF_RX */
-#define isrRF_RX__INTC_CLR_EN_REG CYREG_NVIC_CLRENA0
-#define isrRF_RX__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
-#define isrRF_RX__INTC_MASK 0x10u
-#define isrRF_RX__INTC_NUMBER 4u
-#define isrRF_RX__INTC_PRIOR_NUM 7u
-#define isrRF_RX__INTC_PRIOR_REG CYREG_NVIC_PRI_4
-#define isrRF_RX__INTC_SET_EN_REG CYREG_NVIC_SETENA0
-#define isrRF_RX__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
-
-/* isrRF_TX */
-#define isrRF_TX__INTC_CLR_EN_REG CYREG_NVIC_CLRENA0
-#define isrRF_TX__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
-#define isrRF_TX__INTC_MASK 0x20u
-#define isrRF_TX__INTC_NUMBER 5u
-#define isrRF_TX__INTC_PRIOR_NUM 7u
-#define isrRF_TX__INTC_PRIOR_REG CYREG_NVIC_PRI_5
-#define isrRF_TX__INTC_SET_EN_REG CYREG_NVIC_SETENA0
-#define isrRF_TX__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
 
 /* Clock_PWM */
 #define Clock_PWM__CFG0 CYREG_CLKDIST_DCFG2_CFG0

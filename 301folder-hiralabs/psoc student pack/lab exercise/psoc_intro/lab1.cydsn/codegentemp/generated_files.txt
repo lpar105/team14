@@ -21,9 +21,6 @@
   <file name="H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\codegentemp\SW1_aliases.h" value="HEADER;;;;;SW1" />
   <file name="H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\codegentemp\SW1.c" value="SOURCE_C;CortexM3;;;;SW1" />
   <file name="H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\codegentemp\SW1.h" value="HEADER;;;;;SW1" />
-  <file name="H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\codegentemp\LED_aliases.h" value="HEADER;;;;;LED" />
-  <file name="H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\codegentemp\LED.c" value="SOURCE_C;CortexM3;;;;LED" />
-  <file name="H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\codegentemp\LED.h" value="HEADER;;;;;LED" />
   <file name="H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\codegentemp\Clock_1.c" value="SOURCE_C;CortexM3;;;;Clock_1" />
   <file name="H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\codegentemp\Clock_1.h" value="HEADER;;;;;Clock_1" />
   <file name="H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM3;;;;Em_EEPROM_Dynamic" />

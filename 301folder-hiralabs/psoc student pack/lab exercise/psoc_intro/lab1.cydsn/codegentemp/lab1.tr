@@ -49,21 +49,19 @@ All values are in Picoseconds
 3.1::Setup to Clock                     
 -------------------                     
 
-Port Name   Setup to Clk  Clock Name:Phase  
-----------  ------------  ----------------  
-SW1(0)_PAD  16635         Clock_1:R         
+Port Name  Setup to Clk  Clock Name:Phase  
+---------  ------------  ----------------  
 
 
-                       3.2::Clock to Out
-                       -----------------
+-----------------------3.2::Clock to Out
+----------------------------------------
 
-Port Name   Clock to Out  Clock Name:Phase  
-----------  ------------  ----------------  
-LED(0)_PAD  29834         Clock_1:R         
+Port Name  Clock to Out  Clock Name:Phase  
+---------  ------------  ----------------  
 
 
-                         3.3::Pad to Pad
-                         ---------------
+-------------------------3.3::Pad to Pad
+----------------------------------------
 
 Port Name (Source)  Port Name (Destination)  Delay  
 ------------------  -----------------------  -----  

@@ -1,6 +1,6 @@
 /*******************************************************************************
-* File Name: isrRF_TX.c  
-* Version 1.71
+* File Name: isr_3.c  
+* Version 1.70
 *
 *  Description:
 *   API for controlling the state of an interrupt.
@@ -18,15 +18,15 @@
 
 #include <cydevice_trm.h>
 #include <CyLib.h>
-#include <isrRF_TX.h>
+#include <isr_3.h>
 
 
-#if !defined(isrRF_TX__REMOVED) /* Check for removal by optimization */
+#if !defined(isr_3__REMOVED) /* Check for removal by optimization */
 
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START isrRF_TX_intc` */
+/* `#START isr_3_intc` */
 
 /* `#END` */
 
@@ -42,7 +42,7 @@ CY_ISR_PROTO(IntDefaultHandler);
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_Start
+* Function Name: isr_3_Start
 ********************************************************************************
 *
 * Summary:
@@ -58,24 +58,24 @@ CY_ISR_PROTO(IntDefaultHandler);
 *   None
 *
 *******************************************************************************/
-void isrRF_TX_Start(void)
+void isr_3_Start(void)
 {
     /* For all we know the interrupt is active. */
-    isrRF_TX_Disable();
+    isr_3_Disable();
 
-    /* Set the ISR to point to the isrRF_TX Interrupt. */
-    isrRF_TX_SetVector(&isrRF_TX_Interrupt);
+    /* Set the ISR to point to the isr_3 Interrupt. */
+    isr_3_SetVector(&isr_3_Interrupt);
 
     /* Set the priority. */
-    isrRF_TX_SetPriority((uint8)isrRF_TX_INTC_PRIOR_NUMBER);
+    isr_3_SetPriority((uint8)isr_3_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isrRF_TX_Enable();
+    isr_3_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_StartEx
+* Function Name: isr_3_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -101,24 +101,24 @@ void isrRF_TX_Start(void)
 *   None
 *
 *******************************************************************************/
-void isrRF_TX_StartEx(cyisraddress address)
+void isr_3_StartEx(cyisraddress address)
 {
     /* For all we know the interrupt is active. */
-    isrRF_TX_Disable();
+    isr_3_Disable();
 
-    /* Set the ISR to point to the isrRF_TX Interrupt. */
-    isrRF_TX_SetVector(address);
+    /* Set the ISR to point to the isr_3 Interrupt. */
+    isr_3_SetVector(address);
 
     /* Set the priority. */
-    isrRF_TX_SetPriority((uint8)isrRF_TX_INTC_PRIOR_NUMBER);
+    isr_3_SetPriority((uint8)isr_3_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isrRF_TX_Enable();
+    isr_3_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_Stop
+* Function Name: isr_3_Stop
 ********************************************************************************
 *
 * Summary:
@@ -131,22 +131,22 @@ void isrRF_TX_StartEx(cyisraddress address)
 *   None
 *
 *******************************************************************************/
-void isrRF_TX_Stop(void)
+void isr_3_Stop(void)
 {
     /* Disable this interrupt. */
-    isrRF_TX_Disable();
+    isr_3_Disable();
 
     /* Set the ISR to point to the passive one. */
-    isrRF_TX_SetVector(&IntDefaultHandler);
+    isr_3_SetVector(&IntDefaultHandler);
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_Interrupt
+* Function Name: isr_3_Interrupt
 ********************************************************************************
 *
 * Summary:
-*   The default Interrupt Service Routine for isrRF_TX.
+*   The default Interrupt Service Routine for isr_3.
 *
 *   Add custom code between the coments to keep the next version of this file
 *   from over writting your code.
@@ -157,27 +157,27 @@ void isrRF_TX_Stop(void)
 *   None
 *
 *******************************************************************************/
-CY_ISR(isrRF_TX_Interrupt)
+CY_ISR(isr_3_Interrupt)
 {
-    #ifdef isrRF_TX_INTERRUPT_INTERRUPT_CALLBACK
-        isrRF_TX_Interrupt_InterruptCallback();
-    #endif /* isrRF_TX_INTERRUPT_INTERRUPT_CALLBACK */ 
+    #ifdef isr_3_INTERRUPT_INTERRUPT_CALLBACK
+        isr_3_Interrupt_InterruptCallback();
+    #endif /* isr_3_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START isrRF_TX_Interrupt` */
+    /* `#START isr_3_Interrupt` */
 
     /* `#END` */
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_SetVector
+* Function Name: isr_3_SetVector
 ********************************************************************************
 *
 * Summary:
-*   Change the ISR vector for the Interrupt. Note calling isrRF_TX_Start
+*   Change the ISR vector for the Interrupt. Note calling isr_3_Start
 *   will override any effect this method would have had. To set the vector 
-*   before the component has been started use isrRF_TX_StartEx instead.
+*   before the component has been started use isr_3_StartEx instead.
 * 
 *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
 *   used to provide consistent definition across compilers:
@@ -197,18 +197,18 @@ CY_ISR(isrRF_TX_Interrupt)
 *   None
 *
 *******************************************************************************/
-void isrRF_TX_SetVector(cyisraddress address)
+void isr_3_SetVector(cyisraddress address)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    ramVectorTable[CYINT_IRQ_BASE + (uint32)isrRF_TX__INTC_NUMBER] = address;
+    ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_3__INTC_NUMBER] = address;
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_GetVector
+* Function Name: isr_3_GetVector
 ********************************************************************************
 *
 * Summary:
@@ -221,26 +221,26 @@ void isrRF_TX_SetVector(cyisraddress address)
 *   Address of the ISR in the interrupt vector table.
 *
 *******************************************************************************/
-cyisraddress isrRF_TX_GetVector(void)
+cyisraddress isr_3_GetVector(void)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    return ramVectorTable[CYINT_IRQ_BASE + (uint32)isrRF_TX__INTC_NUMBER];
+    return ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_3__INTC_NUMBER];
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_SetPriority
+* Function Name: isr_3_SetPriority
 ********************************************************************************
 *
 * Summary:
 *   Sets the Priority of the Interrupt. 
 *
-*   Note calling isrRF_TX_Start or isrRF_TX_StartEx will 
+*   Note calling isr_3_Start or isr_3_StartEx will 
 *   override any effect this API would have had. This API should only be called
-*   after isrRF_TX_Start or isrRF_TX_StartEx has been called. 
+*   after isr_3_Start or isr_3_StartEx has been called. 
 *   To set the initial priority for the component, use the Design-Wide Resources
 *   Interrupt Editor.
 *
@@ -255,14 +255,14 @@ cyisraddress isrRF_TX_GetVector(void)
 *   None
 *
 *******************************************************************************/
-void isrRF_TX_SetPriority(uint8 priority)
+void isr_3_SetPriority(uint8 priority)
 {
-    *isrRF_TX_INTC_PRIOR = priority << 5;
+    *isr_3_INTC_PRIOR = priority << 5;
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_GetPriority
+* Function Name: isr_3_GetPriority
 ********************************************************************************
 *
 * Summary:
@@ -277,19 +277,19 @@ void isrRF_TX_SetPriority(uint8 priority)
 *    PSoC 4: Priority is from 0 to 3.
 *
 *******************************************************************************/
-uint8 isrRF_TX_GetPriority(void)
+uint8 isr_3_GetPriority(void)
 {
     uint8 priority;
 
 
-    priority = *isrRF_TX_INTC_PRIOR >> 5;
+    priority = *isr_3_INTC_PRIOR >> 5;
 
     return priority;
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_Enable
+* Function Name: isr_3_Enable
 ********************************************************************************
 *
 * Summary:
@@ -304,15 +304,15 @@ uint8 isrRF_TX_GetPriority(void)
 *   None
 *
 *******************************************************************************/
-void isrRF_TX_Enable(void)
+void isr_3_Enable(void)
 {
     /* Enable the general interrupt. */
-    *isrRF_TX_INTC_SET_EN = isrRF_TX__INTC_MASK;
+    *isr_3_INTC_SET_EN = isr_3__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_GetState
+* Function Name: isr_3_GetState
 ********************************************************************************
 *
 * Summary:
@@ -325,15 +325,15 @@ void isrRF_TX_Enable(void)
 *   1 if enabled, 0 if disabled.
 *
 *******************************************************************************/
-uint8 isrRF_TX_GetState(void)
+uint8 isr_3_GetState(void)
 {
     /* Get the state of the general interrupt. */
-    return ((*isrRF_TX_INTC_SET_EN & (uint32)isrRF_TX__INTC_MASK) != 0u) ? 1u:0u;
+    return ((*isr_3_INTC_SET_EN & (uint32)isr_3__INTC_MASK) != 0u) ? 1u:0u;
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_Disable
+* Function Name: isr_3_Disable
 ********************************************************************************
 *
 * Summary:
@@ -346,15 +346,15 @@ uint8 isrRF_TX_GetState(void)
 *   None
 *
 *******************************************************************************/
-void isrRF_TX_Disable(void)
+void isr_3_Disable(void)
 {
     /* Disable the general interrupt. */
-    *isrRF_TX_INTC_CLR_EN = isrRF_TX__INTC_MASK;
+    *isr_3_INTC_CLR_EN = isr_3__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_SetPending
+* Function Name: isr_3_SetPending
 ********************************************************************************
 *
 * Summary:
@@ -373,14 +373,14 @@ void isrRF_TX_Disable(void)
 *   interrupts).
 *
 *******************************************************************************/
-void isrRF_TX_SetPending(void)
+void isr_3_SetPending(void)
 {
-    *isrRF_TX_INTC_SET_PD = isrRF_TX__INTC_MASK;
+    *isr_3_INTC_SET_PD = isr_3__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isrRF_TX_ClearPending
+* Function Name: isr_3_ClearPending
 ********************************************************************************
 *
 * Summary:
@@ -398,9 +398,9 @@ void isrRF_TX_SetPending(void)
 *   None
 *
 *******************************************************************************/
-void isrRF_TX_ClearPending(void)
+void isr_3_ClearPending(void)
 {
-    *isrRF_TX_INTC_CLR_PD = isrRF_TX__INTC_MASK;
+    *isr_3_INTC_CLR_PD = isr_3__INTC_MASK;
 }
 
 #endif /* End check for removal by optimization */

@@ -1,5 +1,5 @@
 -- Project:   H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj
--- Generated: 08/04/2023 13:17:49
+-- Generated: 08/09/2023 12:08:32
 -- PSoC Creator  4.2
 
 ENTITY CS301_Class IS
@@ -790,7 +790,7 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class IS
     ATTRIBUTE Location OF \ADC:FinalBuf\ : LABEL IS "[DrqContainer=(0)][DrqId=(0)]";
     ATTRIBUTE Location OF \ADC:IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(0)]";
     ATTRIBUTE Location OF \ADC:Sync:genblk1[0]:INST\ : LABEL IS "U(2,2)";
-    ATTRIBUTE Location OF isr_TS : LABEL IS "[IntrContainer=(0)][IntrId=(6)]";
+    ATTRIBUTE Location OF isr_TS : LABEL IS "[IntrContainer=(0)][IntrId=(7)]";
     ATTRIBUTE lib_model OF \Timer_TS:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\ : LABEL IS "controlcell4";
     ATTRIBUTE Location OF \Timer_TS:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\ : LABEL IS "U(0,2)";
     ATTRIBUTE lib_model OF \Timer_TS:TimerUDB:rstSts:stsreg\ : LABEL IS "statusicell5";
@@ -810,7 +810,7 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class IS
     ATTRIBUTE Location OF \USBUART:bus_reset\ : LABEL IS "[IntrContainer=(0)][IntrId=(23)]";
     ATTRIBUTE Location OF \USBUART:arb_int\ : LABEL IS "[IntrContainer=(0)][IntrId=(22)]";
     ATTRIBUTE Location OF \USBUART:sof_int\ : LABEL IS "[IntrContainer=(0)][IntrId=(21)]";
-    ATTRIBUTE Location OF isr_eoc : LABEL IS "[IntrContainer=(0)][IntrId=(7)]";
+    ATTRIBUTE Location OF isr_2 : LABEL IS "[IntrContainer=(0)][IntrId=(5)]";
     ATTRIBUTE lib_model OF \CONTROL:Sync:ctrl_reg\ : LABEL IS "controlcell5";
     ATTRIBUTE Location OF \CONTROL:Sync:ctrl_reg\ : LABEL IS "U(2,0)";
     ATTRIBUTE lib_model OF \UART:BUART:sTX:TxShifter:u0\ : LABEL IS "datapathcell8";
@@ -826,8 +826,8 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class IS
     ATTRIBUTE Location OF \UART:BUART:sRX:RxSts\ : LABEL IS "U(1,1)";
     ATTRIBUTE Location OF \PWM_1:PWMHW\ : LABEL IS "F(Timer,0)";
     ATTRIBUTE Location OF \PWM_2:PWMHW\ : LABEL IS "F(Timer,1)";
-    ATTRIBUTE Location OF isrRF_TX : LABEL IS "[IntrContainer=(0)][IntrId=(5)]";
-    ATTRIBUTE Location OF isrRF_RX : LABEL IS "[IntrContainer=(0)][IntrId=(4)]";
+    ATTRIBUTE Location OF isr_1 : LABEL IS "[IntrContainer=(0)][IntrId=(4)]";
+    ATTRIBUTE Location OF isr_3 : LABEL IS "[IntrContainer=(0)][IntrId=(6)]";
     ATTRIBUTE lib_model OF \RF_BT_SELECT:Sync:ctrl_reg\ : LABEL IS "controlcell6";
     ATTRIBUTE Location OF \RF_BT_SELECT:Sync:ctrl_reg\ : LABEL IS "U(1,4)";
     ATTRIBUTE lib_model OF \QuadDec_M1:Net_1251\ : LABEL IS "macrocell42";
@@ -4862,7 +4862,7 @@ BEGIN
 
     isr_TS:interrupt
         GENERIC MAP(
-            int_type => "00",
+            int_type => "10",
             is_nmi => 0)
         PORT MAP(
             interrupt => Net_1619,
@@ -5151,12 +5151,12 @@ BEGIN
             interrupt => Net_4334,
             clock => ClockBlock_BUS_CLK);
 
-    isr_eoc:interrupt
+    isr_2:interrupt
         GENERIC MAP(
-            int_type => "00",
+            int_type => "10",
             is_nmi => 0)
         PORT MAP(
-            interrupt => Net_1497,
+            interrupt => Net_1898,
             clock => ClockBlock_BUS_CLK);
 
     \CONTROL:Sync:ctrl_reg\:controlcell
@@ -5377,7 +5377,7 @@ BEGIN
             cmp => Net_2460,
             irq => \PWM_2:Net_54\);
 
-    isrRF_TX:interrupt
+    isr_1:interrupt
         GENERIC MAP(
             int_type => "10",
             is_nmi => 0)
@@ -5385,12 +5385,12 @@ BEGIN
             interrupt => Net_3406,
             clock => ClockBlock_BUS_CLK);
 
-    isrRF_RX:interrupt
+    isr_3:interrupt
         GENERIC MAP(
-            int_type => "00",
+            int_type => "10",
             is_nmi => 0)
         PORT MAP(
-            interrupt => Net_1898,
+            interrupt => Net_1497,
             clock => ClockBlock_BUS_CLK);
 
     \RF_BT_SELECT:Sync:ctrl_reg\:controlcell

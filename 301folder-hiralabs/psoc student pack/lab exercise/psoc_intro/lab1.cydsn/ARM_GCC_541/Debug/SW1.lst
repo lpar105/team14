@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
   28:Generated_Source\PSoC5/SW1.c **** *
   29:Generated_Source\PSoC5/SW1.c **** * \brief Writes the value to the physical port (data output register), masking
   30:Generated_Source\PSoC5/SW1.c **** *  and shifting the bits appropriately. 
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 2
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 2
 
 
   31:Generated_Source\PSoC5/SW1.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
   52              		.size	SW1_Write, .-SW1_Write
   53              		.section	.text.SW1_SetDriveMode,"ax",%progbits
   54              		.align	2
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 3
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 3
 
 
   55              		.global	SW1_SetDriveMode
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
   77 0012 00BF     		.align	2
   78              	.L5:
   79 0014 12500040 		.word	1073762322
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 4
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 4
 
 
   80              		.cfi_endproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
  110              		.align	2
  111              		.global	SW1_ReadDataReg
  112              		.thumb
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 5
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 5
 
 
  113              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
  139              	.Ldebug_info0:
  140 0000 1B010000 		.4byte	0x11b
  141 0004 0400     		.2byte	0x4
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 6
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 6
 
 
  142 0006 00000000 		.4byte	.Ldebug_abbrev0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
  196 0073 2C000000 		.4byte	0x2c
  197 0077 02       		.uleb128 0x2
  198 0078 04       		.byte	0x4
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 7
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 7
 
 
  199 0079 04       		.byte	0x4
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
  253 00ef 21000000 		.4byte	.LLST1
  254 00f3 00       		.byte	0
  255 00f4 09       		.uleb128 0x9
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 8
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 8
 
 
  256 00f5 3B010000 		.4byte	.LASF18
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
  310 0022 0B       		.uleb128 0xb
  311 0023 3E       		.uleb128 0x3e
  312 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 9
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 9
 
 
  313 0025 03       		.uleb128 0x3
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
  367 005c 3A       		.uleb128 0x3a
  368 005d 0B       		.uleb128 0xb
  369 005e 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 10
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 10
 
 
  370 005f 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
  424 000a 50       		.byte	0x50
  425 000b 0A000000 		.4byte	.LVL2
  426 000f 18000000 		.4byte	.LFE0
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 11
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 11
 
 
  427 0013 0400     		.2byte	0x4
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
  480      02004000 
  480      00000201 
  480      FB0E0D00 
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 12
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 12
 
 
  480      01010101 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
  502 00fa 5357315F 		.ascii	"SW1_SetDriveMode\000"
  502      53657444 
  502      72697665 
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 13
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 13
 
 
  502      4D6F6465 
@@ -777,17 +777,19 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 1
  528      44617461 
  528      52656700 
  529              	.LASF22:
- 530 0196 483A5C44 		.ascii	"H:\\Documents\\301folder\\psoc student pack\\lab ex"
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cc3zD7a7.s 			page 14
+ 530 0196 483A5C44 		.ascii	"H:\\Documents\\GitHub\\team14\\301folder-hiralabs\\"
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\cccvm5m5.s 			page 14
 
 
  530      6F63756D 
  530      656E7473 
- 530      5C333031 
- 530      666F6C64 
- 531 01c5 65726369 		.ascii	"ercise\\psoc_intro\\lab1.cydsn\000"
- 531      73655C70 
- 531      736F635F 
- 531      696E7472 
- 531      6F5C6C61 
- 532              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 530      5C476974 
+ 530      4875625C 
+ 531 01c4 70736F63 		.ascii	"psoc student pack\\lab exercise\\psoc_intro\\lab1.c"
+ 531      20737475 
+ 531      64656E74 
+ 531      20706163 
+ 531      6B5C6C61 
+ 532 01f4 7964736E 		.ascii	"ydsn\000"
+ 532      00
+ 533              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,5 +1,5 @@
 -- Project:   CS301_Class
--- Generated: 08/04/2023 13:16:47
+-- Generated: 08/09/2023 12:07:35
 -- PSoC Creator  4.2
 
 ENTITY CS301_Class IS
@@ -4515,7 +4515,7 @@ BEGIN
 
     isr_TS:interrupt
         GENERIC MAP(
-            int_type => "00",
+            int_type => "10",
             is_nmi => 0)
         PORT MAP(
             interrupt => Net_1619,
@@ -4804,12 +4804,12 @@ BEGIN
             interrupt => Net_4334,
             clock => ClockBlock_BUS_CLK);
 
-    isr_eoc:interrupt
+    isr_2:interrupt
         GENERIC MAP(
-            int_type => "00",
+            int_type => "10",
             is_nmi => 0)
         PORT MAP(
-            interrupt => Net_1497,
+            interrupt => Net_1898,
             clock => ClockBlock_BUS_CLK);
 
     \CONTROL:Sync:ctrl_reg\:controlcell
@@ -5030,7 +5030,7 @@ BEGIN
             cmp => Net_2460,
             irq => \PWM_2:Net_54\);
 
-    isrRF_TX:interrupt
+    isr_1:interrupt
         GENERIC MAP(
             int_type => "10",
             is_nmi => 0)
@@ -5038,12 +5038,12 @@ BEGIN
             interrupt => Net_3406,
             clock => ClockBlock_BUS_CLK);
 
-    isrRF_RX:interrupt
+    isr_3:interrupt
         GENERIC MAP(
-            int_type => "00",
+            int_type => "10",
             is_nmi => 0)
         PORT MAP(
-            interrupt => Net_1898,
+            interrupt => Net_1497,
             clock => ClockBlock_BUS_CLK);
 
     \RF_BT_SELECT:Sync:ctrl_reg\:controlcell

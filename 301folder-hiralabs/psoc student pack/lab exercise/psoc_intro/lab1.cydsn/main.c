@@ -23,7 +23,7 @@ int main()
 
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     
-    Timer_1_Start
+    LED_Write(1);
   
 
     for(;;)
