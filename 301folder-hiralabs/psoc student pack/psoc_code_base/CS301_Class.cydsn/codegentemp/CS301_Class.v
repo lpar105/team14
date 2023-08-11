@@ -1,6 +1,6 @@
 // ======================================================================
 // CS301_Class.v generated from TopDesign.cysch
-// 08/09/2023 at 12:06
+// 08/11/2023 at 14:23
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -3839,13 +3839,6 @@ module top ;
 
 	assign tmpOE__M1_D1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		isr_2
-		 (.int_signal(Net_1898));
-
-
     CyControlReg_v1_80 CONTROL (
         .control_1(Net_3236),
         .control_2(Net_3229),
@@ -4465,20 +4458,6 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__Rx_2_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
-
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		isr_1
-		 (.int_signal(Net_3406));
-
-
-
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		isr_3
-		 (.int_signal(Net_1497));
-
 
     // -- Mux start --
     if (1)

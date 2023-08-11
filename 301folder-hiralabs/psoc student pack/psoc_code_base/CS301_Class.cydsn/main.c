@@ -53,7 +53,7 @@ int main() {
 
  // left wheel
   PWM_1_Start();
-  PWM_1_WriteCompare(255); // the fastest the motor could go, can mess around with it 
+  PWM_1_WriteCompare(200); // slowed down this motor to check difference
   PWM_1_WritePeriod(255);
 
 // right wheel
