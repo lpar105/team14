@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M1\QuadDec_M1.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M2">
 <ExpandedNodeIds>
 <v>CS301_Class-000</v>
 <v>CS301_Class-000\CS301_Class</v>
@@ -37,9 +37,35 @@
 <v>CS301_Class-000\CS301_Class\commands</v>
 <v>CS301_Class-000\CS301_Class\Generated_Source</v>
 <v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M1</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>CS301_Class-000</v>
+<v>CS301_Class-000\CS301_Class</v>
+<v>CS301_Class-000\CS301_Class\TopDesign</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Pins</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Analog</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Clocks</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Interrupts</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\DMA</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\System</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Directives</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Flash Security</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\EEPROM</v>
+<v>CS301_Class-000\CS301_Class\Header Files</v>
+<v>CS301_Class-000\CS301_Class\Header Files\defines.h</v>
+<v>CS301_Class-000\CS301_Class\Header Files\vars.h</v>
+<v>CS301_Class-000\CS301_Class\Source Files</v>
+<v>CS301_Class-000\CS301_Class\Source Files\main.c</v>
+<v>CS301_Class-000\CS301_Class\Source Files\tacho.c</v>
+<v>CS301_Class-000\CS301_Class\commands</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\A0</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\A1</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\A2</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\A3</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\A4</v>
 <v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\A5</v>
 <v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\A6</v>
 <v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\A7</v>
@@ -61,33 +87,6 @@
 <v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\isr_TS</v>
 <v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\LED</v>
 <v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M1_D1</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M1_IN1</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M1_IN2</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M1_QA</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M1_QB</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M2_D1</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M2_IN1</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M2_IN2</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M2_QA</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M2_QB</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\PWM_1</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\PWM_2</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M1</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M1\QuadDec_M1.c</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M1\QuadDec_M1.h</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M1\QuadDec_M1_PM.c</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M1_Cnt16</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M2</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M2_Cnt16</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\RF_BT_SELECT</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\Timer_TS</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\UART</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\UART_IntClock</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\USBUART</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\USBUART_Dm</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\USBUART_Dp</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cycodeshareexport.ld</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cycodeshareimport.ld</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -337,6 +336,7 @@
 <OpenDocs>
 <name v=".\main.c" />
 <name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\Generated_Source\PSoC5\QuadDec_M1.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -344,7 +344,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1443, 715" SelectedTabbedMdiWindow="a87caa35-1fa3-4347-8c4d-b65714299526"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="ecf8749b-fc32-48dc-8c0b-dc46eb3062a1" /><DocumentWindow Key="H:\Desktop\301 Team 14\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\main.c" Guid="6e38ab94-6b78-459b-b9ac-ae3856a65557" /><DocumentWindow Key="H:\Desktop\301 Team 14\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\TopDesign\TopDesign.cysch" Guid="a87caa35-1fa3-4347-8c4d-b65714299526" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1382, 711" SelectedTabbedMdiWindow="6e38ab94-6b78-459b-b9ac-ae3856a65557"><DocumentWindow Key="H:\Desktop\301 Team 14\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\main.c" Guid="6e38ab94-6b78-459b-b9ac-ae3856a65557" /><DocumentWindow Key="H:\Desktop\301 Team 14\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\TopDesign\TopDesign.cysch" Guid="a87caa35-1fa3-4347-8c4d-b65714299526" /><DocumentWindow Key="H:\Desktop\301 Team 14\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\Generated_Source\PSoC5\QuadDec_M1.c" Guid="30fe0d38-b61a-4370-9858-b64a48db1328" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="ecf8749b-fc32-48dc-8c0b-dc46eb3062a1" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

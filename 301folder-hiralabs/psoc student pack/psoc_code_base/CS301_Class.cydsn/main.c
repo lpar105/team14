@@ -54,12 +54,12 @@ int main() {
  // left wheel
   PWM_1_Start();
   PWM_1_WriteCompare(200); // slowed down this motor to check difference
-  PWM_1_WritePeriod(255);
+  PWM_1_WritePeriod(200);
 
 // right wheel
   PWM_2_Start();
-  PWM_2_WriteCompare(255); // the fastest the motor could go, can mess around with it 
-  PWM_2_WritePeriod(255);
+  PWM_2_WriteCompare(200); // 255 is the fastest the motor could go, can mess around with it 
+  PWM_2_WritePeriod(200);
 
   isr_TS_StartEx(MyISR); // starting interrupt (linked to timer)(1 second period)
   Timer_TS_Start(); // starting  timer
@@ -117,6 +117,9 @@ int main() {
         usbPutString(":");
         usbPutString(finalSpeedR);
         usbPutString("\r\n");
+        usbPutString("\r\n");
+        usbPutString("Distance travelled");
+        
         
         QuadDec_M1_SetCounter(0); // set quad counter to 0 to avoid overflow
         QuadDec_M2_SetCounter(0); // set quad counter to 0 to avoid overflow
