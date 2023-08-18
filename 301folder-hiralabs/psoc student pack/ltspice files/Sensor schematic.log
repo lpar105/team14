@@ -1,0 +1,4 @@
+Circuit: * H:\Desktop\301 Team 14\team14\301folder-hiralabs\psoc student pack\ltspice files\Sensor schematic.asc
+
+Fatal Error: Unknown subcircuit called in:
+   xu1 n003 n001 vout opamp aol=100k gbw=10meg

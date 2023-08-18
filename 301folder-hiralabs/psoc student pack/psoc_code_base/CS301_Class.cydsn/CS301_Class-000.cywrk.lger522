@@ -334,7 +334,6 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\main.c" />
 <name v=".\TopDesign\TopDesign.cysch" />
 <name v=".\Generated_Source\PSoC5\QuadDec_M1.c" />
 </OpenDocs>
@@ -344,7 +343,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1382, 711" SelectedTabbedMdiWindow="6e38ab94-6b78-459b-b9ac-ae3856a65557"><DocumentWindow Key="H:\Desktop\301 Team 14\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\main.c" Guid="6e38ab94-6b78-459b-b9ac-ae3856a65557" /><DocumentWindow Key="H:\Desktop\301 Team 14\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\TopDesign\TopDesign.cysch" Guid="a87caa35-1fa3-4347-8c4d-b65714299526" /><DocumentWindow Key="H:\Desktop\301 Team 14\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\Generated_Source\PSoC5\QuadDec_M1.c" Guid="30fe0d38-b61a-4370-9858-b64a48db1328" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="ecf8749b-fc32-48dc-8c0b-dc46eb3062a1" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1382, 711" SelectedTabbedMdiWindow="a87caa35-1fa3-4347-8c4d-b65714299526"><DocumentWindow Key="H:\Desktop\301 Team 14\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\TopDesign\TopDesign.cysch" Guid="a87caa35-1fa3-4347-8c4d-b65714299526" /><DocumentWindow Key="H:\Desktop\301 Team 14\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\Generated_Source\PSoC5\QuadDec_M1.c" Guid="30fe0d38-b61a-4370-9858-b64a48db1328" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="ecf8749b-fc32-48dc-8c0b-dc46eb3062a1" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
