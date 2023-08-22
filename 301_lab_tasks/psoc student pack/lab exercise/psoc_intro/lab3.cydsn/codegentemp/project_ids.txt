@@ -1,10 +1,10 @@
-H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\hardwaretask1.cydsn\hardwaretask1.cyprj|ba8c4b3d-2467-4899-8530-c04fa3fd4b28
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|04dcb2ea-e907-4043-b816-4f70a6b3d67d
-C:\Users\hsal869\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|19b0dea2-a9ca-4c97-befa-d138ba76003d
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|a7d9dd6e-4faf-49ab-b297-44c4b2c8d63d
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|33de5ec1-e3f7-48cd-b7df-9d45fe122091
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|295b46f6-1cae-4e81-aed4-5e32636ad799
-H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj|3fa11fe8-f25f-4e5e-a21f-3bb05c15ace4
-H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab3.cydsn\lab3.cyprj|5cf919d1-9502-4bc3-9654-e9850108412c
-H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab2.cydsn\lab2.cyprj|ade6600d-5c3c-41c1-81a7-a191238f5769
-H:\Documents\GitHub\team14\301folder-hiralabs\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\lab1.cyprj|42c0ba45-9615-49fd-b19f-ed474974cff4
+H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\lab1.cyprj|810af54d-dc06-4c96-ac54-d4006f067ee8
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|fadae00b-81c7-4ee6-b3de-b68540492038
+C:\Users\hsal869\OneDrive - The University of Auckland\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|4921fb7e-0748-43f8-b903-25dc4e712a7f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|40302b41-429c-4126-bc29-04b48b2cd527
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|eb751b61-4580-46c2-891e-086589e0bb53
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|be3bcbf2-eb3c-4c65-9a16-da98a8d4356f
+H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\lab exercise\psoc_intro\lab2.cydsn\lab2.cyprj|3497b89b-cc28-4aaf-bc26-877bc7bbfe84
+H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\lab exercise\psoc_intro\lab3.cydsn\lab3.cyprj|697966c5-ef53-448c-bc70-bdb9994d210d
+H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj|7b63a82c-fc2c-4005-a7fc-286f34b6106a
+H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\lab exercise\psoc_intro\hardwaretask1.cydsn\hardwaretask1.cyprj|5d4cb4b5-2fdb-4f6e-af8b-2bfff0b51d44
