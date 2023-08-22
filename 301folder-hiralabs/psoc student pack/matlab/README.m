@@ -1,12 +1,12 @@
 %% Function descriptions
 %% To view a map, given a map file
 
-viewmap('map_1.txt',0); % shows walls
-viewmap('map_1.txt',1); % shows track
+viewmap('map_8.txt',0); % shows walls
+viewmap('map_8.txt',1); % shows track
 
 %or else
 
-[m]=map_convert('map_1.txt');
+[m]=map_convert('map_8.txt');
 plotmap(m);
 %Here   'm' is the map file returned as a matrix
 

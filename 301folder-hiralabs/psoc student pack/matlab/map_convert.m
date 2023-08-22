@@ -1,6 +1,5 @@
 function [map] = map_convert( mapfile )
 
-
 %% Read map file and construct a matrix
 % '1' is where robot cannot go, '0' is where it can
 t1=textread(mapfile,'%s');

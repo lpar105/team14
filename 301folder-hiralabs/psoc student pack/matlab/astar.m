@@ -9,7 +9,8 @@
 % H cost = distance from end node
 % F cost = GCost + HCost
 % THIS IS A* NOT DFS!!!
-function [retmap,retvisited,retsteps] = dfs(mapfile,start,target)
+
+function [retmap,retvisited,retsteps] = astar(mapfile,start,target)
 viewmap(mapfile, 0); % shows walls
 [m]=map_convert(mapfile); % get map as matrix
 msize = size(m);

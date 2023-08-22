@@ -4,7 +4,7 @@ function viewmap(mapfile, mode)
 % if mode ~= 0 show track
 
 if nargin == 1,
-   mode = 0; 
+   mode = 1; 
 end
 
 map=map_convert(mapfile);
