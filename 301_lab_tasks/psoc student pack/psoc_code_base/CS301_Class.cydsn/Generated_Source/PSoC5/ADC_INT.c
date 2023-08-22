@@ -1,15 +1,15 @@
 /*******************************************************************************
 * File Name: ADC_INT.c
-* Version 2.10
+* Version 3.10
 *
 *  Description:
-*    This file contains the code that operates during the interrupt
+*    This file contains the code that operates during the ADC_SAR interrupt
 *    service routine.
 *
 *   Note:
 *
 ********************************************************************************
-* Copyright 2012-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -24,7 +24,7 @@
 * - add user inlcude files, prototypes and variables between the following
 *   #START and #END tags
 ******************************************************************************/
-/* `#START SEQ_ADC_SYS_VAR`  */
+/* `#START ADC_SYS_VAR`  */
 
 /* `#END`  */
 
@@ -52,14 +52,14 @@
     {
         #ifdef ADC_ISR_INTERRUPT_CALLBACK
             ADC_ISR_InterruptCallback();
-        #endif /* ADC_ISR_INTERRUPT_CALLBACK */
-        
+        #endif /* ADC_ISR_INTERRUPT_CALLBACK */          
+
         
         /************************************************************************
         *  Custom Code
         *  - add user ISR code between the following #START and #END tags
         *************************************************************************/
-          /* `#START MAIN_SEQ_ADC_ISR`  */
+          /* `#START MAIN_ADC_ISR`  */
 
           /* `#END`  */
     }

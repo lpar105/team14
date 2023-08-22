@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
   28:Generated_Source\PSoC5/isr_TC.c **** ********************************************************************************/
   29:Generated_Source\PSoC5/isr_TC.c **** /* `#START isr_TC_intc` */
   30:Generated_Source\PSoC5/isr_TC.c **** #include <project.h>
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 2
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 2
 
 
   31:Generated_Source\PSoC5/isr_TC.c **** /* `#END` */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
   85:Generated_Source\PSoC5/isr_TC.c **** *  the interrupt to the interrupt controller.
   86:Generated_Source\PSoC5/isr_TC.c **** *  
   87:Generated_Source\PSoC5/isr_TC.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 3
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 3
 
 
   88:Generated_Source\PSoC5/isr_TC.c **** *  used to provide consistent definition across compilers:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  142:Generated_Source\PSoC5/isr_TC.c **** 
  143:Generated_Source\PSoC5/isr_TC.c **** 
  144:Generated_Source\PSoC5/isr_TC.c **** /*******************************************************************************
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 4
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 4
 
 
  145:Generated_Source\PSoC5/isr_TC.c **** * Function Name: isr_TC_Interrupt
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  182:Generated_Source\PSoC5/isr_TC.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
  183:Generated_Source\PSoC5/isr_TC.c **** *   used to provide consistent definition across compilers:
  184:Generated_Source\PSoC5/isr_TC.c **** *
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 5
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 5
 
 
  185:Generated_Source\PSoC5/isr_TC.c **** *   Function definition example:
@@ -268,18 +268,18 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  203:Generated_Source\PSoC5/isr_TC.c **** 
  204:Generated_Source\PSoC5/isr_TC.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
   51              		.loc 1 204 0
-  52 0000 024B     		ldr	r3, .L3
+  52 0000 014B     		ldr	r3, .L3
   53 0002 1B68     		ldr	r3, [r3]
   54              	.LVL1:
  205:Generated_Source\PSoC5/isr_TC.c **** 
  206:Generated_Source\PSoC5/isr_TC.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_TC__INTC_NUMBER] = address;
   55              		.loc 1 206 0
-  56 0004 C3F88400 		str	r0, [r3, #132]
-  57 0008 7047     		bx	lr
+  56 0004 5864     		str	r0, [r3, #68]
+  57 0006 7047     		bx	lr
   58              	.L4:
-  59 000a 00BF     		.align	2
+  59              		.align	2
   60              	.L3:
-  61 000c 08ED00E0 		.word	-536810232
+  61 0008 08ED00E0 		.word	-536810232
   62              		.cfi_endproc
   63              	.LFE67:
   64              		.size	isr_TC_SetVector, .-isr_TC_SetVector
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  211:Generated_Source\PSoC5/isr_TC.c **** * Function Name: isr_TC_GetVector
  212:Generated_Source\PSoC5/isr_TC.c **** ********************************************************************************
  213:Generated_Source\PSoC5/isr_TC.c **** *
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 6
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 6
 
 
  214:Generated_Source\PSoC5/isr_TC.c **** * Summary:
@@ -322,19 +322,19 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  227:Generated_Source\PSoC5/isr_TC.c **** 
  228:Generated_Source\PSoC5/isr_TC.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
   78              		.loc 1 228 0
-  79 0000 024B     		ldr	r3, .L6
+  79 0000 014B     		ldr	r3, .L6
   80 0002 1B68     		ldr	r3, [r3]
   81              	.LVL2:
  229:Generated_Source\PSoC5/isr_TC.c **** 
  230:Generated_Source\PSoC5/isr_TC.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_TC__INTC_NUMBER];
  231:Generated_Source\PSoC5/isr_TC.c **** }
   82              		.loc 1 231 0
-  83 0004 D3F88400 		ldr	r0, [r3, #132]
-  84 0008 7047     		bx	lr
+  83 0004 586C     		ldr	r0, [r3, #68]
+  84 0006 7047     		bx	lr
   85              	.L7:
-  86 000a 00BF     		.align	2
+  86              		.align	2
   87              	.L6:
-  88 000c 08ED00E0 		.word	-536810232
+  88 0008 08ED00E0 		.word	-536810232
   89              		.cfi_endproc
   90              	.LFE68:
   91              		.size	isr_TC_GetVector, .-isr_TC_GetVector
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  241:Generated_Source\PSoC5/isr_TC.c **** *   Note calling isr_TC_Start or isr_TC_StartEx will 
  242:Generated_Source\PSoC5/isr_TC.c **** *   override any effect this API would have had. This API should only be called
  243:Generated_Source\PSoC5/isr_TC.c **** *   after isr_TC_Start or isr_TC_StartEx has been called. 
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 7
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 7
 
 
  244:Generated_Source\PSoC5/isr_TC.c **** *   To set the initial priority for the component, use the Design-Wide Resources
@@ -394,7 +394,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  113              	.L10:
  114 000a 00BF     		.align	2
  115              	.L9:
- 116 000c 11E400E0 		.word	-536812527
+ 116 000c 01E400E0 		.word	-536812543
  117              		.cfi_endproc
  118              	.LFE69:
  119              		.size	isr_TC_SetPriority, .-isr_TC_SetPriority
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  270:Generated_Source\PSoC5/isr_TC.c **** *
  271:Generated_Source\PSoC5/isr_TC.c **** * Parameters:
  272:Generated_Source\PSoC5/isr_TC.c **** *   None
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 8
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 8
 
 
  273:Generated_Source\PSoC5/isr_TC.c **** *
@@ -453,7 +453,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  141              	.L13:
  142              		.align	2
  143              	.L12:
- 144 0008 11E400E0 		.word	-536812527
+ 144 0008 01E400E0 		.word	-536812543
  145              		.cfi_endproc
  146              	.LFE70:
  147              		.size	isr_TC_GetPriority, .-isr_TC_GetPriority
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  299:Generated_Source\PSoC5/isr_TC.c **** *
  300:Generated_Source\PSoC5/isr_TC.c **** * Parameters:
  301:Generated_Source\PSoC5/isr_TC.c **** *   None
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 9
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 9
 
 
  302:Generated_Source\PSoC5/isr_TC.c **** *
@@ -496,14 +496,14 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  309:Generated_Source\PSoC5/isr_TC.c ****     /* Enable the general interrupt. */
  310:Generated_Source\PSoC5/isr_TC.c ****     *isr_TC_INTC_SET_EN = isr_TC__INTC_MASK;
  161              		.loc 1 310 0
- 162 0000 4FF40032 		mov	r2, #131072
- 163 0004 014B     		ldr	r3, .L15
- 164 0006 1A60     		str	r2, [r3]
- 165 0008 7047     		bx	lr
+ 162 0000 0222     		movs	r2, #2
+ 163 0002 014B     		ldr	r3, .L15
+ 164 0004 1A60     		str	r2, [r3]
+ 165 0006 7047     		bx	lr
  166              	.L16:
- 167 000a 00BF     		.align	2
+ 167              		.align	2
  168              	.L15:
- 169 000c 00E100E0 		.word	-536813312
+ 169 0008 00E100E0 		.word	-536813312
  170              		.cfi_endproc
  171              	.LFE71:
  172              		.size	isr_TC_Enable, .-isr_TC_Enable
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  182              		.cfi_startproc
  183              		@ args = 0, pretend = 0, frame = 0
  184              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 10
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 10
 
 
  185              		@ link register save eliminated.
@@ -547,7 +547,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  186              		.loc 1 331 0
  187 0000 044B     		ldr	r3, .L20
  188 0002 1B68     		ldr	r3, [r3]
- 189 0004 13F4003F 		tst	r3, #131072
+ 189 0004 13F0020F 		tst	r3, #2
  190 0008 01D0     		beq	.L19
  191 000a 0120     		movs	r0, #1
  192 000c 7047     		bx	lr
@@ -597,17 +597,17 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  351:Generated_Source\PSoC5/isr_TC.c ****     /* Disable the general interrupt. */
  352:Generated_Source\PSoC5/isr_TC.c ****     *isr_TC_INTC_CLR_EN = isr_TC__INTC_MASK;
  217              		.loc 1 352 0
- 218 0000 4FF40032 		mov	r2, #131072
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 11
+ 218 0000 0222     		movs	r2, #2
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 11
 
 
- 219 0004 014B     		ldr	r3, .L23
- 220 0006 1A60     		str	r2, [r3]
- 221 0008 7047     		bx	lr
+ 219 0002 014B     		ldr	r3, .L23
+ 220 0004 1A60     		str	r2, [r3]
+ 221 0006 7047     		bx	lr
  222              	.L24:
- 223 000a 00BF     		.align	2
+ 223              		.align	2
  224              	.L23:
- 225 000c 80E100E0 		.word	-536813184
+ 225 0008 80E100E0 		.word	-536813184
  226              		.cfi_endproc
  227              	.LFE73:
  228              		.size	isr_TC_Disable, .-isr_TC_Disable
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  268              		.align	2
  269              		.global	isr_TC_StartEx
  270              		.thumb
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 12
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 12
 
 
  271              		.thumb_func
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  137:Generated_Source\PSoC5/isr_TC.c **** 
  319              		.loc 1 137 0
  320 0002 FFF7FEFF 		bl	isr_TC_Disable
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 13
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 13
 
 
  321              	.LVL16:
@@ -775,17 +775,17 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  346              		@ link register save eliminated.
  378:Generated_Source\PSoC5/isr_TC.c ****     *isr_TC_INTC_SET_PD = isr_TC__INTC_MASK;
  347              		.loc 1 378 0
- 348 0000 4FF40032 		mov	r2, #131072
- 349 0004 014B     		ldr	r3, .L36
- 350 0006 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 14
+ 348 0000 0222     		movs	r2, #2
+ 349 0002 014B     		ldr	r3, .L36
+ 350 0004 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 14
 
 
- 351 0008 7047     		bx	lr
+ 351 0006 7047     		bx	lr
  352              	.L37:
- 353 000a 00BF     		.align	2
+ 353              		.align	2
  354              	.L36:
- 355 000c 00E200E0 		.word	-536813056
+ 355 0008 00E200E0 		.word	-536813056
  356              		.cfi_endproc
  357              	.LFE74:
  358              		.size	isr_TC_SetPending, .-isr_TC_SetPending
@@ -828,17 +828,17 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  371              		@ link register save eliminated.
  403:Generated_Source\PSoC5/isr_TC.c ****     *isr_TC_INTC_CLR_PD = isr_TC__INTC_MASK;
  372              		.loc 1 403 0
- 373 0000 4FF40032 		mov	r2, #131072
- 374 0004 014B     		ldr	r3, .L39
- 375 0006 1A60     		str	r2, [r3]
- 376 0008 7047     		bx	lr
+ 373 0000 0222     		movs	r2, #2
+ 374 0002 014B     		ldr	r3, .L39
+ 375 0004 1A60     		str	r2, [r3]
+ 376 0006 7047     		bx	lr
  377              	.L40:
- 378 000a 00BF     		.align	2
+ 378              		.align	2
  379              	.L39:
- 380 000c 80E200E0 		.word	-536812928
+ 380 0008 80E200E0 		.word	-536812928
  381              		.cfi_endproc
  382              	.LFE75:
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 15
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 15
 
 
  383              		.size	isr_TC_ClearPending, .-isr_TC_ClearPending
@@ -855,10 +855,10 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  394 0006 00000000 		.4byte	.Ldebug_abbrev0
  395 000a 04       		.byte	0x4
  396 000b 01       		.uleb128 0x1
- 397 000c E3000000 		.4byte	.LASF36
+ 397 000c F5000000 		.4byte	.LASF36
  398 0010 0C       		.byte	0xc
- 399 0011 66020000 		.4byte	.LASF37
- 400 0015 32000000 		.4byte	.LASF38
+ 399 0011 78020000 		.4byte	.LASF37
+ 400 0015 89000000 		.4byte	.LASF38
  401 0019 00000000 		.4byte	.Ldebug_ranges0+0
  402 001d 00000000 		.4byte	0
  403 0021 00000000 		.4byte	.Ldebug_line0
@@ -869,88 +869,88 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  408 002c 03       		.uleb128 0x3
  409 002d 04       		.byte	0x4
  410 002e 07       		.byte	0x7
- 411 002f F4010000 		.4byte	.LASF0
+ 411 002f 06020000 		.4byte	.LASF0
  412 0033 03       		.uleb128 0x3
  413 0034 08       		.byte	0x8
  414 0035 05       		.byte	0x5
- 415 0036 58020000 		.4byte	.LASF1
+ 415 0036 6A020000 		.4byte	.LASF1
  416 003a 03       		.uleb128 0x3
  417 003b 08       		.byte	0x8
  418 003c 04       		.byte	0x4
- 419 003d C4020000 		.4byte	.LASF2
+ 419 003d D6020000 		.4byte	.LASF2
  420 0041 03       		.uleb128 0x3
  421 0042 01       		.byte	0x1
  422 0043 06       		.byte	0x6
- 423 0044 2D020000 		.4byte	.LASF3
+ 423 0044 3F020000 		.4byte	.LASF3
  424 0048 03       		.uleb128 0x3
  425 0049 01       		.byte	0x1
  426 004a 08       		.byte	0x8
- 427 004b D5000000 		.4byte	.LASF4
+ 427 004b E7000000 		.4byte	.LASF4
  428 004f 03       		.uleb128 0x3
  429 0050 02       		.byte	0x2
  430 0051 05       		.byte	0x5
- 431 0052 9A020000 		.4byte	.LASF5
+ 431 0052 AC020000 		.4byte	.LASF5
  432 0056 03       		.uleb128 0x3
  433 0057 02       		.byte	0x2
  434 0058 07       		.byte	0x7
- 435 0059 AB010000 		.4byte	.LASF6
+ 435 0059 BD010000 		.4byte	.LASF6
  436 005d 04       		.uleb128 0x4
  437 005e 19000000 		.4byte	.LASF12
  438 0062 02       		.byte	0x2
  439 0063 3F       		.byte	0x3f
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 16
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 16
 
 
  440 0064 68000000 		.4byte	0x68
  441 0068 03       		.uleb128 0x3
  442 0069 04       		.byte	0x4
  443 006a 05       		.byte	0x5
- 444 006b BB020000 		.4byte	.LASF7
+ 444 006b CD020000 		.4byte	.LASF7
  445 006f 03       		.uleb128 0x3
  446 0070 04       		.byte	0x4
  447 0071 07       		.byte	0x7
- 448 0072 99010000 		.4byte	.LASF8
+ 448 0072 AB010000 		.4byte	.LASF8
  449 0076 03       		.uleb128 0x3
  450 0077 08       		.byte	0x8
  451 0078 07       		.byte	0x7
- 452 0079 09020000 		.4byte	.LASF9
+ 452 0079 1B020000 		.4byte	.LASF9
  453 007d 03       		.uleb128 0x3
  454 007e 04       		.byte	0x4
  455 007f 07       		.byte	0x7
- 456 0080 4F020000 		.4byte	.LASF10
+ 456 0080 61020000 		.4byte	.LASF10
  457 0084 03       		.uleb128 0x3
  458 0085 01       		.byte	0x1
  459 0086 08       		.byte	0x8
- 460 0087 86020000 		.4byte	.LASF11
+ 460 0087 98020000 		.4byte	.LASF11
  461 008b 05       		.uleb128 0x5
  462 008c 04       		.byte	0x4
  463 008d 91000000 		.4byte	0x91
  464 0091 06       		.uleb128 0x6
  465 0092 04       		.uleb128 0x4
- 466 0093 47020000 		.4byte	.LASF13
+ 466 0093 59020000 		.4byte	.LASF13
  467 0097 03       		.byte	0x3
  468 0098 2C       		.byte	0x2c
  469 0099 5D000000 		.4byte	0x5d
  470 009d 07       		.uleb128 0x7
- 471 009e A4020000 		.4byte	.LASF14
+ 471 009e B6020000 		.4byte	.LASF14
  472 00a2 04       		.byte	0x4
  473 00a3 E701     		.2byte	0x1e7
  474 00a5 48000000 		.4byte	0x48
  475 00a9 07       		.uleb128 0x7
- 476 00aa ED010000 		.4byte	.LASF15
+ 476 00aa FF010000 		.4byte	.LASF15
  477 00ae 04       		.byte	0x4
  478 00af E901     		.2byte	0x1e9
  479 00b1 6F000000 		.4byte	0x6f
  480 00b5 03       		.uleb128 0x3
  481 00b6 04       		.byte	0x4
  482 00b7 04       		.byte	0x4
- 483 00b8 B0000000 		.4byte	.LASF16
+ 483 00b8 64000000 		.4byte	.LASF16
  484 00bc 03       		.uleb128 0x3
  485 00bd 08       		.byte	0x8
  486 00be 04       		.byte	0x4
- 487 00bf DD010000 		.4byte	.LASF17
+ 487 00bf EF010000 		.4byte	.LASF17
  488 00c3 07       		.uleb128 0x7
- 489 00c4 71010000 		.4byte	.LASF18
+ 489 00c4 83010000 		.4byte	.LASF18
  490 00c8 04       		.byte	0x4
  491 00c9 9102     		.2byte	0x291
  492 00cb CF000000 		.4byte	0xcf
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  494 00d0 9D000000 		.4byte	0x9d
  495 00d4 07       		.uleb128 0x7
  496 00d5 13000000 		.4byte	.LASF19
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 17
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 17
 
 
  497 00d9 04       		.byte	0x4
@@ -967,12 +967,12 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  500 00e0 08       		.uleb128 0x8
  501 00e1 A9000000 		.4byte	0xa9
  502 00e5 07       		.uleb128 0x7
- 503 00e6 20020000 		.4byte	.LASF20
+ 503 00e6 32020000 		.4byte	.LASF20
  504 00ea 04       		.byte	0x4
  505 00eb A302     		.2byte	0x2a3
  506 00ed 8B000000 		.4byte	0x8b
  507 00f1 09       		.uleb128 0x9
- 508 00f2 9F000000 		.4byte	.LASF28
+ 508 00f2 53000000 		.4byte	.LASF28
  509 00f6 01       		.byte	0x1
  510 00f7 A0       		.byte	0xa0
  511 00f8 00000000 		.4byte	.LFB66
@@ -980,23 +980,23 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  513 0100 01       		.uleb128 0x1
  514 0101 9C       		.byte	0x9c
  515 0102 0A       		.uleb128 0xa
- 516 0103 AA020000 		.4byte	.LASF22
+ 516 0103 BC020000 		.4byte	.LASF22
  517 0107 01       		.byte	0x1
  518 0108 C8       		.byte	0xc8
  519 0109 00000000 		.4byte	.LFB67
- 520 010d 10000000 		.4byte	.LFE67-.LFB67
+ 520 010d 0C000000 		.4byte	.LFE67-.LFB67
  521 0111 01       		.uleb128 0x1
  522 0112 9C       		.byte	0x9c
  523 0113 32010000 		.4byte	0x132
  524 0117 0B       		.uleb128 0xb
- 525 0118 01020000 		.4byte	.LASF24
+ 525 0118 13020000 		.4byte	.LASF24
  526 011c 01       		.byte	0x1
  527 011d C8       		.byte	0xc8
  528 011e E5000000 		.4byte	0xe5
  529 0122 01       		.uleb128 0x1
  530 0123 50       		.byte	0x50
  531 0124 0C       		.uleb128 0xc
- 532 0125 8B020000 		.4byte	.LASF21
+ 532 0125 9D020000 		.4byte	.LASF21
  533 0129 01       		.byte	0x1
  534 012a CA       		.byte	0xca
  535 012b 32010000 		.4byte	0x132
@@ -1007,18 +1007,18 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  540 0133 04       		.byte	0x4
  541 0134 E5000000 		.4byte	0xe5
  542 0138 0D       		.uleb128 0xd
- 543 0139 8E000000 		.4byte	.LASF26
+ 543 0139 42000000 		.4byte	.LASF26
  544 013d 01       		.byte	0x1
  545 013e E0       		.byte	0xe0
  546 013f E5000000 		.4byte	0xe5
  547 0143 00000000 		.4byte	.LFB68
- 548 0147 10000000 		.4byte	.LFE68-.LFB68
+ 548 0147 0C000000 		.4byte	.LFE68-.LFB68
  549 014b 01       		.uleb128 0x1
  550 014c 9C       		.byte	0x9c
  551 014d 5F010000 		.4byte	0x15f
  552 0151 0C       		.uleb128 0xc
- 553 0152 8B020000 		.4byte	.LASF21
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 18
+ 553 0152 9D020000 		.4byte	.LASF21
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 18
 
 
  554 0156 01       		.byte	0x1
@@ -1028,7 +1028,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  558 015d 53       		.byte	0x53
  559 015e 00       		.byte	0
  560 015f 0E       		.uleb128 0xe
- 561 0160 C2000000 		.4byte	.LASF23
+ 561 0160 76000000 		.4byte	.LASF23
  562 0164 01       		.byte	0x1
  563 0165 0201     		.2byte	0x102
  564 0167 00000000 		.4byte	.LFB69
@@ -1037,7 +1037,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  567 0170 9C       		.byte	0x9c
  568 0171 86010000 		.4byte	0x186
  569 0175 0F       		.uleb128 0xf
- 570 0176 E4010000 		.4byte	.LASF25
+ 570 0176 F6010000 		.4byte	.LASF25
  571 017a 01       		.byte	0x1
  572 017b 0201     		.2byte	0x102
  573 017d 9D000000 		.4byte	0x9d
@@ -1054,22 +1054,22 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  584 019b 9C       		.byte	0x9c
  585 019c B1010000 		.4byte	0x1b1
  586 01a0 11       		.uleb128 0x11
- 587 01a1 E4010000 		.4byte	.LASF25
+ 587 01a1 F6010000 		.4byte	.LASF25
  588 01a5 01       		.byte	0x1
  589 01a6 1A01     		.2byte	0x11a
  590 01a8 9D000000 		.4byte	0x9d
  591 01ac 21000000 		.4byte	.LLST1
  592 01b0 00       		.byte	0
  593 01b1 12       		.uleb128 0x12
- 594 01b2 39020000 		.4byte	.LASF29
+ 594 01b2 4B020000 		.4byte	.LASF29
  595 01b6 01       		.byte	0x1
  596 01b7 3301     		.2byte	0x133
  597 01b9 00000000 		.4byte	.LFB71
- 598 01bd 10000000 		.4byte	.LFE71-.LFB71
+ 598 01bd 0C000000 		.4byte	.LFE71-.LFB71
  599 01c1 01       		.uleb128 0x1
  600 01c2 9C       		.byte	0x9c
  601 01c3 13       		.uleb128 0x13
- 602 01c4 7E000000 		.4byte	.LASF39
+ 602 01c4 32000000 		.4byte	.LASF39
  603 01c8 01       		.byte	0x1
  604 01c9 4801     		.2byte	0x148
  605 01cb 9D000000 		.4byte	0x9d
@@ -1078,18 +1078,18 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  608 01d7 01       		.uleb128 0x1
  609 01d8 9C       		.byte	0x9c
  610 01d9 12       		.uleb128 0x12
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 19
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 19
 
 
  611 01da 23000000 		.4byte	.LASF30
  612 01de 01       		.byte	0x1
  613 01df 5D01     		.2byte	0x15d
  614 01e1 00000000 		.4byte	.LFB73
- 615 01e5 10000000 		.4byte	.LFE73-.LFB73
+ 615 01e5 0C000000 		.4byte	.LFE73-.LFB73
  616 01e9 01       		.uleb128 0x1
  617 01ea 9C       		.byte	0x9c
  618 01eb 0A       		.uleb128 0xa
- 619 01ec D0020000 		.4byte	.LASF31
+ 619 01ec E2020000 		.4byte	.LASF31
  620 01f0 01       		.byte	0x1
  621 01f1 3D       		.byte	0x3d
  622 01f2 00000000 		.4byte	.LFB63
@@ -1126,7 +1126,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  653 0238 B1010000 		.4byte	0x1b1
  654 023c 00       		.byte	0
  655 023d 0A       		.uleb128 0xa
- 656 023e 8A010000 		.4byte	.LASF32
+ 656 023e 9C010000 		.4byte	.LASF32
  657 0242 01       		.byte	0x1
  658 0243 68       		.byte	0x68
  659 0244 00000000 		.4byte	.LFB64
@@ -1135,10 +1135,10 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  662 024d 9C       		.byte	0x9c
  663 024e 9B020000 		.4byte	0x29b
  664 0252 17       		.uleb128 0x17
- 665 0253 01020000 		.4byte	.LASF24
+ 665 0253 13020000 		.4byte	.LASF24
  666 0257 01       		.byte	0x1
  667 0258 68       		.byte	0x68
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 20
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 20
 
 
  668 0259 E5000000 		.4byte	0xe5
@@ -1172,7 +1172,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  696 0296 B1010000 		.4byte	0x1b1
  697 029a 00       		.byte	0
  698 029b 0A       		.uleb128 0xa
- 699 029c B6000000 		.4byte	.LASF33
+ 699 029c 6A000000 		.4byte	.LASF33
  700 02a0 01       		.byte	0x1
  701 02a1 86       		.byte	0x86
  702 02a2 00000000 		.4byte	.LFB65
@@ -1188,26 +1188,26 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  712 02be 02010000 		.4byte	0x102
  713 02c2 00       		.byte	0
  714 02c3 12       		.uleb128 0x12
- 715 02c4 CB010000 		.4byte	.LASF34
+ 715 02c4 DD010000 		.4byte	.LASF34
  716 02c8 01       		.byte	0x1
  717 02c9 7801     		.2byte	0x178
  718 02cb 00000000 		.4byte	.LFB74
- 719 02cf 10000000 		.4byte	.LFE74-.LFB74
+ 719 02cf 0C000000 		.4byte	.LFE74-.LFB74
  720 02d3 01       		.uleb128 0x1
  721 02d4 9C       		.byte	0x9c
  722 02d5 12       		.uleb128 0x12
- 723 02d6 76010000 		.4byte	.LASF35
+ 723 02d6 88010000 		.4byte	.LASF35
  724 02da 01       		.byte	0x1
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 21
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 21
 
 
  725 02db 9101     		.2byte	0x191
  726 02dd 00000000 		.4byte	.LFB75
- 727 02e1 10000000 		.4byte	.LFE75-.LFB75
+ 727 02e1 0C000000 		.4byte	.LFE75-.LFB75
  728 02e5 01       		.uleb128 0x1
  729 02e6 9C       		.byte	0x9c
  730 02e7 18       		.uleb128 0x18
- 731 02e8 BE010000 		.4byte	.LASF40
+ 731 02e8 D0010000 		.4byte	.LASF40
  732 02ec 05       		.byte	0x5
  733 02ed 1207     		.2byte	0x712
  734 02ef F3020000 		.4byte	0x2f3
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  779 0027 00       		.byte	0
  780 0028 00       		.byte	0
  781 0029 04       		.uleb128 0x4
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 22
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 22
 
 
  782 002a 16       		.uleb128 0x16
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  836 0060 0E       		.uleb128 0xe
  837 0061 3A       		.uleb128 0x3a
  838 0062 0B       		.uleb128 0xb
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 23
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 23
 
 
  839 0063 3B       		.uleb128 0x3b
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  893 009b 0C       		.uleb128 0xc
  894 009c 34       		.uleb128 0x34
  895 009d 00       		.byte	0
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 24
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 24
 
 
  896 009e 03       		.uleb128 0x3
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  950 00d5 12       		.uleb128 0x12
  951 00d6 06       		.uleb128 0x6
  952 00d7 40       		.uleb128 0x40
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 25
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 25
 
 
  953 00d8 18       		.uleb128 0x18
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  1007 0110 3A       		.uleb128 0x3a
  1008 0111 0B       		.uleb128 0xb
  1009 0112 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 26
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 26
 
 
  1010 0113 05       		.uleb128 0x5
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  1064 014b 00       		.byte	0
  1065 014c 14       		.uleb128 0x14
  1066 014d 898201   		.uleb128 0x4109
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 27
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 27
 
 
  1067 0150 00       		.byte	0
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  1121 018b 19       		.uleb128 0x19
  1122 018c 3C       		.uleb128 0x3c
  1123 018d 19       		.uleb128 0x19
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 28
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 28
 
 
  1124 018e 00       		.byte	0
@@ -1673,22 +1673,22 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  1173 0010 00000000 		.4byte	.LFB66
  1174 0014 02000000 		.4byte	.LFE66-.LFB66
  1175 0018 00000000 		.4byte	.LFB67
- 1176 001c 10000000 		.4byte	.LFE67-.LFB67
+ 1176 001c 0C000000 		.4byte	.LFE67-.LFB67
  1177 0020 00000000 		.4byte	.LFB68
- 1178 0024 10000000 		.4byte	.LFE68-.LFB68
+ 1178 0024 0C000000 		.4byte	.LFE68-.LFB68
  1179 0028 00000000 		.4byte	.LFB69
  1180 002c 10000000 		.4byte	.LFE69-.LFB69
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 29
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 29
 
 
  1181 0030 00000000 		.4byte	.LFB70
  1182 0034 0C000000 		.4byte	.LFE70-.LFB70
  1183 0038 00000000 		.4byte	.LFB71
- 1184 003c 10000000 		.4byte	.LFE71-.LFB71
+ 1184 003c 0C000000 		.4byte	.LFE71-.LFB71
  1185 0040 00000000 		.4byte	.LFB72
  1186 0044 18000000 		.4byte	.LFE72-.LFB72
  1187 0048 00000000 		.4byte	.LFB73
- 1188 004c 10000000 		.4byte	.LFE73-.LFB73
+ 1188 004c 0C000000 		.4byte	.LFE73-.LFB73
  1189 0050 00000000 		.4byte	.LFB63
  1190 0054 1C000000 		.4byte	.LFE63-.LFB63
  1191 0058 00000000 		.4byte	.LFB64
@@ -1696,9 +1696,9 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  1193 0060 00000000 		.4byte	.LFB65
  1194 0064 14000000 		.4byte	.LFE65-.LFB65
  1195 0068 00000000 		.4byte	.LFB74
- 1196 006c 10000000 		.4byte	.LFE74-.LFB74
+ 1196 006c 0C000000 		.4byte	.LFE74-.LFB74
  1197 0070 00000000 		.4byte	.LFB75
- 1198 0074 10000000 		.4byte	.LFE75-.LFB75
+ 1198 0074 0C000000 		.4byte	.LFE75-.LFB75
  1199 0078 00000000 		.4byte	0
  1200 007c 00000000 		.4byte	0
  1201              		.section	.debug_ranges,"",%progbits
@@ -1706,19 +1706,19 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  1203 0000 00000000 		.4byte	.LFB66
  1204 0004 02000000 		.4byte	.LFE66
  1205 0008 00000000 		.4byte	.LFB67
- 1206 000c 10000000 		.4byte	.LFE67
+ 1206 000c 0C000000 		.4byte	.LFE67
  1207 0010 00000000 		.4byte	.LFB68
- 1208 0014 10000000 		.4byte	.LFE68
+ 1208 0014 0C000000 		.4byte	.LFE68
  1209 0018 00000000 		.4byte	.LFB69
  1210 001c 10000000 		.4byte	.LFE69
  1211 0020 00000000 		.4byte	.LFB70
  1212 0024 0C000000 		.4byte	.LFE70
  1213 0028 00000000 		.4byte	.LFB71
- 1214 002c 10000000 		.4byte	.LFE71
+ 1214 002c 0C000000 		.4byte	.LFE71
  1215 0030 00000000 		.4byte	.LFB72
  1216 0034 18000000 		.4byte	.LFE72
  1217 0038 00000000 		.4byte	.LFB73
- 1218 003c 10000000 		.4byte	.LFE73
+ 1218 003c 0C000000 		.4byte	.LFE73
  1219 0040 00000000 		.4byte	.LFB63
  1220 0044 1C000000 		.4byte	.LFE63
  1221 0048 00000000 		.4byte	.LFB64
@@ -1726,9 +1726,9 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  1223 0050 00000000 		.4byte	.LFB65
  1224 0054 14000000 		.4byte	.LFE65
  1225 0058 00000000 		.4byte	.LFB74
- 1226 005c 10000000 		.4byte	.LFE74
+ 1226 005c 0C000000 		.4byte	.LFE74
  1227 0060 00000000 		.4byte	.LFB75
- 1228 0064 10000000 		.4byte	.LFE75
+ 1228 0064 0C000000 		.4byte	.LFE75
  1229 0068 00000000 		.4byte	0
  1230 006c 00000000 		.4byte	0
  1231              		.section	.debug_line,"",%progbits
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  1233      00000201 
  1233      FB0E0D00 
  1233      01010101 
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 30
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 30
 
 
  1234              	.LASF27:
@@ -1759,201 +1759,201 @@ ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 1
  1241      54435F44 
  1241      69736162 
  1241      6C6500
- 1242              	.LASF38:
- 1243 0032 483A5C44 		.ascii	"H:\\Documents\\301folder\\psoc student pack\\lab ex"
- 1243      6F63756D 
- 1243      656E7473 
- 1243      5C333031 
- 1243      666F6C64 
- 1244 0061 65726369 		.ascii	"ercise\\psoc_intro\\lab3.cydsn\000"
- 1244      73655C70 
- 1244      736F635F 
- 1244      696E7472 
- 1244      6F5C6C61 
- 1245              	.LASF39:
- 1246 007e 6973725F 		.ascii	"isr_TC_GetState\000"
- 1246      54435F47 
- 1246      65745374 
- 1246      61746500 
- 1247              	.LASF26:
- 1248 008e 6973725F 		.ascii	"isr_TC_GetVector\000"
- 1248      54435F47 
- 1248      65745665 
- 1248      63746F72 
- 1248      00
- 1249              	.LASF28:
- 1250 009f 6973725F 		.ascii	"isr_TC_Interrupt\000"
- 1250      54435F49 
- 1250      6E746572 
- 1250      72757074 
- 1250      00
- 1251              	.LASF16:
- 1252 00b0 666C6F61 		.ascii	"float\000"
- 1252      7400
- 1253              	.LASF33:
- 1254 00b6 6973725F 		.ascii	"isr_TC_Stop\000"
- 1254      54435F53 
- 1254      746F7000 
- 1255              	.LASF23:
- 1256 00c2 6973725F 		.ascii	"isr_TC_SetPriority\000"
- 1256      54435F53 
- 1256      65745072 
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 31
+ 1242              	.LASF39:
+ 1243 0032 6973725F 		.ascii	"isr_TC_GetState\000"
+ 1243      54435F47 
+ 1243      65745374 
+ 1243      61746500 
+ 1244              	.LASF26:
+ 1245 0042 6973725F 		.ascii	"isr_TC_GetVector\000"
+ 1245      54435F47 
+ 1245      65745665 
+ 1245      63746F72 
+ 1245      00
+ 1246              	.LASF28:
+ 1247 0053 6973725F 		.ascii	"isr_TC_Interrupt\000"
+ 1247      54435F49 
+ 1247      6E746572 
+ 1247      72757074 
+ 1247      00
+ 1248              	.LASF16:
+ 1249 0064 666C6F61 		.ascii	"float\000"
+ 1249      7400
+ 1250              	.LASF33:
+ 1251 006a 6973725F 		.ascii	"isr_TC_Stop\000"
+ 1251      54435F53 
+ 1251      746F7000 
+ 1252              	.LASF23:
+ 1253 0076 6973725F 		.ascii	"isr_TC_SetPriority\000"
+ 1253      54435F53 
+ 1253      65745072 
+ 1253      696F7269 
+ 1253      747900
+ 1254              	.LASF38:
+ 1255 0089 483A5C44 		.ascii	"H:\\Documents\\GitHub\\team14\\301_lab_tasks\\psoc "
+ 1255      6F63756D 
+ 1255      656E7473 
+ 1255      5C476974 
+ 1255      4875625C 
+ 1256 00b7 73747564 		.ascii	"student pack\\lab exercise\\psoc_intro\\lab3.cydsn\000"
+ 1256      656E7420 
+ 1256      7061636B 
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 31
 
 
- 1256      696F7269 
- 1256      747900
+ 1256      5C6C6162 
+ 1256      20657865 
  1257              	.LASF4:
- 1258 00d5 756E7369 		.ascii	"unsigned char\000"
+ 1258 00e7 756E7369 		.ascii	"unsigned char\000"
  1258      676E6564 
  1258      20636861 
  1258      7200
  1259              	.LASF36:
- 1260 00e3 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1260 00f5 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  1260      43313120 
  1260      352E342E 
  1260      31203230 
  1260      31363036 
- 1261 0116 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1261 0128 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  1261      20726576 
  1261      6973696F 
  1261      6E203233 
  1261      37373135 
- 1262 0149 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1262 015b 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  1262      66756E63 
  1262      74696F6E 
  1262      2D736563 
  1262      74696F6E 
  1263              	.LASF18:
- 1264 0171 72656738 		.ascii	"reg8\000"
+ 1264 0183 72656738 		.ascii	"reg8\000"
  1264      00
  1265              	.LASF35:
- 1266 0176 6973725F 		.ascii	"isr_TC_ClearPending\000"
+ 1266 0188 6973725F 		.ascii	"isr_TC_ClearPending\000"
  1266      54435F43 
  1266      6C656172 
  1266      50656E64 
  1266      696E6700 
  1267              	.LASF32:
- 1268 018a 6973725F 		.ascii	"isr_TC_StartEx\000"
+ 1268 019c 6973725F 		.ascii	"isr_TC_StartEx\000"
  1268      54435F53 
  1268      74617274 
  1268      457800
  1269              	.LASF8:
- 1270 0199 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1270 01ab 6C6F6E67 		.ascii	"long unsigned int\000"
  1270      20756E73 
  1270      69676E65 
  1270      6420696E 
  1270      7400
  1271              	.LASF6:
- 1272 01ab 73686F72 		.ascii	"short unsigned int\000"
+ 1272 01bd 73686F72 		.ascii	"short unsigned int\000"
  1272      7420756E 
  1272      7369676E 
  1272      65642069 
  1272      6E7400
  1273              	.LASF40:
- 1274 01be 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1274 01d0 49544D5F 		.ascii	"ITM_RxBuffer\000"
  1274      52784275 
  1274      66666572 
  1274      00
  1275              	.LASF34:
- 1276 01cb 6973725F 		.ascii	"isr_TC_SetPending\000"
+ 1276 01dd 6973725F 		.ascii	"isr_TC_SetPending\000"
  1276      54435F53 
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 32
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 32
 
 
  1276      65745065 
  1276      6E64696E 
  1276      6700
  1277              	.LASF17:
- 1278 01dd 646F7562 		.ascii	"double\000"
+ 1278 01ef 646F7562 		.ascii	"double\000"
  1278      6C6500
  1279              	.LASF25:
- 1280 01e4 7072696F 		.ascii	"priority\000"
+ 1280 01f6 7072696F 		.ascii	"priority\000"
  1280      72697479 
  1280      00
  1281              	.LASF15:
- 1282 01ed 75696E74 		.ascii	"uint32\000"
+ 1282 01ff 75696E74 		.ascii	"uint32\000"
  1282      333200
  1283              	.LASF0:
- 1284 01f4 756E7369 		.ascii	"unsigned int\000"
+ 1284 0206 756E7369 		.ascii	"unsigned int\000"
  1284      676E6564 
  1284      20696E74 
  1284      00
  1285              	.LASF24:
- 1286 0201 61646472 		.ascii	"address\000"
+ 1286 0213 61646472 		.ascii	"address\000"
  1286      65737300 
  1287              	.LASF9:
- 1288 0209 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1288 021b 6C6F6E67 		.ascii	"long long unsigned int\000"
  1288      206C6F6E 
  1288      6720756E 
  1288      7369676E 
  1288      65642069 
  1289              	.LASF20:
- 1290 0220 63796973 		.ascii	"cyisraddress\000"
+ 1290 0232 63796973 		.ascii	"cyisraddress\000"
  1290      72616464 
  1290      72657373 
  1290      00
  1291              	.LASF3:
- 1292 022d 7369676E 		.ascii	"signed char\000"
+ 1292 023f 7369676E 		.ascii	"signed char\000"
  1292      65642063 
  1292      68617200 
  1293              	.LASF29:
- 1294 0239 6973725F 		.ascii	"isr_TC_Enable\000"
+ 1294 024b 6973725F 		.ascii	"isr_TC_Enable\000"
  1294      54435F45 
  1294      6E61626C 
  1294      6500
  1295              	.LASF13:
- 1296 0247 696E7433 		.ascii	"int32_t\000"
+ 1296 0259 696E7433 		.ascii	"int32_t\000"
  1296      325F7400 
  1297              	.LASF10:
- 1298 024f 73697A65 		.ascii	"sizetype\000"
+ 1298 0261 73697A65 		.ascii	"sizetype\000"
  1298      74797065 
  1298      00
  1299              	.LASF1:
- 1300 0258 6C6F6E67 		.ascii	"long long int\000"
+ 1300 026a 6C6F6E67 		.ascii	"long long int\000"
  1300      206C6F6E 
  1300      6720696E 
  1300      7400
  1301              	.LASF37:
- 1302 0266 47656E65 		.ascii	"Generated_Source\\PSoC5\\isr_TC.c\000"
+ 1302 0278 47656E65 		.ascii	"Generated_Source\\PSoC5\\isr_TC.c\000"
  1302      72617465 
  1302      645F536F 
-ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccfbbf6B.s 			page 33
+ARM GAS  C:\Users\hsal869\AppData\Local\Temp\ccooSjfw.s 			page 33
 
 
  1302      75726365 
  1302      5C50536F 
  1303              	.LASF11:
- 1304 0286 63686172 		.ascii	"char\000"
+ 1304 0298 63686172 		.ascii	"char\000"
  1304      00
  1305              	.LASF21:
- 1306 028b 72616D56 		.ascii	"ramVectorTable\000"
+ 1306 029d 72616D56 		.ascii	"ramVectorTable\000"
  1306      6563746F 
  1306      72546162 
  1306      6C6500
  1307              	.LASF5:
- 1308 029a 73686F72 		.ascii	"short int\000"
+ 1308 02ac 73686F72 		.ascii	"short int\000"
  1308      7420696E 
  1308      7400
  1309              	.LASF14:
- 1310 02a4 75696E74 		.ascii	"uint8\000"
+ 1310 02b6 75696E74 		.ascii	"uint8\000"
  1310      3800
  1311              	.LASF22:
- 1312 02aa 6973725F 		.ascii	"isr_TC_SetVector\000"
+ 1312 02bc 6973725F 		.ascii	"isr_TC_SetVector\000"
  1312      54435F53 
  1312      65745665 
  1312      63746F72 
  1312      00
  1313              	.LASF7:
- 1314 02bb 6C6F6E67 		.ascii	"long int\000"
+ 1314 02cd 6C6F6E67 		.ascii	"long int\000"
  1314      20696E74 
  1314      00
  1315              	.LASF2:
- 1316 02c4 6C6F6E67 		.ascii	"long double\000"
+ 1316 02d6 6C6F6E67 		.ascii	"long double\000"
  1316      20646F75 
  1316      626C6500 
  1317              	.LASF31:
- 1318 02d0 6973725F 		.ascii	"isr_TC_Start\000"
+ 1318 02e2 6973725F 		.ascii	"isr_TC_Start\000"
  1318      54435F53 
  1318      74617274 
  1318      00

@@ -27,7 +27,7 @@ void usbPutChar(char c);
 //* ========================================
 
 volatile int flag = 0;
-char result[1000][8]; // Character array
+char result[100][8]; // Character array
 volatile int count = 0;
 
 
@@ -66,10 +66,10 @@ int main()
             }
             utoa(num, result[count], 10);
             count++;
-            if (count == 1000){
+            if (count == 100){
                 count = 0;
                 
-                for (int i = 0; i < 1000; i++){
+                for (int i = 0; i < 100; i++){
                 usbPutString(result[i]);
                 usbPutString("\r\n");
                 /* Place your application code here. */
