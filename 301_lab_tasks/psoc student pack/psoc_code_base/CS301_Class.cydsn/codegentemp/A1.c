@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: ADC_Bypass.c  
+* File Name: A1.c  
 * Version 2.20
 *
 * Description:
@@ -15,15 +15,15 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "ADC_Bypass.h"
+#include "A1.h"
 
 /* APIs are not generated for P15[7:6] on PSoC 5 */
 #if !(CY_PSOC5A &&\
-	 ADC_Bypass__PORT == 15 && ((ADC_Bypass__MASK & 0xC0) != 0))
+	 A1__PORT == 15 && ((A1__MASK & 0xC0) != 0))
 
 
 /*******************************************************************************
-* Function Name: ADC_Bypass_Write
+* Function Name: A1_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -52,17 +52,17 @@
 *  this function.
 *
 * \funcusage
-*  \snippet ADC_Bypass_SUT.c usage_ADC_Bypass_Write
+*  \snippet A1_SUT.c usage_A1_Write
 *******************************************************************************/
-void ADC_Bypass_Write(uint8 value)
+void A1_Write(uint8 value)
 {
-    uint8 staticBits = (ADC_Bypass_DR & (uint8)(~ADC_Bypass_MASK));
-    ADC_Bypass_DR = staticBits | ((uint8)(value << ADC_Bypass_SHIFT) & ADC_Bypass_MASK);
+    uint8 staticBits = (A1_DR & (uint8)(~A1_MASK));
+    A1_DR = staticBits | ((uint8)(value << A1_SHIFT) & A1_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_Bypass_SetDriveMode
+* Function Name: A1_SetDriveMode
 ****************************************************************************//**
 *
 * \brief Sets the drive mode for each of the Pins component's pins.
@@ -85,16 +85,16 @@ void ADC_Bypass_Write(uint8 value)
 *  APIs (primary method) or disable interrupts around this function.
 *
 * \funcusage
-*  \snippet ADC_Bypass_SUT.c usage_ADC_Bypass_SetDriveMode
+*  \snippet A1_SUT.c usage_A1_SetDriveMode
 *******************************************************************************/
-void ADC_Bypass_SetDriveMode(uint8 mode)
+void A1_SetDriveMode(uint8 mode)
 {
-	CyPins_SetPinDriveMode(ADC_Bypass_0, mode);
+	CyPins_SetPinDriveMode(A1_0, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_Bypass_Read
+* Function Name: A1_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -108,16 +108,16 @@ void ADC_Bypass_SetDriveMode(uint8 mode)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet ADC_Bypass_SUT.c usage_ADC_Bypass_Read  
+*  \snippet A1_SUT.c usage_A1_Read  
 *******************************************************************************/
-uint8 ADC_Bypass_Read(void)
+uint8 A1_Read(void)
 {
-    return (ADC_Bypass_PS & ADC_Bypass_MASK) >> ADC_Bypass_SHIFT;
+    return (A1_PS & A1_MASK) >> A1_SHIFT;
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_Bypass_ReadDataReg
+* Function Name: A1_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -126,8 +126,8 @@ uint8 ADC_Bypass_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred ADC_Bypass_Read() API because the 
-* ADC_Bypass_ReadDataReg() reads the data register instead of the status 
+* preferred A1_Read() API because the 
+* A1_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -136,19 +136,19 @@ uint8 ADC_Bypass_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet ADC_Bypass_SUT.c usage_ADC_Bypass_ReadDataReg 
+*  \snippet A1_SUT.c usage_A1_ReadDataReg 
 *******************************************************************************/
-uint8 ADC_Bypass_ReadDataReg(void)
+uint8 A1_ReadDataReg(void)
 {
-    return (ADC_Bypass_DR & ADC_Bypass_MASK) >> ADC_Bypass_SHIFT;
+    return (A1_DR & A1_MASK) >> A1_SHIFT;
 }
 
 
 /* If interrupt is connected for this Pins component */ 
-#if defined(ADC_Bypass_INTSTAT) 
+#if defined(A1_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: ADC_Bypass_SetInterruptMode
+    * Function Name: A1_SetInterruptMode
     ****************************************************************************//**
     *
     * \brief Configures the interrupt mode for each of the Pins component's
@@ -161,12 +161,12 @@ uint8 ADC_Bypass_ReadDataReg(void)
     * \param position
     *  The pin position as listed in the Pins component. You may OR these to be 
     *  able to configure the interrupt mode of multiple pins within a Pins 
-    *  component. Or you may use ADC_Bypass_INTR_ALL to configure the
+    *  component. Or you may use A1_INTR_ALL to configure the
     *  interrupt mode of all the pins in the Pins component.       
-    *  - ADC_Bypass_0_INTR       (First pin in the list)
-    *  - ADC_Bypass_1_INTR       (Second pin in the list)
+    *  - A1_0_INTR       (First pin in the list)
+    *  - A1_1_INTR       (Second pin in the list)
     *  - ...
-    *  - ADC_Bypass_INTR_ALL     (All pins in Pins component)
+    *  - A1_INTR_ALL     (All pins in Pins component)
     *
     * \param mode
     *  Interrupt mode for the selected pins. Valid options are documented in
@@ -182,19 +182,19 @@ uint8 ADC_Bypass_ReadDataReg(void)
     *  port.
     *
     * \funcusage
-    *  \snippet ADC_Bypass_SUT.c usage_ADC_Bypass_SetInterruptMode
+    *  \snippet A1_SUT.c usage_A1_SetInterruptMode
     *******************************************************************************/
-    void ADC_Bypass_SetInterruptMode(uint16 position, uint16 mode)
+    void A1_SetInterruptMode(uint16 position, uint16 mode)
     {
-		if((position & ADC_Bypass_0_INTR) != 0u) 
+		if((position & A1_0_INTR) != 0u) 
 		{ 
-			 ADC_Bypass_0_INTTYPE_REG = (uint8)mode; 
+			 A1_0_INTTYPE_REG = (uint8)mode; 
 		}
     }
     
     
     /*******************************************************************************
-    * Function Name: ADC_Bypass_ClearInterrupt
+    * Function Name: A1_ClearInterrupt
     ****************************************************************************//**
     *
     * \brief Clears any active interrupts attached with the component and returns 
@@ -211,11 +211,11 @@ uint8 ADC_Bypass_ReadDataReg(void)
     *  those associated with the Pins component.
     *
     * \funcusage
-    *  \snippet ADC_Bypass_SUT.c usage_ADC_Bypass_ClearInterrupt
+    *  \snippet A1_SUT.c usage_A1_ClearInterrupt
     *******************************************************************************/
-    uint8 ADC_Bypass_ClearInterrupt(void)
+    uint8 A1_ClearInterrupt(void)
     {
-        return (ADC_Bypass_INTSTAT & ADC_Bypass_MASK) >> ADC_Bypass_SHIFT;
+        return (A1_INTSTAT & A1_MASK) >> A1_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 

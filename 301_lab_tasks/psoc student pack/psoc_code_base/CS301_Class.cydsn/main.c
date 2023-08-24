@@ -27,7 +27,8 @@ void usbPutChar(char c);
 //* ========================================
 
 volatile int flag = 0;
-volatile int result[100];
+volatile int result[3000];
+volatile int resultb[3000];
 volatile int count = 0;
 
 
@@ -60,34 +61,48 @@ int main()
         if (flag == 1) {
             // goal: store 100 values into an array then display ALL together to solve frequency timing issues we hope
             ADC_IRQ_Disable();
-            result[count] = ADC_GetResult8();
+            result[count] = ADC_GetResult16(1);
+            resultb[count] = ADC_GetResult16(2);
             
             //if (num < 0) {
             //    num = num +255;
             //}
 
             count++;
-            if (count == 100){
+            if (count == 3000){
                 count = 0;
                 int highCount = 0;
-                for (int i = 0; i < 100; i++){
+                int highCountb = 0;
+                for (int i = 0; i < 3000; i++){
                     
-                    if(result[i] > 10) {
-                       
+                    if(result[i] > 3000) {
+                      // usbPutString("HIGH");
                         highCount++;
+                    
                     }
-           
-                //usbPutString(result[i]);
+                    if(resultb[i] > 3000) {
+                      // usbPutString("HIGH");
+                        highCountb++;
+                    }
+                //char val[16];
+                //itoa(resultb[i], val, 10);
+                //usbPutString(val);
                 //usbPutString("\r\n");
                 /* Place your application code here. */
                 
                 
                 
                 }
-                if (highCount > 10) {
+                if (highCount > 200) {
                      LED_PIN_Write(1);
                 } else {
                     LED_PIN_Write(0);
+                }
+                
+                if (highCountb > 200) {
+                     LED_PIN_2_Write(1);
+                } else {
+                    LED_PIN_2_Write(0);
                 }
                 
             }

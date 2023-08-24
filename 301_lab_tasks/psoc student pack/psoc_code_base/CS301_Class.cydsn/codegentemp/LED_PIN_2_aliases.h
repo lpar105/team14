@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: ADC_Bypass.h  
+* File Name: LED_PIN_2.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_ADC_Bypass_ALIASES_H) /* Pins ADC_Bypass_ALIASES_H */
-#define CY_PINS_ADC_Bypass_ALIASES_H
+#if !defined(CY_PINS_LED_PIN_2_ALIASES_H) /* Pins LED_PIN_2_ALIASES_H */
+#define CY_PINS_LED_PIN_2_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -25,12 +25,12 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define ADC_Bypass_0			(ADC_Bypass__0__PC)
-#define ADC_Bypass_0_INTR	((uint16)((uint16)0x0001u << ADC_Bypass__0__SHIFT))
+#define LED_PIN_2_0			(LED_PIN_2__0__PC)
+#define LED_PIN_2_0_INTR	((uint16)((uint16)0x0001u << LED_PIN_2__0__SHIFT))
 
-#define ADC_Bypass_INTR_ALL	 ((uint16)(ADC_Bypass_0_INTR))
+#define LED_PIN_2_INTR_ALL	 ((uint16)(LED_PIN_2_0_INTR))
 
-#endif /* End Pins ADC_Bypass_ALIASES_H */
+#endif /* End Pins LED_PIN_2_ALIASES_H */
 
 
 /* [] END OF FILE */
