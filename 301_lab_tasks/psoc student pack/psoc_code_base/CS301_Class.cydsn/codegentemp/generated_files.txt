@@ -35,9 +35,6 @@
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\QuadDec_M1.c" value="SOURCE_C;CortexM3;;;;QuadDec_M1" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\QuadDec_M1.h" value="HEADER;;;;;QuadDec_M1" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\QuadDec_M1_PM.c" value="SOURCE_C;CortexM3;;;;QuadDec_M1" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\M2_D1_aliases.h" value="HEADER;;;;;M2_D1" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\M2_D1.c" value="SOURCE_C;CortexM3;;;;M2_D1" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\M2_D1.h" value="HEADER;;;;;M2_D1" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\QuadDec_M2.c" value="SOURCE_C;CortexM3;;;;QuadDec_M2" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\QuadDec_M2.h" value="HEADER;;;;;QuadDec_M2" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\QuadDec_M2_PM.c" value="SOURCE_C;CortexM3;;;;QuadDec_M2" />
@@ -53,11 +50,9 @@
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\M2_QB_aliases.h" value="HEADER;;;;;M2_QB" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\M2_QB.c" value="SOURCE_C;CortexM3;;;;M2_QB" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\M2_QB.h" value="HEADER;;;;;M2_QB" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\A0_aliases.h" value="HEADER;;;;;A0" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\A0.c" value="SOURCE_C;CortexM3;;;;A0" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\A0.h" value="HEADER;;;;;A0" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\eoc.c" value="SOURCE_C;CortexM3;;;;eoc" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\eoc.h" value="HEADER;;;;;eoc" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\leftIntersectionSensor_aliases.h" value="HEADER;;;;;leftIntersectionSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\leftIntersectionSensor.c" value="SOURCE_C;CortexM3;;;;leftIntersectionSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\leftIntersectionSensor.h" value="HEADER;;;;;leftIntersectionSensor" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\Timer_TS.c" value="SOURCE_C;CortexM3;;;;Timer_TS" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\Timer_TS.h" value="HEADER;;;;;Timer_TS" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\Timer_TS_PM.c" value="SOURCE_C;CortexM3;;;;Timer_TS" />
@@ -86,12 +81,6 @@
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\USBUART_msc.h" value="HEADER;;;;;USBUART" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\Clock2.c" value="SOURCE_C;CortexM3;;;;Clock2" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\Clock2.h" value="HEADER;;;;;Clock2" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\M1_D1_aliases.h" value="HEADER;;;;;M1_D1" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\M1_D1.c" value="SOURCE_C;CortexM3;;;;M1_D1" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\M1_D1.h" value="HEADER;;;;;M1_D1" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\CONTROL.h" value="HEADER;;;;;CONTROL" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\CONTROL.c" value="SOURCE_C;CortexM3;;;;CONTROL" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\CONTROL_PM.c" value="SOURCE_C;CortexM3;;;;CONTROL" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\UART.c" value="SOURCE_C;CortexM3;;;;UART" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\UART.h" value="HEADER;;;;;UART" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\UART_PM.c" value="SOURCE_C;CortexM3;;;;UART" />
@@ -105,9 +94,9 @@
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\PWM_2_PM.c" value="SOURCE_C;CortexM3;;;;PWM_2" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\Clock_QENC.c" value="SOURCE_C;CortexM3;;;;Clock_QENC" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\Clock_QENC.h" value="HEADER;;;;;Clock_QENC" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_aliases.h" value="HEADER;;;;;LED" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED.c" value="SOURCE_C;CortexM3;;;;LED" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED.h" value="HEADER;;;;;LED" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_5_aliases.h" value="HEADER;;;;;LED_PIN_5" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_5.c" value="SOURCE_C;CortexM3;;;;LED_PIN_5" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_5.h" value="HEADER;;;;;LED_PIN_5" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\DB0_aliases.h" value="HEADER;;;;;DB0" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\DB0.c" value="SOURCE_C;CortexM3;;;;DB0" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\DB0.h" value="HEADER;;;;;DB0" />
@@ -120,19 +109,42 @@
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\RF_BT_SELECT.h" value="HEADER;;;;;RF_BT_SELECT" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\RF_BT_SELECT.c" value="SOURCE_C;CortexM3;;;;RF_BT_SELECT" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\RF_BT_SELECT_PM.c" value="SOURCE_C;CortexM3;;;;RF_BT_SELECT" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_aliases.h" value="HEADER;;;;;LED_PIN" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN.c" value="SOURCE_C;CortexM3;;;;LED_PIN" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN.h" value="HEADER;;;;;LED_PIN" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_1_aliases.h" value="HEADER;;;;;LED_PIN_1" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_1.c" value="SOURCE_C;CortexM3;;;;LED_PIN_1" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_1.h" value="HEADER;;;;;LED_PIN_1" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC.c" value="SOURCE_C;CortexM3;;;;ADC" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC.h" value="HEADER;;;;;ADC" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_PM.c" value="SOURCE_C;CortexM3;;;;ADC" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_INT.c" value="SOURCE_C;CortexM3;;;;ADC" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\A1_aliases.h" value="HEADER;;;;;A1" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\A1.c" value="SOURCE_C;CortexM3;;;;A1" />
-  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\A1.h" value="HEADER;;;;;A1" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\leftLineSensor_aliases.h" value="HEADER;;;;;leftLineSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\leftLineSensor.c" value="SOURCE_C;CortexM3;;;;leftLineSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\leftLineSensor.h" value="HEADER;;;;;leftLineSensor" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_2_aliases.h" value="HEADER;;;;;LED_PIN_2" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_2.c" value="SOURCE_C;CortexM3;;;;LED_PIN_2" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_2.h" value="HEADER;;;;;LED_PIN_2" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_3_aliases.h" value="HEADER;;;;;LED_PIN_3" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_3.c" value="SOURCE_C;CortexM3;;;;LED_PIN_3" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_3.h" value="HEADER;;;;;LED_PIN_3" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\middleLineSensor_aliases.h" value="HEADER;;;;;middleLineSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\middleLineSensor.c" value="SOURCE_C;CortexM3;;;;middleLineSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\middleLineSensor.h" value="HEADER;;;;;middleLineSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\turnCompleteSensor_aliases.h" value="HEADER;;;;;turnCompleteSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\turnCompleteSensor.c" value="SOURCE_C;CortexM3;;;;turnCompleteSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\turnCompleteSensor.h" value="HEADER;;;;;turnCompleteSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\rightLineSensor_aliases.h" value="HEADER;;;;;rightLineSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\rightLineSensor.c" value="SOURCE_C;CortexM3;;;;rightLineSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\rightLineSensor.h" value="HEADER;;;;;rightLineSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\rightIntersectionSensor_aliases.h" value="HEADER;;;;;rightIntersectionSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\rightIntersectionSensor.c" value="SOURCE_C;CortexM3;;;;rightIntersectionSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\rightIntersectionSensor.h" value="HEADER;;;;;rightIntersectionSensor" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\eoc.c" value="SOURCE_C;CortexM3;;;;eoc" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\eoc.h" value="HEADER;;;;;eoc" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_4_aliases.h" value="HEADER;;;;;LED_PIN_4" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_4.c" value="SOURCE_C;CortexM3;;;;LED_PIN_4" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_4.h" value="HEADER;;;;;LED_PIN_4" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_6_aliases.h" value="HEADER;;;;;LED_PIN_6" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_6.c" value="SOURCE_C;CortexM3;;;;LED_PIN_6" />
+  <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_6.h" value="HEADER;;;;;LED_PIN_6" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\QuadDec_M1_Cnt16.c" value="SOURCE_C;CortexM3;;;;QuadDec_M1_Cnt16" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\QuadDec_M1_Cnt16.h" value="HEADER;;;;;QuadDec_M1_Cnt16" />
   <file name="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\QuadDec_M1_Cnt16_PM.c" value="SOURCE_C;CortexM3;;;;QuadDec_M1_Cnt16" />

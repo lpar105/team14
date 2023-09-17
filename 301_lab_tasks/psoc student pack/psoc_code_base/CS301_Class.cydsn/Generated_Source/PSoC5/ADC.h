@@ -26,7 +26,7 @@
 #include "ADC_FinalBuf_dma.h"
 #include "ADC_SAR.h"
 
-#define ADC_NUMBER_OF_CHANNELS    (5u)
+#define ADC_NUMBER_OF_CHANNELS    (6u)
 #define ADC_SAMPLE_MODE           (0u)
 #define ADC_CLOCK_SOURCE          (0u)
 

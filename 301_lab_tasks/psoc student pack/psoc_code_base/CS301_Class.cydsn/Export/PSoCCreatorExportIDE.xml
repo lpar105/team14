@@ -60,16 +60,10 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitteriar.inc</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cydisabledsheets.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\A0_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\A0.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\A0.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_INT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\A1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\A1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\A1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_TS.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_TS.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_TS_PM.c</File>
@@ -97,9 +91,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_msc.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock2.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CONTROL.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CONTROL.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CONTROL_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_SAR.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_SAR.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_SAR_INT.c</File>
@@ -165,9 +156,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M2_IN2_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M2_IN2.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M2_IN2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M2_D1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M2_D1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M2_D1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M1_QA_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M1_QA.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M1_QA.h</File>
@@ -180,18 +168,12 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M2_QB_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M2_QB.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M2_QB.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M1_D1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M1_D1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\M1_D1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_2.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_2.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_2_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_M1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_M1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_M1_PM.c</File>
@@ -225,14 +207,44 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RF_BT_SELECT_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cy_em_eeprom.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cy_em_eeprom.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\eoc.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\eoc.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_2_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_2.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\leftIntersectionSensor_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\leftIntersectionSensor.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\leftIntersectionSensor.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\leftLineSensor_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\leftLineSensor.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\leftLineSensor.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_3_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_3.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_3.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\middleLineSensor_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\middleLineSensor.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\middleLineSensor.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\turnCompleteSensor_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\turnCompleteSensor.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\turnCompleteSensor.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\rightLineSensor_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\rightLineSensor.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\rightLineSensor.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\rightIntersectionSensor_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\rightIntersectionSensor.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\rightIntersectionSensor.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_4_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_4.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_4.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_5_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_5.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_5.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_6_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_6.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_PIN_6.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="H:\Documents\301\repo\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\Export\ARM_GCC_Generic">

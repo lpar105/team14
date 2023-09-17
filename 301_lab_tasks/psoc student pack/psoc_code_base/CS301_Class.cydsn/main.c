@@ -27,8 +27,12 @@ void usbPutChar(char c);
 //* ========================================
 
 volatile int flag = 0;
-volatile int result[3000];
-volatile int resultb[3000];
+volatile int valuesLeftIntersection[2000];
+volatile int valuesLeftLine[2000];
+volatile int valuesMiddleLine[2000];
+volatile int valuesTurnComplete[2000];
+volatile int valuesRightLine[2000];
+volatile int valuesRightIntersection[2000];
 volatile int count = 0;
 
 
@@ -54,56 +58,104 @@ int main()
     ADC_Start();
     ADC_StartConvert();
     eoc_StartEx(eoc);
+    PWM_1_Start();
+    PWM_2_Start();
+
+    PWM_1_WriteCompare(20);
+    PWM_1_WritePeriod(255);
+    PWM_2_WriteCompare(20);
+    PWM_2_WritePeriod(255);
 
     for(;;)
     {   
-        
         if (flag == 1) {
-            // goal: store 100 values into an array then display ALL together to solve frequency timing issues we hope
             ADC_IRQ_Disable();
-            result[count] = ADC_GetResult16(1);
-            resultb[count] = ADC_GetResult16(2);
+            valuesLeftIntersection[count] = ADC_GetResult16(0);
+            valuesLeftLine[count] = ADC_GetResult16(1);
+            valuesMiddleLine[count] = ADC_GetResult16(2);
+            valuesTurnComplete[count] = ADC_GetResult16(3);
+            valuesRightLine[count] = ADC_GetResult16(4);
+            valuesRightIntersection[count] = ADC_GetResult16(5);
             
-            //if (num < 0) {
-            //    num = num +255;
-            //}
-
             count++;
             if (count == 3000){
                 count = 0;
-                int highCount = 0;
-                int highCountb = 0;
+                int highCountLeftIntersection = 0;
+                int highCountLeftLine = 0;
+                int highCountMiddleLine = 0;
+                int highCountTurnComplete = 0;
+                int highCountRightLine = 0;
+                int highCountRightIntersection = 0;
                 for (int i = 0; i < 3000; i++){
                     
-                    if(result[i] > 3000) {
-                      // usbPutString("HIGH");
-                        highCount++;
+                    if(valuesLeftIntersection[i] > 3000) {
+                        highCountLeftIntersection++;
                     
                     }
-                    if(resultb[i] > 3000) {
-                      // usbPutString("HIGH");
-                        highCountb++;
+                    
+                    if(valuesLeftLine[i] > 3000) {
+                        highCountLeftLine++;
+                    
                     }
-                //char val[16];
-                //itoa(resultb[i], val, 10);
-                //usbPutString(val);
-                //usbPutString("\r\n");
-                /* Place your application code here. */
-                
-                
-                
+                    
+                    if(valuesMiddleLine[i] > 3000) {
+                        highCountMiddleLine++;
+                    
+                    }
+                    
+                    if(valuesTurnComplete[i] > 3000) {
+                        highCountTurnComplete++;
+                    
+                    }
+                    
+                    if(valuesRightLine[i] > 3000) {
+                        highCountRightLine++;
+                    
+                    }
+                    
+                    if(valuesRightIntersection[i] > 3000) {
+                        highCountRightIntersection++;
+                    
+                    }
+                    
                 }
-                if (highCount > 200) {
-                     LED_PIN_Write(1);
+                if (highCountLeftIntersection > 200) {
+                    LED_PIN_1_Write(1);
                 } else {
-                    LED_PIN_Write(0);
+                    LED_PIN_1_Write(0);
                 }
                 
-                if (highCountb > 200) {
-                     LED_PIN_2_Write(1);
+                if (highCountLeftLine > 200) {
+                    LED_PIN_2_Write(1);
                 } else {
                     LED_PIN_2_Write(0);
                 }
+                
+                if (highCountRightIntersection > 200) {
+                    LED_PIN_6_Write(1);
+                } else {
+                    LED_PIN_6_Write(0);
+                }
+                
+                if (highCountRightLine > 200) {
+                    LED_PIN_5_Write(1);
+                } else {
+                    LED_PIN_5_Write(0);
+                }
+                
+                if (highCountMiddleLine > 200) {
+                    LED_PIN_3_Write(1);
+                } else {
+                    LED_PIN_3_Write(0);
+                }
+                
+                if (highCountTurnComplete > 200) {
+                    LED_PIN_4_Write(1);
+                } else {
+                    LED_PIN_4_Write(0);
+                }
+                
+                
                 
             }
             
