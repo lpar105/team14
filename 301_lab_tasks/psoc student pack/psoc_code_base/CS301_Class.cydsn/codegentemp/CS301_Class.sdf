@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2023-09-18T00:30:07Z")
+ (DATE "2023-09-18T01:58:56Z")
  (DESIGN "CS301_Class")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -1175,7 +1175,6 @@
     (INTERCONNECT LED_PIN_3\(0\)_PAD LED_PIN_3\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT LED_PIN_4\(0\)_PAD LED_PIN_4\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT LED_PIN_6\(0\)_PAD LED_PIN_6\(0\).pad_in (0.000:0.000:0.000))
-    (INTERCONNECT force_g\(0\)_PAD force_g\(0\).pad_in (0.000:0.000:0.000))
    )
   )
  )

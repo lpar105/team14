@@ -32,13 +32,13 @@ void stop() {
 }
 
 void adjustLeft() {
-    PWM_1_WriteCompare(160);
-    PWM_2_WriteCompare(95);
+    PWM_1_WriteCompare(165);
+    PWM_2_WriteCompare(175);
 }
 
 void adjustRight() {
-    PWM_1_WriteCompare(95);
-    PWM_2_WriteCompare(160);
+    PWM_1_WriteCompare(175);
+    PWM_2_WriteCompare(165);
 }
 
 void turnLeft() {

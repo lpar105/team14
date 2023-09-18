@@ -241,8 +241,6 @@ set_io "DB0(0)" iocell 3 0
 set_io "DB1(0)" iocell 3 1
 # Note: port 15 is the logical name for port 8
 set_io "LED_PIN_6(0)" iocell 15 5
-# Note: port 12 is the logical name for port 7
-set_io "force_g(0)" iocell 12 3
 set_io "M2_IN1(0)" iocell 1 7
 set_location "\ADC:Sync:genblk1[0]:INST\" synccell 1 1 5 0
 set_io "rightLineSensor(0)" iocell 2 2
