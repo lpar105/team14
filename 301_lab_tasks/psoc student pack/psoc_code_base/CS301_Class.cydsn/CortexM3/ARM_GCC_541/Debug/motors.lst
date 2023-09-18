@@ -1,0 +1,763 @@
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"motors.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.initMotors,"ax",%progbits
+  20              		.align	2
+  21              		.global	initMotors
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	initMotors, %function
+  25              	initMotors:
+  26              	.LFB63:
+  27              		.file 1 "motors.c"
+   1:motors.c      **** /* ========================================
+   2:motors.c      ****  *
+   3:motors.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:motors.c      ****  * All Rights Reserved
+   5:motors.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:motors.c      ****  *
+   7:motors.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:motors.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:motors.c      ****  *
+  10:motors.c      ****  * ========================================
+  11:motors.c      **** */
+  12:motors.c      **** 
+  13:motors.c      **** #include <project.h>
+  14:motors.c      **** #include "motors.h"
+  15:motors.c      **** 
+  16:motors.c      **** void initMotors() {
+  28              		.loc 1 16 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+  17:motors.c      ****     PWM_1_WritePeriod(250);
+  38              		.loc 1 17 0
+  39 0004 FA20     		movs	r0, #250
+  40 0006 FFF7FEFF 		bl	PWM_1_WritePeriod
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 2
+
+
+  18:motors.c      ****     PWM_2_WritePeriod(250);
+  41              		.loc 1 18 0
+  42 000a FA20     		movs	r0, #250
+  43 000c FFF7FEFF 		bl	PWM_2_WritePeriod
+  19:motors.c      ****     PWM_1_Start();
+  44              		.loc 1 19 0
+  45 0010 FFF7FEFF 		bl	PWM_1_Start
+  20:motors.c      ****     PWM_2_Start();
+  46              		.loc 1 20 0
+  47 0014 FFF7FEFF 		bl	PWM_2_Start
+  21:motors.c      **** 
+  22:motors.c      **** }
+  48              		.loc 1 22 0
+  49 0018 00BF     		nop
+  50 001a 80BD     		pop	{r7, pc}
+  51              		.cfi_endproc
+  52              	.LFE63:
+  53              		.size	initMotors, .-initMotors
+  54              		.section	.text.driveForward,"ax",%progbits
+  55              		.align	2
+  56              		.global	driveForward
+  57              		.thumb
+  58              		.thumb_func
+  59              		.type	driveForward, %function
+  60              	driveForward:
+  61              	.LFB64:
+  23:motors.c      **** 
+  24:motors.c      **** void driveForward() {
+  62              		.loc 1 24 0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 1, uses_anonymous_args = 0
+  66 0000 80B5     		push	{r7, lr}
+  67              		.cfi_def_cfa_offset 8
+  68              		.cfi_offset 7, -8
+  69              		.cfi_offset 14, -4
+  70 0002 00AF     		add	r7, sp, #0
+  71              		.cfi_def_cfa_register 7
+  25:motors.c      ****     PWM_1_WriteCompare(160);
+  72              		.loc 1 25 0
+  73 0004 A020     		movs	r0, #160
+  74 0006 FFF7FEFF 		bl	PWM_1_WriteCompare
+  26:motors.c      ****     PWM_2_WriteCompare(160); 
+  75              		.loc 1 26 0
+  76 000a A020     		movs	r0, #160
+  77 000c FFF7FEFF 		bl	PWM_2_WriteCompare
+  27:motors.c      **** }
+  78              		.loc 1 27 0
+  79 0010 00BF     		nop
+  80 0012 80BD     		pop	{r7, pc}
+  81              		.cfi_endproc
+  82              	.LFE64:
+  83              		.size	driveForward, .-driveForward
+  84              		.section	.text.stop,"ax",%progbits
+  85              		.align	2
+  86              		.global	stop
+  87              		.thumb
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 3
+
+
+  88              		.thumb_func
+  89              		.type	stop, %function
+  90              	stop:
+  91              	.LFB65:
+  28:motors.c      **** 
+  29:motors.c      **** void stop() {
+  92              		.loc 1 29 0
+  93              		.cfi_startproc
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 1, uses_anonymous_args = 0
+  96 0000 80B5     		push	{r7, lr}
+  97              		.cfi_def_cfa_offset 8
+  98              		.cfi_offset 7, -8
+  99              		.cfi_offset 14, -4
+ 100 0002 00AF     		add	r7, sp, #0
+ 101              		.cfi_def_cfa_register 7
+  30:motors.c      ****     PWM_1_WriteCompare(125);
+ 102              		.loc 1 30 0
+ 103 0004 7D20     		movs	r0, #125
+ 104 0006 FFF7FEFF 		bl	PWM_1_WriteCompare
+  31:motors.c      ****     PWM_2_WriteCompare(125);  
+ 105              		.loc 1 31 0
+ 106 000a 7D20     		movs	r0, #125
+ 107 000c FFF7FEFF 		bl	PWM_2_WriteCompare
+  32:motors.c      **** }
+ 108              		.loc 1 32 0
+ 109 0010 00BF     		nop
+ 110 0012 80BD     		pop	{r7, pc}
+ 111              		.cfi_endproc
+ 112              	.LFE65:
+ 113              		.size	stop, .-stop
+ 114              		.section	.text.adjustLeft,"ax",%progbits
+ 115              		.align	2
+ 116              		.global	adjustLeft
+ 117              		.thumb
+ 118              		.thumb_func
+ 119              		.type	adjustLeft, %function
+ 120              	adjustLeft:
+ 121              	.LFB66:
+  33:motors.c      **** 
+  34:motors.c      **** void adjustLeft() {
+ 122              		.loc 1 34 0
+ 123              		.cfi_startproc
+ 124              		@ args = 0, pretend = 0, frame = 0
+ 125              		@ frame_needed = 1, uses_anonymous_args = 0
+ 126 0000 80B5     		push	{r7, lr}
+ 127              		.cfi_def_cfa_offset 8
+ 128              		.cfi_offset 7, -8
+ 129              		.cfi_offset 14, -4
+ 130 0002 00AF     		add	r7, sp, #0
+ 131              		.cfi_def_cfa_register 7
+  35:motors.c      ****     PWM_1_WriteCompare(160);
+ 132              		.loc 1 35 0
+ 133 0004 A020     		movs	r0, #160
+ 134 0006 FFF7FEFF 		bl	PWM_1_WriteCompare
+  36:motors.c      ****     PWM_2_WriteCompare(95);
+ 135              		.loc 1 36 0
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 4
+
+
+ 136 000a 5F20     		movs	r0, #95
+ 137 000c FFF7FEFF 		bl	PWM_2_WriteCompare
+  37:motors.c      **** }
+ 138              		.loc 1 37 0
+ 139 0010 00BF     		nop
+ 140 0012 80BD     		pop	{r7, pc}
+ 141              		.cfi_endproc
+ 142              	.LFE66:
+ 143              		.size	adjustLeft, .-adjustLeft
+ 144              		.section	.text.adjustRight,"ax",%progbits
+ 145              		.align	2
+ 146              		.global	adjustRight
+ 147              		.thumb
+ 148              		.thumb_func
+ 149              		.type	adjustRight, %function
+ 150              	adjustRight:
+ 151              	.LFB67:
+  38:motors.c      **** 
+  39:motors.c      **** void adjustRight() {
+ 152              		.loc 1 39 0
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 0
+ 155              		@ frame_needed = 1, uses_anonymous_args = 0
+ 156 0000 80B5     		push	{r7, lr}
+ 157              		.cfi_def_cfa_offset 8
+ 158              		.cfi_offset 7, -8
+ 159              		.cfi_offset 14, -4
+ 160 0002 00AF     		add	r7, sp, #0
+ 161              		.cfi_def_cfa_register 7
+  40:motors.c      ****     PWM_1_WriteCompare(95);
+ 162              		.loc 1 40 0
+ 163 0004 5F20     		movs	r0, #95
+ 164 0006 FFF7FEFF 		bl	PWM_1_WriteCompare
+  41:motors.c      ****     PWM_2_WriteCompare(160);
+ 165              		.loc 1 41 0
+ 166 000a A020     		movs	r0, #160
+ 167 000c FFF7FEFF 		bl	PWM_2_WriteCompare
+  42:motors.c      **** }
+ 168              		.loc 1 42 0
+ 169 0010 00BF     		nop
+ 170 0012 80BD     		pop	{r7, pc}
+ 171              		.cfi_endproc
+ 172              	.LFE67:
+ 173              		.size	adjustRight, .-adjustRight
+ 174              		.section	.text.turnLeft,"ax",%progbits
+ 175              		.align	2
+ 176              		.global	turnLeft
+ 177              		.thumb
+ 178              		.thumb_func
+ 179              		.type	turnLeft, %function
+ 180              	turnLeft:
+ 181              	.LFB68:
+  43:motors.c      **** 
+  44:motors.c      **** void turnLeft() {
+ 182              		.loc 1 44 0
+ 183              		.cfi_startproc
+ 184              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 5
+
+
+ 185              		@ frame_needed = 1, uses_anonymous_args = 0
+ 186 0000 80B5     		push	{r7, lr}
+ 187              		.cfi_def_cfa_offset 8
+ 188              		.cfi_offset 7, -8
+ 189              		.cfi_offset 14, -4
+ 190 0002 00AF     		add	r7, sp, #0
+ 191              		.cfi_def_cfa_register 7
+  45:motors.c      ****     PWM_1_WriteCompare(0);
+ 192              		.loc 1 45 0
+ 193 0004 0020     		movs	r0, #0
+ 194 0006 FFF7FEFF 		bl	PWM_1_WriteCompare
+  46:motors.c      ****     PWM_2_WriteCompare(255);
+ 195              		.loc 1 46 0
+ 196 000a FF20     		movs	r0, #255
+ 197 000c FFF7FEFF 		bl	PWM_2_WriteCompare
+  47:motors.c      ****     
+  48:motors.c      **** }
+ 198              		.loc 1 48 0
+ 199 0010 00BF     		nop
+ 200 0012 80BD     		pop	{r7, pc}
+ 201              		.cfi_endproc
+ 202              	.LFE68:
+ 203              		.size	turnLeft, .-turnLeft
+ 204              		.section	.text.turnRight,"ax",%progbits
+ 205              		.align	2
+ 206              		.global	turnRight
+ 207              		.thumb
+ 208              		.thumb_func
+ 209              		.type	turnRight, %function
+ 210              	turnRight:
+ 211              	.LFB69:
+  49:motors.c      **** 
+  50:motors.c      **** void turnRight() {
+ 212              		.loc 1 50 0
+ 213              		.cfi_startproc
+ 214              		@ args = 0, pretend = 0, frame = 0
+ 215              		@ frame_needed = 1, uses_anonymous_args = 0
+ 216 0000 80B5     		push	{r7, lr}
+ 217              		.cfi_def_cfa_offset 8
+ 218              		.cfi_offset 7, -8
+ 219              		.cfi_offset 14, -4
+ 220 0002 00AF     		add	r7, sp, #0
+ 221              		.cfi_def_cfa_register 7
+  51:motors.c      ****     PWM_1_WriteCompare(0);
+ 222              		.loc 1 51 0
+ 223 0004 0020     		movs	r0, #0
+ 224 0006 FFF7FEFF 		bl	PWM_1_WriteCompare
+  52:motors.c      ****     PWM_2_WriteCompare(255);
+ 225              		.loc 1 52 0
+ 226 000a FF20     		movs	r0, #255
+ 227 000c FFF7FEFF 		bl	PWM_2_WriteCompare
+  53:motors.c      **** }
+ 228              		.loc 1 53 0
+ 229 0010 00BF     		nop
+ 230 0012 80BD     		pop	{r7, pc}
+ 231              		.cfi_endproc
+ 232              	.LFE69:
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 6
+
+
+ 233              		.size	turnRight, .-turnRight
+ 234              		.text
+ 235              	.Letext0:
+ 236              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 237              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 238              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 239              		.section	.debug_info,"",%progbits
+ 240              	.Ldebug_info0:
+ 241 0000 29010000 		.4byte	0x129
+ 242 0004 0400     		.2byte	0x4
+ 243 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 244 000a 04       		.byte	0x4
+ 245 000b 01       		.uleb128 0x1
+ 246 000c E4000000 		.4byte	.LASF23
+ 247 0010 0C       		.byte	0xc
+ 248 0011 B9000000 		.4byte	.LASF24
+ 249 0015 21000000 		.4byte	.LASF25
+ 250 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 251 001d 00000000 		.4byte	0
+ 252 0021 00000000 		.4byte	.Ldebug_line0
+ 253 0025 02       		.uleb128 0x2
+ 254 0026 01       		.byte	0x1
+ 255 0027 06       		.byte	0x6
+ 256 0028 B9010000 		.4byte	.LASF0
+ 257 002c 02       		.uleb128 0x2
+ 258 002d 01       		.byte	0x1
+ 259 002e 08       		.byte	0x8
+ 260 002f 8D000000 		.4byte	.LASF1
+ 261 0033 02       		.uleb128 0x2
+ 262 0034 02       		.byte	0x2
+ 263 0035 05       		.byte	0x5
+ 264 0036 EC010000 		.4byte	.LASF2
+ 265 003a 02       		.uleb128 0x2
+ 266 003b 02       		.byte	0x2
+ 267 003c 07       		.byte	0x7
+ 268 003d 0E000000 		.4byte	.LASF3
+ 269 0041 03       		.uleb128 0x3
+ 270 0042 DC010000 		.4byte	.LASF9
+ 271 0046 02       		.byte	0x2
+ 272 0047 3F       		.byte	0x3f
+ 273 0048 4C000000 		.4byte	0x4c
+ 274 004c 02       		.uleb128 0x2
+ 275 004d 04       		.byte	0x4
+ 276 004e 05       		.byte	0x5
+ 277 004f 8D010000 		.4byte	.LASF4
+ 278 0053 02       		.uleb128 0x2
+ 279 0054 04       		.byte	0x4
+ 280 0055 07       		.byte	0x7
+ 281 0056 A7000000 		.4byte	.LASF5
+ 282 005a 02       		.uleb128 0x2
+ 283 005b 08       		.byte	0x8
+ 284 005c 05       		.byte	0x5
+ 285 005d 00000000 		.4byte	.LASF6
+ 286 0061 02       		.uleb128 0x2
+ 287 0062 08       		.byte	0x8
+ 288 0063 07       		.byte	0x7
+ 289 0064 C2000000 		.4byte	.LASF7
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 7
+
+
+ 290 0068 04       		.uleb128 0x4
+ 291 0069 04       		.byte	0x4
+ 292 006a 05       		.byte	0x5
+ 293 006b 696E7400 		.ascii	"int\000"
+ 294 006f 02       		.uleb128 0x2
+ 295 0070 04       		.byte	0x4
+ 296 0071 07       		.byte	0x7
+ 297 0072 80000000 		.4byte	.LASF8
+ 298 0076 03       		.uleb128 0x3
+ 299 0077 F6010000 		.4byte	.LASF10
+ 300 007b 03       		.byte	0x3
+ 301 007c 2C       		.byte	0x2c
+ 302 007d 41000000 		.4byte	0x41
+ 303 0081 02       		.uleb128 0x2
+ 304 0082 04       		.byte	0x4
+ 305 0083 04       		.byte	0x4
+ 306 0084 E6010000 		.4byte	.LASF11
+ 307 0088 02       		.uleb128 0x2
+ 308 0089 08       		.byte	0x8
+ 309 008a 04       		.byte	0x4
+ 310 008b 96010000 		.4byte	.LASF12
+ 311 008f 02       		.uleb128 0x2
+ 312 0090 01       		.byte	0x1
+ 313 0091 08       		.byte	0x8
+ 314 0092 88010000 		.4byte	.LASF13
+ 315 0096 02       		.uleb128 0x2
+ 316 0097 08       		.byte	0x8
+ 317 0098 04       		.byte	0x4
+ 318 0099 C5010000 		.4byte	.LASF14
+ 319 009d 02       		.uleb128 0x2
+ 320 009e 04       		.byte	0x4
+ 321 009f 07       		.byte	0x7
+ 322 00a0 FE010000 		.4byte	.LASF15
+ 323 00a4 05       		.uleb128 0x5
+ 324 00a5 D9000000 		.4byte	.LASF16
+ 325 00a9 01       		.byte	0x1
+ 326 00aa 10       		.byte	0x10
+ 327 00ab 00000000 		.4byte	.LFB63
+ 328 00af 1C000000 		.4byte	.LFE63-.LFB63
+ 329 00b3 01       		.uleb128 0x1
+ 330 00b4 9C       		.byte	0x9c
+ 331 00b5 05       		.uleb128 0x5
+ 332 00b6 7B010000 		.4byte	.LASF17
+ 333 00ba 01       		.byte	0x1
+ 334 00bb 18       		.byte	0x18
+ 335 00bc 00000000 		.4byte	.LFB64
+ 336 00c0 14000000 		.4byte	.LFE64-.LFB64
+ 337 00c4 01       		.uleb128 0x1
+ 338 00c5 9C       		.byte	0x9c
+ 339 00c6 05       		.uleb128 0x5
+ 340 00c7 9D010000 		.4byte	.LASF18
+ 341 00cb 01       		.byte	0x1
+ 342 00cc 1D       		.byte	0x1d
+ 343 00cd 00000000 		.4byte	.LFB65
+ 344 00d1 14000000 		.4byte	.LFE65-.LFB65
+ 345 00d5 01       		.uleb128 0x1
+ 346 00d6 9C       		.byte	0x9c
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 8
+
+
+ 347 00d7 05       		.uleb128 0x5
+ 348 00d8 D1010000 		.4byte	.LASF19
+ 349 00dc 01       		.byte	0x1
+ 350 00dd 22       		.byte	0x22
+ 351 00de 00000000 		.4byte	.LFB66
+ 352 00e2 14000000 		.4byte	.LFE66-.LFB66
+ 353 00e6 01       		.uleb128 0x1
+ 354 00e7 9C       		.byte	0x9c
+ 355 00e8 05       		.uleb128 0x5
+ 356 00e9 9B000000 		.4byte	.LASF20
+ 357 00ed 01       		.byte	0x1
+ 358 00ee 27       		.byte	0x27
+ 359 00ef 00000000 		.4byte	.LFB67
+ 360 00f3 14000000 		.4byte	.LFE67-.LFB67
+ 361 00f7 01       		.uleb128 0x1
+ 362 00f8 9C       		.byte	0x9c
+ 363 00f9 05       		.uleb128 0x5
+ 364 00fa 72010000 		.4byte	.LASF21
+ 365 00fe 01       		.byte	0x1
+ 366 00ff 2C       		.byte	0x2c
+ 367 0100 00000000 		.4byte	.LFB68
+ 368 0104 14000000 		.4byte	.LFE68-.LFB68
+ 369 0108 01       		.uleb128 0x1
+ 370 0109 9C       		.byte	0x9c
+ 371 010a 05       		.uleb128 0x5
+ 372 010b A2010000 		.4byte	.LASF22
+ 373 010f 01       		.byte	0x1
+ 374 0110 32       		.byte	0x32
+ 375 0111 00000000 		.4byte	.LFB69
+ 376 0115 14000000 		.4byte	.LFE69-.LFB69
+ 377 0119 01       		.uleb128 0x1
+ 378 011a 9C       		.byte	0x9c
+ 379 011b 06       		.uleb128 0x6
+ 380 011c AC010000 		.4byte	.LASF26
+ 381 0120 04       		.byte	0x4
+ 382 0121 1207     		.2byte	0x712
+ 383 0123 27010000 		.4byte	0x127
+ 384 0127 07       		.uleb128 0x7
+ 385 0128 76000000 		.4byte	0x76
+ 386 012c 00       		.byte	0
+ 387              		.section	.debug_abbrev,"",%progbits
+ 388              	.Ldebug_abbrev0:
+ 389 0000 01       		.uleb128 0x1
+ 390 0001 11       		.uleb128 0x11
+ 391 0002 01       		.byte	0x1
+ 392 0003 25       		.uleb128 0x25
+ 393 0004 0E       		.uleb128 0xe
+ 394 0005 13       		.uleb128 0x13
+ 395 0006 0B       		.uleb128 0xb
+ 396 0007 03       		.uleb128 0x3
+ 397 0008 0E       		.uleb128 0xe
+ 398 0009 1B       		.uleb128 0x1b
+ 399 000a 0E       		.uleb128 0xe
+ 400 000b 55       		.uleb128 0x55
+ 401 000c 17       		.uleb128 0x17
+ 402 000d 11       		.uleb128 0x11
+ 403 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 9
+
+
+ 404 000f 10       		.uleb128 0x10
+ 405 0010 17       		.uleb128 0x17
+ 406 0011 00       		.byte	0
+ 407 0012 00       		.byte	0
+ 408 0013 02       		.uleb128 0x2
+ 409 0014 24       		.uleb128 0x24
+ 410 0015 00       		.byte	0
+ 411 0016 0B       		.uleb128 0xb
+ 412 0017 0B       		.uleb128 0xb
+ 413 0018 3E       		.uleb128 0x3e
+ 414 0019 0B       		.uleb128 0xb
+ 415 001a 03       		.uleb128 0x3
+ 416 001b 0E       		.uleb128 0xe
+ 417 001c 00       		.byte	0
+ 418 001d 00       		.byte	0
+ 419 001e 03       		.uleb128 0x3
+ 420 001f 16       		.uleb128 0x16
+ 421 0020 00       		.byte	0
+ 422 0021 03       		.uleb128 0x3
+ 423 0022 0E       		.uleb128 0xe
+ 424 0023 3A       		.uleb128 0x3a
+ 425 0024 0B       		.uleb128 0xb
+ 426 0025 3B       		.uleb128 0x3b
+ 427 0026 0B       		.uleb128 0xb
+ 428 0027 49       		.uleb128 0x49
+ 429 0028 13       		.uleb128 0x13
+ 430 0029 00       		.byte	0
+ 431 002a 00       		.byte	0
+ 432 002b 04       		.uleb128 0x4
+ 433 002c 24       		.uleb128 0x24
+ 434 002d 00       		.byte	0
+ 435 002e 0B       		.uleb128 0xb
+ 436 002f 0B       		.uleb128 0xb
+ 437 0030 3E       		.uleb128 0x3e
+ 438 0031 0B       		.uleb128 0xb
+ 439 0032 03       		.uleb128 0x3
+ 440 0033 08       		.uleb128 0x8
+ 441 0034 00       		.byte	0
+ 442 0035 00       		.byte	0
+ 443 0036 05       		.uleb128 0x5
+ 444 0037 2E       		.uleb128 0x2e
+ 445 0038 00       		.byte	0
+ 446 0039 3F       		.uleb128 0x3f
+ 447 003a 19       		.uleb128 0x19
+ 448 003b 03       		.uleb128 0x3
+ 449 003c 0E       		.uleb128 0xe
+ 450 003d 3A       		.uleb128 0x3a
+ 451 003e 0B       		.uleb128 0xb
+ 452 003f 3B       		.uleb128 0x3b
+ 453 0040 0B       		.uleb128 0xb
+ 454 0041 11       		.uleb128 0x11
+ 455 0042 01       		.uleb128 0x1
+ 456 0043 12       		.uleb128 0x12
+ 457 0044 06       		.uleb128 0x6
+ 458 0045 40       		.uleb128 0x40
+ 459 0046 18       		.uleb128 0x18
+ 460 0047 9642     		.uleb128 0x2116
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 10
+
+
+ 461 0049 19       		.uleb128 0x19
+ 462 004a 00       		.byte	0
+ 463 004b 00       		.byte	0
+ 464 004c 06       		.uleb128 0x6
+ 465 004d 34       		.uleb128 0x34
+ 466 004e 00       		.byte	0
+ 467 004f 03       		.uleb128 0x3
+ 468 0050 0E       		.uleb128 0xe
+ 469 0051 3A       		.uleb128 0x3a
+ 470 0052 0B       		.uleb128 0xb
+ 471 0053 3B       		.uleb128 0x3b
+ 472 0054 05       		.uleb128 0x5
+ 473 0055 49       		.uleb128 0x49
+ 474 0056 13       		.uleb128 0x13
+ 475 0057 3F       		.uleb128 0x3f
+ 476 0058 19       		.uleb128 0x19
+ 477 0059 3C       		.uleb128 0x3c
+ 478 005a 19       		.uleb128 0x19
+ 479 005b 00       		.byte	0
+ 480 005c 00       		.byte	0
+ 481 005d 07       		.uleb128 0x7
+ 482 005e 35       		.uleb128 0x35
+ 483 005f 00       		.byte	0
+ 484 0060 49       		.uleb128 0x49
+ 485 0061 13       		.uleb128 0x13
+ 486 0062 00       		.byte	0
+ 487 0063 00       		.byte	0
+ 488 0064 00       		.byte	0
+ 489              		.section	.debug_aranges,"",%progbits
+ 490 0000 4C000000 		.4byte	0x4c
+ 491 0004 0200     		.2byte	0x2
+ 492 0006 00000000 		.4byte	.Ldebug_info0
+ 493 000a 04       		.byte	0x4
+ 494 000b 00       		.byte	0
+ 495 000c 0000     		.2byte	0
+ 496 000e 0000     		.2byte	0
+ 497 0010 00000000 		.4byte	.LFB63
+ 498 0014 1C000000 		.4byte	.LFE63-.LFB63
+ 499 0018 00000000 		.4byte	.LFB64
+ 500 001c 14000000 		.4byte	.LFE64-.LFB64
+ 501 0020 00000000 		.4byte	.LFB65
+ 502 0024 14000000 		.4byte	.LFE65-.LFB65
+ 503 0028 00000000 		.4byte	.LFB66
+ 504 002c 14000000 		.4byte	.LFE66-.LFB66
+ 505 0030 00000000 		.4byte	.LFB67
+ 506 0034 14000000 		.4byte	.LFE67-.LFB67
+ 507 0038 00000000 		.4byte	.LFB68
+ 508 003c 14000000 		.4byte	.LFE68-.LFB68
+ 509 0040 00000000 		.4byte	.LFB69
+ 510 0044 14000000 		.4byte	.LFE69-.LFB69
+ 511 0048 00000000 		.4byte	0
+ 512 004c 00000000 		.4byte	0
+ 513              		.section	.debug_ranges,"",%progbits
+ 514              	.Ldebug_ranges0:
+ 515 0000 00000000 		.4byte	.LFB63
+ 516 0004 1C000000 		.4byte	.LFE63
+ 517 0008 00000000 		.4byte	.LFB64
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 11
+
+
+ 518 000c 14000000 		.4byte	.LFE64
+ 519 0010 00000000 		.4byte	.LFB65
+ 520 0014 14000000 		.4byte	.LFE65
+ 521 0018 00000000 		.4byte	.LFB66
+ 522 001c 14000000 		.4byte	.LFE66
+ 523 0020 00000000 		.4byte	.LFB67
+ 524 0024 14000000 		.4byte	.LFE67
+ 525 0028 00000000 		.4byte	.LFB68
+ 526 002c 14000000 		.4byte	.LFE68
+ 527 0030 00000000 		.4byte	.LFB69
+ 528 0034 14000000 		.4byte	.LFE69
+ 529 0038 00000000 		.4byte	0
+ 530 003c 00000000 		.4byte	0
+ 531              		.section	.debug_line,"",%progbits
+ 532              	.Ldebug_line0:
+ 533 0000 C7010000 		.section	.debug_str,"MS",%progbits,1
+ 533      02004101 
+ 533      00000201 
+ 533      FB0E0D00 
+ 533      01010101 
+ 534              	.LASF6:
+ 535 0000 6C6F6E67 		.ascii	"long long int\000"
+ 535      206C6F6E 
+ 535      6720696E 
+ 535      7400
+ 536              	.LASF3:
+ 537 000e 73686F72 		.ascii	"short unsigned int\000"
+ 537      7420756E 
+ 537      7369676E 
+ 537      65642069 
+ 537      6E7400
+ 538              	.LASF25:
+ 539 0021 483A5C44 		.ascii	"H:\\Desktop\\301 Team 14\\team14\\301_lab_tasks\\ps"
+ 539      65736B74 
+ 539      6F705C33 
+ 539      30312054 
+ 539      65616D20 
+ 540 004f 6F632073 		.ascii	"oc student pack\\psoc_code_base\\CS301_Class.cydsn\000"
+ 540      74756465 
+ 540      6E742070 
+ 540      61636B5C 
+ 540      70736F63 
+ 541              	.LASF8:
+ 542 0080 756E7369 		.ascii	"unsigned int\000"
+ 542      676E6564 
+ 542      20696E74 
+ 542      00
+ 543              	.LASF1:
+ 544 008d 756E7369 		.ascii	"unsigned char\000"
+ 544      676E6564 
+ 544      20636861 
+ 544      7200
+ 545              	.LASF20:
+ 546 009b 61646A75 		.ascii	"adjustRight\000"
+ 546      73745269 
+ 546      67687400 
+ 547              	.LASF5:
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 12
+
+
+ 548 00a7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 548      20756E73 
+ 548      69676E65 
+ 548      6420696E 
+ 548      7400
+ 549              	.LASF24:
+ 550 00b9 6D6F746F 		.ascii	"motors.c\000"
+ 550      72732E63 
+ 550      00
+ 551              	.LASF7:
+ 552 00c2 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 552      206C6F6E 
+ 552      6720756E 
+ 552      7369676E 
+ 552      65642069 
+ 553              	.LASF16:
+ 554 00d9 696E6974 		.ascii	"initMotors\000"
+ 554      4D6F746F 
+ 554      727300
+ 555              	.LASF23:
+ 556 00e4 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 556      43313120 
+ 556      352E342E 
+ 556      31203230 
+ 556      31363036 
+ 557 0117 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 557      20726576 
+ 557      6973696F 
+ 557      6E203233 
+ 557      37373135 
+ 558 014a 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 558      66756E63 
+ 558      74696F6E 
+ 558      2D736563 
+ 558      74696F6E 
+ 559              	.LASF21:
+ 560 0172 7475726E 		.ascii	"turnLeft\000"
+ 560      4C656674 
+ 560      00
+ 561              	.LASF17:
+ 562 017b 64726976 		.ascii	"driveForward\000"
+ 562      65466F72 
+ 562      77617264 
+ 562      00
+ 563              	.LASF13:
+ 564 0188 63686172 		.ascii	"char\000"
+ 564      00
+ 565              	.LASF4:
+ 566 018d 6C6F6E67 		.ascii	"long int\000"
+ 566      20696E74 
+ 566      00
+ 567              	.LASF12:
+ 568 0196 646F7562 		.ascii	"double\000"
+ 568      6C6500
+ 569              	.LASF18:
+ 570 019d 73746F70 		.ascii	"stop\000"
+ 570      00
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc3IKlaJ.s 			page 13
+
+
+ 571              	.LASF22:
+ 572 01a2 7475726E 		.ascii	"turnRight\000"
+ 572      52696768 
+ 572      7400
+ 573              	.LASF26:
+ 574 01ac 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 574      52784275 
+ 574      66666572 
+ 574      00
+ 575              	.LASF0:
+ 576 01b9 7369676E 		.ascii	"signed char\000"
+ 576      65642063 
+ 576      68617200 
+ 577              	.LASF14:
+ 578 01c5 6C6F6E67 		.ascii	"long double\000"
+ 578      20646F75 
+ 578      626C6500 
+ 579              	.LASF19:
+ 580 01d1 61646A75 		.ascii	"adjustLeft\000"
+ 580      73744C65 
+ 580      667400
+ 581              	.LASF9:
+ 582 01dc 5F5F696E 		.ascii	"__int32_t\000"
+ 582      7433325F 
+ 582      7400
+ 583              	.LASF11:
+ 584 01e6 666C6F61 		.ascii	"float\000"
+ 584      7400
+ 585              	.LASF2:
+ 586 01ec 73686F72 		.ascii	"short int\000"
+ 586      7420696E 
+ 586      7400
+ 587              	.LASF10:
+ 588 01f6 696E7433 		.ascii	"int32_t\000"
+ 588      325F7400 
+ 589              	.LASF15:
+ 590 01fe 73697A65 		.ascii	"sizetype\000"
+ 590      74797065 
+ 590      00
+ 591              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

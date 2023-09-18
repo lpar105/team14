@@ -19,7 +19,9 @@
 #include <stdlib.h>
 #include <project.h>
 //* ========================================
+
 #include "defines.h"
+#include "motors.h"
 #include "vars.h"
 //* ========================================
 void usbPutString(char *s);
@@ -34,6 +36,7 @@ volatile int valuesTurnComplete[2000];
 volatile int valuesRightLine[2000];
 volatile int valuesRightIntersection[2000];
 volatile int count = 0;
+volatile int turnCompleted = 1;
 
 
 CY_ISR(eoc) {
@@ -52,19 +55,17 @@ int main()
 // ------USB SETUP ----------------    
   
     USBUART_Start(0,USBUART_5V_OPERATION);     
-        
-    //RF_BT_SELECT_Write(0);
 
     ADC_Start();
     ADC_StartConvert();
     eoc_StartEx(eoc);
-    PWM_1_Start();
-    PWM_2_Start();
+    
+    initMotors();
+    
+    force_g_Write(0);
 
-    PWM_1_WriteCompare(20);
-    PWM_1_WritePeriod(255);
-    PWM_2_WriteCompare(20);
-    PWM_2_WritePeriod(255);
+    stop();
+    
 
     for(;;)
     {   
@@ -119,41 +120,52 @@ int main()
                     }
                     
                 }
-                if (highCountLeftIntersection > 200) {
+                if (turnCompleted == 1) {
+                    /*if (highCountLeftIntersection < 200) {
+                        LED_PIN_1_Write(1);
+                        LED_PIN_2_Write(0);
+                        LED_PIN_3_Write(0);
+                        LED_PIN_4_Write(0);
+                        turnLeft();
+                        turnCompleted = 0;
+                    } else  if (highCountRightIntersection < 200) {
+                        LED_PIN_1_Write(0);
+                        LED_PIN_2_Write(1);
+                        LED_PIN_3_Write(0);
+                        LED_PIN_4_Write(0);
+                        turnRight();
+                        turnCompleted = 0;
+                    } else */ if (highCountLeftLine < 200) {
+                        LED_PIN_1_Write(0);
+                        LED_PIN_2_Write(0);
+                        LED_PIN_3_Write(1);
+                        LED_PIN_4_Write(0);
+                        adjustRight();
+                    } else if (highCountRightLine < 200) {
+                        LED_PIN_1_Write(0);
+                        LED_PIN_2_Write(0);
+                        LED_PIN_3_Write(0);
+                        LED_PIN_4_Write(0);
+                        adjustLeft();
+                    } else if (highCountMiddleLine < 200) {
+                        LED_PIN_1_Write(0);
+                        LED_PIN_2_Write(0);
+                        LED_PIN_3_Write(0);
+                        LED_PIN_4_Write(0);
+                        driveForward();
+                    } else {
+                        stop();
+                    }
+                } else {
                     LED_PIN_1_Write(1);
-                } else {
-                    LED_PIN_1_Write(0);
-                }
-                
-                if (highCountLeftLine > 200) {
                     LED_PIN_2_Write(1);
-                } else {
-                    LED_PIN_2_Write(0);
-                }
-                
-                if (highCountRightIntersection > 200) {
-                    LED_PIN_6_Write(1);
-                } else {
-                    LED_PIN_6_Write(0);
-                }
-                
-                if (highCountRightLine > 200) {
-                    LED_PIN_5_Write(1);
-                } else {
-                    LED_PIN_5_Write(0);
-                }
-                
-                if (highCountMiddleLine > 200) {
                     LED_PIN_3_Write(1);
-                } else {
-                    LED_PIN_3_Write(0);
+                    LED_PIN_4_Write(1);
+                    if (highCountTurnComplete < 200) {
+                        turnCompleted = 1;
+                    }
                 }
                 
-                if (highCountTurnComplete > 200) {
-                    LED_PIN_4_Write(1);
-                } else {
-                    LED_PIN_4_Write(0);
-                }
                 
                 
                 
@@ -167,7 +179,7 @@ int main()
         
         
        
-    }   
+    }  
 }
 //* ========================================
 void usbPutString(char *s)
