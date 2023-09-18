@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
   38              		.loc 1 17 0
   39 0004 FA20     		movs	r0, #250
   40 0006 FFF7FEFF 		bl	PWM_1_WritePeriod
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 2
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 2
 
 
   18:motors.c      ****     PWM_2_WritePeriod(250);
@@ -99,13 +99,13 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
   69              		.cfi_offset 14, -4
   70 0002 00AF     		add	r7, sp, #0
   71              		.cfi_def_cfa_register 7
-  25:motors.c      ****     PWM_1_WriteCompare(160);
+  25:motors.c      ****     PWM_1_WriteCompare(170);
   72              		.loc 1 25 0
-  73 0004 A020     		movs	r0, #160
+  73 0004 AA20     		movs	r0, #170
   74 0006 FFF7FEFF 		bl	PWM_1_WriteCompare
-  26:motors.c      ****     PWM_2_WriteCompare(160); 
+  26:motors.c      ****     PWM_2_WriteCompare(170); 
   75              		.loc 1 26 0
-  76 000a A020     		movs	r0, #160
+  76 000a AA20     		movs	r0, #170
   77 000c FFF7FEFF 		bl	PWM_2_WriteCompare
   27:motors.c      **** }
   78              		.loc 1 27 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
   85              		.align	2
   86              		.global	stop
   87              		.thumb
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 3
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 3
 
 
   88              		.thumb_func
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  134 0006 FFF7FEFF 		bl	PWM_1_WriteCompare
   36:motors.c      ****     PWM_2_WriteCompare(175);
  135              		.loc 1 36 0
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 4
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 4
 
 
  136 000a AF20     		movs	r0, #175
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  182              		.loc 1 44 0
  183              		.cfi_startproc
  184              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 5
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 5
 
 
  185              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -248,13 +248,13 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  189              		.cfi_offset 14, -4
  190 0002 00AF     		add	r7, sp, #0
  191              		.cfi_def_cfa_register 7
-  45:motors.c      ****     PWM_1_WriteCompare(0);
+  45:motors.c      ****     PWM_1_WriteCompare(85);
  192              		.loc 1 45 0
- 193 0004 0020     		movs	r0, #0
+ 193 0004 5520     		movs	r0, #85
  194 0006 FFF7FEFF 		bl	PWM_1_WriteCompare
-  46:motors.c      ****     PWM_2_WriteCompare(255);
+  46:motors.c      ****     PWM_2_WriteCompare(175);
  195              		.loc 1 46 0
- 196 000a FF20     		movs	r0, #255
+ 196 000a AF20     		movs	r0, #175
  197 000c FFF7FEFF 		bl	PWM_2_WriteCompare
   47:motors.c      ****     
   48:motors.c      **** }
@@ -284,13 +284,13 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  219              		.cfi_offset 14, -4
  220 0002 00AF     		add	r7, sp, #0
  221              		.cfi_def_cfa_register 7
-  51:motors.c      ****     PWM_1_WriteCompare(0);
+  51:motors.c      ****     PWM_1_WriteCompare(175); 
  222              		.loc 1 51 0
- 223 0004 0020     		movs	r0, #0
+ 223 0004 AF20     		movs	r0, #175
  224 0006 FFF7FEFF 		bl	PWM_1_WriteCompare
-  52:motors.c      ****     PWM_2_WriteCompare(255);
+  52:motors.c      ****     PWM_2_WriteCompare(85);
  225              		.loc 1 52 0
- 226 000a FF20     		movs	r0, #255
+ 226 000a 5520     		movs	r0, #85
  227 000c FFF7FEFF 		bl	PWM_2_WriteCompare
   53:motors.c      **** }
  228              		.loc 1 53 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  230 0012 80BD     		pop	{r7, pc}
  231              		.cfi_endproc
  232              	.LFE69:
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 6
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 6
 
 
  233              		.size	turnRight, .-turnRight
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  287 0062 08       		.byte	0x8
  288 0063 07       		.byte	0x7
  289 0064 BE000000 		.4byte	.LASF7
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 7
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 7
 
 
  290 0068 04       		.uleb128 0x4
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  344 00d1 14000000 		.4byte	.LFE65-.LFB65
  345 00d5 01       		.uleb128 0x1
  346 00d6 9C       		.byte	0x9c
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 8
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 8
 
 
  347 00d7 05       		.uleb128 0x5
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  401 000c 17       		.uleb128 0x17
  402 000d 11       		.uleb128 0x11
  403 000e 01       		.uleb128 0x1
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 9
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 9
 
 
  404 000f 10       		.uleb128 0x10
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  458 0045 40       		.uleb128 0x40
  459 0046 18       		.uleb128 0x18
  460 0047 9642     		.uleb128 0x2116
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 10
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 10
 
 
  461 0049 19       		.uleb128 0x19
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  515 0000 00000000 		.4byte	.LFB63
  516 0004 1C000000 		.4byte	.LFE63
  517 0008 00000000 		.4byte	.LFB64
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 11
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 11
 
 
  518 000c 14000000 		.4byte	.LFE64
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  546      73745269 
  546      67687400 
  547              	.LASF5:
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 12
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 12
 
 
  548 00a3 6C6F6E67 		.ascii	"long unsigned int\000"
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 1
  569              	.LASF18:
  570 0199 73746F70 		.ascii	"stop\000"
  570      00
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccX1t9gM.s 			page 13
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\cc9pvQ2I.s 			page 13
 
 
  571              	.LASF22:

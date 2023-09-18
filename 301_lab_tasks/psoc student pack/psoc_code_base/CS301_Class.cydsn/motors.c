@@ -22,8 +22,8 @@ void initMotors() {
 }
 
 void driveForward() {
-    PWM_1_WriteCompare(160);
-    PWM_2_WriteCompare(160); 
+    PWM_1_WriteCompare(170);
+    PWM_2_WriteCompare(170); 
 }
 
 void stop() {
@@ -42,13 +42,13 @@ void adjustRight() {
 }
 
 void turnLeft() {
-    PWM_1_WriteCompare(0);
-    PWM_2_WriteCompare(255);
+    PWM_1_WriteCompare(85);
+    PWM_2_WriteCompare(175);
     
 }
 
 void turnRight() {
-    PWM_1_WriteCompare(0);
-    PWM_2_WriteCompare(255);
+    PWM_1_WriteCompare(175); 
+    PWM_2_WriteCompare(85);
 }
 /* [] END OF FILE */
