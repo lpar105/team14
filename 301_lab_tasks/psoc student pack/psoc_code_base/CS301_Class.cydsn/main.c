@@ -36,7 +36,11 @@
 #define R_LINE_BLACK highCountRightLine < 150
 #define M_LINE_BLACK highCountMiddleLine < 150
 #define TC_BLACK highCountTurnComplete < 150
-#define MOVE_DISTANCE 200 //cm
+int TARGET_SPEED = 10;
+int turningDirection = 0;
+int turningCount = 30;
+volatile int shouldUpdate = 1;
+#define MOVE_DISTANCE 9999976 //cm
 volatile int dotsTravelled = 0;
 //* ========================================
 void usbPutString(char * s);
@@ -52,7 +56,6 @@ volatile int valuesTurnComplete[ADC_COUNT];
 volatile int valuesRightLine[ADC_COUNT];
 volatile int valuesRightIntersection[ADC_COUNT];
 volatile int count = 0;
-volatile int turnCompleted = 1;
 volatile int lastVeerDirection = 0;
 
 volatile int motorFlag = 0;
@@ -66,6 +69,7 @@ volatile int numRotationsR; //
 volatile int distanceTravelled = 0;
 volatile int distancePerSecondL = 0;
 volatile int distancePerSecondR = 0;
+int lastAdjustDirection = 0;
 
 CY_ISR(eoc) {
   flag = 1;
@@ -74,8 +78,6 @@ CY_ISR(eoc) {
 CY_ISR(MyISR) {
   motorFlag = 1;
 }
-
-
 
 int main() {
 
@@ -88,8 +90,8 @@ int main() {
   USBUART_Start(0, USBUART_5V_OPERATION);
   UART_Start();
 
-    QuadDec_M1_Start();
-    QuadDec_M2_Start();
+  QuadDec_M1_Start();
+  QuadDec_M2_Start();
 
   RF_BT_SELECT_Write(1);
 
@@ -101,171 +103,208 @@ int main() {
 
   stop();
 
-// NOTE FOR GROUP -- I've changed the timer to go off every 500ms. Ideally we want to lower it even further
+  // NOTE FOR GROUP -- I've changed the timer to go off every 500ms. Ideally we want to lower it even further
   isr_TS_StartEx(MyISR);
   Timer_TS_Start();
 
   for (;;) {
-    
+
     if (distanceTravelled > MOVE_DISTANCE) {
-            stop();
+      stop();
     } else {
-                    LED_PIN_4_Write(0);
-    if (flag == 1) {
+      LED_PIN_4_Write(0);
+      if (flag == 1) {
 
-      ADC_IRQ_Disable();
-      valuesLeftIntersection[count] = ADC_GetResult16(0);
-      valuesLeftLine[count] = ADC_GetResult16(1);
-      valuesMiddleLine[count] = ADC_GetResult16(2);
-      valuesTurnComplete[count] = ADC_GetResult16(3);
-      valuesRightLine[count] = ADC_GetResult16(4);
-      valuesRightIntersection[count] = ADC_GetResult16(5);
+        ADC_IRQ_Disable();
+        valuesLeftIntersection[count] = ADC_GetResult16(0);
+        valuesLeftLine[count] = ADC_GetResult16(1);
+        valuesMiddleLine[count] = ADC_GetResult16(2);
+        valuesTurnComplete[count] = ADC_GetResult16(3);
+        valuesRightLine[count] = ADC_GetResult16(4);
+        valuesRightIntersection[count] = ADC_GetResult16(5);
 
-      count++;
-      if (count == ADC_COUNT) {
-        LED_PIN_4_Write(1);
-        count = 0;
-        int highCountLeftIntersection = 0;
-        int highCountLeftLine = 0;
-        int highCountMiddleLine = 0;
-        int highCountTurnComplete = 0;
-        int highCountRightLine = 0;
-        int highCountRightIntersection = 0;
-        for (int i = 0; i < ADC_COUNT; i++) {
+        count++;
+        if (count == ADC_COUNT) {
+          LED_PIN_4_Write(1);
+          count = 0;
+          int highCountLeftIntersection = 0;
+          int highCountLeftLine = 0;
+          int highCountMiddleLine = 0;
+          int highCountTurnComplete = 0;
+          int highCountRightLine = 0;
+          int highCountRightIntersection = 0;
+          for (int i = 0; i < ADC_COUNT; i++) {
 
-          if (valuesLeftIntersection[i] > 3000) {
-            highCountLeftIntersection++;
+            if (valuesLeftIntersection[i] > 3000) {
+              highCountLeftIntersection++;
+
+            }
+
+            if (valuesLeftLine[i] > 3000) {
+              highCountLeftLine++;
+
+            }
+
+            if (valuesMiddleLine[i] > 3000) {
+              highCountMiddleLine++;
+
+            }
+
+            if (valuesTurnComplete[i] > 3000) {
+              highCountTurnComplete++;
+
+            }
+
+            if (valuesRightLine[i] > 3000) {
+              highCountRightLine++;
+
+            }
+
+            if (valuesRightIntersection[i] >= 3000) {
+              highCountRightIntersection++;
+
+            }
 
           }
 
-          if (valuesLeftLine[i] > 3000) {
-            highCountLeftLine++;
-
-          }
-
-          if (valuesMiddleLine[i] > 3000) {
-            highCountMiddleLine++;
-
-          }
-
-          if (valuesTurnComplete[i] > 3000) {
-            highCountTurnComplete++;
-
-          }
-
-          if (valuesRightLine[i] > 3000) {
-            highCountRightLine++;
-
-          }
-
-          if (valuesRightIntersection[i] >= 3000) {
-            highCountRightIntersection++;
-
-          }
-
-        }
-
-        if (L_LINE_BLACK) {
+          if (L_LINE_BLACK) {
             LED_PIN_1_Write(0);
-        } else {
+          } else {
             LED_PIN_1_Write(1);
-        }
-        
-        if (M_LINE_BLACK) {
+          }
+
+          if (M_LINE_BLACK) {
             LED_PIN_2_Write(0);
-        } else {
+          } else {
             LED_PIN_2_Write(1);
-        }
-        
-        if (R_LINE_BLACK) {
+          }
+
+          if (R_LINE_BLACK) {
             LED_PIN_3_Write(0);
-        } else {
+          } else {
             LED_PIN_3_Write(1);
+          }
+        
+        if (turningCount > 7 && turningCount <= 10) {
+            turningCount++;
+            driveForward(distancePerSecondL, distancePerSecondR, TARGET_SPEED);
+        } else if (turningCount > 10) {
+            if (L_LINE_BLACK && L_INT_BLACK && M_LINE_BLACK) {
+              turningCount = 0;
+              turningDirection = 0;
+              turnLeft();
+            } else if (R_LINE_BLACK && R_INT_BLACK && M_LINE_BLACK) {
+                turningDirection = 1;
+              turnRight();
+              turningCount = 0;
+            } else if (L_LINE_BLACK) {
+              shouldUpdate = 0;
+              adjustLeft();
+              lastAdjustDirection = 0;
+            } else if (R_LINE_BLACK) {
+              shouldUpdate = 0;
+              lastAdjustDirection = 2;
+              adjustRight();
+            } else if (M_LINE_BLACK) {
+              shouldUpdate = 1;
+              lastAdjustDirection = 1;
+
+              driveForward(distancePerSecondL, distancePerSecondR, TARGET_SPEED);
+            } else {
+              shouldUpdate = 0;
+              if (lastAdjustDirection == 0) {
+                restoreLeft();
+              } else if (lastAdjustDirection == 1) {
+                stop();
+              } else {
+                restoreRight();
+              }
+            }
+          } else {
+            turningCount++;
+          }
+
+          printSensorDebug(highCountLeftIntersection, highCountLeftLine, highCountMiddleLine, highCountRightLine, highCountRightIntersection, highCountTurnComplete);
+
         }
 
-        if (L_LINE_BLACK) {
-          
-          adjustLeft();
-        } else if (R_LINE_BLACK) {
+        flag = 0;
+        ADC_IRQ_Enable();
+      }
+      //    
+      if (motorFlag == 1) { // timer has counted 1s 
 
-          adjustRight();
-        } else if (M_LINE_BLACK) {
-     
-          driveForward();
-        } else {
-          stop();
+        //        char distanceTravelledChar[8];
+        //        itoa(distanceTravelled, distanceTravelledChar,10);
+        //        usbPutString(distanceTravelledChar);
+        //        usbPutString("\r\n");
+
+        isr_TS_Disable(); // disabling the interrupts
+        if (step == 0) { //takes the first measurement, sets steps to 2, the next time the timer goes off, it will do the second measurement
+          v1L = QuadDec_M1_GetCounter(); // first measurement taken - LEFT
+          v1R = QuadDec_M2_GetCounter(); // first measurement taken - RIGHT
+          step++;
+          //LED_PIN_4_Write(1);
+        } else { // second measure and sending out to UART
+          step = 0;
+          //LED_PIN_4_Write(0);
+          // Allocating space for debugging and speed values
+          char numRotationsLText[24];
+          char numRotationsRText[24];
+
+          v2L = QuadDec_M1_GetCounter(); // second measurement taken - LEFT
+          v2R = QuadDec_M2_GetCounter(); // second measurement taken - RIGHT
+
+          numRotationsL = (v2L - v1L);
+          numRotationsR = (v2R - v1R);
+
+          itoa(v2L, numRotationsLText, 10);
+          itoa(v2L, numRotationsRText, 10);
+
+          dotsTravelled = abs(numRotationsL) + abs(numRotationsR) + dotsTravelled;
+
+          distanceTravelled = dotsTravelled / 2 * 0.358;
+          distancePerSecondL = (abs(numRotationsL) * 5) * 0.358 / 3; // averaged the shafts because timer is currently 00ms
+          distancePerSecondR = (abs(numRotationsR) * 5) * 0.358 / 3; // averaged the shafts because timer is currently 200ms
+
+          // integer to string conversion, base 10, storing, hardwaretask2 sheet for more info
+          // converting to rad/s (v2-v1/360)*(360/16) for the left wheel
+
+          char distancePerSecondLChar[8];
+          char distancePerSecondRChar[8];
+          itoa(distancePerSecondR, distancePerSecondRChar, 10);
+          itoa(distancePerSecondL, distancePerSecondLChar, 10);
+
+          char leftPWMChar[8];
+          char rightPWMChar[8];
+          itoa(getLeftPWM(), leftPWMChar, 10);
+          itoa(getRightPWM(), rightPWMChar, 10);
+
+          /*usbPutString(distancePerSecondLChar);
+          usbPutString("  <LeftCount  RightCount> ");
+          usbPutString(distancePerSecondRChar);
+          usbPutString("\r\n");
+          usbPutString(leftPWMChar);
+          usbPutString("  <LeftPWM  Right PWM> ");
+          usbPutString(rightPWMChar);
+          usbPutString("\r\n\r\n");*/
+
+          QuadDec_M1_SetCounter(0); // set quad counter to 0 to avoid overflow
+          QuadDec_M2_SetCounter(0); // set quad counter to 0 to avoid overflow 
+          if (shouldUpdate) {
+            updateForwardSpeed(distancePerSecondL, distancePerSecondR, TARGET_SPEED);
+          }
+
         }
-        
-
-        //printSensorDebug(highCountLeftIntersection, highCountLeftLine, highCountMiddleLine,highCountRightLine,highCountRightIntersection,highCountTurnComplete);
-
-      }
-
-      flag = 0;
-      ADC_IRQ_Enable();
-    }
-    
-    if (motorFlag == 1) { // timer has counted 1s 
-        
-        char distanceTravelledChar[8];
-        itoa(distanceTravelled, distanceTravelledChar,10);
-        usbPutString(distanceTravelledChar);
-        usbPutString("\r\n");
-      
-      isr_TS_Disable(); // disabling the interrupts
-      if (step == 0) { //takes the first measurement, sets steps to 2, the next time the timer goes off, it will do the second measurement
-        v1L = QuadDec_M1_GetCounter(); // first measurement taken - LEFT
-        v1R = QuadDec_M2_GetCounter(); // first measurement taken - RIGHT
-        step++;
-        //LED_PIN_4_Write(1);
-      } else { // second measure and sending out to UART
-        step = 0;
-        //LED_PIN_4_Write(0);
-        // Allocating space for debugging and speed values
-        char numRotationsLText[24];
-        char numRotationsRText[24];
-
-        v2L = QuadDec_M1_GetCounter(); // second measurement taken - LEFT
-        v2R = QuadDec_M2_GetCounter(); // second measurement taken - RIGHT
-
-        numRotationsL =  (v2L - v1L);
-        numRotationsR = (v2R - v1R);
-
-        itoa(v2L, numRotationsLText, 10);
-        itoa(v2L, numRotationsRText, 10);
-        
-        dotsTravelled = abs(numRotationsL) + abs(numRotationsR) + dotsTravelled;
-        
-        distanceTravelled = dotsTravelled/2 *0.358; 
-        distancePerSecondL = (abs(numRotationsL)*2) *0.358/3; // averaged the shafts because timer is currently 500ms
-        distancePerSecondR = (abs(numRotationsR)*2) *0.358/3; // averaged the shafts because timer is currently 500ms
-
-        // integer to string conversion, base 10, storing, hardwaretask2 sheet for more info
-        // converting to rad/s (v2-v1/360)*(360/16) for the left wheel
-        
-        char distancePerSecondLChar[8];
-        char distancePerSecondRChar[8];
-        itoa(distancePerSecondR, distancePerSecondRChar,10);
-        itoa(distancePerSecondL, distancePerSecondLChar,10);
-
-        usbPutString(distancePerSecondLChar);
-        usbPutString("  < LEFT   RIGHT >  ");
-        usbPutString(distancePerSecondRChar);
-        usbPutString("\r\n");
-
-        QuadDec_M1_SetCounter(0); // set quad counter to 0 to avoid overflow
-        QuadDec_M2_SetCounter(0); // set quad counter to 0 to avoid overflow    
+        motorFlag = 0; // interrupt flag is back to 0
+        isr_TS_Enable(); // interrupt enabled
 
       }
-      motorFlag = 0; // interrupt flag is back to 0
-      isr_TS_Enable(); // interrupt enabled
-
     }
-    }
-    
-
   }
+
 }
+// }
 //* ========================================
 void usbPutString(char * s) {
   // !! Assumes that *s is a string with allocated space >=64 chars     
@@ -334,15 +373,15 @@ void printSensorDebug(int highCountLeftIntersection, int highCountLeftLine, int 
     strcpy(middleLineText, "S3 - 1\r\n");
   }
 
-  usbPutString(leftIntText);
+  /*usbPutString(leftIntText);
   usbPutString(leftLineText);
   usbPutString(middleLineText);
   usbPutString(rightLineText);
-  usbPutString(rightIntText);
+  usbPutString(rightIntText);*/
 
   //usbPutString(turnCompleteText);
 
-  usbPutString("-------------\r\n");
+  //usbPutString("-------------\r\n");
 }
 
 /* [] END OF FILE */

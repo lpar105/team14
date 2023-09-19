@@ -9,11 +9,18 @@
  *
  * ========================================
 */
+
 void initMotors();
-void driveForward();
+void driveForward(int speedL, int speedR, int targetSpeed);
+void updateForwardSpeed(int speedL, int speedR, int targetSpeed);
 void stop();
 void adjustLeft();
 void adjustRight();
 void turnLeft();
+void restoreLeft();
+void restoreRight();
+void reverse();
 void turnRight();
+int getLeftPWM (void);
+int getRightPWM (void);
 /* [] END OF FILE */

@@ -13,6 +13,10 @@
 #include <project.h>
 #include "motors.h"
 
+volatile int currentFLeftSpeed = 170;
+volatile int currentFRightSpeed = 170;
+
+
 void initMotors() {
     PWM_1_WritePeriod(250);
     PWM_2_WritePeriod(250);
@@ -21,9 +25,42 @@ void initMotors() {
 
 }
 
-void driveForward() {
-    PWM_1_WriteCompare(170);
-    PWM_2_WriteCompare(170); 
+int getLeftPWM(void) {
+    return currentFLeftSpeed;
+}
+
+int getRightPWM(void) {
+    return currentFRightSpeed;
+}
+
+void updateForwardSpeed(int speedL, int speedR, int targetSpeed) {
+    if (speedL == 0 || speedR == 0) {
+    }
+    else if (speedL < targetSpeed) {
+        currentFLeftSpeed = currentFLeftSpeed + 10 * ((double)1 - (speedL / (double)targetSpeed));
+        
+    } else if (speedL > targetSpeed) {
+        currentFLeftSpeed = currentFLeftSpeed - 10 * ((double)1 - (targetSpeed/(double)speedL));
+        
+    } else {
+        
+    }
+    
+    if (speedL == 0 || speedR == 0) {
+    }
+    else if (speedR < targetSpeed) {
+        currentFRightSpeed = currentFRightSpeed + 10 * ((double)1 - (speedR / (double)targetSpeed));
+    } else if (speedR > targetSpeed) {
+        currentFRightSpeed = currentFRightSpeed - 10 * ((double)1 - (targetSpeed/(double)speedR));
+    } else {
+    }
+}
+
+void driveForward(int speedL, int speedR, int targetSpeed) {
+    
+    PWM_1_WriteCompare(currentFLeftSpeed); 
+    PWM_2_WriteCompare(currentFRightSpeed);
+   
 }
 
 void stop() {
@@ -32,23 +69,41 @@ void stop() {
 }
 
 void adjustLeft() {
-    PWM_1_WriteCompare(165);
-    PWM_2_WriteCompare(175);
+    PWM_1_WriteCompare(currentFLeftSpeed - 3);
+    PWM_2_WriteCompare(currentFRightSpeed + 3);
 }
 
 void adjustRight() {
-    PWM_1_WriteCompare(175);
-    PWM_2_WriteCompare(165);
+    PWM_1_WriteCompare(currentFLeftSpeed + 3);
+    PWM_2_WriteCompare(currentFRightSpeed - 3);
+}
+
+void restoreLeft() {
+    // 125 - currentFLeftSpeed - 125
+    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125) - 1);
+    PWM_2_WriteCompare(125 - (currentFLeftSpeed - 125) + 1);
+}
+
+void restoreRight() {
+    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125) + 1);
+    PWM_2_WriteCompare(125 - (currentFLeftSpeed - 125) - 1);
 }
 
 void turnLeft() {
     PWM_1_WriteCompare(85);
-    PWM_2_WriteCompare(175);
+    PWM_2_WriteCompare(165);
     
 }
 
 void turnRight() {
-    PWM_1_WriteCompare(175); 
+    PWM_1_WriteCompare(165); 
     PWM_2_WriteCompare(85);
+}
+
+void reverse() {
+    PWM_1_WriteCompare(125);
+    PWM_2_WriteCompare(125);
+    //PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125));
+    //PWM_2_WriteCompare(125 - (currentFRightSpeed - 125));
 }
 /* [] END OF FILE */
