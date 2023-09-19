@@ -37,10 +37,11 @@
 #define M_LINE_BLACK highCountMiddleLine < 150
 #define TC_BLACK highCountTurnComplete < 150
 int TARGET_SPEED = 10;
+int restoring = 30;
 int turningDirection = 0;
 int turningCount = 30;
 volatile int shouldUpdate = 1;
-#define MOVE_DISTANCE 9999976 //cm
+#define MOVE_DISTANCE 999999999 //cm
 volatile int dotsTravelled = 0;
 //* ========================================
 void usbPutString(char * s);
@@ -103,7 +104,6 @@ int main() {
 
   stop();
 
-  // NOTE FOR GROUP -- I've changed the timer to go off every 500ms. Ideally we want to lower it even further
   isr_TS_StartEx(MyISR);
   Timer_TS_Start();
 
@@ -185,16 +185,24 @@ int main() {
             LED_PIN_3_Write(1);
           }
         
-        if (turningCount > 7 && turningCount <= 10) {
+        if (turningCount > 4 && turningCount <= 9) {
+            //Phase 2 of turning count
             turningCount++;
             driveForward(distancePerSecondL, distancePerSecondR, TARGET_SPEED);
-        } else if (turningCount > 10) {
-            if (L_LINE_BLACK && L_INT_BLACK && M_LINE_BLACK) {
-              turningCount = 0;
-              turningDirection = 0;
+        } else if (restoring > 3 && restoring <= 5) {
+            //Phase 2 of restoring
+            if (lastAdjustDirection == 0) {
+                turnLeft();
+            } else {
+                turnRight();
+            }
+            restoring++;
+        } else if (turningCount > 9 && restoring > 5) {
+            // normal opperation
+            if (L_INT_BLACK) {
               turnLeft();
-            } else if (R_LINE_BLACK && R_INT_BLACK && M_LINE_BLACK) {
-                turningDirection = 1;
+              turningCount = 0;
+            } else if (R_INT_BLACK) {
               turnRight();
               turningCount = 0;
             } else if (L_LINE_BLACK) {
@@ -203,15 +211,14 @@ int main() {
               lastAdjustDirection = 0;
             } else if (R_LINE_BLACK) {
               shouldUpdate = 0;
-              lastAdjustDirection = 2;
               adjustRight();
+              lastAdjustDirection = 2;
             } else if (M_LINE_BLACK) {
-              shouldUpdate = 1;
               lastAdjustDirection = 1;
-
               driveForward(distancePerSecondL, distancePerSecondR, TARGET_SPEED);
             } else {
               shouldUpdate = 0;
+              restoring = 0;
               if (lastAdjustDirection == 0) {
                 restoreLeft();
               } else if (lastAdjustDirection == 1) {
@@ -220,8 +227,15 @@ int main() {
                 restoreRight();
               }
             }
-          } else {
+          } else if (turningCount <= 4){
+            //phase 1 of turning
             turningCount++;
+          } else {
+            //phase 1 of restoring
+            restoring++;
+            if(M_LINE_BLACK || R_LINE_BLACK || L_LINE_BLACK || TC_BLACK) {
+                stop();
+            }
           }
 
           printSensorDebug(highCountLeftIntersection, highCountLeftLine, highCountMiddleLine, highCountRightLine, highCountRightIntersection, highCountTurnComplete);
@@ -260,10 +274,15 @@ int main() {
 
           itoa(v2L, numRotationsLText, 10);
           itoa(v2L, numRotationsRText, 10);
+            
+            if (numRotationsL > numRotationsR) {
+                dotsTravelled = abs(numRotationsL) + dotsTravelled;
+            } else {
+                dotsTravelled = abs(numRotationsR) + dotsTravelled;
+            }
+          
 
-          dotsTravelled = abs(numRotationsL) + abs(numRotationsR) + dotsTravelled;
-
-          distanceTravelled = dotsTravelled / 2 * 0.358;
+          distanceTravelled = dotsTravelled * 0.358 * (float)3/5;
           distancePerSecondL = (abs(numRotationsL) * 5) * 0.358 / 3; // averaged the shafts because timer is currently 00ms
           distancePerSecondR = (abs(numRotationsR) * 5) * 0.358 / 3; // averaged the shafts because timer is currently 200ms
 
@@ -294,7 +313,7 @@ int main() {
           if (shouldUpdate) {
             updateForwardSpeed(distancePerSecondL, distancePerSecondR, TARGET_SPEED);
           }
-
+        shouldUpdate = 1;
         }
         motorFlag = 0; // interrupt flag is back to 0
         isr_TS_Enable(); // interrupt enabled

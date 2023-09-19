@@ -34,26 +34,19 @@ int getRightPWM(void) {
 }
 
 void updateForwardSpeed(int speedL, int speedR, int targetSpeed) {
-    if (speedL == 0 || speedR == 0) {
-    }
-    else if (speedL < targetSpeed) {
-        currentFLeftSpeed = currentFLeftSpeed + 10 * ((double)1 - (speedL / (double)targetSpeed));
+    if (abs(speedL - targetSpeed) > 10) {
+    } else if (speedL < targetSpeed) {
+        currentFLeftSpeed = currentFLeftSpeed + 2 * ((float)1 - (speedL / (float)targetSpeed));
         
     } else if (speedL > targetSpeed) {
-        currentFLeftSpeed = currentFLeftSpeed - 10 * ((double)1 - (targetSpeed/(double)speedL));
-        
-    } else {
+        currentFLeftSpeed = currentFLeftSpeed - 2 * ((float)1 - (targetSpeed/(float)speedL));
         
     }
-    
-    if (speedL == 0 || speedR == 0) {
-    }
-    else if (speedR < targetSpeed) {
-        currentFRightSpeed = currentFRightSpeed + 10 * ((double)1 - (speedR / (double)targetSpeed));
+    if (speedR < targetSpeed) {
+        currentFRightSpeed = currentFRightSpeed + 2 * ((float)1 - (speedR / (float)targetSpeed));
     } else if (speedR > targetSpeed) {
-        currentFRightSpeed = currentFRightSpeed - 10 * ((double)1 - (targetSpeed/(double)speedR));
-    } else {
-    }
+        currentFRightSpeed = currentFRightSpeed - 2 * ((float)1 - (targetSpeed/(float)speedR));
+    } 
 }
 
 void driveForward(int speedL, int speedR, int targetSpeed) {
@@ -69,13 +62,13 @@ void stop() {
 }
 
 void adjustLeft() {
-    PWM_1_WriteCompare(currentFLeftSpeed - 3);
-    PWM_2_WriteCompare(currentFRightSpeed + 3);
+    PWM_1_WriteCompare(currentFLeftSpeed - 4);
+    PWM_2_WriteCompare(currentFRightSpeed + 4);
 }
 
 void adjustRight() {
-    PWM_1_WriteCompare(currentFLeftSpeed + 3);
-    PWM_2_WriteCompare(currentFRightSpeed - 3);
+    PWM_1_WriteCompare(currentFLeftSpeed + 4);
+    PWM_2_WriteCompare(currentFRightSpeed - 4);
 }
 
 void restoreLeft() {
@@ -90,14 +83,14 @@ void restoreRight() {
 }
 
 void turnLeft() {
-    PWM_1_WriteCompare(85);
-    PWM_2_WriteCompare(165);
+    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125));
+    PWM_2_WriteCompare(currentFRightSpeed);
     
 }
-
+//193 144
 void turnRight() {
-    PWM_1_WriteCompare(165); 
-    PWM_2_WriteCompare(85);
+    PWM_1_WriteCompare(currentFLeftSpeed); 
+    PWM_2_WriteCompare(125 - (currentFRightSpeed - 125));
 }
 
 void reverse() {
