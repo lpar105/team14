@@ -94,9 +94,7 @@ void turnRight() {
 }
 
 void reverse() {
-    PWM_1_WriteCompare(125);
-    PWM_2_WriteCompare(125);
-    //PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125));
-    //PWM_2_WriteCompare(125 - (currentFRightSpeed - 125));
+    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125));
+    PWM_2_WriteCompare(125 - (currentFRightSpeed - 125));
 }
 /* [] END OF FILE */

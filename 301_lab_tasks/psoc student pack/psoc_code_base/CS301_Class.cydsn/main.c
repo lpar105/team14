@@ -199,10 +199,10 @@ int main() {
             restoring++;
         } else if (turningCount > 9 && restoring > 5) {
             // normal opperation
-            if (L_INT_BLACK) {
+            if (L_INT_BLACK && (M_LINE_BLACK || L_LINE_BLACK)) {
               turnLeft();
               turningCount = 0;
-            } else if (R_INT_BLACK) {
+            } else if (R_INT_BLACK && (M_LINE_BLACK || R_LINE_BLACK)) {
               turnRight();
               turningCount = 0;
             } else if (L_LINE_BLACK) {
