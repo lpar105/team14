@@ -8,6 +8,7 @@
 <files />
 <projects>
 <v>.\CS301_Class.cyprj</v>
+<v>.\demo.cydsn\demo.cyprj</v>
 </projects>
 <workspace_id v="324477da-3e91-45c1-b7eb-1a151f617e51" />
 <WriteAppVersionLastSavedWith v="4.2.0.641" />

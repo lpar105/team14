@@ -7,14 +7,15 @@
  * CONFIDENTIAL AND PROPRIETARY INFORMATION
  * WHICH IS THE PROPERTY OF your company.
  *
+ * Last edited 23/09/2023 by Hira
  * ========================================
 */
 
 #include <project.h>
 #include "motors.h"
 
-volatile int currentFLeftSpeed = 170;
-volatile int currentFRightSpeed = 170;
+volatile int currentFLeftSpeed = 169;
+volatile int currentFRightSpeed = 169;
 
 
 void initMotors() {
@@ -52,8 +53,7 @@ void updateForwardSpeed(int speedL, int speedR, int targetSpeed) {
 void driveForward(int speedL, int speedR, int targetSpeed) {
     
     PWM_1_WriteCompare(currentFLeftSpeed); 
-    PWM_2_WriteCompare(currentFRightSpeed);
-   
+    PWM_2_WriteCompare(currentFRightSpeed); 
 }
 
 void stop() {
@@ -62,14 +62,24 @@ void stop() {
 }
 
 void adjustLeft() {
-    PWM_1_WriteCompare(currentFLeftSpeed - 4);
-    PWM_2_WriteCompare(currentFRightSpeed + 4);
+    PWM_1_WriteCompare(currentFLeftSpeed - 3);
+    PWM_2_WriteCompare(currentFRightSpeed + 3);
 }
 
 void adjustRight() {
-    PWM_1_WriteCompare(currentFLeftSpeed + 4);
-    PWM_2_WriteCompare(currentFRightSpeed - 4);
+    PWM_1_WriteCompare(currentFLeftSpeed + 3);
+    PWM_2_WriteCompare(currentFRightSpeed - 3);
 }
+void hardAdjustLeft() {
+    PWM_1_WriteCompare(currentFLeftSpeed - 6);
+    PWM_2_WriteCompare(currentFRightSpeed + 6);
+}
+
+void hardAdjustRight() {
+    PWM_1_WriteCompare(currentFLeftSpeed + 6);
+    PWM_2_WriteCompare(currentFRightSpeed - 6);
+}
+
 
 void restoreLeft() {
     // 125 - currentFLeftSpeed - 125
@@ -83,14 +93,14 @@ void restoreRight() {
 }
 
 void turnLeft() {
-    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125));
-    PWM_2_WriteCompare(currentFRightSpeed);
-    
+   
+    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125)+ 11); 
+    PWM_2_WriteCompare(currentFRightSpeed - 11);
 }
 //193 144
-void turnRight() {
-    PWM_1_WriteCompare(currentFLeftSpeed); 
-    PWM_2_WriteCompare(125 - (currentFRightSpeed - 125));
+void turnRight() { 
+    PWM_1_WriteCompare(currentFLeftSpeed - 11);  
+    PWM_2_WriteCompare(125 - (currentFRightSpeed - 125) +11 );
 }
 
 void reverse() {

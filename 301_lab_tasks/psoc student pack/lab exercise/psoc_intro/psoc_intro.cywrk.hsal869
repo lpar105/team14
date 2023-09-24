@@ -665,9 +665,11 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\democode.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\democode.cydsn\democode.cydwr" />
-<name v=".\democode.cydsn\main.c" />
+<name v="..\..\psoc_code_base\CS301_Class.cydsn\TopDesign\TopDesign.cysch" />
+<name v="..\..\psoc_code_base\CS301_Class.cydsn\main.c" />
+<name v=".\hardwaretask1.cydsn\hardwaretask1.cydwr" />
+<name v="..\..\psoc_code_base\CS301_Class.cydsn\CS301_Class.cydwr" />
+<name v=".\hardwaretask1.cydsn\TopDesign\TopDesign.cysch" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -675,7 +677,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1190, 711" SelectedTabbedMdiWindow="c9c90e48-1b7a-4b13-ac30-56353b0e938c"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="4cf299fc-25ba-420f-a14a-8b674b850251" /><DocumentWindow Key="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\lab exercise\psoc_intro\democode.cydsn\TopDesign\TopDesign.cysch" Guid="c9c90e48-1b7a-4b13-ac30-56353b0e938c" /><DocumentWindow Key="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\lab exercise\psoc_intro\democode.cydsn\democode.cydwr" Guid="46678975-51a4-4706-a2f2-e4cf3405c5fa" /><DocumentWindow Key="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\lab exercise\psoc_intro\democode.cydsn\main.c" Guid="a1eea161-4dcc-4830-b876-85d79f32c0db" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1444, 711" SelectedTabbedMdiWindow="3f26b976-1fb4-408f-adcf-fcb49b923536"><DocumentWindow Key="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\TopDesign\TopDesign.cysch" Guid="3edd0b0a-081b-4a7e-b08e-267cb9a8425b" /><DocumentWindow Key="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\main.c" Guid="3db6dc3f-3998-41f9-9bc4-c3b7f3951fdb" /><DocumentWindow Key="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\lab exercise\psoc_intro\hardwaretask1.cydsn\hardwaretask1.cydwr" Guid="9c9c9623-8ca4-4700-840a-58e18e9744fb" /><DocumentWindow Key="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cydwr" Guid="3f26b976-1fb4-408f-adcf-fcb49b923536" /><DocumentWindow Key="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\lab exercise\psoc_intro\hardwaretask1.cydsn\TopDesign\TopDesign.cysch" Guid="c8e0419d-96e5-469c-961f-090d280cc75c" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

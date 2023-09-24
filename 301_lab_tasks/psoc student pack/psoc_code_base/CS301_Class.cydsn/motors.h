@@ -19,6 +19,8 @@ void adjustRight();
 void turnLeft();
 void restoreLeft();
 void restoreRight();
+void hardAdjustRight();
+void hardAdjustLeft();
 void reverse();
 void turnRight();
 int getLeftPWM (void);
