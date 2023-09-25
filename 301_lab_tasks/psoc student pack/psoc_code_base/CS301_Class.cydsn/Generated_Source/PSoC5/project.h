@@ -98,7 +98,6 @@
 #include "ADC_TempBuf_dma.h"
 #include "ADC_FinalBuf_dma.h"
 #include "ADC_IRQ.h"
-#include "cy_em_eeprom.h"
 #include "core_cm3_psoc5.h"
 #include "CyDmac.h"
 #include "CyFlash.h"
@@ -107,6 +106,7 @@
 #include "cyPm.h"
 #include "CySpc.h"
 #include "cytypes.h"
+#include "cy_em_eeprom.h"
 
 /*[]*/
 

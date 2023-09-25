@@ -36,12 +36,12 @@
 #define R_LINE_BLACK highCountRightLine < 150
 #define M_LINE_BLACK highCountMiddleLine < 150
 #define TC_BLACK highCountTurnComplete < 150
-int TARGET_SPEED = 10;
+float TARGET_SPEED = 15; //speed in cm^-1
 int restoring = 30;
 int turningDirection = 0;
 int turningCount = 30;
 volatile int shouldUpdate = 1;
-#define MOVE_DISTANCE 999999999 //cm
+#define MOVE_DISTANCE 999999 //cm
 volatile int dotsTravelled = 0;
 //* ========================================
 void usbPutString(char * s);
@@ -73,6 +73,7 @@ volatile int turnCount;
 volatile int distanceTravelled = 0;
 volatile int distancePerSecondL = 0;
 volatile int distancePerSecondR = 0;
+volatile int distancePerSecondAvg = 0;
 volatile int prevTurnState = 0;
 volatile int turnState = 0;
 volatile int turnEnable = 0;
@@ -118,8 +119,38 @@ int main() {
 
   for (;;) {
 
+    if (motorFlag == 1) { // timer has counted 0.1s 
+
+      isr_TS_Disable(); // disabling the interrupts
+      if (step == 0) { //takes the first measurement, sets steps to 2, the next time the timer goes off, it will do the second measurement
+        v1L = QuadDec_M1_GetCounter(); // first measurement taken - LEFT
+        v1R = QuadDec_M2_GetCounter(); // first measurement taken - RIGHT
+        step++;
+      } else { // second measure
+        step = 0;
+
+        v2L = QuadDec_M1_GetCounter(); // second measurement taken - LEFT
+        v2R = QuadDec_M2_GetCounter(); // second measurement taken - RIGHT
+
+        numRotationsL = (v2L - v1L);
+        numRotationsR = (v2R - v1R);
+
+        int changeInDots = (((abs(numRotationsR) + abs(numRotationsL)) ) / 2);
+        dotsTravelled = changeInDots + dotsTravelled;
+        distanceTravelled = (dotsTravelled * (float)(1.217375 / 6.2)); //correct conversion of dotsTravelled, don't change. Works especially well with 167PWM
+
+        QuadDec_M1_SetCounter(0); // set quad counter to 0 to avoid overflow
+        QuadDec_M2_SetCounter(0); // set quad counter to 0 to avoid overflow 
+
+      }
+      motorFlag = 0; // interrupt flag is back to 0
+      isr_TS_Enable(); // interrupt enabled
+
+    }
+
     if (distanceTravelled > MOVE_DISTANCE) {
       stop();
+
     } else {
 
       LED_PIN_4_Write(0);
@@ -176,7 +207,6 @@ int main() {
             }
 
           }
-        
 
           if (L_LINE_BLACK) {
             LED_PIN_1_Write(0);
@@ -197,165 +227,99 @@ int main() {
           }
 
           shouldUpdate = 0;
+          turnTimer = 0;
 
+          // If all the sensors are under black light, stop the robot
           if (L_INT_BLACK && M_LINE_BLACK && R_INT_BLACK && TC_BLACK && L_LINE_BLACK && R_LINE_BLACK) {
-            // If all the sensors are under black light, stop the robot
+
             stop();
-          } else if (turningLeft == 1) {
-            turnLeft();
-            if (L_LINE_BLACK){
-              turningLeft = 0;
-            } 
+
+          } else if (turningLeft == 1) { // if robot is turning left
+            while (turnTimer != 15000) {
+              turnLeft();
+              turnTimer++;
+            }
             turnEnable = 0;
-          } else if (turningRight == 1) {
+            turningLeft = 0;
+
+          } else if (turningRight == 1) { // if robot is turning right
+            while (turnTimer != 15000) {
               turnRight();
-              if (R_LINE_BLACK) {
-                turningRight = 0;
-              }
-              turnEnable = 0;
+              turnTimer++;
+            }
+            turnEnable = 0;
+            turningRight = 0;
+
           } else if (L_INT_BLACK && (M_LINE_BLACK || L_LINE_BLACK) && turnEnable == 1) { //initiate the turn left 
-            
+
+            turnTimer++;
             turningLeft = 1;
             lastAdjustDirection = 0;
 
           } else if (R_INT_BLACK && (M_LINE_BLACK || R_LINE_BLACK) && turnEnable == 1) { //initiate the right turn
-            lastAdjustDirection = 2;
-            turningRight = 1;
 
-          } else if (M_LINE_BLACK && L_LINE_BLACK) {
+            turnTimer++;
+            turningRight = 1;
+            lastAdjustDirection = 2;
+
+          } else if (R_LINE_BLACK && L_LINE_BLACK) {
+            // do nothing for now
+
+          } else if (L_INT_BLACK && R_INT_BLACK) {
+            // do nothing for now
+
+          } else if (M_LINE_BLACK && L_LINE_BLACK) { // if robot slightly too far right
             adjustLeft();
             turnEnable = 1;
             lastAdjustDirection = 0;
-            
-          } else if (M_LINE_BLACK && R_LINE_BLACK) {
+
+          } else if (M_LINE_BLACK && R_LINE_BLACK) { //  if robot slightly too far left
             adjustRight();
             lastAdjustDirection = 2;
             turnEnable = 1;
-            
-          } else if (M_LINE_BLACK) {
+
+          } else if (M_LINE_BLACK) { // if robot in the center keep moving straight
             shouldUpdate = 1;
             lastAdjustDirection = 1;
             turnEnable = 1;
-            driveForward(distancePerSecondL, distancePerSecondR, TARGET_SPEED);
-            
-          } else if (R_LINE_BLACK) {
+            driveForward(distanceTravelled, TARGET_SPEED);
+
+          } else if (R_LINE_BLACK) { // if robot too far left
             adjustRight();
             turnEnable = 1;
             lastAdjustDirection = 2;
-            
-          } else if (L_LINE_BLACK) {
+
+          } else if (L_LINE_BLACK) { // if robot too far right
             adjustLeft();
             turnEnable = 1;
             lastAdjustDirection = 0;
-            
-          } else if (L_INT_BLACK){
-            hardAdjustLeft();
-            
-          } else if (R_INT_BLACK){
-            hardAdjustRight();
-            
-        } 
-        
-        else { // completely lost find way
+
+          } else if (L_INT_BLACK) {
+            //hardAdjustLeft();
+            turningLeft = 1;
+            lastAdjustDirection = 0;
+
+          } else if (R_INT_BLACK) {
+            //hardAdjustRight();
+            turningRight = 1;
+            lastAdjustDirection = 2;
+          } else { // completely lost find way
             if (lastAdjustDirection == 0) {
               restoreLeft();
-            } else if (lastAdjustDirection == 1) {
-              reverse();
+            } else if (lastAdjustDirection == 1) { // last movement was forward (middle sensor sensed)
+              //hardAdjustLeft();
+              restoreRight();
+              //reverse(3000); // random number 3000
             } else {
               restoreRight();
             }
           }
 
-          }
+        }
 
         flag = 0;
         ADC_IRQ_Enable();
+      }
     }
-     }
-          
-      
-//  }
-//
-//}
-//// }
-////* ========================================
-//void usbPutString(char * s) {
-//  // !! Assumes that *s is a string with allocated space >=64 chars     
-//  //  Since USB implementation retricts data packets to 64 chars, this function truncates the
-//  //  length to 62 char (63rd char is a '!')
-//
-//  #ifdef USE_USB
-//  while (USBUART_CDCIsReady() == 0);
-//  s[63] = '\0';
-//  s[62] = '!';
-//  USBUART_PutData((uint8 * ) s, strlen(s));
-//  #endif
-//}
-////* ========================================
-//void usbPutChar(char c) {
-//  #ifdef USE_USB
-//  while (USBUART_CDCIsReady() == 0);
-//  USBUART_PutChar(c);
-//  #endif
-//}
-////* ========================================
-//
-//void printSensorDebug(int highCountLeftIntersection, int highCountLeftLine, int highCountMiddleLine, int highCountRightLine, int highCountRightIntersection, int highCountTurnComplete) {
-//  char leftLineText[11];
-//  char rightIntText[11];
-//  char leftIntText[11];
-//  char rightLineText[11];
-//  char turnCompleteText[11];
-//  char middleLineText[11];
-//
-//  if (L_INT_BLACK) {
-//    //LED_PIN_2_Write(0);
-//    strcpy(leftIntText, "S1 - 0\r\n");
-//  } else {
-//    //LED_PIN_2_Write(1);
-//    strcpy(leftIntText, "S1 - 1\r\n");
-//  }
-//
-//  if (R_INT_BLACK) {
-//    strcpy(rightIntText, "S5 - 0\r\n");
-//  } else {
-//    strcpy(rightIntText, "S5 - 1\r\n");
-//  }
-//
-//  if (L_LINE_BLACK) {
-//    strcpy(leftLineText, "S2 - 0\r\n");
-//  } else {
-//    strcpy(leftLineText, "S2 - 1\r\n");
-//  }
-//
-//  if (R_LINE_BLACK) {
-//    strcpy(rightLineText, "S4 - 0\r\n");
-//  } else {
-//    strcpy(rightLineText, "S4 - 1\r\n");
-//  }
-//
-//  if (TC_BLACK) {
-//    strcpy(turnCompleteText, "test");
-//  } else {
-//    strcpy(turnCompleteText, "test");
-//  }
-//
-//  if (M_LINE_BLACK) {
-//    strcpy(middleLineText, "S3 - 0\r\n");
-//  } else {
-//    strcpy(middleLineText, "S3 - 1\r\n");
-//  }
-//
-//  /*usbPutString(leftIntText);
-//  usbPutString(leftLineText);
-//  usbPutString(middleLineText);
-//  usbPutString(rightLineText);
-//  usbPutString(rightIntText);*/
-
-  //usbPutString(turnCompleteText);
-
-  //usbPutString("-------------\r\n");
+  }
 }
-}
-
-/* [] END OF FILE */
