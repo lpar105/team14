@@ -41,7 +41,7 @@ int restoring = 30;
 int turningDirection = 0;
 int turningCount = 30;
 volatile int shouldUpdate = 1;
-#define MOVE_DISTANCE 999999 //cm
+#define MOVE_DISTANCE 9999999 //cm
 volatile int dotsTravelled = 0;
 //* ========================================
 void usbPutString(char * s);
@@ -137,7 +137,8 @@ int main() {
 
         int changeInDots = (((abs(numRotationsR) + abs(numRotationsL)) ) / 2);
         dotsTravelled = changeInDots + dotsTravelled;
-        distanceTravelled = (dotsTravelled * (float)(1.217375 / 6.2)); //correct conversion of dotsTravelled, don't change. Works especially well with 167PWM
+        distanceTravelled = (dotsTravelled * (float)(1.217375 / 6.105)); //increase 6.1 to go further, decrease to go shorter
+                                                                         //6.2 for low, 6.1 for normal, 6 for full
 
         QuadDec_M1_SetCounter(0); // set quad counter to 0 to avoid overflow
         QuadDec_M2_SetCounter(0); // set quad counter to 0 to avoid overflow 
@@ -235,7 +236,7 @@ int main() {
             stop();
 
           } else if (turningLeft == 1) { // if robot is turning left
-            while (turnTimer != 15000) {
+            while (turnTimer != 10000) {
               turnLeft();
               turnTimer++;
             }
@@ -243,7 +244,7 @@ int main() {
             turningLeft = 0;
 
           } else if (turningRight == 1) { // if robot is turning right
-            while (turnTimer != 15000) {
+            while (turnTimer != 10000) {
               turnRight();
               turnTimer++;
             }
@@ -303,18 +304,22 @@ int main() {
             //hardAdjustRight();
             turningRight = 1;
             lastAdjustDirection = 2;
-          } else { // completely lost find way
+//          } else if (highCountLeftIntersection > 150 && highCountRightIntersection > 150 && highCountLeftLine > 150 && highCountRightLine > 150 && highCountMiddleLine > 150 && highCountTurnComplete > 150){
+//            driveForward(distanceTravelled, TARGET_SPEED);
+//            
+//        }
+        }
+            else { // completely lost find way
             if (lastAdjustDirection == 0) {
-              restoreLeft();
+              turnLeft();
             } else if (lastAdjustDirection == 1) { // last movement was forward (middle sensor sensed)
               //hardAdjustLeft();
-              restoreRight();
+              turnRight();
               //reverse(3000); // random number 3000
             } else {
-              restoreRight();
+              turnRight();
             }
-          }
-
+            }
         }
 
         flag = 0;
