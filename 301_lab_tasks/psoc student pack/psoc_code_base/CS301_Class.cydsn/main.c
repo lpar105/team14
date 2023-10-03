@@ -26,6 +26,7 @@
 #include "defines.h"
 
 #include "motors.h"
+#include "pathfind.h"
 
 #include "vars.h"
 
@@ -116,6 +117,46 @@ int main() {
 
   isr_TS_StartEx(MyISR);
   Timer_TS_Start();
+
+  unsigned char squares[1000][2];
+
+  unsigned char instruction[200];
+  unsigned char distance[5];
+
+// Loop through the array and set each element to 69
+    for (int i = 0; i < 1000; i++) {
+        squares[i][0] = 69;
+        squares[i][1] = 69;
+    }
+
+
+
+  CyDelay(4000);
+  usbPutString("Starting Pathfind\r\n");
+  pathfind(instruction, distance, squares);
+
+    usbPutString("SQUARES\r\n");
+for (int i = 0; i < 1000; i++) {
+        char squareStr[10]; 
+        snprintf(squareStr, sizeof(squareStr), "%u %u \r\n", (unsigned char)squares[i][0], (unsigned char)squares[i][1]);
+        usbPutString(squareStr);
+    }
+    
+usbPutString("INSTRUCTIONS\r\n");
+// Print all instructions
+    for (int i = 0; i < 200; i++) {
+        usbPutChar(instruction[i]);
+        usbPutString("\r\n");
+    }
+
+    usbPutString("DISTANCES\r\n");
+    // Print all distances
+    for (int i = 0; i < 5; i++) {
+        char distanceStr[10];  // Assuming distances are integers and can fit in 10 characters
+        snprintf(distanceStr, sizeof(distanceStr), "%u", (unsigned int)distance[i]);
+        usbPutString(distanceStr);
+        usbPutString("\r\n");
+    }
 
   for (;;) {
 
@@ -327,4 +368,24 @@ int main() {
       }
     }
   }
+}
+
+void usbPutString(char * s) {
+  // !! Assumes that *s is a string with allocated space >=64 chars     
+  //  Since USB implementation retricts data packets to 64 chars, this function truncates the
+  //  length to 62 char (63rd char is a '!')
+
+  #ifdef USE_USB
+  while (USBUART_CDCIsReady() == 0);
+  s[63] = '\0';
+  s[62] = '!';
+  USBUART_PutData((uint8 * ) s, strlen(s));
+  #endif
+}
+//* ========================================
+void usbPutChar(char c) {
+  #ifdef USE_USB
+  while (USBUART_CDCIsReady() == 0);
+  USBUART_PutChar(c);
+  #endif
 }

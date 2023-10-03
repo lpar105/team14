@@ -1,0 +1,2635 @@
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"pathfind.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	map
+  20              		.data
+  21              		.align	2
+  22              		.type	map, %object
+  23              		.size	map, 285
+  24              	map:
+  25 0000 01       		.byte	1
+  26 0001 01       		.byte	1
+  27 0002 01       		.byte	1
+  28 0003 01       		.byte	1
+  29 0004 01       		.byte	1
+  30 0005 01       		.byte	1
+  31 0006 01       		.byte	1
+  32 0007 01       		.byte	1
+  33 0008 01       		.byte	1
+  34 0009 01       		.byte	1
+  35 000a 01       		.byte	1
+  36 000b 01       		.byte	1
+  37 000c 01       		.byte	1
+  38 000d 01       		.byte	1
+  39 000e 01       		.byte	1
+  40 000f 01       		.byte	1
+  41 0010 01       		.byte	1
+  42 0011 01       		.byte	1
+  43 0012 01       		.byte	1
+  44 0013 01       		.byte	1
+  45 0014 00       		.byte	0
+  46 0015 00       		.byte	0
+  47 0016 00       		.byte	0
+  48 0017 00       		.byte	0
+  49 0018 00       		.byte	0
+  50 0019 01       		.byte	1
+  51 001a 00       		.byte	0
+  52 001b 00       		.byte	0
+  53 001c 00       		.byte	0
+  54 001d 00       		.byte	0
+  55 001e 00       		.byte	0
+  56 001f 00       		.byte	0
+  57 0020 00       		.byte	0
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 2
+
+
+  58 0021 00       		.byte	0
+  59 0022 00       		.byte	0
+  60 0023 00       		.byte	0
+  61 0024 00       		.byte	0
+  62 0025 01       		.byte	1
+  63 0026 01       		.byte	1
+  64 0027 01       		.byte	1
+  65 0028 01       		.byte	1
+  66 0029 01       		.byte	1
+  67 002a 01       		.byte	1
+  68 002b 00       		.byte	0
+  69 002c 01       		.byte	1
+  70 002d 00       		.byte	0
+  71 002e 01       		.byte	1
+  72 002f 01       		.byte	1
+  73 0030 01       		.byte	1
+  74 0031 01       		.byte	1
+  75 0032 01       		.byte	1
+  76 0033 01       		.byte	1
+  77 0034 01       		.byte	1
+  78 0035 00       		.byte	0
+  79 0036 01       		.byte	1
+  80 0037 00       		.byte	0
+  81 0038 01       		.byte	1
+  82 0039 01       		.byte	1
+  83 003a 00       		.byte	0
+  84 003b 00       		.byte	0
+  85 003c 00       		.byte	0
+  86 003d 00       		.byte	0
+  87 003e 00       		.byte	0
+  88 003f 00       		.byte	0
+  89 0040 00       		.byte	0
+  90 0041 00       		.byte	0
+  91 0042 00       		.byte	0
+  92 0043 00       		.byte	0
+  93 0044 00       		.byte	0
+  94 0045 00       		.byte	0
+  95 0046 00       		.byte	0
+  96 0047 01       		.byte	1
+  97 0048 00       		.byte	0
+  98 0049 01       		.byte	1
+  99 004a 00       		.byte	0
+ 100 004b 01       		.byte	1
+ 101 004c 01       		.byte	1
+ 102 004d 00       		.byte	0
+ 103 004e 01       		.byte	1
+ 104 004f 00       		.byte	0
+ 105 0050 01       		.byte	1
+ 106 0051 01       		.byte	1
+ 107 0052 01       		.byte	1
+ 108 0053 01       		.byte	1
+ 109 0054 01       		.byte	1
+ 110 0055 00       		.byte	0
+ 111 0056 01       		.byte	1
+ 112 0057 00       		.byte	0
+ 113 0058 01       		.byte	1
+ 114 0059 01       		.byte	1
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 3
+
+
+ 115 005a 01       		.byte	1
+ 116 005b 00       		.byte	0
+ 117 005c 01       		.byte	1
+ 118 005d 00       		.byte	0
+ 119 005e 01       		.byte	1
+ 120 005f 01       		.byte	1
+ 121 0060 00       		.byte	0
+ 122 0061 01       		.byte	1
+ 123 0062 00       		.byte	0
+ 124 0063 00       		.byte	0
+ 125 0064 00       		.byte	0
+ 126 0065 01       		.byte	1
+ 127 0066 00       		.byte	0
+ 128 0067 00       		.byte	0
+ 129 0068 00       		.byte	0
+ 130 0069 01       		.byte	1
+ 131 006a 00       		.byte	0
+ 132 006b 01       		.byte	1
+ 133 006c 00       		.byte	0
+ 134 006d 00       		.byte	0
+ 135 006e 00       		.byte	0
+ 136 006f 01       		.byte	1
+ 137 0070 00       		.byte	0
+ 138 0071 01       		.byte	1
+ 139 0072 01       		.byte	1
+ 140 0073 00       		.byte	0
+ 141 0074 01       		.byte	1
+ 142 0075 01       		.byte	1
+ 143 0076 01       		.byte	1
+ 144 0077 00       		.byte	0
+ 145 0078 01       		.byte	1
+ 146 0079 00       		.byte	0
+ 147 007a 01       		.byte	1
+ 148 007b 00       		.byte	0
+ 149 007c 01       		.byte	1
+ 150 007d 00       		.byte	0
+ 151 007e 01       		.byte	1
+ 152 007f 00       		.byte	0
+ 153 0080 01       		.byte	1
+ 154 0081 01       		.byte	1
+ 155 0082 01       		.byte	1
+ 156 0083 00       		.byte	0
+ 157 0084 01       		.byte	1
+ 158 0085 01       		.byte	1
+ 159 0086 00       		.byte	0
+ 160 0087 00       		.byte	0
+ 161 0088 00       		.byte	0
+ 162 0089 00       		.byte	0
+ 163 008a 00       		.byte	0
+ 164 008b 01       		.byte	1
+ 165 008c 00       		.byte	0
+ 166 008d 01       		.byte	1
+ 167 008e 00       		.byte	0
+ 168 008f 01       		.byte	1
+ 169 0090 00       		.byte	0
+ 170 0091 01       		.byte	1
+ 171 0092 00       		.byte	0
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 4
+
+
+ 172 0093 01       		.byte	1
+ 173 0094 00       		.byte	0
+ 174 0095 00       		.byte	0
+ 175 0096 00       		.byte	0
+ 176 0097 01       		.byte	1
+ 177 0098 01       		.byte	1
+ 178 0099 00       		.byte	0
+ 179 009a 01       		.byte	1
+ 180 009b 01       		.byte	1
+ 181 009c 01       		.byte	1
+ 182 009d 01       		.byte	1
+ 183 009e 01       		.byte	1
+ 184 009f 00       		.byte	0
+ 185 00a0 01       		.byte	1
+ 186 00a1 00       		.byte	0
+ 187 00a2 01       		.byte	1
+ 188 00a3 01       		.byte	1
+ 189 00a4 01       		.byte	1
+ 190 00a5 00       		.byte	0
+ 191 00a6 01       		.byte	1
+ 192 00a7 00       		.byte	0
+ 193 00a8 01       		.byte	1
+ 194 00a9 01       		.byte	1
+ 195 00aa 01       		.byte	1
+ 196 00ab 01       		.byte	1
+ 197 00ac 00       		.byte	0
+ 198 00ad 00       		.byte	0
+ 199 00ae 00       		.byte	0
+ 200 00af 00       		.byte	0
+ 201 00b0 00       		.byte	0
+ 202 00b1 00       		.byte	0
+ 203 00b2 00       		.byte	0
+ 204 00b3 01       		.byte	1
+ 205 00b4 00       		.byte	0
+ 206 00b5 00       		.byte	0
+ 207 00b6 00       		.byte	0
+ 208 00b7 01       		.byte	1
+ 209 00b8 00       		.byte	0
+ 210 00b9 01       		.byte	1
+ 211 00ba 00       		.byte	0
+ 212 00bb 00       		.byte	0
+ 213 00bc 00       		.byte	0
+ 214 00bd 01       		.byte	1
+ 215 00be 01       		.byte	1
+ 216 00bf 01       		.byte	1
+ 217 00c0 01       		.byte	1
+ 218 00c1 01       		.byte	1
+ 219 00c2 01       		.byte	1
+ 220 00c3 01       		.byte	1
+ 221 00c4 01       		.byte	1
+ 222 00c5 00       		.byte	0
+ 223 00c6 01       		.byte	1
+ 224 00c7 01       		.byte	1
+ 225 00c8 01       		.byte	1
+ 226 00c9 00       		.byte	0
+ 227 00ca 01       		.byte	1
+ 228 00cb 00       		.byte	0
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 5
+
+
+ 229 00cc 01       		.byte	1
+ 230 00cd 01       		.byte	1
+ 231 00ce 01       		.byte	1
+ 232 00cf 00       		.byte	0
+ 233 00d0 01       		.byte	1
+ 234 00d1 01       		.byte	1
+ 235 00d2 00       		.byte	0
+ 236 00d3 00       		.byte	0
+ 237 00d4 00       		.byte	0
+ 238 00d5 00       		.byte	0
+ 239 00d6 00       		.byte	0
+ 240 00d7 00       		.byte	0
+ 241 00d8 00       		.byte	0
+ 242 00d9 00       		.byte	0
+ 243 00da 00       		.byte	0
+ 244 00db 01       		.byte	1
+ 245 00dc 00       		.byte	0
+ 246 00dd 01       		.byte	1
+ 247 00de 00       		.byte	0
+ 248 00df 00       		.byte	0
+ 249 00e0 00       		.byte	0
+ 250 00e1 00       		.byte	0
+ 251 00e2 00       		.byte	0
+ 252 00e3 01       		.byte	1
+ 253 00e4 01       		.byte	1
+ 254 00e5 00       		.byte	0
+ 255 00e6 01       		.byte	1
+ 256 00e7 01       		.byte	1
+ 257 00e8 01       		.byte	1
+ 258 00e9 01       		.byte	1
+ 259 00ea 01       		.byte	1
+ 260 00eb 01       		.byte	1
+ 261 00ec 01       		.byte	1
+ 262 00ed 00       		.byte	0
+ 263 00ee 01       		.byte	1
+ 264 00ef 00       		.byte	0
+ 265 00f0 01       		.byte	1
+ 266 00f1 01       		.byte	1
+ 267 00f2 01       		.byte	1
+ 268 00f3 01       		.byte	1
+ 269 00f4 01       		.byte	1
+ 270 00f5 00       		.byte	0
+ 271 00f6 01       		.byte	1
+ 272 00f7 01       		.byte	1
+ 273 00f8 00       		.byte	0
+ 274 00f9 00       		.byte	0
+ 275 00fa 00       		.byte	0
+ 276 00fb 00       		.byte	0
+ 277 00fc 00       		.byte	0
+ 278 00fd 00       		.byte	0
+ 279 00fe 00       		.byte	0
+ 280 00ff 01       		.byte	1
+ 281 0100 00       		.byte	0
+ 282 0101 00       		.byte	0
+ 283 0102 00       		.byte	0
+ 284 0103 00       		.byte	0
+ 285 0104 00       		.byte	0
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 6
+
+
+ 286 0105 00       		.byte	0
+ 287 0106 00       		.byte	0
+ 288 0107 00       		.byte	0
+ 289 0108 00       		.byte	0
+ 290 0109 01       		.byte	1
+ 291 010a 01       		.byte	1
+ 292 010b 01       		.byte	1
+ 293 010c 01       		.byte	1
+ 294 010d 01       		.byte	1
+ 295 010e 01       		.byte	1
+ 296 010f 01       		.byte	1
+ 297 0110 01       		.byte	1
+ 298 0111 01       		.byte	1
+ 299 0112 01       		.byte	1
+ 300 0113 01       		.byte	1
+ 301 0114 01       		.byte	1
+ 302 0115 01       		.byte	1
+ 303 0116 01       		.byte	1
+ 304 0117 01       		.byte	1
+ 305 0118 01       		.byte	1
+ 306 0119 01       		.byte	1
+ 307 011a 01       		.byte	1
+ 308 011b 01       		.byte	1
+ 309 011c 01       		.byte	1
+ 310              		.global	start_pos
+ 311 011d 000000   		.align	2
+ 312              		.type	start_pos, %object
+ 313              		.size	start_pos, 2
+ 314              	start_pos:
+ 315 0120 01       		.byte	1
+ 316 0121 01       		.byte	1
+ 317              		.global	food_list
+ 318 0122 0000     		.align	2
+ 319              		.type	food_list, %object
+ 320              		.size	food_list, 10
+ 321              	food_list:
+ 322 0124 01       		.byte	1
+ 323 0125 09       		.byte	9
+ 324 0126 05       		.byte	5
+ 325 0127 05       		.byte	5
+ 326 0128 07       		.byte	7
+ 327 0129 01       		.byte	1
+ 328 012a 0D       		.byte	13
+ 329 012b 05       		.byte	5
+ 330 012c 09       		.byte	9
+ 331 012d 09       		.byte	9
+ 332              		.global	instructionCounter
+ 333              		.bss
+ 334              		.align	2
+ 335              		.type	instructionCounter, %object
+ 336              		.size	instructionCounter, 4
+ 337              	instructionCounter:
+ 338 0000 00000000 		.space	4
+ 339              		.global	distanceCounter
+ 340              		.align	2
+ 341              		.type	distanceCounter, %object
+ 342              		.size	distanceCounter, 4
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 7
+
+
+ 343              	distanceCounter:
+ 344 0004 00000000 		.space	4
+ 345              		.global	squaresCounter
+ 346              		.align	2
+ 347              		.type	squaresCounter, %object
+ 348              		.size	squaresCounter, 4
+ 349              	squaresCounter:
+ 350 0008 00000000 		.space	4
+ 351              		.global	startPos
+ 352              		.data
+ 353 012e 0000     		.align	2
+ 354              		.type	startPos, %object
+ 355              		.size	startPos, 8
+ 356              	startPos:
+ 357 0130 01000000 		.word	1
+ 358 0134 01000000 		.word	1
+ 359              		.section	.text.pathfind,"ax",%progbits
+ 360              		.align	2
+ 361              		.global	pathfind
+ 362              		.thumb
+ 363              		.thumb_func
+ 364              		.type	pathfind, %function
+ 365              	pathfind:
+ 366              	.LFB64:
+ 367              		.file 1 "pathfind.c"
+   1:pathfind.c    **** /* ========================================
+   2:pathfind.c    ****  *
+   3:pathfind.c    ****  * Copyright YOUR COMPANY, THE YEAR
+   4:pathfind.c    ****  * All Rights Reserved
+   5:pathfind.c    ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:pathfind.c    ****  *
+   7:pathfind.c    ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:pathfind.c    ****  * WHICH IS THE PROPERTY OF your company.
+   9:pathfind.c    ****  *
+  10:pathfind.c    ****  * ========================================
+  11:pathfind.c    ****  */
+  12:pathfind.c    **** #include <project.h>
+  13:pathfind.c    **** 
+  14:pathfind.c    **** #include <stdio.h>
+  15:pathfind.c    **** 
+  16:pathfind.c    **** #include "pathfind.h"
+  17:pathfind.c    **** 
+  18:pathfind.c    **** #include "map.h"
+  19:pathfind.c    **** 
+  20:pathfind.c    **** #define MAX_ROWS 15
+  21:pathfind.c    **** #define MAX_COLS 19
+  22:pathfind.c    **** 
+  23:pathfind.c    **** int instructionCounter = 0;
+  24:pathfind.c    **** int distanceCounter = 0;
+  25:pathfind.c    **** int squaresCounter = 0;
+  26:pathfind.c    **** 
+  27:pathfind.c    **** int startPos[2] = {
+  28:pathfind.c    ****   1,
+  29:pathfind.c    ****   1
+  30:pathfind.c    **** };
+  31:pathfind.c    **** 
+  32:pathfind.c    **** void pathfind(unsigned char * instruction, unsigned char * distance, unsigned char( * squares)[2]) 
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 8
+
+
+ 368              		.loc 1 32 0
+ 369              		.cfi_startproc
+ 370              		@ args = 0, pretend = 0, frame = 24
+ 371              		@ frame_needed = 1, uses_anonymous_args = 0
+ 372 0000 80B5     		push	{r7, lr}
+ 373              		.cfi_def_cfa_offset 8
+ 374              		.cfi_offset 7, -8
+ 375              		.cfi_offset 14, -4
+ 376 0002 86B0     		sub	sp, sp, #24
+ 377              		.cfi_def_cfa_offset 32
+ 378 0004 00AF     		add	r7, sp, #0
+ 379              		.cfi_def_cfa_register 7
+ 380 0006 F860     		str	r0, [r7, #12]
+ 381 0008 B960     		str	r1, [r7, #8]
+ 382 000a 7A60     		str	r2, [r7, #4]
+ 383              	.LBB2:
+  33:pathfind.c    ****   for (int i = 4; i > -1; i--) {
+ 384              		.loc 1 33 0
+ 385 000c 0423     		movs	r3, #4
+ 386 000e 7B61     		str	r3, [r7, #20]
+ 387 0010 33E0     		b	.L2
+ 388              	.L5:
+  34:pathfind.c    ****     if (i == 0) {
+ 389              		.loc 1 34 0
+ 390 0012 7B69     		ldr	r3, [r7, #20]
+ 391 0014 002B     		cmp	r3, #0
+ 392 0016 13D1     		bne	.L3
+  35:pathfind.c    ****         startPos[0] = start_pos[0];
+ 393              		.loc 1 35 0
+ 394 0018 1B4B     		ldr	r3, .L6
+ 395 001a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 396 001c 1A46     		mov	r2, r3
+ 397 001e 1B4B     		ldr	r3, .L6+4
+ 398 0020 1A60     		str	r2, [r3]
+  36:pathfind.c    ****         startPos[1] = start_pos[1];
+ 399              		.loc 1 36 0
+ 400 0022 194B     		ldr	r3, .L6
+ 401 0024 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 402 0026 1A46     		mov	r2, r3
+ 403 0028 184B     		ldr	r3, .L6+4
+ 404 002a 5A60     		str	r2, [r3, #4]
+  37:pathfind.c    ****         bfs(instruction, distance, squares, food_list[i]);;
+ 405              		.loc 1 37 0
+ 406 002c 7B69     		ldr	r3, [r7, #20]
+ 407 002e 5B00     		lsls	r3, r3, #1
+ 408 0030 174A     		ldr	r2, .L6+8
+ 409 0032 1344     		add	r3, r3, r2
+ 410 0034 7A68     		ldr	r2, [r7, #4]
+ 411 0036 B968     		ldr	r1, [r7, #8]
+ 412 0038 F868     		ldr	r0, [r7, #12]
+ 413 003a FFF7FEFF 		bl	bfs
+ 414 003e 19E0     		b	.L4
+ 415              	.L3:
+  38:pathfind.c    ****     } else {
+  39:pathfind.c    ****         startPos[0] = food_list[i-1][0];
+ 416              		.loc 1 39 0
+ 417 0040 7B69     		ldr	r3, [r7, #20]
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 9
+
+
+ 418 0042 013B     		subs	r3, r3, #1
+ 419 0044 124A     		ldr	r2, .L6+8
+ 420 0046 12F81330 		ldrb	r3, [r2, r3, lsl #1]	@ zero_extendqisi2
+ 421 004a 1A46     		mov	r2, r3
+ 422 004c 0F4B     		ldr	r3, .L6+4
+ 423 004e 1A60     		str	r2, [r3]
+  40:pathfind.c    ****         startPos[1] = food_list[i-1][1];
+ 424              		.loc 1 40 0
+ 425 0050 7B69     		ldr	r3, [r7, #20]
+ 426 0052 013B     		subs	r3, r3, #1
+ 427 0054 0E4A     		ldr	r2, .L6+8
+ 428 0056 5B00     		lsls	r3, r3, #1
+ 429 0058 1344     		add	r3, r3, r2
+ 430 005a 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 431 005c 1A46     		mov	r2, r3
+ 432 005e 0B4B     		ldr	r3, .L6+4
+ 433 0060 5A60     		str	r2, [r3, #4]
+  41:pathfind.c    ****         bfs(instruction, distance, squares, food_list[i]);
+ 434              		.loc 1 41 0
+ 435 0062 7B69     		ldr	r3, [r7, #20]
+ 436 0064 5B00     		lsls	r3, r3, #1
+ 437 0066 0A4A     		ldr	r2, .L6+8
+ 438 0068 1344     		add	r3, r3, r2
+ 439 006a 7A68     		ldr	r2, [r7, #4]
+ 440 006c B968     		ldr	r1, [r7, #8]
+ 441 006e F868     		ldr	r0, [r7, #12]
+ 442 0070 FFF7FEFF 		bl	bfs
+ 443              	.L4:
+  33:pathfind.c    ****     if (i == 0) {
+ 444              		.loc 1 33 0 discriminator 2
+ 445 0074 7B69     		ldr	r3, [r7, #20]
+ 446 0076 013B     		subs	r3, r3, #1
+ 447 0078 7B61     		str	r3, [r7, #20]
+ 448              	.L2:
+  33:pathfind.c    ****     if (i == 0) {
+ 449              		.loc 1 33 0 is_stmt 0 discriminator 1
+ 450 007a 7B69     		ldr	r3, [r7, #20]
+ 451 007c 002B     		cmp	r3, #0
+ 452 007e C8DA     		bge	.L5
+ 453              	.LBE2:
+  42:pathfind.c    ****     }
+  43:pathfind.c    **** 
+  44:pathfind.c    ****   }
+  45:pathfind.c    **** 
+  46:pathfind.c    **** }
+ 454              		.loc 1 46 0 is_stmt 1
+ 455 0080 00BF     		nop
+ 456 0082 1837     		adds	r7, r7, #24
+ 457              		.cfi_def_cfa_offset 8
+ 458 0084 BD46     		mov	sp, r7
+ 459              		.cfi_def_cfa_register 13
+ 460              		@ sp needed
+ 461 0086 80BD     		pop	{r7, pc}
+ 462              	.L7:
+ 463              		.align	2
+ 464              	.L6:
+ 465 0088 00000000 		.word	start_pos
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 10
+
+
+ 466 008c 00000000 		.word	startPos
+ 467 0090 00000000 		.word	food_list
+ 468              		.cfi_endproc
+ 469              	.LFE64:
+ 470              		.size	pathfind, .-pathfind
+ 471              		.section	.text.bfs,"ax",%progbits
+ 472              		.align	2
+ 473              		.global	bfs
+ 474              		.thumb
+ 475              		.thumb_func
+ 476              		.type	bfs, %function
+ 477              	bfs:
+ 478              	.LFB65:
+  47:pathfind.c    **** 
+  48:pathfind.c    **** void bfs(unsigned char * instruction, unsigned char * distance, unsigned char( * squares)[2], unsig
+ 479              		.loc 1 48 0
+ 480              		.cfi_startproc
+ 481              		@ args = 0, pretend = 0, frame = 4952
+ 482              		@ frame_needed = 1, uses_anonymous_args = 0
+ 483 0000 90B5     		push	{r4, r7, lr}
+ 484              		.cfi_def_cfa_offset 12
+ 485              		.cfi_offset 4, -12
+ 486              		.cfi_offset 7, -8
+ 487              		.cfi_offset 14, -4
+ 488 0002 ADF59A5D 		sub	sp, sp, #4928
+ 489              		.cfi_def_cfa_offset 4940
+ 490 0006 87B0     		sub	sp, sp, #28
+ 491              		.cfi_def_cfa_offset 4968
+ 492 0008 00AF     		add	r7, sp, #0
+ 493              		.cfi_def_cfa_register 7
+ 494 000a 07F11804 		add	r4, r7, #24
+ 495 000e 0C3C     		subs	r4, r4, #12
+ 496 0010 2060     		str	r0, [r4]
+ 497 0012 07F11800 		add	r0, r7, #24
+ 498 0016 1038     		subs	r0, r0, #16
+ 499 0018 0160     		str	r1, [r0]
+ 500 001a 07F11801 		add	r1, r7, #24
+ 501 001e 1439     		subs	r1, r1, #20
+ 502 0020 0A60     		str	r2, [r1]
+ 503 0022 07F11802 		add	r2, r7, #24
+ 504 0026 183A     		subs	r2, r2, #24
+ 505 0028 1360     		str	r3, [r2]
+  49:pathfind.c    **** 
+  50:pathfind.c    ****   int i = 0;
+ 506              		.loc 1 50 0
+ 507 002a 0023     		movs	r3, #0
+ 508 002c 07F59A52 		add	r2, r7, #4928
+ 509 0030 02F11402 		add	r2, r2, #20
+ 510 0034 1360     		str	r3, [r2]
+  51:pathfind.c    **** 
+  52:pathfind.c    ****   // Initialize data structures for BFS
+  53:pathfind.c    ****   int queue[MAX_ROWS * MAX_COLS][2];
+  54:pathfind.c    ****   int front = 0, rear = 0;
+ 511              		.loc 1 54 0
+ 512 0036 0023     		movs	r3, #0
+ 513 0038 07F59A52 		add	r2, r7, #4928
+ 514 003c 02F11002 		add	r2, r2, #16
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 11
+
+
+ 515 0040 1360     		str	r3, [r2]
+ 516 0042 0023     		movs	r3, #0
+ 517 0044 07F59A52 		add	r2, r7, #4928
+ 518 0048 02F10C02 		add	r2, r2, #12
+ 519 004c 1360     		str	r3, [r2]
+ 520              	.LBB3:
+  55:pathfind.c    ****   unsigned char visited[15][19]; // Declare the "visited" array with the same dimensions
+  56:pathfind.c    **** 
+  57:pathfind.c    ****   // Copy the contents of the "map" array to the "visited" array
+  58:pathfind.c    ****   for (int i = 0; i < 15; i++) {
+ 521              		.loc 1 58 0
+ 522 004e 0023     		movs	r3, #0
+ 523 0050 07F59A52 		add	r2, r7, #4928
+ 524 0054 02F10802 		add	r2, r2, #8
+ 525 0058 1360     		str	r3, [r2]
+ 526 005a 4BE0     		b	.L9
+ 527              	.L12:
+ 528              	.LBB4:
+  59:pathfind.c    ****     for (int j = 0; j < 19; j++) {
+ 529              		.loc 1 59 0
+ 530 005c 0023     		movs	r3, #0
+ 531 005e 07F59A52 		add	r2, r7, #4928
+ 532 0062 02F10402 		add	r2, r2, #4
+ 533 0066 1360     		str	r3, [r2]
+ 534 0068 32E0     		b	.L10
+ 535              	.L11:
+  60:pathfind.c    ****       visited[i][j] = map[i][j];
+ 536              		.loc 1 60 0 discriminator 3
+ 537 006a 9049     		ldr	r1, .L29
+ 538 006c 07F59A53 		add	r3, r7, #4928
+ 539 0070 03F10803 		add	r3, r3, #8
+ 540 0074 1A68     		ldr	r2, [r3]
+ 541 0076 1346     		mov	r3, r2
+ 542 0078 DB00     		lsls	r3, r3, #3
+ 543 007a 1344     		add	r3, r3, r2
+ 544 007c 5B00     		lsls	r3, r3, #1
+ 545 007e 1344     		add	r3, r3, r2
+ 546 0080 CA18     		adds	r2, r1, r3
+ 547 0082 07F59A53 		add	r3, r7, #4928
+ 548 0086 03F10403 		add	r3, r3, #4
+ 549 008a 1B68     		ldr	r3, [r3]
+ 550 008c 1344     		add	r3, r3, r2
+ 551 008e 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 552 0090 07F61811 		addw	r1, r7, #2328
+ 553 0094 07F59A53 		add	r3, r7, #4928
+ 554 0098 03F10803 		add	r3, r3, #8
+ 555 009c 1A68     		ldr	r2, [r3]
+ 556 009e 1346     		mov	r3, r2
+ 557 00a0 DB00     		lsls	r3, r3, #3
+ 558 00a2 1344     		add	r3, r3, r2
+ 559 00a4 5B00     		lsls	r3, r3, #1
+ 560 00a6 1344     		add	r3, r3, r2
+ 561 00a8 CA18     		adds	r2, r1, r3
+ 562 00aa 07F59A53 		add	r3, r7, #4928
+ 563 00ae 03F10403 		add	r3, r3, #4
+ 564 00b2 1B68     		ldr	r3, [r3]
+ 565 00b4 1344     		add	r3, r3, r2
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 12
+
+
+ 566 00b6 0246     		mov	r2, r0
+ 567 00b8 1A70     		strb	r2, [r3]
+  59:pathfind.c    ****     for (int j = 0; j < 19; j++) {
+ 568              		.loc 1 59 0 discriminator 3
+ 569 00ba 07F59A53 		add	r3, r7, #4928
+ 570 00be 03F10403 		add	r3, r3, #4
+ 571 00c2 1B68     		ldr	r3, [r3]
+ 572 00c4 0133     		adds	r3, r3, #1
+ 573 00c6 07F59A52 		add	r2, r7, #4928
+ 574 00ca 02F10402 		add	r2, r2, #4
+ 575 00ce 1360     		str	r3, [r2]
+ 576              	.L10:
+  59:pathfind.c    ****     for (int j = 0; j < 19; j++) {
+ 577              		.loc 1 59 0 is_stmt 0 discriminator 1
+ 578 00d0 07F59A53 		add	r3, r7, #4928
+ 579 00d4 03F10403 		add	r3, r3, #4
+ 580 00d8 1B68     		ldr	r3, [r3]
+ 581 00da 122B     		cmp	r3, #18
+ 582 00dc C5DD     		ble	.L11
+ 583              	.LBE4:
+  58:pathfind.c    ****     for (int j = 0; j < 19; j++) {
+ 584              		.loc 1 58 0 is_stmt 1 discriminator 2
+ 585 00de 07F59A53 		add	r3, r7, #4928
+ 586 00e2 03F10803 		add	r3, r3, #8
+ 587 00e6 1B68     		ldr	r3, [r3]
+ 588 00e8 0133     		adds	r3, r3, #1
+ 589 00ea 07F59A52 		add	r2, r7, #4928
+ 590 00ee 02F10802 		add	r2, r2, #8
+ 591 00f2 1360     		str	r3, [r2]
+ 592              	.L9:
+  58:pathfind.c    ****     for (int j = 0; j < 19; j++) {
+ 593              		.loc 1 58 0 is_stmt 0 discriminator 1
+ 594 00f4 07F59A53 		add	r3, r7, #4928
+ 595 00f8 03F10803 		add	r3, r3, #8
+ 596 00fc 1B68     		ldr	r3, [r3]
+ 597 00fe 0E2B     		cmp	r3, #14
+ 598 0100 ACDD     		ble	.L12
+ 599              	.LBE3:
+  61:pathfind.c    ****     }
+  62:pathfind.c    ****   }
+  63:pathfind.c    ****   int steps[MAX_ROWS][MAX_COLS] = {
+ 600              		.loc 1 63 0 is_stmt 1
+ 601 0102 07F2A443 		addw	r3, r7, #1188
+ 602 0106 1846     		mov	r0, r3
+ 603 0108 40F27443 		movw	r3, #1140
+ 604 010c 1A46     		mov	r2, r3
+ 605 010e 0021     		movs	r1, #0
+ 606 0110 FFF7FEFF 		bl	memset
+  64:pathfind.c    ****     0
+  65:pathfind.c    ****   };
+  66:pathfind.c    **** 
+  67:pathfind.c    ****   // Initialize parent set
+  68:pathfind.c    ****   int parents[MAX_ROWS][MAX_COLS] = {
+ 607              		.loc 1 68 0
+ 608 0114 07F13803 		add	r3, r7, #56
+ 609 0118 083B     		subs	r3, r3, #8
+ 610 011a 1846     		mov	r0, r3
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 13
+
+
+ 611 011c 40F27443 		movw	r3, #1140
+ 612 0120 1A46     		mov	r2, r3
+ 613 0122 0021     		movs	r1, #0
+ 614 0124 FFF7FEFF 		bl	memset
+  69:pathfind.c    ****     0
+  70:pathfind.c    ****   };
+  71:pathfind.c    **** 
+  72:pathfind.c    ****   // Define possible moves (up, down, left, right)
+  73:pathfind.c    ****   //int dr[] = {-1, 1, 0, 0};
+  74:pathfind.c    ****   //int dc[] = {0, 0, -1, 1};
+  75:pathfind.c    **** 
+  76:pathfind.c    ****   // Enqueue the start location
+  77:pathfind.c    ****   queue[rear][0] = startPos[0];
+ 615              		.loc 1 77 0
+ 616 0128 614B     		ldr	r3, .L29+4
+ 617 012a 1968     		ldr	r1, [r3]
+ 618 012c 07F63823 		addw	r3, r7, #2616
+ 619 0130 07F59A52 		add	r2, r7, #4928
+ 620 0134 02F10C02 		add	r2, r2, #12
+ 621 0138 1268     		ldr	r2, [r2]
+ 622 013a 43F83210 		str	r1, [r3, r2, lsl #3]
+  78:pathfind.c    ****   queue[rear][1] = startPos[1];
+ 623              		.loc 1 78 0
+ 624 013e 5C4B     		ldr	r3, .L29+4
+ 625 0140 5A68     		ldr	r2, [r3, #4]
+ 626 0142 07F63821 		addw	r1, r7, #2616
+ 627 0146 07F59A53 		add	r3, r7, #4928
+ 628 014a 03F10C03 		add	r3, r3, #12
+ 629 014e 1B68     		ldr	r3, [r3]
+ 630 0150 DB00     		lsls	r3, r3, #3
+ 631 0152 0B44     		add	r3, r3, r1
+ 632 0154 5A60     		str	r2, [r3, #4]
+  79:pathfind.c    ****   rear++;
+ 633              		.loc 1 79 0
+ 634 0156 07F59A53 		add	r3, r7, #4928
+ 635 015a 03F10C03 		add	r3, r3, #12
+ 636 015e 1B68     		ldr	r3, [r3]
+ 637 0160 0133     		adds	r3, r3, #1
+ 638 0162 07F59A52 		add	r2, r7, #4928
+ 639 0166 02F10C02 		add	r2, r2, #12
+ 640 016a 1360     		str	r3, [r2]
+  80:pathfind.c    **** 
+  81:pathfind.c    ****   // BFS algorithm
+  82:pathfind.c    ****   int finished = 0;
+ 641              		.loc 1 82 0
+ 642 016c 0023     		movs	r3, #0
+ 643 016e 07F59952 		add	r2, r7, #4896
+ 644 0172 02F10C02 		add	r2, r2, #12
+ 645 0176 1360     		str	r3, [r2]
+  83:pathfind.c    **** 
+  84:pathfind.c    ****   int current_row = 0; //TODO maybe not needed
+ 646              		.loc 1 84 0
+ 647 0178 0023     		movs	r3, #0
+ 648 017a 07F59A52 		add	r2, r7, #4928
+ 649 017e 1360     		str	r3, [r2]
+  85:pathfind.c    ****   int current_col = 0;
+ 650              		.loc 1 85 0
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 14
+
+
+ 651 0180 0023     		movs	r3, #0
+ 652 0182 07F59952 		add	r2, r7, #4896
+ 653 0186 02F11C02 		add	r2, r2, #28
+ 654 018a 1360     		str	r3, [r2]
+  86:pathfind.c    **** 
+  87:pathfind.c    ****   while (front < rear && !finished) { //TODO slightly different condition
+ 655              		.loc 1 87 0
+ 656 018c 20E2     		b	.L13
+ 657              	.L22:
+ 658              	.LBB5:
+  88:pathfind.c    ****     // Process the current location
+  89:pathfind.c    ****     current_row = queue[front][0];
+ 659              		.loc 1 89 0
+ 660 018e 07F63823 		addw	r3, r7, #2616
+ 661 0192 07F59A52 		add	r2, r7, #4928
+ 662 0196 02F11002 		add	r2, r2, #16
+ 663 019a 1268     		ldr	r2, [r2]
+ 664 019c 53F83230 		ldr	r3, [r3, r2, lsl #3]
+ 665 01a0 07F59A52 		add	r2, r7, #4928
+ 666 01a4 1360     		str	r3, [r2]
+  90:pathfind.c    ****     current_col = queue[front][1];
+ 667              		.loc 1 90 0
+ 668 01a6 07F63822 		addw	r2, r7, #2616
+ 669 01aa 07F59A53 		add	r3, r7, #4928
+ 670 01ae 03F11003 		add	r3, r3, #16
+ 671 01b2 1B68     		ldr	r3, [r3]
+ 672 01b4 DB00     		lsls	r3, r3, #3
+ 673 01b6 1344     		add	r3, r3, r2
+ 674 01b8 5B68     		ldr	r3, [r3, #4]
+ 675 01ba 07F59952 		add	r2, r7, #4896
+ 676 01be 02F11C02 		add	r2, r2, #28
+ 677 01c2 1360     		str	r3, [r2]
+  91:pathfind.c    **** 
+  92:pathfind.c    ****     front++; //dequeue
+ 678              		.loc 1 92 0
+ 679 01c4 07F59A53 		add	r3, r7, #4928
+ 680 01c8 03F11003 		add	r3, r3, #16
+ 681 01cc 1B68     		ldr	r3, [r3]
+ 682 01ce 0133     		adds	r3, r3, #1
+ 683 01d0 07F59A52 		add	r2, r7, #4928
+ 684 01d4 02F11002 		add	r2, r2, #16
+ 685 01d8 1360     		str	r3, [r2]
+  93:pathfind.c    **** 
+  94:pathfind.c    ****     visited[current_row][current_col] = 1;
+ 686              		.loc 1 94 0
+ 687 01da 07F61811 		addw	r1, r7, #2328
+ 688 01de 07F59A53 		add	r3, r7, #4928
+ 689 01e2 1A68     		ldr	r2, [r3]
+ 690 01e4 1346     		mov	r3, r2
+ 691 01e6 DB00     		lsls	r3, r3, #3
+ 692 01e8 1344     		add	r3, r3, r2
+ 693 01ea 5B00     		lsls	r3, r3, #1
+ 694 01ec 1344     		add	r3, r3, r2
+ 695 01ee CA18     		adds	r2, r1, r3
+ 696 01f0 07F59953 		add	r3, r7, #4896
+ 697 01f4 03F11C03 		add	r3, r3, #28
+ 698 01f8 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 15
+
+
+ 699 01fa 1344     		add	r3, r3, r2
+ 700 01fc 0122     		movs	r2, #1
+ 701 01fe 1A70     		strb	r2, [r3]
+  95:pathfind.c    **** 
+  96:pathfind.c    ****     // Place a step at the current location 
+  97:pathfind.c    ****     // placestep(queue[front - 1], i);
+  98:pathfind.c    ****     i++;
+ 702              		.loc 1 98 0
+ 703 0200 07F59A53 		add	r3, r7, #4928
+ 704 0204 03F11403 		add	r3, r3, #20
+ 705 0208 1B68     		ldr	r3, [r3]
+ 706 020a 0133     		adds	r3, r3, #1
+ 707 020c 07F59A52 		add	r2, r7, #4928
+ 708 0210 02F11402 		add	r2, r2, #20
+ 709 0214 1360     		str	r3, [r2]
+  99:pathfind.c    ****     int neighbour_array[4][2];
+ 100:pathfind.c    **** 
+ 101:pathfind.c    ****     neighbour_array[0][0] = current_row + 1;
+ 710              		.loc 1 101 0
+ 711 0216 07F59A53 		add	r3, r7, #4928
+ 712 021a 1B68     		ldr	r3, [r3]
+ 713 021c 5A1C     		adds	r2, r3, #1
+ 714 021e 07F11803 		add	r3, r7, #24
+ 715 0222 083B     		subs	r3, r3, #8
+ 716 0224 1A60     		str	r2, [r3]
+ 102:pathfind.c    ****     neighbour_array[0][1] = current_col;
+ 717              		.loc 1 102 0
+ 718 0226 07F11803 		add	r3, r7, #24
+ 719 022a 083B     		subs	r3, r3, #8
+ 720 022c 07F59952 		add	r2, r7, #4896
+ 721 0230 02F11C02 		add	r2, r2, #28
+ 722 0234 1268     		ldr	r2, [r2]
+ 723 0236 5A60     		str	r2, [r3, #4]
+ 103:pathfind.c    **** 
+ 104:pathfind.c    ****     neighbour_array[1][0] = current_row - 1;
+ 724              		.loc 1 104 0
+ 725 0238 07F59A53 		add	r3, r7, #4928
+ 726 023c 1B68     		ldr	r3, [r3]
+ 727 023e 5A1E     		subs	r2, r3, #1
+ 728 0240 07F11803 		add	r3, r7, #24
+ 729 0244 083B     		subs	r3, r3, #8
+ 730 0246 9A60     		str	r2, [r3, #8]
+ 105:pathfind.c    ****     neighbour_array[1][1] = current_col;
+ 731              		.loc 1 105 0
+ 732 0248 07F11803 		add	r3, r7, #24
+ 733 024c 083B     		subs	r3, r3, #8
+ 734 024e 07F59952 		add	r2, r7, #4896
+ 735 0252 02F11C02 		add	r2, r2, #28
+ 736 0256 1268     		ldr	r2, [r2]
+ 737 0258 DA60     		str	r2, [r3, #12]
+ 106:pathfind.c    **** 
+ 107:pathfind.c    ****     neighbour_array[2][0] = current_row;
+ 738              		.loc 1 107 0
+ 739 025a 07F11803 		add	r3, r7, #24
+ 740 025e 083B     		subs	r3, r3, #8
+ 741 0260 07F59A52 		add	r2, r7, #4928
+ 742 0264 1268     		ldr	r2, [r2]
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 16
+
+
+ 743 0266 1A61     		str	r2, [r3, #16]
+ 108:pathfind.c    ****     neighbour_array[2][1] = current_col + 1;
+ 744              		.loc 1 108 0
+ 745 0268 07F59953 		add	r3, r7, #4896
+ 746 026c 03F11C03 		add	r3, r3, #28
+ 747 0270 1B68     		ldr	r3, [r3]
+ 748 0272 5A1C     		adds	r2, r3, #1
+ 749 0274 07F11803 		add	r3, r7, #24
+ 750 0278 083B     		subs	r3, r3, #8
+ 751 027a 5A61     		str	r2, [r3, #20]
+ 109:pathfind.c    **** 
+ 110:pathfind.c    ****     neighbour_array[3][0] = current_row;
+ 752              		.loc 1 110 0
+ 753 027c 07F11803 		add	r3, r7, #24
+ 754 0280 083B     		subs	r3, r3, #8
+ 755 0282 07F59A52 		add	r2, r7, #4928
+ 756 0286 1268     		ldr	r2, [r2]
+ 757 0288 9A61     		str	r2, [r3, #24]
+ 111:pathfind.c    ****     neighbour_array[3][1] = current_col - 1;
+ 758              		.loc 1 111 0
+ 759 028a 07F59953 		add	r3, r7, #4896
+ 760 028e 03F11C03 		add	r3, r3, #28
+ 761 0292 1B68     		ldr	r3, [r3]
+ 762 0294 5A1E     		subs	r2, r3, #1
+ 763 0296 07F11803 		add	r3, r7, #24
+ 764 029a 083B     		subs	r3, r3, #8
+ 765 029c DA61     		str	r2, [r3, #28]
+ 766              	.LBB6:
+ 112:pathfind.c    **** 
+ 113:pathfind.c    ****     // Explore neighboring cells
+ 114:pathfind.c    ****     for (int n = 0; n < 4; n++) {
+ 767              		.loc 1 114 0
+ 768 029e 0023     		movs	r3, #0
+ 769 02a0 07F59952 		add	r2, r7, #4896
+ 770 02a4 02F11802 		add	r2, r2, #24
+ 771 02a8 1360     		str	r3, [r2]
+ 772 02aa 69E1     		b	.L14
+ 773              	.L30:
+ 774              		.align	2
+ 775              	.L29:
+ 776 02ac 00000000 		.word	map
+ 777 02b0 00000000 		.word	startPos
+ 778              	.L19:
+ 779              	.LBB7:
+ 115:pathfind.c    ****       int nRow = neighbour_array[n][0];
+ 780              		.loc 1 115 0
+ 781 02b4 07F11803 		add	r3, r7, #24
+ 782 02b8 083B     		subs	r3, r3, #8
+ 783 02ba 07F59952 		add	r2, r7, #4896
+ 784 02be 02F11802 		add	r2, r2, #24
+ 785 02c2 1268     		ldr	r2, [r2]
+ 786 02c4 53F83230 		ldr	r3, [r3, r2, lsl #3]
+ 787 02c8 07F59952 		add	r2, r7, #4896
+ 788 02cc 02F10802 		add	r2, r2, #8
+ 789 02d0 1360     		str	r3, [r2]
+ 116:pathfind.c    ****       int nCol = neighbour_array[n][1];
+ 790              		.loc 1 116 0
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 17
+
+
+ 791 02d2 07F11802 		add	r2, r7, #24
+ 792 02d6 083A     		subs	r2, r2, #8
+ 793 02d8 07F59953 		add	r3, r7, #4896
+ 794 02dc 03F11803 		add	r3, r3, #24
+ 795 02e0 1B68     		ldr	r3, [r3]
+ 796 02e2 DB00     		lsls	r3, r3, #3
+ 797 02e4 1344     		add	r3, r3, r2
+ 798 02e6 5B68     		ldr	r3, [r3, #4]
+ 799 02e8 07F59952 		add	r2, r7, #4896
+ 800 02ec 02F10402 		add	r2, r2, #4
+ 801 02f0 1360     		str	r3, [r2]
+ 117:pathfind.c    **** 
+ 118:pathfind.c    ****       // Check if the new location is within bounds
+ 119:pathfind.c    ****       if (nRow < 1 || nRow > MAX_ROWS || nCol < 1 || nCol > MAX_COLS) {
+ 802              		.loc 1 119 0
+ 803 02f2 07F59953 		add	r3, r7, #4896
+ 804 02f6 03F10803 		add	r3, r3, #8
+ 805 02fa 1B68     		ldr	r3, [r3]
+ 806 02fc 002B     		cmp	r3, #0
+ 807 02fe 40F33481 		ble	.L15
+ 808              		.loc 1 119 0 is_stmt 0 discriminator 1
+ 809 0302 07F59953 		add	r3, r7, #4896
+ 810 0306 03F10803 		add	r3, r3, #8
+ 811 030a 1B68     		ldr	r3, [r3]
+ 812 030c 0F2B     		cmp	r3, #15
+ 813 030e 00F32C81 		bgt	.L15
+ 814              		.loc 1 119 0 discriminator 2
+ 815 0312 07F59953 		add	r3, r7, #4896
+ 816 0316 03F10403 		add	r3, r3, #4
+ 817 031a 1B68     		ldr	r3, [r3]
+ 818 031c 002B     		cmp	r3, #0
+ 819 031e 40F32481 		ble	.L15
+ 820              		.loc 1 119 0 discriminator 3
+ 821 0322 07F59953 		add	r3, r7, #4896
+ 822 0326 03F10403 		add	r3, r3, #4
+ 823 032a 1B68     		ldr	r3, [r3]
+ 824 032c 132B     		cmp	r3, #19
+ 825 032e 00F31C81 		bgt	.L15
+ 120:pathfind.c    ****           // Continue if out of bounds
+ 121:pathfind.c    ****         } else if (map[nRow][nCol] == 1) {
+ 826              		.loc 1 121 0 is_stmt 1
+ 827 0332 CB49     		ldr	r1, .L31
+ 828 0334 07F59953 		add	r3, r7, #4896
+ 829 0338 03F10803 		add	r3, r3, #8
+ 830 033c 1A68     		ldr	r2, [r3]
+ 831 033e 1346     		mov	r3, r2
+ 832 0340 DB00     		lsls	r3, r3, #3
+ 833 0342 1344     		add	r3, r3, r2
+ 834 0344 5B00     		lsls	r3, r3, #1
+ 835 0346 1344     		add	r3, r3, r2
+ 836 0348 CA18     		adds	r2, r1, r3
+ 837 034a 07F59953 		add	r3, r7, #4896
+ 838 034e 03F10403 		add	r3, r3, #4
+ 839 0352 1B68     		ldr	r3, [r3]
+ 840 0354 1344     		add	r3, r3, r2
+ 841 0356 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 842 0358 012B     		cmp	r3, #1
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 18
+
+
+ 843 035a 00F00681 		beq	.L15
+ 122:pathfind.c    ****           // Continue if neighbour is a wall
+ 123:pathfind.c    ****         } else if (visited[nRow][nCol] == 1) {
+ 844              		.loc 1 123 0
+ 845 035e 07F61811 		addw	r1, r7, #2328
+ 846 0362 07F59953 		add	r3, r7, #4896
+ 847 0366 03F10803 		add	r3, r3, #8
+ 848 036a 1A68     		ldr	r2, [r3]
+ 849 036c 1346     		mov	r3, r2
+ 850 036e DB00     		lsls	r3, r3, #3
+ 851 0370 1344     		add	r3, r3, r2
+ 852 0372 5B00     		lsls	r3, r3, #1
+ 853 0374 1344     		add	r3, r3, r2
+ 854 0376 CA18     		adds	r2, r1, r3
+ 855 0378 07F59953 		add	r3, r7, #4896
+ 856 037c 03F10403 		add	r3, r3, #4
+ 857 0380 1B68     		ldr	r3, [r3]
+ 858 0382 1344     		add	r3, r3, r2
+ 859 0384 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 860 0386 012B     		cmp	r3, #1
+ 861 0388 00F0EF80 		beq	.L15
+ 124:pathfind.c    ****           // Continue if already visited 
+ 125:pathfind.c    ****         } else {
+ 126:pathfind.c    ****           // Check if the new location is not a wall and has not been visited
+ 127:pathfind.c    **** 
+ 128:pathfind.c    ****           // Enqueue the new location
+ 129:pathfind.c    ****           queue[rear][0] = nRow; //TODO may need a plus
+ 862              		.loc 1 129 0
+ 863 038c 07F63823 		addw	r3, r7, #2616
+ 864 0390 07F59A52 		add	r2, r7, #4928
+ 865 0394 02F10C02 		add	r2, r2, #12
+ 866 0398 1268     		ldr	r2, [r2]
+ 867 039a 07F59951 		add	r1, r7, #4896
+ 868 039e 01F10801 		add	r1, r1, #8
+ 869 03a2 0968     		ldr	r1, [r1]
+ 870 03a4 43F83210 		str	r1, [r3, r2, lsl #3]
+ 130:pathfind.c    ****           queue[rear][1] = nCol;
+ 871              		.loc 1 130 0
+ 872 03a8 07F63822 		addw	r2, r7, #2616
+ 873 03ac 07F59A53 		add	r3, r7, #4928
+ 874 03b0 03F10C03 		add	r3, r3, #12
+ 875 03b4 1B68     		ldr	r3, [r3]
+ 876 03b6 DB00     		lsls	r3, r3, #3
+ 877 03b8 1344     		add	r3, r3, r2
+ 878 03ba 07F59952 		add	r2, r7, #4896
+ 879 03be 02F10402 		add	r2, r2, #4
+ 880 03c2 1268     		ldr	r2, [r2]
+ 881 03c4 5A60     		str	r2, [r3, #4]
+ 131:pathfind.c    ****           rear++;
+ 882              		.loc 1 131 0
+ 883 03c6 07F59A53 		add	r3, r7, #4928
+ 884 03ca 03F10C03 		add	r3, r3, #12
+ 885 03ce 1B68     		ldr	r3, [r3]
+ 886 03d0 0133     		adds	r3, r3, #1
+ 887 03d2 07F59A52 		add	r2, r7, #4928
+ 888 03d6 02F10C02 		add	r2, r2, #12
+ 889 03da 1360     		str	r3, [r2]
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 19
+
+
+ 132:pathfind.c    **** 
+ 133:pathfind.c    ****           visited[nRow][nCol] = '1';
+ 890              		.loc 1 133 0
+ 891 03dc 07F61811 		addw	r1, r7, #2328
+ 892 03e0 07F59953 		add	r3, r7, #4896
+ 893 03e4 03F10803 		add	r3, r3, #8
+ 894 03e8 1A68     		ldr	r2, [r3]
+ 895 03ea 1346     		mov	r3, r2
+ 896 03ec DB00     		lsls	r3, r3, #3
+ 897 03ee 1344     		add	r3, r3, r2
+ 898 03f0 5B00     		lsls	r3, r3, #1
+ 899 03f2 1344     		add	r3, r3, r2
+ 900 03f4 CA18     		adds	r2, r1, r3
+ 901 03f6 07F59953 		add	r3, r7, #4896
+ 902 03fa 03F10403 		add	r3, r3, #4
+ 903 03fe 1B68     		ldr	r3, [r3]
+ 904 0400 1344     		add	r3, r3, r2
+ 905 0402 3122     		movs	r2, #49
+ 906 0404 1A70     		strb	r2, [r3]
+ 134:pathfind.c    ****           steps[nRow][nCol] = steps[current_row][current_col] + 1;
+ 907              		.loc 1 134 0
+ 908 0406 07F2A441 		addw	r1, r7, #1188
+ 909 040a 07F59A53 		add	r3, r7, #4928
+ 910 040e 1A68     		ldr	r2, [r3]
+ 911 0410 1346     		mov	r3, r2
+ 912 0412 DB00     		lsls	r3, r3, #3
+ 913 0414 1344     		add	r3, r3, r2
+ 914 0416 5B00     		lsls	r3, r3, #1
+ 915 0418 1344     		add	r3, r3, r2
+ 916 041a 07F59952 		add	r2, r7, #4896
+ 917 041e 02F11C02 		add	r2, r2, #28
+ 918 0422 1268     		ldr	r2, [r2]
+ 919 0424 1344     		add	r3, r3, r2
+ 920 0426 51F82330 		ldr	r3, [r1, r3, lsl #2]
+ 921 042a 581C     		adds	r0, r3, #1
+ 922 042c 07F2A441 		addw	r1, r7, #1188
+ 923 0430 07F59953 		add	r3, r7, #4896
+ 924 0434 03F10803 		add	r3, r3, #8
+ 925 0438 1A68     		ldr	r2, [r3]
+ 926 043a 1346     		mov	r3, r2
+ 927 043c DB00     		lsls	r3, r3, #3
+ 928 043e 1344     		add	r3, r3, r2
+ 929 0440 5B00     		lsls	r3, r3, #1
+ 930 0442 1344     		add	r3, r3, r2
+ 931 0444 07F59952 		add	r2, r7, #4896
+ 932 0448 02F10402 		add	r2, r2, #4
+ 933 044c 1268     		ldr	r2, [r2]
+ 934 044e 1344     		add	r3, r3, r2
+ 935 0450 41F82300 		str	r0, [r1, r3, lsl #2]
+ 135:pathfind.c    **** 
+ 136:pathfind.c    ****           // Set the parent direction
+ 137:pathfind.c    ****           if (nRow + 1 == current_row) {
+ 936              		.loc 1 137 0
+ 937 0454 07F59953 		add	r3, r7, #4896
+ 938 0458 03F10803 		add	r3, r3, #8
+ 939 045c 1B68     		ldr	r3, [r3]
+ 940 045e 5A1C     		adds	r2, r3, #1
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 20
+
+
+ 941 0460 07F59A53 		add	r3, r7, #4928
+ 942 0464 1B68     		ldr	r3, [r3]
+ 943 0466 9A42     		cmp	r2, r3
+ 944 0468 16D1     		bne	.L16
+ 138:pathfind.c    ****             parents[nRow][nCol] = 1;
+ 945              		.loc 1 138 0
+ 946 046a 07F13802 		add	r2, r7, #56
+ 947 046e 083A     		subs	r2, r2, #8
+ 948 0470 07F59953 		add	r3, r7, #4896
+ 949 0474 03F10803 		add	r3, r3, #8
+ 950 0478 1968     		ldr	r1, [r3]
+ 951 047a 0B46     		mov	r3, r1
+ 952 047c DB00     		lsls	r3, r3, #3
+ 953 047e 0B44     		add	r3, r3, r1
+ 954 0480 5B00     		lsls	r3, r3, #1
+ 955 0482 0B44     		add	r3, r3, r1
+ 956 0484 07F59951 		add	r1, r7, #4896
+ 957 0488 01F10401 		add	r1, r1, #4
+ 958 048c 0968     		ldr	r1, [r1]
+ 959 048e 0B44     		add	r3, r3, r1
+ 960 0490 0121     		movs	r1, #1
+ 961 0492 42F82310 		str	r1, [r2, r3, lsl #2]
+ 962 0496 68E0     		b	.L15
+ 963              	.L16:
+ 139:pathfind.c    ****           }
+ 140:pathfind.c    ****           else if(nCol + 1 == current_col) {
+ 964              		.loc 1 140 0
+ 965 0498 07F59953 		add	r3, r7, #4896
+ 966 049c 03F10403 		add	r3, r3, #4
+ 967 04a0 1B68     		ldr	r3, [r3]
+ 968 04a2 5A1C     		adds	r2, r3, #1
+ 969 04a4 07F59953 		add	r3, r7, #4896
+ 970 04a8 03F11C03 		add	r3, r3, #28
+ 971 04ac 1B68     		ldr	r3, [r3]
+ 972 04ae 9A42     		cmp	r2, r3
+ 973 04b0 16D1     		bne	.L17
+ 141:pathfind.c    ****             parents[nRow][nCol] = 2;
+ 974              		.loc 1 141 0
+ 975 04b2 07F13802 		add	r2, r7, #56
+ 976 04b6 083A     		subs	r2, r2, #8
+ 977 04b8 07F59953 		add	r3, r7, #4896
+ 978 04bc 03F10803 		add	r3, r3, #8
+ 979 04c0 1968     		ldr	r1, [r3]
+ 980 04c2 0B46     		mov	r3, r1
+ 981 04c4 DB00     		lsls	r3, r3, #3
+ 982 04c6 0B44     		add	r3, r3, r1
+ 983 04c8 5B00     		lsls	r3, r3, #1
+ 984 04ca 0B44     		add	r3, r3, r1
+ 985 04cc 07F59951 		add	r1, r7, #4896
+ 986 04d0 01F10401 		add	r1, r1, #4
+ 987 04d4 0968     		ldr	r1, [r1]
+ 988 04d6 0B44     		add	r3, r3, r1
+ 989 04d8 0221     		movs	r1, #2
+ 990 04da 42F82310 		str	r1, [r2, r3, lsl #2]
+ 991 04de 44E0     		b	.L15
+ 992              	.L17:
+ 142:pathfind.c    ****           }
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 21
+
+
+ 143:pathfind.c    ****           else if(nRow - 1 == current_row) {
+ 993              		.loc 1 143 0
+ 994 04e0 07F59953 		add	r3, r7, #4896
+ 995 04e4 03F10803 		add	r3, r3, #8
+ 996 04e8 1B68     		ldr	r3, [r3]
+ 997 04ea 5A1E     		subs	r2, r3, #1
+ 998 04ec 07F59A53 		add	r3, r7, #4928
+ 999 04f0 1B68     		ldr	r3, [r3]
+ 1000 04f2 9A42     		cmp	r2, r3
+ 1001 04f4 16D1     		bne	.L18
+ 144:pathfind.c    ****             parents[nRow][nCol] = 3;
+ 1002              		.loc 1 144 0
+ 1003 04f6 07F13802 		add	r2, r7, #56
+ 1004 04fa 083A     		subs	r2, r2, #8
+ 1005 04fc 07F59953 		add	r3, r7, #4896
+ 1006 0500 03F10803 		add	r3, r3, #8
+ 1007 0504 1968     		ldr	r1, [r3]
+ 1008 0506 0B46     		mov	r3, r1
+ 1009 0508 DB00     		lsls	r3, r3, #3
+ 1010 050a 0B44     		add	r3, r3, r1
+ 1011 050c 5B00     		lsls	r3, r3, #1
+ 1012 050e 0B44     		add	r3, r3, r1
+ 1013 0510 07F59951 		add	r1, r7, #4896
+ 1014 0514 01F10401 		add	r1, r1, #4
+ 1015 0518 0968     		ldr	r1, [r1]
+ 1016 051a 0B44     		add	r3, r3, r1
+ 1017 051c 0321     		movs	r1, #3
+ 1018 051e 42F82310 		str	r1, [r2, r3, lsl #2]
+ 1019 0522 22E0     		b	.L15
+ 1020              	.L18:
+ 145:pathfind.c    ****           }
+ 146:pathfind.c    ****           else if(nCol - 1 == current_col) {
+ 1021              		.loc 1 146 0
+ 1022 0524 07F59953 		add	r3, r7, #4896
+ 1023 0528 03F10403 		add	r3, r3, #4
+ 1024 052c 1B68     		ldr	r3, [r3]
+ 1025 052e 5A1E     		subs	r2, r3, #1
+ 1026 0530 07F59953 		add	r3, r7, #4896
+ 1027 0534 03F11C03 		add	r3, r3, #28
+ 1028 0538 1B68     		ldr	r3, [r3]
+ 1029 053a 9A42     		cmp	r2, r3
+ 1030 053c 15D1     		bne	.L15
+ 147:pathfind.c    ****             parents[nRow][nCol] = 4;
+ 1031              		.loc 1 147 0
+ 1032 053e 07F13802 		add	r2, r7, #56
+ 1033 0542 083A     		subs	r2, r2, #8
+ 1034 0544 07F59953 		add	r3, r7, #4896
+ 1035 0548 03F10803 		add	r3, r3, #8
+ 1036 054c 1968     		ldr	r1, [r3]
+ 1037 054e 0B46     		mov	r3, r1
+ 1038 0550 DB00     		lsls	r3, r3, #3
+ 1039 0552 0B44     		add	r3, r3, r1
+ 1040 0554 5B00     		lsls	r3, r3, #1
+ 1041 0556 0B44     		add	r3, r3, r1
+ 1042 0558 07F59951 		add	r1, r7, #4896
+ 1043 055c 01F10401 		add	r1, r1, #4
+ 1044 0560 0968     		ldr	r1, [r1]
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 22
+
+
+ 1045 0562 0B44     		add	r3, r3, r1
+ 1046 0564 0421     		movs	r1, #4
+ 1047 0566 42F82310 		str	r1, [r2, r3, lsl #2]
+ 1048              	.L15:
+ 1049              	.LBE7:
+ 114:pathfind.c    ****       int nRow = neighbour_array[n][0];
+ 1050              		.loc 1 114 0 discriminator 2
+ 1051 056a 07F59953 		add	r3, r7, #4896
+ 1052 056e 03F11803 		add	r3, r3, #24
+ 1053 0572 1B68     		ldr	r3, [r3]
+ 1054 0574 0133     		adds	r3, r3, #1
+ 1055 0576 07F59952 		add	r2, r7, #4896
+ 1056 057a 02F11802 		add	r2, r2, #24
+ 1057 057e 1360     		str	r3, [r2]
+ 1058              	.L14:
+ 114:pathfind.c    ****       int nRow = neighbour_array[n][0];
+ 1059              		.loc 1 114 0 is_stmt 0 discriminator 1
+ 1060 0580 07F59953 		add	r3, r7, #4896
+ 1061 0584 03F11803 		add	r3, r3, #24
+ 1062 0588 1B68     		ldr	r3, [r3]
+ 1063 058a 032B     		cmp	r3, #3
+ 1064 058c 7FF792AE 		ble	.L19
+ 1065              	.LBE6:
+ 148:pathfind.c    ****           }
+ 149:pathfind.c    **** 
+ 150:pathfind.c    ****         }
+ 151:pathfind.c    ****       }
+ 152:pathfind.c    **** 
+ 153:pathfind.c    ****       // Check if the target location is reached
+ 154:pathfind.c    ****       if (current_row == targetlocation[0] && current_col == targetlocation[1]) {
+ 1066              		.loc 1 154 0 is_stmt 1
+ 1067 0590 07F11803 		add	r3, r7, #24
+ 1068 0594 183B     		subs	r3, r3, #24
+ 1069 0596 1B68     		ldr	r3, [r3]
+ 1070 0598 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1071 059a 1A46     		mov	r2, r3
+ 1072 059c 07F59A53 		add	r3, r7, #4928
+ 1073 05a0 1B68     		ldr	r3, [r3]
+ 1074 05a2 9A42     		cmp	r2, r3
+ 1075 05a4 14D1     		bne	.L13
+ 1076              		.loc 1 154 0 is_stmt 0 discriminator 1
+ 1077 05a6 07F11803 		add	r3, r7, #24
+ 1078 05aa 183B     		subs	r3, r3, #24
+ 1079 05ac 1B68     		ldr	r3, [r3]
+ 1080 05ae 0133     		adds	r3, r3, #1
+ 1081 05b0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1082 05b2 1A46     		mov	r2, r3
+ 1083 05b4 07F59953 		add	r3, r7, #4896
+ 1084 05b8 03F11C03 		add	r3, r3, #28
+ 1085 05bc 1B68     		ldr	r3, [r3]
+ 1086 05be 9A42     		cmp	r2, r3
+ 1087 05c0 06D1     		bne	.L13
+ 155:pathfind.c    ****         finished = 1;
+ 1088              		.loc 1 155 0 is_stmt 1
+ 1089 05c2 0123     		movs	r3, #1
+ 1090 05c4 07F59952 		add	r2, r7, #4896
+ 1091 05c8 02F10C02 		add	r2, r2, #12
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 23
+
+
+ 1092 05cc 1360     		str	r3, [r2]
+ 1093 05ce 13E0     		b	.L21
+ 1094              	.L13:
+ 1095              	.LBE5:
+  87:pathfind.c    ****     // Process the current location
+ 1096              		.loc 1 87 0
+ 1097 05d0 07F59A53 		add	r3, r7, #4928
+ 1098 05d4 03F11003 		add	r3, r3, #16
+ 1099 05d8 1A68     		ldr	r2, [r3]
+ 1100 05da 07F59A53 		add	r3, r7, #4928
+ 1101 05de 03F10C03 		add	r3, r3, #12
+ 1102 05e2 1B68     		ldr	r3, [r3]
+ 1103 05e4 9A42     		cmp	r2, r3
+ 1104 05e6 07DA     		bge	.L21
+  87:pathfind.c    ****     // Process the current location
+ 1105              		.loc 1 87 0 is_stmt 0 discriminator 1
+ 1106 05e8 07F59953 		add	r3, r7, #4896
+ 1107 05ec 03F10C03 		add	r3, r3, #12
+ 1108 05f0 1B68     		ldr	r3, [r3]
+ 1109 05f2 002B     		cmp	r3, #0
+ 1110 05f4 3FF4CBAD 		beq	.L22
+ 1111              	.L21:
+ 156:pathfind.c    ****         break;
+ 157:pathfind.c    ****       }
+ 158:pathfind.c    ****     }
+ 159:pathfind.c    **** 
+ 160:pathfind.c    ****   // Backtrack to find the path and highlight steps
+ 161:pathfind.c    ****   int fpos1 = current_row;
+ 1112              		.loc 1 161 0 is_stmt 1
+ 1113 05f8 07F59A53 		add	r3, r7, #4928
+ 1114 05fc 1B68     		ldr	r3, [r3]
+ 1115 05fe 07F59952 		add	r2, r7, #4896
+ 1116 0602 02F11402 		add	r2, r2, #20
+ 1117 0606 1360     		str	r3, [r2]
+ 162:pathfind.c    ****   int fpos2 = current_col;
+ 1118              		.loc 1 162 0
+ 1119 0608 07F59953 		add	r3, r7, #4896
+ 1120 060c 03F11C03 		add	r3, r3, #28
+ 1121 0610 1B68     		ldr	r3, [r3]
+ 1122 0612 07F59952 		add	r2, r7, #4896
+ 1123 0616 02F11002 		add	r2, r2, #16
+ 1124 061a 1360     		str	r3, [r2]
+ 163:pathfind.c    ****     
+ 164:pathfind.c    **** // Highlight the current location
+ 165:pathfind.c    ****   squares[squaresCounter][0] = current_row;
+ 1125              		.loc 1 165 0
+ 1126 061c 114B     		ldr	r3, .L31+4
+ 1127 061e 1B68     		ldr	r3, [r3]
+ 1128 0620 5A00     		lsls	r2, r3, #1
+ 1129 0622 07F11803 		add	r3, r7, #24
+ 1130 0626 143B     		subs	r3, r3, #20
+ 1131 0628 1B68     		ldr	r3, [r3]
+ 1132 062a 1344     		add	r3, r3, r2
+ 1133 062c 07F59A52 		add	r2, r7, #4928
+ 1134 0630 1268     		ldr	r2, [r2]
+ 1135 0632 D2B2     		uxtb	r2, r2
+ 1136 0634 1A70     		strb	r2, [r3]
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 24
+
+
+ 166:pathfind.c    ****   squares[squaresCounter][1] = current_col;
+ 1137              		.loc 1 166 0
+ 1138 0636 0B4B     		ldr	r3, .L31+4
+ 1139 0638 1B68     		ldr	r3, [r3]
+ 1140 063a 5A00     		lsls	r2, r3, #1
+ 1141 063c 07F11803 		add	r3, r7, #24
+ 1142 0640 143B     		subs	r3, r3, #20
+ 1143 0642 1B68     		ldr	r3, [r3]
+ 1144 0644 1344     		add	r3, r3, r2
+ 1145 0646 07F59952 		add	r2, r7, #4896
+ 1146 064a 02F11C02 		add	r2, r2, #28
+ 1147 064e 1268     		ldr	r2, [r2]
+ 1148 0650 D2B2     		uxtb	r2, r2
+ 1149 0652 5A70     		strb	r2, [r3, #1]
+ 167:pathfind.c    ****   squaresCounter++;
+ 1150              		.loc 1 167 0
+ 1151 0654 034B     		ldr	r3, .L31+4
+ 1152 0656 1B68     		ldr	r3, [r3]
+ 1153 0658 0133     		adds	r3, r3, #1
+ 1154 065a 024A     		ldr	r2, .L31+4
+ 1155 065c 1360     		str	r3, [r2]
+ 168:pathfind.c    **** 
+ 169:pathfind.c    ****   while (startPos[0] != fpos1 || startPos[1] != fpos2) {
+ 1156              		.loc 1 169 0
+ 1157 065e 81E0     		b	.L23
+ 1158              	.L32:
+ 1159              		.align	2
+ 1160              	.L31:
+ 1161 0660 00000000 		.word	map
+ 1162 0664 00000000 		.word	squaresCounter
+ 1163              	.L28:
+ 1164              	.LBB8:
+ 170:pathfind.c    ****     int parent_dir = parents[fpos1][fpos2];
+ 1165              		.loc 1 170 0
+ 1166 0668 07F13802 		add	r2, r7, #56
+ 1167 066c 083A     		subs	r2, r2, #8
+ 1168 066e 07F59953 		add	r3, r7, #4896
+ 1169 0672 03F11403 		add	r3, r3, #20
+ 1170 0676 1968     		ldr	r1, [r3]
+ 1171 0678 0B46     		mov	r3, r1
+ 1172 067a DB00     		lsls	r3, r3, #3
+ 1173 067c 0B44     		add	r3, r3, r1
+ 1174 067e 5B00     		lsls	r3, r3, #1
+ 1175 0680 0B44     		add	r3, r3, r1
+ 1176 0682 07F59951 		add	r1, r7, #4896
+ 1177 0686 01F11001 		add	r1, r1, #16
+ 1178 068a 0968     		ldr	r1, [r1]
+ 1179 068c 0B44     		add	r3, r3, r1
+ 1180 068e 52F82330 		ldr	r3, [r2, r3, lsl #2]
+ 1181 0692 07F59952 		add	r2, r7, #4896
+ 1182 0696 1360     		str	r3, [r2]
+ 171:pathfind.c    **** 
+ 172:pathfind.c    ****     if (parent_dir == 1) {
+ 1183              		.loc 1 172 0
+ 1184 0698 07F59953 		add	r3, r7, #4896
+ 1185 069c 1B68     		ldr	r3, [r3]
+ 1186 069e 012B     		cmp	r3, #1
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 25
+
+
+ 1187 06a0 0BD1     		bne	.L24
+ 173:pathfind.c    ****       fpos1++;
+ 1188              		.loc 1 173 0
+ 1189 06a2 07F59953 		add	r3, r7, #4896
+ 1190 06a6 03F11403 		add	r3, r3, #20
+ 1191 06aa 1B68     		ldr	r3, [r3]
+ 1192 06ac 0133     		adds	r3, r3, #1
+ 1193 06ae 07F59952 		add	r2, r7, #4896
+ 1194 06b2 02F11402 		add	r2, r2, #20
+ 1195 06b6 1360     		str	r3, [r2]
+ 1196 06b8 31E0     		b	.L25
+ 1197              	.L24:
+ 174:pathfind.c    ****     } else if (parent_dir == 2) {
+ 1198              		.loc 1 174 0
+ 1199 06ba 07F59953 		add	r3, r7, #4896
+ 1200 06be 1B68     		ldr	r3, [r3]
+ 1201 06c0 022B     		cmp	r3, #2
+ 1202 06c2 0BD1     		bne	.L26
+ 175:pathfind.c    ****       fpos2++;
+ 1203              		.loc 1 175 0
+ 1204 06c4 07F59953 		add	r3, r7, #4896
+ 1205 06c8 03F11003 		add	r3, r3, #16
+ 1206 06cc 1B68     		ldr	r3, [r3]
+ 1207 06ce 0133     		adds	r3, r3, #1
+ 1208 06d0 07F59952 		add	r2, r7, #4896
+ 1209 06d4 02F11002 		add	r2, r2, #16
+ 1210 06d8 1360     		str	r3, [r2]
+ 1211 06da 20E0     		b	.L25
+ 1212              	.L26:
+ 176:pathfind.c    ****     } else if (parent_dir == 3) {
+ 1213              		.loc 1 176 0
+ 1214 06dc 07F59953 		add	r3, r7, #4896
+ 1215 06e0 1B68     		ldr	r3, [r3]
+ 1216 06e2 032B     		cmp	r3, #3
+ 1217 06e4 0BD1     		bne	.L27
+ 177:pathfind.c    ****       fpos1--;
+ 1218              		.loc 1 177 0
+ 1219 06e6 07F59953 		add	r3, r7, #4896
+ 1220 06ea 03F11403 		add	r3, r3, #20
+ 1221 06ee 1B68     		ldr	r3, [r3]
+ 1222 06f0 013B     		subs	r3, r3, #1
+ 1223 06f2 07F59952 		add	r2, r7, #4896
+ 1224 06f6 02F11402 		add	r2, r2, #20
+ 1225 06fa 1360     		str	r3, [r2]
+ 1226 06fc 0FE0     		b	.L25
+ 1227              	.L27:
+ 178:pathfind.c    ****     } else if (parent_dir == 4) {
+ 1228              		.loc 1 178 0
+ 1229 06fe 07F59953 		add	r3, r7, #4896
+ 1230 0702 1B68     		ldr	r3, [r3]
+ 1231 0704 042B     		cmp	r3, #4
+ 1232 0706 0AD1     		bne	.L25
+ 179:pathfind.c    ****       fpos2--;
+ 1233              		.loc 1 179 0
+ 1234 0708 07F59953 		add	r3, r7, #4896
+ 1235 070c 03F11003 		add	r3, r3, #16
+ 1236 0710 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 26
+
+
+ 1237 0712 013B     		subs	r3, r3, #1
+ 1238 0714 07F59952 		add	r2, r7, #4896
+ 1239 0718 02F11002 		add	r2, r2, #16
+ 1240 071c 1360     		str	r3, [r2]
+ 1241              	.L25:
+ 180:pathfind.c    ****     }
+ 181:pathfind.c    **** 
+ 182:pathfind.c    ****     // Highlight the step
+ 183:pathfind.c    ****     //highlightstep(fpos1, fpos2);
+ 184:pathfind.c    ****     squares[squaresCounter][0] = fpos1;
+ 1242              		.loc 1 184 0
+ 1243 071e 1E4B     		ldr	r3, .L33
+ 1244 0720 1B68     		ldr	r3, [r3]
+ 1245 0722 5A00     		lsls	r2, r3, #1
+ 1246 0724 07F11803 		add	r3, r7, #24
+ 1247 0728 143B     		subs	r3, r3, #20
+ 1248 072a 1B68     		ldr	r3, [r3]
+ 1249 072c 1344     		add	r3, r3, r2
+ 1250 072e 07F59952 		add	r2, r7, #4896
+ 1251 0732 02F11402 		add	r2, r2, #20
+ 1252 0736 1268     		ldr	r2, [r2]
+ 1253 0738 D2B2     		uxtb	r2, r2
+ 1254 073a 1A70     		strb	r2, [r3]
+ 185:pathfind.c    ****     squares[squaresCounter][1] = fpos2;
+ 1255              		.loc 1 185 0
+ 1256 073c 164B     		ldr	r3, .L33
+ 1257 073e 1B68     		ldr	r3, [r3]
+ 1258 0740 5A00     		lsls	r2, r3, #1
+ 1259 0742 07F11803 		add	r3, r7, #24
+ 1260 0746 143B     		subs	r3, r3, #20
+ 1261 0748 1B68     		ldr	r3, [r3]
+ 1262 074a 1344     		add	r3, r3, r2
+ 1263 074c 07F59952 		add	r2, r7, #4896
+ 1264 0750 02F11002 		add	r2, r2, #16
+ 1265 0754 1268     		ldr	r2, [r2]
+ 1266 0756 D2B2     		uxtb	r2, r2
+ 1267 0758 5A70     		strb	r2, [r3, #1]
+ 186:pathfind.c    ****     squaresCounter++;
+ 1268              		.loc 1 186 0
+ 1269 075a 0F4B     		ldr	r3, .L33
+ 1270 075c 1B68     		ldr	r3, [r3]
+ 1271 075e 0133     		adds	r3, r3, #1
+ 1272 0760 0D4A     		ldr	r2, .L33
+ 1273 0762 1360     		str	r3, [r2]
+ 1274              	.L23:
+ 1275              	.LBE8:
+ 169:pathfind.c    ****     int parent_dir = parents[fpos1][fpos2];
+ 1276              		.loc 1 169 0
+ 1277 0764 0D4B     		ldr	r3, .L33+4
+ 1278 0766 1A68     		ldr	r2, [r3]
+ 1279 0768 07F59953 		add	r3, r7, #4896
+ 1280 076c 03F11403 		add	r3, r3, #20
+ 1281 0770 1B68     		ldr	r3, [r3]
+ 1282 0772 9A42     		cmp	r2, r3
+ 1283 0774 7FF478AF 		bne	.L28
+ 169:pathfind.c    ****     int parent_dir = parents[fpos1][fpos2];
+ 1284              		.loc 1 169 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 27
+
+
+ 1285 0778 084B     		ldr	r3, .L33+4
+ 1286 077a 5A68     		ldr	r2, [r3, #4]
+ 1287 077c 07F59953 		add	r3, r7, #4896
+ 1288 0780 03F11003 		add	r3, r3, #16
+ 1289 0784 1B68     		ldr	r3, [r3]
+ 1290 0786 9A42     		cmp	r2, r3
+ 1291 0788 7FF46EAF 		bne	.L28
+ 187:pathfind.c    ****   }
+ 188:pathfind.c    ****   //highlightstep(current_row, current_col);
+ 189:pathfind.c    **** 
+ 190:pathfind.c    **** }
+ 1292              		.loc 1 190 0 is_stmt 1
+ 1293 078c 00BF     		nop
+ 1294 078e 07F59A57 		add	r7, r7, #4928
+ 1295 0792 1C37     		adds	r7, r7, #28
+ 1296              		.cfi_def_cfa_offset 12
+ 1297 0794 BD46     		mov	sp, r7
+ 1298              		.cfi_def_cfa_register 13
+ 1299              		@ sp needed
+ 1300 0796 90BD     		pop	{r4, r7, pc}
+ 1301              	.L34:
+ 1302              		.align	2
+ 1303              	.L33:
+ 1304 0798 00000000 		.word	squaresCounter
+ 1305 079c 00000000 		.word	startPos
+ 1306              		.cfi_endproc
+ 1307              	.LFE65:
+ 1308              		.size	bfs, .-bfs
+ 1309              		.text
+ 1310              	.Letext0:
+ 1311              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1312              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1313              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 1314              		.file 5 "map.h"
+ 1315              		.section	.debug_info,"",%progbits
+ 1316              	.Ldebug_info0:
+ 1317 0000 B9030000 		.4byte	0x3b9
+ 1318 0004 0400     		.2byte	0x4
+ 1319 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1320 000a 04       		.byte	0x4
+ 1321 000b 01       		.uleb128 0x1
+ 1322 000c 1A000000 		.4byte	.LASF43
+ 1323 0010 0C       		.byte	0xc
+ 1324 0011 C0010000 		.4byte	.LASF44
+ 1325 0015 E2010000 		.4byte	.LASF45
+ 1326 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1327 001d 00000000 		.4byte	0
+ 1328 0021 00000000 		.4byte	.Ldebug_line0
+ 1329 0025 02       		.uleb128 0x2
+ 1330 0026 01       		.byte	0x1
+ 1331 0027 06       		.byte	0x6
+ 1332 0028 B5020000 		.4byte	.LASF0
+ 1333 002c 02       		.uleb128 0x2
+ 1334 002d 01       		.byte	0x1
+ 1335 002e 08       		.byte	0x8
+ 1336 002f 7F010000 		.4byte	.LASF1
+ 1337 0033 02       		.uleb128 0x2
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 28
+
+
+ 1338 0034 02       		.byte	0x2
+ 1339 0035 05       		.byte	0x5
+ 1340 0036 67020000 		.4byte	.LASF2
+ 1341 003a 02       		.uleb128 0x2
+ 1342 003b 02       		.byte	0x2
+ 1343 003c 07       		.byte	0x7
+ 1344 003d CE000000 		.4byte	.LASF3
+ 1345 0041 03       		.uleb128 0x3
+ 1346 0042 C4000000 		.4byte	.LASF9
+ 1347 0046 02       		.byte	0x2
+ 1348 0047 3F       		.byte	0x3f
+ 1349 0048 4C000000 		.4byte	0x4c
+ 1350 004c 02       		.uleb128 0x2
+ 1351 004d 04       		.byte	0x4
+ 1352 004e 05       		.byte	0x5
+ 1353 004f A0020000 		.4byte	.LASF4
+ 1354 0053 02       		.uleb128 0x2
+ 1355 0054 04       		.byte	0x4
+ 1356 0055 07       		.byte	0x7
+ 1357 0056 2A010000 		.4byte	.LASF5
+ 1358 005a 02       		.uleb128 0x2
+ 1359 005b 08       		.byte	0x8
+ 1360 005c 05       		.byte	0x5
+ 1361 005d 00000000 		.4byte	.LASF6
+ 1362 0061 02       		.uleb128 0x2
+ 1363 0062 08       		.byte	0x8
+ 1364 0063 07       		.byte	0x7
+ 1365 0064 A4010000 		.4byte	.LASF7
+ 1366 0068 04       		.uleb128 0x4
+ 1367 0069 04       		.byte	0x4
+ 1368 006a 05       		.byte	0x5
+ 1369 006b 696E7400 		.ascii	"int\000"
+ 1370 006f 02       		.uleb128 0x2
+ 1371 0070 04       		.byte	0x4
+ 1372 0071 07       		.byte	0x7
+ 1373 0072 8D010000 		.4byte	.LASF8
+ 1374 0076 03       		.uleb128 0x3
+ 1375 0077 CB010000 		.4byte	.LASF10
+ 1376 007b 03       		.byte	0x3
+ 1377 007c 2C       		.byte	0x2c
+ 1378 007d 41000000 		.4byte	0x41
+ 1379 0081 02       		.uleb128 0x2
+ 1380 0082 04       		.byte	0x4
+ 1381 0083 04       		.byte	0x4
+ 1382 0084 0F010000 		.4byte	.LASF11
+ 1383 0088 02       		.uleb128 0x2
+ 1384 0089 08       		.byte	0x8
+ 1385 008a 04       		.byte	0x4
+ 1386 008b C1020000 		.4byte	.LASF12
+ 1387 008f 02       		.uleb128 0x2
+ 1388 0090 01       		.byte	0x1
+ 1389 0091 08       		.byte	0x8
+ 1390 0092 4A020000 		.4byte	.LASF13
+ 1391 0096 02       		.uleb128 0x2
+ 1392 0097 08       		.byte	0x8
+ 1393 0098 04       		.byte	0x4
+ 1394 0099 A9020000 		.4byte	.LASF14
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 29
+
+
+ 1395 009d 02       		.uleb128 0x2
+ 1396 009e 04       		.byte	0x4
+ 1397 009f 07       		.byte	0x7
+ 1398 00a0 D3010000 		.4byte	.LASF15
+ 1399 00a4 05       		.uleb128 0x5
+ 1400 00a5 04       		.byte	0x4
+ 1401 00a6 2C000000 		.4byte	0x2c
+ 1402 00aa 06       		.uleb128 0x6
+ 1403 00ab 97020000 		.4byte	.LASF19
+ 1404 00af 01       		.byte	0x1
+ 1405 00b0 20       		.byte	0x20
+ 1406 00b1 00000000 		.4byte	.LFB64
+ 1407 00b5 94000000 		.4byte	.LFE64-.LFB64
+ 1408 00b9 01       		.uleb128 0x1
+ 1409 00ba 9C       		.byte	0x9c
+ 1410 00bb 00010000 		.4byte	0x100
+ 1411 00bf 07       		.uleb128 0x7
+ 1412 00c0 8B020000 		.4byte	.LASF16
+ 1413 00c4 01       		.byte	0x1
+ 1414 00c5 20       		.byte	0x20
+ 1415 00c6 A4000000 		.4byte	0xa4
+ 1416 00ca 02       		.uleb128 0x2
+ 1417 00cb 91       		.byte	0x91
+ 1418 00cc 6C       		.sleb128 -20
+ 1419 00cd 07       		.uleb128 0x7
+ 1420 00ce 06010000 		.4byte	.LASF17
+ 1421 00d2 01       		.byte	0x1
+ 1422 00d3 20       		.byte	0x20
+ 1423 00d4 A4000000 		.4byte	0xa4
+ 1424 00d8 02       		.uleb128 0x2
+ 1425 00d9 91       		.byte	0x91
+ 1426 00da 68       		.sleb128 -24
+ 1427 00db 07       		.uleb128 0x7
+ 1428 00dc 5F020000 		.4byte	.LASF18
+ 1429 00e0 01       		.byte	0x1
+ 1430 00e1 20       		.byte	0x20
+ 1431 00e2 10010000 		.4byte	0x110
+ 1432 00e6 02       		.uleb128 0x2
+ 1433 00e7 91       		.byte	0x91
+ 1434 00e8 64       		.sleb128 -28
+ 1435 00e9 08       		.uleb128 0x8
+ 1436 00ea 0C000000 		.4byte	.LBB2
+ 1437 00ee 74000000 		.4byte	.LBE2-.LBB2
+ 1438 00f2 09       		.uleb128 0x9
+ 1439 00f3 6900     		.ascii	"i\000"
+ 1440 00f5 01       		.byte	0x1
+ 1441 00f6 21       		.byte	0x21
+ 1442 00f7 68000000 		.4byte	0x68
+ 1443 00fb 02       		.uleb128 0x2
+ 1444 00fc 91       		.byte	0x91
+ 1445 00fd 74       		.sleb128 -12
+ 1446 00fe 00       		.byte	0
+ 1447 00ff 00       		.byte	0
+ 1448 0100 0A       		.uleb128 0xa
+ 1449 0101 2C000000 		.4byte	0x2c
+ 1450 0105 10010000 		.4byte	0x110
+ 1451 0109 0B       		.uleb128 0xb
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 30
+
+
+ 1452 010a 9D000000 		.4byte	0x9d
+ 1453 010e 01       		.byte	0x1
+ 1454 010f 00       		.byte	0
+ 1455 0110 05       		.uleb128 0x5
+ 1456 0111 04       		.byte	0x4
+ 1457 0112 00010000 		.4byte	0x100
+ 1458 0116 0C       		.uleb128 0xc
+ 1459 0117 62667300 		.ascii	"bfs\000"
+ 1460 011b 01       		.byte	0x1
+ 1461 011c 30       		.byte	0x30
+ 1462 011d 00000000 		.4byte	.LFB65
+ 1463 0121 A0070000 		.4byte	.LFE65-.LFB65
+ 1464 0125 01       		.uleb128 0x1
+ 1465 0126 9C       		.byte	0x9c
+ 1466 0127 B5020000 		.4byte	0x2b5
+ 1467 012b 07       		.uleb128 0x7
+ 1468 012c 8B020000 		.4byte	.LASF16
+ 1469 0130 01       		.byte	0x1
+ 1470 0131 30       		.byte	0x30
+ 1471 0132 A4000000 		.4byte	0xa4
+ 1472 0136 03       		.uleb128 0x3
+ 1473 0137 91       		.byte	0x91
+ 1474 0138 A459     		.sleb128 -4956
+ 1475 013a 07       		.uleb128 0x7
+ 1476 013b 06010000 		.4byte	.LASF17
+ 1477 013f 01       		.byte	0x1
+ 1478 0140 30       		.byte	0x30
+ 1479 0141 A4000000 		.4byte	0xa4
+ 1480 0145 03       		.uleb128 0x3
+ 1481 0146 91       		.byte	0x91
+ 1482 0147 A059     		.sleb128 -4960
+ 1483 0149 07       		.uleb128 0x7
+ 1484 014a 5F020000 		.4byte	.LASF18
+ 1485 014e 01       		.byte	0x1
+ 1486 014f 30       		.byte	0x30
+ 1487 0150 10010000 		.4byte	0x110
+ 1488 0154 03       		.uleb128 0x3
+ 1489 0155 91       		.byte	0x91
+ 1490 0156 9C59     		.sleb128 -4964
+ 1491 0158 07       		.uleb128 0x7
+ 1492 0159 63010000 		.4byte	.LASF20
+ 1493 015d 01       		.byte	0x1
+ 1494 015e 30       		.byte	0x30
+ 1495 015f A4000000 		.4byte	0xa4
+ 1496 0163 03       		.uleb128 0x3
+ 1497 0164 91       		.byte	0x91
+ 1498 0165 9859     		.sleb128 -4968
+ 1499 0167 09       		.uleb128 0x9
+ 1500 0168 6900     		.ascii	"i\000"
+ 1501 016a 01       		.byte	0x1
+ 1502 016b 32       		.byte	0x32
+ 1503 016c 68000000 		.4byte	0x68
+ 1504 0170 02       		.uleb128 0x2
+ 1505 0171 91       		.byte	0x91
+ 1506 0172 6C       		.sleb128 -20
+ 1507 0173 0D       		.uleb128 0xd
+ 1508 0174 DC010000 		.4byte	.LASF21
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 31
+
+
+ 1509 0178 01       		.byte	0x1
+ 1510 0179 35       		.byte	0x35
+ 1511 017a B5020000 		.4byte	0x2b5
+ 1512 017e 03       		.uleb128 0x3
+ 1513 017f 91       		.byte	0x91
+ 1514 0180 D06D     		.sleb128 -2352
+ 1515 0182 0D       		.uleb128 0xd
+ 1516 0183 45010000 		.4byte	.LASF22
+ 1517 0187 01       		.byte	0x1
+ 1518 0188 36       		.byte	0x36
+ 1519 0189 68000000 		.4byte	0x68
+ 1520 018d 02       		.uleb128 0x2
+ 1521 018e 91       		.byte	0x91
+ 1522 018f 68       		.sleb128 -24
+ 1523 0190 0D       		.uleb128 0xd
+ 1524 0191 BB010000 		.4byte	.LASF23
+ 1525 0195 01       		.byte	0x1
+ 1526 0196 36       		.byte	0x36
+ 1527 0197 68000000 		.4byte	0x68
+ 1528 019b 02       		.uleb128 0x2
+ 1529 019c 91       		.byte	0x91
+ 1530 019d 64       		.sleb128 -28
+ 1531 019e 0D       		.uleb128 0xd
+ 1532 019f 4B010000 		.4byte	.LASF24
+ 1533 01a3 01       		.byte	0x1
+ 1534 01a4 37       		.byte	0x37
+ 1535 01a5 CC020000 		.4byte	0x2cc
+ 1536 01a9 03       		.uleb128 0x3
+ 1537 01aa 91       		.byte	0x91
+ 1538 01ab B06B     		.sleb128 -2640
+ 1539 01ad 0D       		.uleb128 0xd
+ 1540 01ae 58010000 		.4byte	.LASF25
+ 1541 01b2 01       		.byte	0x1
+ 1542 01b3 3F       		.byte	0x3f
+ 1543 01b4 E2020000 		.4byte	0x2e2
+ 1544 01b8 03       		.uleb128 0x3
+ 1545 01b9 91       		.byte	0x91
+ 1546 01ba BC62     		.sleb128 -3780
+ 1547 01bc 0D       		.uleb128 0xd
+ 1548 01bd FE000000 		.4byte	.LASF26
+ 1549 01c1 01       		.byte	0x1
+ 1550 01c2 44       		.byte	0x44
+ 1551 01c3 E2020000 		.4byte	0x2e2
+ 1552 01c7 03       		.uleb128 0x3
+ 1553 01c8 91       		.byte	0x91
+ 1554 01c9 C859     		.sleb128 -4920
+ 1555 01cb 0D       		.uleb128 0xd
+ 1556 01cc 3C010000 		.4byte	.LASF27
+ 1557 01d0 01       		.byte	0x1
+ 1558 01d1 52       		.byte	0x52
+ 1559 01d2 68000000 		.4byte	0x68
+ 1560 01d6 02       		.uleb128 0x2
+ 1561 01d7 91       		.byte	0x91
+ 1562 01d8 44       		.sleb128 -60
+ 1563 01d9 0D       		.uleb128 0xd
+ 1564 01da 15010000 		.4byte	.LASF28
+ 1565 01de 01       		.byte	0x1
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 32
+
+
+ 1566 01df 54       		.byte	0x54
+ 1567 01e0 68000000 		.4byte	0x68
+ 1568 01e4 02       		.uleb128 0x2
+ 1569 01e5 91       		.byte	0x91
+ 1570 01e6 58       		.sleb128 -40
+ 1571 01e7 0D       		.uleb128 0xd
+ 1572 01e8 0E000000 		.4byte	.LASF29
+ 1573 01ec 01       		.byte	0x1
+ 1574 01ed 55       		.byte	0x55
+ 1575 01ee 68000000 		.4byte	0x68
+ 1576 01f2 02       		.uleb128 0x2
+ 1577 01f3 91       		.byte	0x91
+ 1578 01f4 54       		.sleb128 -44
+ 1579 01f5 0D       		.uleb128 0xd
+ 1580 01f6 B8000000 		.4byte	.LASF30
+ 1581 01fa 01       		.byte	0x1
+ 1582 01fb A1       		.byte	0xa1
+ 1583 01fc 68000000 		.4byte	0x68
+ 1584 0200 02       		.uleb128 0x2
+ 1585 0201 91       		.byte	0x91
+ 1586 0202 4C       		.sleb128 -52
+ 1587 0203 0D       		.uleb128 0xd
+ 1588 0204 BE000000 		.4byte	.LASF31
+ 1589 0208 01       		.byte	0x1
+ 1590 0209 A2       		.byte	0xa2
+ 1591 020a 68000000 		.4byte	0x68
+ 1592 020e 02       		.uleb128 0x2
+ 1593 020f 91       		.byte	0x91
+ 1594 0210 48       		.sleb128 -56
+ 1595 0211 0E       		.uleb128 0xe
+ 1596 0212 4E000000 		.4byte	.LBB3
+ 1597 0216 B4000000 		.4byte	.LBE3-.LBB3
+ 1598 021a 41020000 		.4byte	0x241
+ 1599 021e 09       		.uleb128 0x9
+ 1600 021f 6900     		.ascii	"i\000"
+ 1601 0221 01       		.byte	0x1
+ 1602 0222 3A       		.byte	0x3a
+ 1603 0223 68000000 		.4byte	0x68
+ 1604 0227 02       		.uleb128 0x2
+ 1605 0228 91       		.byte	0x91
+ 1606 0229 60       		.sleb128 -32
+ 1607 022a 08       		.uleb128 0x8
+ 1608 022b 5C000000 		.4byte	.LBB4
+ 1609 022f 82000000 		.4byte	.LBE4-.LBB4
+ 1610 0233 09       		.uleb128 0x9
+ 1611 0234 6A00     		.ascii	"j\000"
+ 1612 0236 01       		.byte	0x1
+ 1613 0237 3B       		.byte	0x3b
+ 1614 0238 68000000 		.4byte	0x68
+ 1615 023c 02       		.uleb128 0x2
+ 1616 023d 91       		.byte	0x91
+ 1617 023e 5C       		.sleb128 -36
+ 1618 023f 00       		.byte	0
+ 1619 0240 00       		.byte	0
+ 1620 0241 0E       		.uleb128 0xe
+ 1621 0242 8E010000 		.4byte	.LBB5
+ 1622 0246 42040000 		.4byte	.LBE5-.LBB5
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 33
+
+
+ 1623 024a 9B020000 		.4byte	0x29b
+ 1624 024e 0D       		.uleb128 0xd
+ 1625 024f 4F020000 		.4byte	.LASF32
+ 1626 0253 01       		.byte	0x1
+ 1627 0254 63       		.byte	0x63
+ 1628 0255 F8020000 		.4byte	0x2f8
+ 1629 0259 03       		.uleb128 0x3
+ 1630 025a 91       		.byte	0x91
+ 1631 025b A859     		.sleb128 -4952
+ 1632 025d 08       		.uleb128 0x8
+ 1633 025e 9E020000 		.4byte	.LBB6
+ 1634 0262 F2020000 		.4byte	.LBE6-.LBB6
+ 1635 0266 09       		.uleb128 0x9
+ 1636 0267 6E00     		.ascii	"n\000"
+ 1637 0269 01       		.byte	0x1
+ 1638 026a 72       		.byte	0x72
+ 1639 026b 68000000 		.4byte	0x68
+ 1640 026f 02       		.uleb128 0x2
+ 1641 0270 91       		.byte	0x91
+ 1642 0271 50       		.sleb128 -48
+ 1643 0272 08       		.uleb128 0x8
+ 1644 0273 B4020000 		.4byte	.LBB7
+ 1645 0277 B6020000 		.4byte	.LBE7-.LBB7
+ 1646 027b 0D       		.uleb128 0xd
+ 1647 027c 5E010000 		.4byte	.LASF33
+ 1648 0280 01       		.byte	0x1
+ 1649 0281 73       		.byte	0x73
+ 1650 0282 68000000 		.4byte	0x68
+ 1651 0286 02       		.uleb128 0x2
+ 1652 0287 91       		.byte	0x91
+ 1653 0288 40       		.sleb128 -64
+ 1654 0289 0D       		.uleb128 0xd
+ 1655 028a 53010000 		.4byte	.LASF34
+ 1656 028e 01       		.byte	0x1
+ 1657 028f 74       		.byte	0x74
+ 1658 0290 68000000 		.4byte	0x68
+ 1659 0294 03       		.uleb128 0x3
+ 1660 0295 91       		.byte	0x91
+ 1661 0296 BC7F     		.sleb128 -68
+ 1662 0298 00       		.byte	0
+ 1663 0299 00       		.byte	0
+ 1664 029a 00       		.byte	0
+ 1665 029b 08       		.uleb128 0x8
+ 1666 029c 68060000 		.4byte	.LBB8
+ 1667 02a0 FC000000 		.4byte	.LBE8-.LBB8
+ 1668 02a4 0D       		.uleb128 0xd
+ 1669 02a5 71020000 		.4byte	.LASF35
+ 1670 02a9 01       		.byte	0x1
+ 1671 02aa AA       		.byte	0xaa
+ 1672 02ab 68000000 		.4byte	0x68
+ 1673 02af 03       		.uleb128 0x3
+ 1674 02b0 91       		.byte	0x91
+ 1675 02b1 B87F     		.sleb128 -72
+ 1676 02b3 00       		.byte	0
+ 1677 02b4 00       		.byte	0
+ 1678 02b5 0A       		.uleb128 0xa
+ 1679 02b6 68000000 		.4byte	0x68
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 34
+
+
+ 1680 02ba CC020000 		.4byte	0x2cc
+ 1681 02be 0F       		.uleb128 0xf
+ 1682 02bf 9D000000 		.4byte	0x9d
+ 1683 02c3 1C01     		.2byte	0x11c
+ 1684 02c5 0B       		.uleb128 0xb
+ 1685 02c6 9D000000 		.4byte	0x9d
+ 1686 02ca 01       		.byte	0x1
+ 1687 02cb 00       		.byte	0
+ 1688 02cc 0A       		.uleb128 0xa
+ 1689 02cd 2C000000 		.4byte	0x2c
+ 1690 02d1 E2020000 		.4byte	0x2e2
+ 1691 02d5 0B       		.uleb128 0xb
+ 1692 02d6 9D000000 		.4byte	0x9d
+ 1693 02da 0E       		.byte	0xe
+ 1694 02db 0B       		.uleb128 0xb
+ 1695 02dc 9D000000 		.4byte	0x9d
+ 1696 02e0 12       		.byte	0x12
+ 1697 02e1 00       		.byte	0
+ 1698 02e2 0A       		.uleb128 0xa
+ 1699 02e3 68000000 		.4byte	0x68
+ 1700 02e7 F8020000 		.4byte	0x2f8
+ 1701 02eb 0B       		.uleb128 0xb
+ 1702 02ec 9D000000 		.4byte	0x9d
+ 1703 02f0 0E       		.byte	0xe
+ 1704 02f1 0B       		.uleb128 0xb
+ 1705 02f2 9D000000 		.4byte	0x9d
+ 1706 02f6 12       		.byte	0x12
+ 1707 02f7 00       		.byte	0
+ 1708 02f8 0A       		.uleb128 0xa
+ 1709 02f9 68000000 		.4byte	0x68
+ 1710 02fd 0E030000 		.4byte	0x30e
+ 1711 0301 0B       		.uleb128 0xb
+ 1712 0302 9D000000 		.4byte	0x9d
+ 1713 0306 03       		.byte	0x3
+ 1714 0307 0B       		.uleb128 0xb
+ 1715 0308 9D000000 		.4byte	0x9d
+ 1716 030c 01       		.byte	0x1
+ 1717 030d 00       		.byte	0
+ 1718 030e 10       		.uleb128 0x10
+ 1719 030f 72010000 		.4byte	.LASF36
+ 1720 0313 04       		.byte	0x4
+ 1721 0314 1207     		.2byte	0x712
+ 1722 0316 1A030000 		.4byte	0x31a
+ 1723 031a 11       		.uleb128 0x11
+ 1724 031b 76000000 		.4byte	0x76
+ 1725 031f 12       		.uleb128 0x12
+ 1726 0320 6D617000 		.ascii	"map\000"
+ 1727 0324 05       		.byte	0x5
+ 1728 0325 0D       		.byte	0xd
+ 1729 0326 CC020000 		.4byte	0x2cc
+ 1730 032a 05       		.uleb128 0x5
+ 1731 032b 03       		.byte	0x3
+ 1732 032c 00000000 		.4byte	map
+ 1733 0330 13       		.uleb128 0x13
+ 1734 0331 E1000000 		.4byte	.LASF37
+ 1735 0335 05       		.byte	0x5
+ 1736 0336 1F       		.byte	0x1f
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 35
+
+
+ 1737 0337 00010000 		.4byte	0x100
+ 1738 033b 05       		.uleb128 0x5
+ 1739 033c 03       		.byte	0x3
+ 1740 033d 00000000 		.4byte	start_pos
+ 1741 0341 0A       		.uleb128 0xa
+ 1742 0342 2C000000 		.4byte	0x2c
+ 1743 0346 57030000 		.4byte	0x357
+ 1744 034a 0B       		.uleb128 0xb
+ 1745 034b 9D000000 		.4byte	0x9d
+ 1746 034f 04       		.byte	0x4
+ 1747 0350 0B       		.uleb128 0xb
+ 1748 0351 9D000000 		.4byte	0x9d
+ 1749 0355 01       		.byte	0x1
+ 1750 0356 00       		.byte	0
+ 1751 0357 13       		.uleb128 0x13
+ 1752 0358 9A010000 		.4byte	.LASF38
+ 1753 035c 05       		.byte	0x5
+ 1754 035d 21       		.byte	0x21
+ 1755 035e 41030000 		.4byte	0x341
+ 1756 0362 05       		.uleb128 0x5
+ 1757 0363 03       		.byte	0x3
+ 1758 0364 00000000 		.4byte	food_list
+ 1759 0368 13       		.uleb128 0x13
+ 1760 0369 EB000000 		.4byte	.LASF39
+ 1761 036d 01       		.byte	0x1
+ 1762 036e 17       		.byte	0x17
+ 1763 036f 68000000 		.4byte	0x68
+ 1764 0373 05       		.uleb128 0x5
+ 1765 0374 03       		.byte	0x3
+ 1766 0375 00000000 		.4byte	instructionCounter
+ 1767 0379 13       		.uleb128 0x13
+ 1768 037a A8000000 		.4byte	.LASF40
+ 1769 037e 01       		.byte	0x1
+ 1770 037f 18       		.byte	0x18
+ 1771 0380 68000000 		.4byte	0x68
+ 1772 0384 05       		.uleb128 0x5
+ 1773 0385 03       		.byte	0x3
+ 1774 0386 00000000 		.4byte	distanceCounter
+ 1775 038a 13       		.uleb128 0x13
+ 1776 038b 7C020000 		.4byte	.LASF41
+ 1777 038f 01       		.byte	0x1
+ 1778 0390 19       		.byte	0x19
+ 1779 0391 68000000 		.4byte	0x68
+ 1780 0395 05       		.uleb128 0x5
+ 1781 0396 03       		.byte	0x3
+ 1782 0397 00000000 		.4byte	squaresCounter
+ 1783 039b 0A       		.uleb128 0xa
+ 1784 039c 68000000 		.4byte	0x68
+ 1785 03a0 AB030000 		.4byte	0x3ab
+ 1786 03a4 0B       		.uleb128 0xb
+ 1787 03a5 9D000000 		.4byte	0x9d
+ 1788 03a9 01       		.byte	0x1
+ 1789 03aa 00       		.byte	0
+ 1790 03ab 13       		.uleb128 0x13
+ 1791 03ac 21010000 		.4byte	.LASF42
+ 1792 03b0 01       		.byte	0x1
+ 1793 03b1 1B       		.byte	0x1b
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 36
+
+
+ 1794 03b2 9B030000 		.4byte	0x39b
+ 1795 03b6 05       		.uleb128 0x5
+ 1796 03b7 03       		.byte	0x3
+ 1797 03b8 00000000 		.4byte	startPos
+ 1798 03bc 00       		.byte	0
+ 1799              		.section	.debug_abbrev,"",%progbits
+ 1800              	.Ldebug_abbrev0:
+ 1801 0000 01       		.uleb128 0x1
+ 1802 0001 11       		.uleb128 0x11
+ 1803 0002 01       		.byte	0x1
+ 1804 0003 25       		.uleb128 0x25
+ 1805 0004 0E       		.uleb128 0xe
+ 1806 0005 13       		.uleb128 0x13
+ 1807 0006 0B       		.uleb128 0xb
+ 1808 0007 03       		.uleb128 0x3
+ 1809 0008 0E       		.uleb128 0xe
+ 1810 0009 1B       		.uleb128 0x1b
+ 1811 000a 0E       		.uleb128 0xe
+ 1812 000b 55       		.uleb128 0x55
+ 1813 000c 17       		.uleb128 0x17
+ 1814 000d 11       		.uleb128 0x11
+ 1815 000e 01       		.uleb128 0x1
+ 1816 000f 10       		.uleb128 0x10
+ 1817 0010 17       		.uleb128 0x17
+ 1818 0011 00       		.byte	0
+ 1819 0012 00       		.byte	0
+ 1820 0013 02       		.uleb128 0x2
+ 1821 0014 24       		.uleb128 0x24
+ 1822 0015 00       		.byte	0
+ 1823 0016 0B       		.uleb128 0xb
+ 1824 0017 0B       		.uleb128 0xb
+ 1825 0018 3E       		.uleb128 0x3e
+ 1826 0019 0B       		.uleb128 0xb
+ 1827 001a 03       		.uleb128 0x3
+ 1828 001b 0E       		.uleb128 0xe
+ 1829 001c 00       		.byte	0
+ 1830 001d 00       		.byte	0
+ 1831 001e 03       		.uleb128 0x3
+ 1832 001f 16       		.uleb128 0x16
+ 1833 0020 00       		.byte	0
+ 1834 0021 03       		.uleb128 0x3
+ 1835 0022 0E       		.uleb128 0xe
+ 1836 0023 3A       		.uleb128 0x3a
+ 1837 0024 0B       		.uleb128 0xb
+ 1838 0025 3B       		.uleb128 0x3b
+ 1839 0026 0B       		.uleb128 0xb
+ 1840 0027 49       		.uleb128 0x49
+ 1841 0028 13       		.uleb128 0x13
+ 1842 0029 00       		.byte	0
+ 1843 002a 00       		.byte	0
+ 1844 002b 04       		.uleb128 0x4
+ 1845 002c 24       		.uleb128 0x24
+ 1846 002d 00       		.byte	0
+ 1847 002e 0B       		.uleb128 0xb
+ 1848 002f 0B       		.uleb128 0xb
+ 1849 0030 3E       		.uleb128 0x3e
+ 1850 0031 0B       		.uleb128 0xb
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 37
+
+
+ 1851 0032 03       		.uleb128 0x3
+ 1852 0033 08       		.uleb128 0x8
+ 1853 0034 00       		.byte	0
+ 1854 0035 00       		.byte	0
+ 1855 0036 05       		.uleb128 0x5
+ 1856 0037 0F       		.uleb128 0xf
+ 1857 0038 00       		.byte	0
+ 1858 0039 0B       		.uleb128 0xb
+ 1859 003a 0B       		.uleb128 0xb
+ 1860 003b 49       		.uleb128 0x49
+ 1861 003c 13       		.uleb128 0x13
+ 1862 003d 00       		.byte	0
+ 1863 003e 00       		.byte	0
+ 1864 003f 06       		.uleb128 0x6
+ 1865 0040 2E       		.uleb128 0x2e
+ 1866 0041 01       		.byte	0x1
+ 1867 0042 3F       		.uleb128 0x3f
+ 1868 0043 19       		.uleb128 0x19
+ 1869 0044 03       		.uleb128 0x3
+ 1870 0045 0E       		.uleb128 0xe
+ 1871 0046 3A       		.uleb128 0x3a
+ 1872 0047 0B       		.uleb128 0xb
+ 1873 0048 3B       		.uleb128 0x3b
+ 1874 0049 0B       		.uleb128 0xb
+ 1875 004a 27       		.uleb128 0x27
+ 1876 004b 19       		.uleb128 0x19
+ 1877 004c 11       		.uleb128 0x11
+ 1878 004d 01       		.uleb128 0x1
+ 1879 004e 12       		.uleb128 0x12
+ 1880 004f 06       		.uleb128 0x6
+ 1881 0050 40       		.uleb128 0x40
+ 1882 0051 18       		.uleb128 0x18
+ 1883 0052 9642     		.uleb128 0x2116
+ 1884 0054 19       		.uleb128 0x19
+ 1885 0055 01       		.uleb128 0x1
+ 1886 0056 13       		.uleb128 0x13
+ 1887 0057 00       		.byte	0
+ 1888 0058 00       		.byte	0
+ 1889 0059 07       		.uleb128 0x7
+ 1890 005a 05       		.uleb128 0x5
+ 1891 005b 00       		.byte	0
+ 1892 005c 03       		.uleb128 0x3
+ 1893 005d 0E       		.uleb128 0xe
+ 1894 005e 3A       		.uleb128 0x3a
+ 1895 005f 0B       		.uleb128 0xb
+ 1896 0060 3B       		.uleb128 0x3b
+ 1897 0061 0B       		.uleb128 0xb
+ 1898 0062 49       		.uleb128 0x49
+ 1899 0063 13       		.uleb128 0x13
+ 1900 0064 02       		.uleb128 0x2
+ 1901 0065 18       		.uleb128 0x18
+ 1902 0066 00       		.byte	0
+ 1903 0067 00       		.byte	0
+ 1904 0068 08       		.uleb128 0x8
+ 1905 0069 0B       		.uleb128 0xb
+ 1906 006a 01       		.byte	0x1
+ 1907 006b 11       		.uleb128 0x11
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 38
+
+
+ 1908 006c 01       		.uleb128 0x1
+ 1909 006d 12       		.uleb128 0x12
+ 1910 006e 06       		.uleb128 0x6
+ 1911 006f 00       		.byte	0
+ 1912 0070 00       		.byte	0
+ 1913 0071 09       		.uleb128 0x9
+ 1914 0072 34       		.uleb128 0x34
+ 1915 0073 00       		.byte	0
+ 1916 0074 03       		.uleb128 0x3
+ 1917 0075 08       		.uleb128 0x8
+ 1918 0076 3A       		.uleb128 0x3a
+ 1919 0077 0B       		.uleb128 0xb
+ 1920 0078 3B       		.uleb128 0x3b
+ 1921 0079 0B       		.uleb128 0xb
+ 1922 007a 49       		.uleb128 0x49
+ 1923 007b 13       		.uleb128 0x13
+ 1924 007c 02       		.uleb128 0x2
+ 1925 007d 18       		.uleb128 0x18
+ 1926 007e 00       		.byte	0
+ 1927 007f 00       		.byte	0
+ 1928 0080 0A       		.uleb128 0xa
+ 1929 0081 01       		.uleb128 0x1
+ 1930 0082 01       		.byte	0x1
+ 1931 0083 49       		.uleb128 0x49
+ 1932 0084 13       		.uleb128 0x13
+ 1933 0085 01       		.uleb128 0x1
+ 1934 0086 13       		.uleb128 0x13
+ 1935 0087 00       		.byte	0
+ 1936 0088 00       		.byte	0
+ 1937 0089 0B       		.uleb128 0xb
+ 1938 008a 21       		.uleb128 0x21
+ 1939 008b 00       		.byte	0
+ 1940 008c 49       		.uleb128 0x49
+ 1941 008d 13       		.uleb128 0x13
+ 1942 008e 2F       		.uleb128 0x2f
+ 1943 008f 0B       		.uleb128 0xb
+ 1944 0090 00       		.byte	0
+ 1945 0091 00       		.byte	0
+ 1946 0092 0C       		.uleb128 0xc
+ 1947 0093 2E       		.uleb128 0x2e
+ 1948 0094 01       		.byte	0x1
+ 1949 0095 3F       		.uleb128 0x3f
+ 1950 0096 19       		.uleb128 0x19
+ 1951 0097 03       		.uleb128 0x3
+ 1952 0098 08       		.uleb128 0x8
+ 1953 0099 3A       		.uleb128 0x3a
+ 1954 009a 0B       		.uleb128 0xb
+ 1955 009b 3B       		.uleb128 0x3b
+ 1956 009c 0B       		.uleb128 0xb
+ 1957 009d 27       		.uleb128 0x27
+ 1958 009e 19       		.uleb128 0x19
+ 1959 009f 11       		.uleb128 0x11
+ 1960 00a0 01       		.uleb128 0x1
+ 1961 00a1 12       		.uleb128 0x12
+ 1962 00a2 06       		.uleb128 0x6
+ 1963 00a3 40       		.uleb128 0x40
+ 1964 00a4 18       		.uleb128 0x18
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 39
+
+
+ 1965 00a5 9642     		.uleb128 0x2116
+ 1966 00a7 19       		.uleb128 0x19
+ 1967 00a8 01       		.uleb128 0x1
+ 1968 00a9 13       		.uleb128 0x13
+ 1969 00aa 00       		.byte	0
+ 1970 00ab 00       		.byte	0
+ 1971 00ac 0D       		.uleb128 0xd
+ 1972 00ad 34       		.uleb128 0x34
+ 1973 00ae 00       		.byte	0
+ 1974 00af 03       		.uleb128 0x3
+ 1975 00b0 0E       		.uleb128 0xe
+ 1976 00b1 3A       		.uleb128 0x3a
+ 1977 00b2 0B       		.uleb128 0xb
+ 1978 00b3 3B       		.uleb128 0x3b
+ 1979 00b4 0B       		.uleb128 0xb
+ 1980 00b5 49       		.uleb128 0x49
+ 1981 00b6 13       		.uleb128 0x13
+ 1982 00b7 02       		.uleb128 0x2
+ 1983 00b8 18       		.uleb128 0x18
+ 1984 00b9 00       		.byte	0
+ 1985 00ba 00       		.byte	0
+ 1986 00bb 0E       		.uleb128 0xe
+ 1987 00bc 0B       		.uleb128 0xb
+ 1988 00bd 01       		.byte	0x1
+ 1989 00be 11       		.uleb128 0x11
+ 1990 00bf 01       		.uleb128 0x1
+ 1991 00c0 12       		.uleb128 0x12
+ 1992 00c1 06       		.uleb128 0x6
+ 1993 00c2 01       		.uleb128 0x1
+ 1994 00c3 13       		.uleb128 0x13
+ 1995 00c4 00       		.byte	0
+ 1996 00c5 00       		.byte	0
+ 1997 00c6 0F       		.uleb128 0xf
+ 1998 00c7 21       		.uleb128 0x21
+ 1999 00c8 00       		.byte	0
+ 2000 00c9 49       		.uleb128 0x49
+ 2001 00ca 13       		.uleb128 0x13
+ 2002 00cb 2F       		.uleb128 0x2f
+ 2003 00cc 05       		.uleb128 0x5
+ 2004 00cd 00       		.byte	0
+ 2005 00ce 00       		.byte	0
+ 2006 00cf 10       		.uleb128 0x10
+ 2007 00d0 34       		.uleb128 0x34
+ 2008 00d1 00       		.byte	0
+ 2009 00d2 03       		.uleb128 0x3
+ 2010 00d3 0E       		.uleb128 0xe
+ 2011 00d4 3A       		.uleb128 0x3a
+ 2012 00d5 0B       		.uleb128 0xb
+ 2013 00d6 3B       		.uleb128 0x3b
+ 2014 00d7 05       		.uleb128 0x5
+ 2015 00d8 49       		.uleb128 0x49
+ 2016 00d9 13       		.uleb128 0x13
+ 2017 00da 3F       		.uleb128 0x3f
+ 2018 00db 19       		.uleb128 0x19
+ 2019 00dc 3C       		.uleb128 0x3c
+ 2020 00dd 19       		.uleb128 0x19
+ 2021 00de 00       		.byte	0
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 40
+
+
+ 2022 00df 00       		.byte	0
+ 2023 00e0 11       		.uleb128 0x11
+ 2024 00e1 35       		.uleb128 0x35
+ 2025 00e2 00       		.byte	0
+ 2026 00e3 49       		.uleb128 0x49
+ 2027 00e4 13       		.uleb128 0x13
+ 2028 00e5 00       		.byte	0
+ 2029 00e6 00       		.byte	0
+ 2030 00e7 12       		.uleb128 0x12
+ 2031 00e8 34       		.uleb128 0x34
+ 2032 00e9 00       		.byte	0
+ 2033 00ea 03       		.uleb128 0x3
+ 2034 00eb 08       		.uleb128 0x8
+ 2035 00ec 3A       		.uleb128 0x3a
+ 2036 00ed 0B       		.uleb128 0xb
+ 2037 00ee 3B       		.uleb128 0x3b
+ 2038 00ef 0B       		.uleb128 0xb
+ 2039 00f0 49       		.uleb128 0x49
+ 2040 00f1 13       		.uleb128 0x13
+ 2041 00f2 3F       		.uleb128 0x3f
+ 2042 00f3 19       		.uleb128 0x19
+ 2043 00f4 02       		.uleb128 0x2
+ 2044 00f5 18       		.uleb128 0x18
+ 2045 00f6 00       		.byte	0
+ 2046 00f7 00       		.byte	0
+ 2047 00f8 13       		.uleb128 0x13
+ 2048 00f9 34       		.uleb128 0x34
+ 2049 00fa 00       		.byte	0
+ 2050 00fb 03       		.uleb128 0x3
+ 2051 00fc 0E       		.uleb128 0xe
+ 2052 00fd 3A       		.uleb128 0x3a
+ 2053 00fe 0B       		.uleb128 0xb
+ 2054 00ff 3B       		.uleb128 0x3b
+ 2055 0100 0B       		.uleb128 0xb
+ 2056 0101 49       		.uleb128 0x49
+ 2057 0102 13       		.uleb128 0x13
+ 2058 0103 3F       		.uleb128 0x3f
+ 2059 0104 19       		.uleb128 0x19
+ 2060 0105 02       		.uleb128 0x2
+ 2061 0106 18       		.uleb128 0x18
+ 2062 0107 00       		.byte	0
+ 2063 0108 00       		.byte	0
+ 2064 0109 00       		.byte	0
+ 2065              		.section	.debug_aranges,"",%progbits
+ 2066 0000 24000000 		.4byte	0x24
+ 2067 0004 0200     		.2byte	0x2
+ 2068 0006 00000000 		.4byte	.Ldebug_info0
+ 2069 000a 04       		.byte	0x4
+ 2070 000b 00       		.byte	0
+ 2071 000c 0000     		.2byte	0
+ 2072 000e 0000     		.2byte	0
+ 2073 0010 00000000 		.4byte	.LFB64
+ 2074 0014 94000000 		.4byte	.LFE64-.LFB64
+ 2075 0018 00000000 		.4byte	.LFB65
+ 2076 001c A0070000 		.4byte	.LFE65-.LFB65
+ 2077 0020 00000000 		.4byte	0
+ 2078 0024 00000000 		.4byte	0
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 41
+
+
+ 2079              		.section	.debug_ranges,"",%progbits
+ 2080              	.Ldebug_ranges0:
+ 2081 0000 00000000 		.4byte	.LFB64
+ 2082 0004 94000000 		.4byte	.LFE64
+ 2083 0008 00000000 		.4byte	.LFB65
+ 2084 000c A0070000 		.4byte	.LFE65
+ 2085 0010 00000000 		.4byte	0
+ 2086 0014 00000000 		.4byte	0
+ 2087              		.section	.debug_line,"",%progbits
+ 2088              	.Ldebug_line0:
+ 2089 0000 3A020000 		.section	.debug_str,"MS",%progbits,1
+ 2089      02004C01 
+ 2089      00000201 
+ 2089      FB0E0D00 
+ 2089      01010101 
+ 2090              	.LASF6:
+ 2091 0000 6C6F6E67 		.ascii	"long long int\000"
+ 2091      206C6F6E 
+ 2091      6720696E 
+ 2091      7400
+ 2092              	.LASF29:
+ 2093 000e 63757272 		.ascii	"current_col\000"
+ 2093      656E745F 
+ 2093      636F6C00 
+ 2094              	.LASF43:
+ 2095 001a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2095      43313120 
+ 2095      352E342E 
+ 2095      31203230 
+ 2095      31363036 
+ 2096 004d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2096      20726576 
+ 2096      6973696F 
+ 2096      6E203233 
+ 2096      37373135 
+ 2097 0080 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 2097      66756E63 
+ 2097      74696F6E 
+ 2097      2D736563 
+ 2097      74696F6E 
+ 2098              	.LASF40:
+ 2099 00a8 64697374 		.ascii	"distanceCounter\000"
+ 2099      616E6365 
+ 2099      436F756E 
+ 2099      74657200 
+ 2100              	.LASF30:
+ 2101 00b8 66706F73 		.ascii	"fpos1\000"
+ 2101      3100
+ 2102              	.LASF31:
+ 2103 00be 66706F73 		.ascii	"fpos2\000"
+ 2103      3200
+ 2104              	.LASF9:
+ 2105 00c4 5F5F696E 		.ascii	"__int32_t\000"
+ 2105      7433325F 
+ 2105      7400
+ 2106              	.LASF3:
+ 2107 00ce 73686F72 		.ascii	"short unsigned int\000"
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 42
+
+
+ 2107      7420756E 
+ 2107      7369676E 
+ 2107      65642069 
+ 2107      6E7400
+ 2108              	.LASF37:
+ 2109 00e1 73746172 		.ascii	"start_pos\000"
+ 2109      745F706F 
+ 2109      7300
+ 2110              	.LASF39:
+ 2111 00eb 696E7374 		.ascii	"instructionCounter\000"
+ 2111      72756374 
+ 2111      696F6E43 
+ 2111      6F756E74 
+ 2111      657200
+ 2112              	.LASF26:
+ 2113 00fe 70617265 		.ascii	"parents\000"
+ 2113      6E747300 
+ 2114              	.LASF17:
+ 2115 0106 64697374 		.ascii	"distance\000"
+ 2115      616E6365 
+ 2115      00
+ 2116              	.LASF11:
+ 2117 010f 666C6F61 		.ascii	"float\000"
+ 2117      7400
+ 2118              	.LASF28:
+ 2119 0115 63757272 		.ascii	"current_row\000"
+ 2119      656E745F 
+ 2119      726F7700 
+ 2120              	.LASF42:
+ 2121 0121 73746172 		.ascii	"startPos\000"
+ 2121      74506F73 
+ 2121      00
+ 2122              	.LASF5:
+ 2123 012a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2123      20756E73 
+ 2123      69676E65 
+ 2123      6420696E 
+ 2123      7400
+ 2124              	.LASF27:
+ 2125 013c 66696E69 		.ascii	"finished\000"
+ 2125      73686564 
+ 2125      00
+ 2126              	.LASF22:
+ 2127 0145 66726F6E 		.ascii	"front\000"
+ 2127      7400
+ 2128              	.LASF24:
+ 2129 014b 76697369 		.ascii	"visited\000"
+ 2129      74656400 
+ 2130              	.LASF34:
+ 2131 0153 6E436F6C 		.ascii	"nCol\000"
+ 2131      00
+ 2132              	.LASF25:
+ 2133 0158 73746570 		.ascii	"steps\000"
+ 2133      7300
+ 2134              	.LASF33:
+ 2135 015e 6E526F77 		.ascii	"nRow\000"
+ 2135      00
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 43
+
+
+ 2136              	.LASF20:
+ 2137 0163 74617267 		.ascii	"targetlocation\000"
+ 2137      65746C6F 
+ 2137      63617469 
+ 2137      6F6E00
+ 2138              	.LASF36:
+ 2139 0172 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2139      52784275 
+ 2139      66666572 
+ 2139      00
+ 2140              	.LASF1:
+ 2141 017f 756E7369 		.ascii	"unsigned char\000"
+ 2141      676E6564 
+ 2141      20636861 
+ 2141      7200
+ 2142              	.LASF8:
+ 2143 018d 756E7369 		.ascii	"unsigned int\000"
+ 2143      676E6564 
+ 2143      20696E74 
+ 2143      00
+ 2144              	.LASF38:
+ 2145 019a 666F6F64 		.ascii	"food_list\000"
+ 2145      5F6C6973 
+ 2145      7400
+ 2146              	.LASF7:
+ 2147 01a4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2147      206C6F6E 
+ 2147      6720756E 
+ 2147      7369676E 
+ 2147      65642069 
+ 2148              	.LASF23:
+ 2149 01bb 72656172 		.ascii	"rear\000"
+ 2149      00
+ 2150              	.LASF44:
+ 2151 01c0 70617468 		.ascii	"pathfind.c\000"
+ 2151      66696E64 
+ 2151      2E6300
+ 2152              	.LASF10:
+ 2153 01cb 696E7433 		.ascii	"int32_t\000"
+ 2153      325F7400 
+ 2154              	.LASF15:
+ 2155 01d3 73697A65 		.ascii	"sizetype\000"
+ 2155      74797065 
+ 2155      00
+ 2156              	.LASF21:
+ 2157 01dc 71756575 		.ascii	"queue\000"
+ 2157      6500
+ 2158              	.LASF45:
+ 2159 01e2 483A5C44 		.ascii	"H:\\Documents\\301\\Post-Benchmark\\team14\\301_lab"
+ 2159      6F63756D 
+ 2159      656E7473 
+ 2159      5C333031 
+ 2159      5C506F73 
+ 2160 0210 5F746173 		.ascii	"_tasks\\psoc student pack\\psoc_code_base\\CS301_Cl"
+ 2160      6B735C70 
+ 2160      736F6320 
+ 2160      73747564 
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccxA8UJ7.s 			page 44
+
+
+ 2160      656E7420 
+ 2161 0240 6173732E 		.ascii	"ass.cydsn\000"
+ 2161      63796473 
+ 2161      6E00
+ 2162              	.LASF13:
+ 2163 024a 63686172 		.ascii	"char\000"
+ 2163      00
+ 2164              	.LASF32:
+ 2165 024f 6E656967 		.ascii	"neighbour_array\000"
+ 2165      68626F75 
+ 2165      725F6172 
+ 2165      72617900 
+ 2166              	.LASF18:
+ 2167 025f 73717561 		.ascii	"squares\000"
+ 2167      72657300 
+ 2168              	.LASF2:
+ 2169 0267 73686F72 		.ascii	"short int\000"
+ 2169      7420696E 
+ 2169      7400
+ 2170              	.LASF35:
+ 2171 0271 70617265 		.ascii	"parent_dir\000"
+ 2171      6E745F64 
+ 2171      697200
+ 2172              	.LASF41:
+ 2173 027c 73717561 		.ascii	"squaresCounter\000"
+ 2173      72657343 
+ 2173      6F756E74 
+ 2173      657200
+ 2174              	.LASF16:
+ 2175 028b 696E7374 		.ascii	"instruction\000"
+ 2175      72756374 
+ 2175      696F6E00 
+ 2176              	.LASF19:
+ 2177 0297 70617468 		.ascii	"pathfind\000"
+ 2177      66696E64 
+ 2177      00
+ 2178              	.LASF4:
+ 2179 02a0 6C6F6E67 		.ascii	"long int\000"
+ 2179      20696E74 
+ 2179      00
+ 2180              	.LASF14:
+ 2181 02a9 6C6F6E67 		.ascii	"long double\000"
+ 2181      20646F75 
+ 2181      626C6500 
+ 2182              	.LASF0:
+ 2183 02b5 7369676E 		.ascii	"signed char\000"
+ 2183      65642063 
+ 2183      68617200 
+ 2184              	.LASF12:
+ 2185 02c1 646F7562 		.ascii	"double\000"
+ 2185      6C6500
+ 2186              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

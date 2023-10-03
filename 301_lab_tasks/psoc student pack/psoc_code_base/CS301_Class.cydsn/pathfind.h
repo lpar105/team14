@@ -1,0 +1,16 @@
+/* ========================================
+ *
+ * Copyright YOUR COMPANY, THE YEAR
+ * All Rights Reserved
+ * UNPUBLISHED, LICENSED SOFTWARE.
+ *
+ * CONFIDENTIAL AND PROPRIETARY INFORMATION
+ * WHICH IS THE PROPERTY OF your company.
+ *
+ * ========================================
+*/
+
+void pathfind(unsigned char* instructions, unsigned char* distances,  unsigned char (*squares)[2]);
+void bfs(unsigned char* instructions, unsigned char* distances,  unsigned char (*squares)[2], unsigned char targetlocation[2]);
+
+/* [] END OF FILE */
