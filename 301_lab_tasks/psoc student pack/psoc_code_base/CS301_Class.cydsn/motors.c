@@ -14,8 +14,28 @@
 #include "motors.h"
 
 volatile int currentFLeftSpeed = 165;
-volatile int currentFRightSpeed = 165;// fresh 163, normal 165, old 167
+volatile int currentFRightSpeed = 165;
 
+int getDistance(int i) {
+    if (i == 4) { //whatever 'i' point corresponds to the first distance from the turn to where it stops
+        return 50; //returns how far it should travel from the corner to the food particle
+    }
+    if (i == 5) { //whatever 'i' point corresponds to the second distance from the turn to where it stops
+        return 50; //returns how far it should travel from the corner to the food particle
+    }
+    if (i == 7) { //whatever 'i' point corresponds to the third distance from the turn to where it stops
+        return 50; //returns how far it should travel from the corner to the food particle
+    }
+    if (i == 69) { //whatever 'i' point corresponds to the fourth distance from the turn to where it stops
+        return 50; //returns how far it should travel from the corner to the food particle
+    }
+    if (i == 420) { //whatever 'i' point corresponds to the fifth distance from the turn to where it stops
+        return 50; //returns how far it should travel from the corner to the food particle
+    }
+    else {
+        return 10;
+    }
+}
 
 void initMotors() {
     PWM_1_WritePeriod(250);
@@ -32,27 +52,6 @@ int getRightPWM(void) {
     return currentFRightSpeed;
 }
 
-//void updateForwardSpeed(int currentSpeed, int targetSpeed) {
-//    if (currentSpeed > targetSpeed) {
-//        currentFLeftSpeed = currentFLeftSpeed + 1;
-//        currentFRightSpeed = currentFRightSpeed + 1;
-//    }
-//    else {
-//        currentFLeftSpeed = currentFLeftSpeed - 1;
-//        currentFRightSpeed = currentFRightSpeed - 1;
-//    }
-//}
-
-void driveForward(int distanceTravelled, int targetSpeed) {  
-        PWM_1_WriteCompare(currentFLeftSpeed); 
-        PWM_2_WriteCompare(currentFRightSpeed); 
-}
-
-void stop() {
-    PWM_1_WriteCompare(125);
-    PWM_2_WriteCompare(125);  
-}
-
 void adjustLeft() {
     PWM_1_WriteCompare(currentFLeftSpeed - 2);
     PWM_2_WriteCompare(currentFRightSpeed + 2);
@@ -62,51 +61,66 @@ void adjustRight() {
     PWM_1_WriteCompare(currentFLeftSpeed + 2);
     PWM_2_WriteCompare(currentFRightSpeed - 2);
 }
-void hardAdjustLeft() {
-    PWM_1_WriteCompare(currentFLeftSpeed - 5); //was 6, changed it as was too drastic
-    PWM_2_WriteCompare(currentFRightSpeed + 5);
-}
-
-void hardAdjustRight() {
-    PWM_1_WriteCompare(currentFLeftSpeed + 5);
-    PWM_2_WriteCompare(currentFRightSpeed - 5);
-}
-
-
-void restoreLeft() {
-    // 125 - currentFLeftSpeed - 125
-    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125) - 1);
-    PWM_2_WriteCompare(125 - (currentFLeftSpeed - 125) + 1);
-    
-
-}
-
-void restoreRight() {
-    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125) + 1);
-    PWM_2_WriteCompare(125 - (currentFLeftSpeed - 125) - 1);
-}
 
 void findTrack() {
     PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125));
     PWM_2_WriteCompare(currentFLeftSpeed);
 }
 
-void turnLeft() {
-   
-    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125)+ 7); //was 11, changed as I think the value becomes too small to move the motor
-    PWM_2_WriteCompare(currentFRightSpeed - 7); //was 11, changed as I think the value becomes too small to move the motor
-}
-//193 144
-void turnRight() { 
-    PWM_1_WriteCompare(currentFLeftSpeed - 7);  //was 11, changed as I think the value becomes too small to move the motor
-    PWM_2_WriteCompare(125 - (currentFRightSpeed - 125) + 7 ); //was 11, changed as I think the value becomes too small to move the motor
+// MOTOR FUNCTIONS IN CODE
+
+void stop() {  //INDEXED BY 0
+    PWM_1_WriteCompare(125);
+    PWM_2_WriteCompare(125);  
 }
 
-void reverse(int reverseCount) {
+void turnLeft() { //INDEXED BY 1
+    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125) + 7); //was 11
+    PWM_2_WriteCompare(currentFRightSpeed - 7); //was 11
+}
+
+void driveForward() {  //INDEXED BY 2. This function means to go forward until I hit a wall
+    PWM_1_WriteCompare(currentFLeftSpeed); 
+    PWM_2_WriteCompare(currentFRightSpeed); 
+}
+
+void turnRight() { //INDEXED BY 3
+    PWM_1_WriteCompare(currentFLeftSpeed - 7);  //was 11
+    PWM_2_WriteCompare(125 - (currentFRightSpeed - 125) + 7 ); //was 11
+}
+
+void turnAround() { //INDEXED BY 4
+    PWM_1_WriteCompare(currentFLeftSpeed - 7);  //was 11
+    PWM_2_WriteCompare(125 - (currentFRightSpeed - 125) + 7 ); //was 11
+}
+
+void reverse(int reverseCount) { //not used yet
     while (reverseCount !=0){
         PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125));
         PWM_2_WriteCompare(125 - (currentFRightSpeed - 125));
         reverseCount--;
     }
 }
+
+// UNUSED FUNCTIONS:
+
+
+//void restoreLeft() {
+//    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125) - 1);
+//    PWM_2_WriteCompare(125 - (currentFLeftSpeed - 125) + 1);
+//}
+//
+//void restoreRight() {
+//    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125) + 1);
+//    PWM_2_WriteCompare(125 - (currentFLeftSpeed - 125) - 1);
+//    
+    //void hardAdjustLeft() {
+//    PWM_1_WriteCompare(currentFLeftSpeed - 5); //was 6, changed it as was too drastic
+//    PWM_2_WriteCompare(currentFRightSpeed + 5);
+//}
+//
+//void hardAdjustRight() {
+//    PWM_1_WriteCompare(currentFLeftSpeed + 5);
+//    PWM_2_WriteCompare(currentFRightSpeed - 5);
+//}
 /* [] END OF FILE */

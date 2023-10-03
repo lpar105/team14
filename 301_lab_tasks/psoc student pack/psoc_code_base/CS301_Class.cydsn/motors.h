@@ -11,7 +11,7 @@
 */
 
 void initMotors();
-void driveForward(int dotsTravelled, int targetSpeed);
+void driveForward();
 void updateForwardSpeed(int dotsTravelled, int targetSpeed);
 void stop();
 void adjustLeft();
@@ -25,4 +25,6 @@ void reverse();
 void turnRight();
 int getLeftPWM (void);
 int getRightPWM (void);
+
+int getDistance(int i);
 /* [] END OF FILE */
