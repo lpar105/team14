@@ -118,15 +118,15 @@ int main() {
   isr_TS_StartEx(MyISR);
   Timer_TS_Start();
 
-  unsigned char squares[1000][2];
+  unsigned char squares[500][2];
 
-  unsigned char instruction[200];
-  unsigned char distance[5];
+  unsigned char instruction[500];
+  unsigned char distance[500];
 
-// Loop through the array and set each element to 69
-    for (int i = 0; i < 1000; i++) {
-        squares[i][0] = 69;
-        squares[i][1] = 69;
+// Loop through the array and set each element to 111
+    for (int i = 0; i < 500; i++) {
+        squares[i][0] = 55;
+        squares[i][1] = 55;
     }
 
 
@@ -136,7 +136,7 @@ int main() {
   pathfind(instruction, distance, squares);
 
     usbPutString("SQUARES\r\n");
-for (int i = 0; i < 1000; i++) {
+for (int i = 0; i < 500; i++) {
         char squareStr[10]; 
         snprintf(squareStr, sizeof(squareStr), "%u %u \r\n", (unsigned char)squares[i][0], (unsigned char)squares[i][1]);
         usbPutString(squareStr);
@@ -144,14 +144,16 @@ for (int i = 0; i < 1000; i++) {
     
 usbPutString("INSTRUCTIONS\r\n");
 // Print all instructions
-    for (int i = 0; i < 200; i++) {
-        usbPutChar(instruction[i]);
-        usbPutString("\r\n");
+    for (int i = 0; i < 500; i++) {
+        char instStr[10]; 
+        snprintf(instStr, sizeof(instStr), "%u \r\n", (unsigned char)instruction[i]);
+        usbPutString(instStr);
+
     }
 
     usbPutString("DISTANCES\r\n");
     // Print all distances
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 500; i++) {
         char distanceStr[10];  // Assuming distances are integers and can fit in 10 characters
         snprintf(distanceStr, sizeof(distanceStr), "%u", (unsigned int)distance[i]);
         usbPutString(distanceStr);
