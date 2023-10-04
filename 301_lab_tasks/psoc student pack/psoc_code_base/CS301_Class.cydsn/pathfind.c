@@ -23,6 +23,8 @@
 int instructionCounter = 0;
 int distanceCounter = 0;
 int squaresCounter = 0;
+int robotDirection = 0;
+int firstValidInstruction = 0;
 
 int startPos[2] = {
   1,
@@ -208,16 +210,6 @@ void generateInstructionList(unsigned char * instruction, unsigned char * distan
         squares[i][1] = reversedSquares[i][1];
     }
     
-    // 0 - Stop 
-    // 1 - Left
-    // 2 - Straight
-    // 3 - Right
-    // 4 - 180
-    // 5 - Left w/distance
-    // 6 - Straight w/distance
-    // 7 - Right w/distance
-    // 8 - 180 w/distance
-    
     for (int i = 0; i < 499; i++) {
         
         unsigned char startRow = squares[i][0];
@@ -238,6 +230,10 @@ void generateInstructionList(unsigned char * instruction, unsigned char * distan
             travelDir = 3; // global right
         } else if (startCol - 1 == nextMoveCol) {
             travelDir = 4; // global left
+        }
+        
+        if (i == 0) {
+            robotDirection = travelDir;
         }
         
         // Work out at what point we need a new instruction. 
@@ -291,12 +287,69 @@ void generateInstructionList(unsigned char * instruction, unsigned char * distan
         }
         
         // Work out which instruction
-        /*if (travelDir == 1 || travelDir == 2 ) {
-            instruction[instructionCounter] = stopRow;
+            // 0 - Stop 
+            // 1 - Left
+            // 2 - Straight
+            // 3 - Right
+            // 4 - 180
+            // 5 - Left w/distance
+            // 6 - Straight w/distance
+            // 7 - Right w/distance
+            // 8 - 180 w/distance
+        if(travelDir == 1) {
+            if(robotDirection == 1) {
+                instruction[instructionCounter] = 2;
+            } else if(robotDirection == 2) {
+                instruction[instructionCounter] = 4;
+            } else if(robotDirection == 3) {
+                instruction[instructionCounter] = 1;
+            } else if(robotDirection == 4) {
+                instruction[instructionCounter] = 3;
+            } 
+        } else if (travelDir == 2) {
+            if(robotDirection == 1) {
+                instruction[instructionCounter] = 4;
+            } else if(robotDirection == 2) {
+                instruction[instructionCounter] = 2;
+            } else if(robotDirection == 3) {
+                instruction[instructionCounter] = 3;
+            } else if(robotDirection == 4) {
+                instruction[instructionCounter] = 1;
+            } 
+        } else if (travelDir == 3) {
+            if(robotDirection == 1) {
+                instruction[instructionCounter] = 3;
+            } else if(robotDirection == 2) {
+                instruction[instructionCounter] = 1;
+            } else if(robotDirection == 3) {
+                instruction[instructionCounter] = 2;
+            } else if(robotDirection == 4) {
+                instruction[instructionCounter] = 4;
+            } 
+        } else if (travelDir == 4) {
+            if(robotDirection == 1) {
+                instruction[instructionCounter] = 1;
+            } else if(robotDirection == 2) {
+                instruction[instructionCounter] = 3;
+            } else if(robotDirection == 3) {
+                instruction[instructionCounter] = 4;
+            } else if(robotDirection == 4) {
+                instruction[instructionCounter] = 2;
+            } 
         } else {
-            instruction[instructionCounter] = stopCol;
-        }*/
-        instruction[instructionCounter] = travelDir;
+            instruction[instructionCounter] = 0;
+        }
+        if (travelDir != 0) {
+            robotDirection = travelDir;
+        }
+        
+        if (instruction[instructionCounter] != 0) {  
+            if (!firstValidInstruction) {
+                instruction[instructionCounter-1] = 2;
+                firstValidInstruction = 1;
+            }
+        }
+        
         instructionCounter++;
         
         

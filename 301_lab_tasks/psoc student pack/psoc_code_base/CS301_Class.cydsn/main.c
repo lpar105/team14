@@ -123,10 +123,12 @@ int main() {
   unsigned char instruction[500];
   unsigned char distance[500];
 
-// Loop through the array and set each element to 111
+// Loop through the arrays and set each element to 55 or 0
     for (int i = 0; i < 500; i++) {
         squares[i][0] = 55;
         squares[i][1] = 55;
+        instruction[i] = 0;
+        distance[i] = 55;
     }
 
 
