@@ -26,6 +26,7 @@
 #include "defines.h"
 
 #include "motors.h"
+
 #include "pathfind.h"
 
 #include "vars.h"
@@ -81,6 +82,29 @@ volatile int turnEnable = 0;
 volatile int turnTimer = 0;
 int lastAdjustDirection = 0;
 
+volatile int v1L; // allocating storage for measure number of holes (ahead) - LEFT WHEEL
+volatile int v2L; // allocating storage for measure number of holes (behind) - LEFT WHEEL
+volatile int v1R; // allocating storage for measure number of holes (ahead) - RIGHT WHEEL
+volatile int v2R; // allocating storage for measure number of holes (behind) - RIGHT WHEEL
+volatile int startCountingL; //start counting for the 180 degree turn
+volatile int totalNumRotationsL; //used for calculating when the 180 degree turn is finished
+volatile int numRotationsL; //
+volatile int numRotationsR; //
+
+volatile int distanceToOne = 0;
+volatile int distanceToTwo = 0;
+volatile int distanceToThree = 0;
+volatile int distanceToFour = 0;
+volatile int distanceToFive = 0;
+
+volatile int stopCheckingArray = 0;
+
+volatile int i = 0;
+volatile int hitFood = 0;
+volatile int hitWall = 0;
+volatile int turnComplete = 0;
+unsigned char currentInstruction;
+
 CY_ISR(eoc) {
   flag = 1;
 }
@@ -119,48 +143,47 @@ int main() {
   Timer_TS_Start();
 
   unsigned char squares[500][2];
-
   unsigned char instruction[500];
   unsigned char distance[500];
-
-// Loop through the arrays and set each element to 55 or 0
-    for (int i = 0; i < 500; i++) {
-        squares[i][0] = 55;
-        squares[i][1] = 55;
-        instruction[i] = 0;
-        distance[i] = 55;
-    }
-
-
 
   CyDelay(4000);
   usbPutString("Starting Pathfind\r\n");
   pathfind(instruction, distance, squares);
 
-    usbPutString("SQUARES\r\n");
-for (int i = 0; i < 500; i++) {
-        char squareStr[10]; 
-        snprintf(squareStr, sizeof(squareStr), "%u %u \r\n", (unsigned char)squares[i][0], (unsigned char)squares[i][1]);
-        usbPutString(squareStr);
+  usbPutString("SQUARES\r\n");
+  for (int i = 0; i < 500; i++) {
+    char squareStr[10];
+    snprintf(squareStr, sizeof(squareStr), "%u %u \r\n", (unsigned char) squares[i][0], (unsigned char) squares[i][1]);
+    usbPutString(squareStr);
+  }
+
+    int index = 0;
+    while (instruction[index] == '0') {
+        index++;
     }
+
+    // Now 'index' holds the index of the first element in 'instruction' that is not '0'
+    usbPutString("Index of the first non-zero element: ");
+    char indexChar[10];
+    snprintf(indexChar, sizeof(indexChar), "%d\r\n", index);
+    usbPutString(indexChar);
     
-usbPutString("INSTRUCTIONS\r\n");
-// Print all instructions
-    for (int i = 0; i < 500; i++) {
-        char instStr[10]; 
-        snprintf(instStr, sizeof(instStr), "%u \r\n", (unsigned char)instruction[i]);
-        usbPutString(instStr);
+  usbPutString("INSTRUCTIONS\r\n");
+  // Print all instructions
+  for (int i = 0; i < 500; i++) {
+    char instStr[10];
+    snprintf(instStr, sizeof(instStr), "%u \r\n", (unsigned char) instruction[i]);
+    usbPutString(instStr);
+  }
 
-    }
-
-    usbPutString("DISTANCES\r\n");
-    // Print all distances
-    for (int i = 0; i < 500; i++) {
-        char distanceStr[10];  // Assuming distances are integers and can fit in 10 characters
-        snprintf(distanceStr, sizeof(distanceStr), "%u", (unsigned int)distance[i]);
-        usbPutString(distanceStr);
-        usbPutString("\r\n");
-    }
+  usbPutString("DISTANCES\r\n");
+  // Print all distances
+  for (int i = 0; i < 500; i++) {
+    char distanceStr[10]; // Assuming distances are integers and can fit in 10 characters
+    snprintf(distanceStr, sizeof(distanceStr), "%u", (unsigned int) distance[i]);
+    usbPutString(distanceStr);
+    usbPutString("\r\n");
+  }
 
   for (;;) {
 
@@ -180,10 +203,10 @@ usbPutString("INSTRUCTIONS\r\n");
         numRotationsL = (v2L - v1L);
         numRotationsR = (v2R - v1R);
 
-        int changeInDots = (((abs(numRotationsR) + abs(numRotationsL)) ) / 2);
+        int changeInDots = (((abs(numRotationsR) + abs(numRotationsL))) / 2);
         dotsTravelled = changeInDots + dotsTravelled;
         distanceTravelled = (dotsTravelled * (float)(1.217375 / 6.105)); //increase 6.1 to go further, decrease to go shorter
-                                                                         //6.2 for low, 6.1 for normal, 6 for full
+        //6.2 for low, 6.1 for normal, 6 for full
 
         QuadDec_M1_SetCounter(0); // set quad counter to 0 to avoid overflow
         QuadDec_M2_SetCounter(0); // set quad counter to 0 to avoid overflow 
@@ -211,6 +234,7 @@ usbPutString("INSTRUCTIONS\r\n");
         valuesRightIntersection[count] = ADC_GetResult16(5);
 
         count++;
+
         if (count == ADC_COUNT) {
           LED_PIN_4_Write(1);
           count = 0;
@@ -253,122 +277,154 @@ usbPutString("INSTRUCTIONS\r\n");
             }
 
           }
+          flag = 0;
+          ADC_IRQ_Enable();
 
-          if (L_LINE_BLACK) {
-            LED_PIN_1_Write(0);
-          } else {
-            LED_PIN_1_Write(1);
-          }
+          //start code functions here
 
-          if (M_LINE_BLACK) {
-            LED_PIN_2_Write(0);
-          } else {
-            LED_PIN_2_Write(1);
-          }
-
-          if (R_LINE_BLACK) {
-            LED_PIN_3_Write(0);
-          } else {
-            LED_PIN_3_Write(1);
-          }
-
-          shouldUpdate = 0;
-          turnTimer = 0;
-
-          // If all the sensors are under black light, stop the robot
-          if (L_INT_BLACK && M_LINE_BLACK && R_INT_BLACK && TC_BLACK && L_LINE_BLACK && R_LINE_BLACK) {
-
+          if (distanceTravelled > MOVE_DISTANCE) {
             stop();
+          } else {
+            if (currentInstruction == '0') { //stop
+              stop();
+            } else if (currentInstruction == '1' && turnComplete == 0) { //leftTurn and then go forward until hit a wall
+              if (R_INT_BLACK) { //code that senses when the turn is done, can be optimised
+                turnComplete = 1;
+              } else {
+                turnLeft();
+              }
 
-          } else if (turningLeft == 1) { // if robot is turning left
-            while (turnTimer != 10000) {
-              turnLeft();
-              turnTimer++;
+              if (turnComplete == 1) {
+                if ((highCountRightIntersection > 150 || highCountLeftIntersection > 150) && turnComplete == 1) { //if not reached an intersection
+                  driveForward(distanceTravelled, 0);
+                } else {
+                  stop();
+                  currentInstruction = instruction[i + 1];
+                  turnComplete = 0;
+                }
+              }
+            } else if (currentInstruction == '2') { //go straight
+              if ((highCountRightIntersection > 150 || highCountLeftIntersection > 150) && turnComplete == 1) { //if not reached an intersection
+                driveForward(distanceTravelled, 0);
+              } else {
+                currentInstruction = instruction[i + 1];
+              }
+            } else if (currentInstruction == '3' && turnComplete == 0) { //rightTurn and then go forward until hit a wall
+              if (L_INT_BLACK) { //code that senses when the turn is done, can be optimised
+                turnComplete = 1;
+              } else {
+                turnRight();
+              }
+
+              if (turnComplete == 1) {
+                if ((highCountRightIntersection > 150 || highCountLeftIntersection > 150) && turnComplete == 1) { //if not reached an intersection
+                  driveForward(distanceTravelled, 0);
+                } else {
+                  stop();
+                  currentInstruction = instruction[i + 1];
+                  turnComplete = 0;
+                }
+              }
+            } else if (currentInstruction == '4' && turnComplete == 0) { //turn 180 degrees
+              if (startCountingL == 1) {
+                totalNumRotationsL = 0;
+                startCountingL = 0;
+              }
+
+              if (totalNumRotationsL > 1500) { //test this to get it exact for the 180 degree turn
+                stop();
+                currentInstruction = instruction[i + 1];
+                totalNumRotationsL = 0; //reset turn count counter
+                startCountingL = 1;
+                turnComplete = 1;
+              } else {
+                turnRight(); //turn left or right shouldn't matter
+              }
+
+              if (turnComplete == 1) { //travel forward until i reach an intersection
+                if ((highCountRightIntersection > 150 || highCountLeftIntersection > 150) && turnComplete == 1) { //if not reached an intersection
+                  driveForward(distanceTravelled, 0);
+                } else {
+                  stop();
+                  currentInstruction = instruction[i + 1];
+                  turnComplete = 0;
+                }
+              }
+
+            } else if (currentInstruction == '5' && turnComplete == 0) { //leftTurn and then go forward until distance to food thing is covered
+              if (R_INT_BLACK) { //code that senses when the turn is done, can be optimised
+                turnComplete = 1;
+                distanceTravelled = 0; //reset distance counter
+              } else {
+                turnLeft();
+              }
+
+              if (turnComplete == 1) {
+                int targetDistance = 50;
+                if ((distanceTravelled < targetDistance) && turnComplete == 1) { //if robot travels far enough, stop it and can 
+                  driveForward(distanceTravelled, 0);
+                } else {
+                  stop();
+                  currentInstruction = instruction[i + 1];
+                  turnComplete = 0;
+                }
+              }
+            } else if (currentInstruction == '6' && turnComplete == 0) { //go forward until distance to food thing is covered
+              int targetDistance = 50;
+              if ((distanceTravelled < targetDistance) && turnComplete == 1) { //if robot travels far enough, stop it and can 
+                driveForward(distanceTravelled, 0);
+              } else {
+                stop();
+                currentInstruction = instruction[i + 1];
+                turnComplete = 0;
+              }
+            } else if (currentInstruction == '7' && turnComplete == 0) { //leftTurn and then go forward until distance to food thing is covered
+              if (R_INT_BLACK) { //code that senses when the turn is done, can be optimised
+                turnComplete = 1;
+                distanceTravelled = 0; //reset distance counter
+              } else {
+                turnLeft();
+              }
+
+              if (turnComplete == 1) {
+                int targetDistance = 50;
+                if ((distanceTravelled < targetDistance) && turnComplete == 1) { //if robot travels far enough, stop it and can 
+                  driveForward(distanceTravelled, 0);
+                } else {
+                  stop();
+                  currentInstruction = instruction[i + 1];
+                  turnComplete = 0;
+                }
+              }
+            } else { //turn 180 degrees and travel a distance
+              if (startCountingL == 1) {
+                totalNumRotationsL = 0;
+                startCountingL = 0;
+              }
+
+              if (totalNumRotationsL > 1500) { //test this to get it exact for the 180 degree turn
+                stop();
+                currentInstruction = instruction[i + 1];
+                totalNumRotationsL = 0; //reset turn count counter
+                startCountingL = 1;
+                turnComplete = 1;
+              } else {
+                turnRight(); //turn left or right shouldn't matter
+              }
+
+              if (turnComplete == 1) {
+                int targetDistance = 50;
+                if ((distanceTravelled < targetDistance) && turnComplete == 1) { //if robot travels far enough, stop it and can 
+                  driveForward(distanceTravelled, 0);
+                } else {
+                  stop();
+                  currentInstruction = instruction[i + 1];
+                  turnComplete = 0;
+                }
+              }
             }
-            turnEnable = 0;
-            turningLeft = 0;
-
-          } else if (turningRight == 1) { // if robot is turning right
-            while (turnTimer != 10000) {
-              turnRight();
-              turnTimer++;
-            }
-            turnEnable = 0;
-            turningRight = 0;
-
-          } else if (L_INT_BLACK && (M_LINE_BLACK || L_LINE_BLACK) && turnEnable == 1) { //initiate the turn left 
-
-            turnTimer++;
-            turningLeft = 1;
-            lastAdjustDirection = 0;
-
-          } else if (R_INT_BLACK && (M_LINE_BLACK || R_LINE_BLACK) && turnEnable == 1) { //initiate the right turn
-
-            turnTimer++;
-            turningRight = 1;
-            lastAdjustDirection = 2;
-
-          } else if (R_LINE_BLACK && L_LINE_BLACK) {
-            // do nothing for now
-
-          } else if (L_INT_BLACK && R_INT_BLACK) {
-            // do nothing for now
-
-          } else if (M_LINE_BLACK && L_LINE_BLACK) { // if robot slightly too far right
-            adjustLeft();
-            turnEnable = 1;
-            lastAdjustDirection = 0;
-
-          } else if (M_LINE_BLACK && R_LINE_BLACK) { //  if robot slightly too far left
-            adjustRight();
-            lastAdjustDirection = 2;
-            turnEnable = 1;
-
-          } else if (M_LINE_BLACK) { // if robot in the center keep moving straight
-            shouldUpdate = 1;
-            lastAdjustDirection = 1;
-            turnEnable = 1;
-            driveForward(distanceTravelled, TARGET_SPEED);
-
-          } else if (R_LINE_BLACK) { // if robot too far left
-            adjustRight();
-            turnEnable = 1;
-            lastAdjustDirection = 2;
-
-          } else if (L_LINE_BLACK) { // if robot too far right
-            adjustLeft();
-            turnEnable = 1;
-            lastAdjustDirection = 0;
-
-          } else if (L_INT_BLACK) {
-            //hardAdjustLeft();
-            turningLeft = 1;
-            lastAdjustDirection = 0;
-
-          } else if (R_INT_BLACK) {
-            //hardAdjustRight();
-            turningRight = 1;
-            lastAdjustDirection = 2;
-//          } else if (highCountLeftIntersection > 150 && highCountRightIntersection > 150 && highCountLeftLine > 150 && highCountRightLine > 150 && highCountMiddleLine > 150 && highCountTurnComplete > 150){
-//            driveForward(distanceTravelled, TARGET_SPEED);
-//            
-//        }
+          }
         }
-            else { // completely lost find way
-            if (lastAdjustDirection == 0) {
-              turnLeft();
-            } else if (lastAdjustDirection == 1) { // last movement was forward (middle sensor sensed)
-              //hardAdjustLeft();
-              turnRight();
-              //reverse(3000); // random number 3000
-            } else {
-              turnRight();
-            }
-            }
-        }
-
-        flag = 0;
-        ADC_IRQ_Enable();
       }
     }
   }

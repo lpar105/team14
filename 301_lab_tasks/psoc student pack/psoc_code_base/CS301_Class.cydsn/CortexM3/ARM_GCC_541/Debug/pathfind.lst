@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
   55 001e 00       		.byte	0
   56 001f 00       		.byte	0
   57 0020 00       		.byte	0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 2
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 2
 
 
   58 0021 00       		.byte	0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  112 0057 00       		.byte	0
  113 0058 01       		.byte	1
  114 0059 01       		.byte	1
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 3
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 3
 
 
  115 005a 01       		.byte	1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  169 0090 00       		.byte	0
  170 0091 01       		.byte	1
  171 0092 00       		.byte	0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 4
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 4
 
 
  172 0093 01       		.byte	1
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  226 00c9 00       		.byte	0
  227 00ca 01       		.byte	1
  228 00cb 00       		.byte	0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 5
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 5
 
 
  229 00cc 01       		.byte	1
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  283 0102 00       		.byte	0
  284 0103 00       		.byte	0
  285 0104 00       		.byte	0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 6
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 6
 
 
  286 0105 00       		.byte	0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  340              		.align	2
  341              		.type	distanceCounter, %object
  342              		.size	distanceCounter, 4
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 7
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 7
 
 
  343              	distanceCounter:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
   18:pathfind.c    **** #include "map.h"
   19:pathfind.c    **** 
   20:pathfind.c    **** #define MAX_ROWS 15
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 8
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 8
 
 
   21:pathfind.c    **** #define MAX_COLS 19
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  416 002a 5A60     		str	r2, [r3, #4]
  417 002c 10E0     		b	.L4
  418              	.L3:
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 9
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 9
 
 
   39:pathfind.c    ****     } else {
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  462 0076 00BF     		nop
  463 0078 1837     		adds	r7, r7, #24
  464              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 10
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 10
 
 
  465 007a BD46     		mov	sp, r7
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  511              		.loc 1 55 0
  512 0026 0023     		movs	r3, #0
  513 0028 07F59A52 		add	r2, r7, #4928
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 11
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 11
 
 
  514 002c 02F10802 		add	r2, r2, #8
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  562 0098 1344     		add	r3, r3, r2
  563 009a 0246     		mov	r2, r0
  564 009c 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 12
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 12
 
 
   60:pathfind.c    ****     for (int j = 0; j < 19; j++) {
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  607 00fa 0021     		movs	r1, #0
  608 00fc FFF7FEFF 		bl	memset
   70:pathfind.c    ****     0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 13
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 13
 
 
   71:pathfind.c    ****   };
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  647 015e 07F59952 		add	r2, r7, #4896
  648 0162 02F11402 		add	r2, r2, #20
  649 0166 1360     		str	r3, [r2]
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 14
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 14
 
 
   87:pathfind.c    **** 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  695 01dc 1B68     		ldr	r3, [r3]
  696 01de 1344     		add	r3, r3, r2
  697 01e0 0122     		movs	r2, #1
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 15
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 15
 
 
  698 01e2 1A70     		strb	r2, [r3]
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  739 024a 083B     		subs	r3, r3, #8
  740 024c 07F59952 		add	r2, r7, #4896
  741 0250 02F11802 		add	r2, r2, #24
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 16
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 16
 
 
  742 0254 1268     		ldr	r2, [r2]
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  788 02bc 07F59952 		add	r2, r7, #4896
  789 02c0 1360     		str	r3, [r2]
  117:pathfind.c    ****       int nCol = neighbour_array[n][1];
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 17
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 17
 
 
  790              		.loc 1 117 0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  839 033c 012B     		cmp	r3, #1
  840 033e 00F0F880 		beq	.L15
  123:pathfind.c    ****           // Continue if neighbour is a wall
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 18
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 18
 
 
  124:pathfind.c    ****         } else if (visited[nRow][nCol] == 1) {
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  134:pathfind.c    ****           visited[nRow][nCol] = '1';
  885              		.loc 1 134 0
  886 03b8 07F51161 		add	r1, r7, #2320
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 19
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 19
 
 
  887 03bc 07F59953 		add	r3, r7, #4896
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  937 043e 9A42     		cmp	r2, r3
  938 0440 14D1     		bne	.L16
  139:pathfind.c    ****             parents[nRow][nCol] = 1;
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 20
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 20
 
 
  939              		.loc 1 139 0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  988 04b6 5A1E     		subs	r2, r3, #1
  989 04b8 07F59953 		add	r3, r7, #4896
  990 04bc 03F11803 		add	r3, r3, #24
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 21
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 21
 
 
  991 04c0 1B68     		ldr	r3, [r3]
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1040              		.loc 1 115 0 discriminator 2
  1041 0532 07F59953 		add	r3, r7, #4896
  1042 0536 03F11003 		add	r3, r3, #16
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 22
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 22
 
 
  1043 053a 1B68     		ldr	r3, [r3]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1087              		.loc 1 88 0
  1088 059c 07F59A53 		add	r3, r7, #4928
  1089 05a0 03F10803 		add	r3, r3, #8
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 23
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 23
 
 
  1090 05a4 1A68     		ldr	r2, [r3]
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1132 060c 1B68     		ldr	r3, [r3]
  1133 060e 5A00     		lsls	r2, r3, #1
  1134 0610 07F11003 		add	r3, r7, #16
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 24
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 24
 
 
  1135 0614 0C3B     		subs	r3, r3, #12
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  174:pathfind.c    ****       fpos1++;
  1183              		.loc 1 174 0
  1184 067e 07F59953 		add	r3, r7, #4896
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 25
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 25
 
 
  1185 0682 03F10C03 		add	r3, r3, #12
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1233 06f4 03F10803 		add	r3, r3, #8
  1234 06f8 1B68     		ldr	r3, [r3]
  1235 06fa 013B     		subs	r3, r3, #1
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 26
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 26
 
 
  1236 06fc 07F59952 		add	r2, r7, #4896
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  170:pathfind.c    ****     int parent_dir = parents[fpos1][fpos2];
  1282              		.loc 1 170 0 is_stmt 0 discriminator 1
  1283 0760 084B     		ldr	r3, .L33+4
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 27
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 27
 
 
  1284 0762 5A68     		ldr	r2, [r3, #4]
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1332 0016 1A60     		str	r2, [r3]
  194:pathfind.c    ****     unsigned char reversedSquares[500][2];  // New array to store reversed and filtered entries
  195:pathfind.c    ****     int count = 0;  // Count of non-matching entries
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 28
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 28
 
 
  1333              		.loc 1 195 0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1377 007a D7F81034 		ldr	r3, [r7, #1040]
  1378 007e 013B     		subs	r3, r3, #1
  1379 0080 C7F81034 		str	r3, [r7, #1040]
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 29
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 29
 
 
  1380              	.L36:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  211:pathfind.c    ****     }
  212:pathfind.c    ****     
  213:pathfind.c    ****     for (int i = 0; i < 499; i++) {
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 30
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 30
 
 
  1425              		.loc 1 213 0 is_stmt 1
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1469 0138 97F8FF23 		ldrb	r2, [r7, #1023]	@ zero_extendqisi2
  1470 013c 97F80734 		ldrb	r3, [r7, #1031]	@ zero_extendqisi2
  1471 0140 9A42     		cmp	r2, r3
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 31
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 31
 
 
  1472 0142 05D1     		bne	.L41
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1520 01a0 03D1     		bne	.L47
  230:pathfind.c    ****             travelDir = 3; // global right
  1521              		.loc 1 230 0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 32
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 32
 
 
  1522 01a2 0323     		movs	r3, #3
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1561              	.L50:
  246:pathfind.c    ****             }
  247:pathfind.c    ****             if (travelDir == 3 || travelDir == 4) {
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 33
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 33
 
 
  1562              		.loc 1 247 0
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1609 0242 97F80724 		ldrb	r2, [r7, #1031]	@ zero_extendqisi2
  1610 0246 97F80634 		ldrb	r3, [r7, #1030]	@ zero_extendqisi2
  1611 024a 591C     		adds	r1, r3, #1
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 34
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 34
 
 
  1612 024c 9D48     		ldr	r0, .L91+4
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1658 02a2 5A1E     		subs	r2, r3, #1
  1659 02a4 97F80734 		ldrb	r3, [r7, #1031]	@ zero_extendqisi2
  1660 02a8 9A42     		cmp	r2, r3
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 35
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 35
 
 
  1661 02aa 3ED0     		beq	.L60
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1703 02fc 0123     		movs	r3, #1
  1704 02fe C7F80034 		str	r3, [r7, #1024]
  1705 0302 12E0     		b	.L60
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 36
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 36
 
 
  1706              	.L63:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1748 035a 1268     		ldr	r2, [r2]
  1749 035c 1344     		add	r3, r3, r2
  1750 035e 5B78     		ldrb	r3, [r3, #1]
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 37
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 37
 
 
  1751 0360 87F80634 		strb	r3, [r7, #1030]
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1785 039c 1B68     		ldr	r3, [r3]
  1786 039e 1A46     		mov	r2, r3
  1787 03a0 07F10C03 		add	r3, r7, #12
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 38
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 38
 
 
  1788 03a4 1B68     		ldr	r3, [r3]
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  311:pathfind.c    ****                 instruction[instructionCounter] = 4;
  1835              		.loc 1 311 0
  1836 03f8 334B     		ldr	r3, .L91+8
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 39
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 39
 
 
  1837 03fa 1B68     		ldr	r3, [r3]
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1885 0450 1B68     		ldr	r3, [r3]
  1886 0452 1A46     		mov	r2, r3
  1887 0454 07F10C03 		add	r3, r7, #12
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 40
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 40
 
 
  1888 0458 1B68     		ldr	r3, [r3]
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  325:pathfind.c    ****                 instruction[instructionCounter] = 2;
  1935              		.loc 1 325 0
  1936 04aa 074B     		ldr	r3, .L91+8
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 41
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 41
 
 
  1937 04ac 1B68     		ldr	r3, [r3]
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  1985 0508 1A70     		strb	r2, [r3]
  1986 050a 32E0     		b	.L71
  1987              	.L83:
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 42
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 42
 
 
  332:pathfind.c    ****             } else if(robotDirection == 2) {
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  338:pathfind.c    ****             } 
  339:pathfind.c    ****         } else {
  340:pathfind.c    ****             instruction[instructionCounter] = 0;
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 43
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 43
 
 
  2036              		.loc 1 340 0
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2081 05b2 0122     		movs	r2, #1
  2082 05b4 1A60     		str	r2, [r3]
  2083              	.L88:
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 44
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 44
 
 
  350:pathfind.c    ****             }
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2125              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
  2126              		.file 5 "map.h"
  2127              		.section	.debug_info,"",%progbits
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 45
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 45
 
 
  2128              	.Ldebug_info0:
@@ -2647,50 +2647,50 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2131 0006 00000000 		.4byte	.Ldebug_abbrev0
  2132 000a 04       		.byte	0x4
  2133 000b 01       		.uleb128 0x1
- 2134 000c 23000000 		.4byte	.LASF54
+ 2134 000c 15000000 		.4byte	.LASF54
  2135 0010 0C       		.byte	0xc
- 2136 0011 00020000 		.4byte	.LASF55
- 2137 0015 26020000 		.4byte	.LASF56
+ 2136 0011 4D020000 		.4byte	.LASF55
+ 2137 0015 A7010000 		.4byte	.LASF56
  2138 0019 00000000 		.4byte	.Ldebug_ranges0+0
  2139 001d 00000000 		.4byte	0
  2140 0021 00000000 		.4byte	.Ldebug_line0
  2141 0025 02       		.uleb128 0x2
  2142 0026 01       		.byte	0x1
  2143 0027 06       		.byte	0x6
- 2144 0028 31030000 		.4byte	.LASF0
+ 2144 0028 24030000 		.4byte	.LASF0
  2145 002c 02       		.uleb128 0x2
  2146 002d 01       		.byte	0x1
  2147 002e 08       		.byte	0x8
- 2148 002f 9A010000 		.4byte	.LASF1
+ 2148 002f 8C010000 		.4byte	.LASF1
  2149 0033 02       		.uleb128 0x2
  2150 0034 02       		.byte	0x2
  2151 0035 05       		.byte	0x5
- 2152 0036 D2020000 		.4byte	.LASF2
+ 2152 0036 C5020000 		.4byte	.LASF2
  2153 003a 02       		.uleb128 0x2
  2154 003b 02       		.byte	0x2
  2155 003c 07       		.byte	0x7
- 2156 003d D7000000 		.4byte	.LASF3
+ 2156 003d C9000000 		.4byte	.LASF3
  2157 0041 03       		.uleb128 0x3
- 2158 0042 CD000000 		.4byte	.LASF9
+ 2158 0042 BF000000 		.4byte	.LASF9
  2159 0046 02       		.byte	0x2
  2160 0047 3F       		.byte	0x3f
  2161 0048 4C000000 		.4byte	0x4c
  2162 004c 02       		.uleb128 0x2
  2163 004d 04       		.byte	0x4
  2164 004e 05       		.byte	0x5
- 2165 004f 0B030000 		.4byte	.LASF4
+ 2165 004f FE020000 		.4byte	.LASF4
  2166 0053 02       		.uleb128 0x2
  2167 0054 04       		.byte	0x4
  2168 0055 07       		.byte	0x7
- 2169 0056 3B010000 		.4byte	.LASF5
+ 2169 0056 2D010000 		.4byte	.LASF5
  2170 005a 02       		.uleb128 0x2
  2171 005b 08       		.byte	0x8
  2172 005c 05       		.byte	0x5
- 2173 005d 00000000 		.4byte	.LASF6
+ 2173 005d 73020000 		.4byte	.LASF6
  2174 0061 02       		.uleb128 0x2
  2175 0062 08       		.byte	0x8
  2176 0063 07       		.byte	0x7
- 2177 0064 BF010000 		.4byte	.LASF7
+ 2177 0064 0C020000 		.4byte	.LASF7
  2178 0068 04       		.uleb128 0x4
  2179 0069 04       		.byte	0x4
  2180 006a 05       		.byte	0x5
@@ -2698,40 +2698,40 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2182 006f 02       		.uleb128 0x2
  2183 0070 04       		.byte	0x4
  2184 0071 07       		.byte	0x7
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 46
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 46
 
 
- 2185 0072 A8010000 		.4byte	.LASF8
+ 2185 0072 9A010000 		.4byte	.LASF8
  2186 0076 03       		.uleb128 0x3
- 2187 0077 07010000 		.4byte	.LASF10
+ 2187 0077 F9000000 		.4byte	.LASF10
  2188 007b 03       		.byte	0x3
  2189 007c 2C       		.byte	0x2c
  2190 007d 41000000 		.4byte	0x41
  2191 0081 02       		.uleb128 0x2
  2192 0082 04       		.byte	0x4
  2193 0083 04       		.byte	0x4
- 2194 0084 20010000 		.4byte	.LASF11
+ 2194 0084 12010000 		.4byte	.LASF11
  2195 0088 02       		.uleb128 0x2
  2196 0089 08       		.byte	0x8
  2197 008a 04       		.byte	0x4
- 2198 008b 3D030000 		.4byte	.LASF12
+ 2198 008b 30030000 		.4byte	.LASF12
  2199 008f 02       		.uleb128 0x2
  2200 0090 01       		.byte	0x1
  2201 0091 08       		.byte	0x8
- 2202 0092 8E020000 		.4byte	.LASF13
+ 2202 0092 81020000 		.4byte	.LASF13
  2203 0096 02       		.uleb128 0x2
  2204 0097 08       		.byte	0x8
  2205 0098 04       		.byte	0x4
- 2206 0099 14030000 		.4byte	.LASF14
+ 2206 0099 07030000 		.4byte	.LASF14
  2207 009d 02       		.uleb128 0x2
  2208 009e 04       		.byte	0x4
  2209 009f 07       		.byte	0x7
- 2210 00a0 17020000 		.4byte	.LASF15
+ 2210 00a0 64020000 		.4byte	.LASF15
  2211 00a4 05       		.uleb128 0x5
  2212 00a5 04       		.byte	0x4
  2213 00a6 2C000000 		.4byte	0x2c
  2214 00aa 06       		.uleb128 0x6
- 2215 00ab 02030000 		.4byte	.LASF19
+ 2215 00ab F5020000 		.4byte	.LASF19
  2216 00af 01       		.byte	0x1
  2217 00b0 22       		.byte	0x22
  2218 00b1 00000000 		.4byte	.LFB64
@@ -2740,7 +2740,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2221 00ba 9C       		.byte	0x9c
  2222 00bb 00010000 		.4byte	0x100
  2223 00bf 07       		.uleb128 0x7
- 2224 00c0 F6020000 		.4byte	.LASF16
+ 2224 00c0 E9020000 		.4byte	.LASF16
  2225 00c4 01       		.byte	0x1
  2226 00c5 22       		.byte	0x22
  2227 00c6 A4000000 		.4byte	0xa4
@@ -2748,7 +2748,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2229 00cb 91       		.byte	0x91
  2230 00cc 6C       		.sleb128 -20
  2231 00cd 07       		.uleb128 0x7
- 2232 00ce 17010000 		.4byte	.LASF17
+ 2232 00ce 09010000 		.4byte	.LASF17
  2233 00d2 01       		.byte	0x1
  2234 00d3 22       		.byte	0x22
  2235 00d4 A4000000 		.4byte	0xa4
@@ -2756,9 +2756,9 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2237 00d9 91       		.byte	0x91
  2238 00da 68       		.sleb128 -24
  2239 00db 07       		.uleb128 0x7
- 2240 00dc CA020000 		.4byte	.LASF18
+ 2240 00dc BD020000 		.4byte	.LASF18
  2241 00e0 01       		.byte	0x1
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 47
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 47
 
 
  2242 00e1 22       		.byte	0x22
@@ -2799,7 +2799,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2277 0126 9C       		.byte	0x9c
  2278 0127 95020000 		.4byte	0x295
  2279 012b 07       		.uleb128 0x7
- 2280 012c CA020000 		.4byte	.LASF18
+ 2280 012c BD020000 		.4byte	.LASF18
  2281 0130 01       		.byte	0x1
  2282 0131 31       		.byte	0x31
  2283 0132 10010000 		.4byte	0x110
@@ -2807,7 +2807,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2285 0137 91       		.byte	0x91
  2286 0138 AC59     		.sleb128 -4948
  2287 013a 07       		.uleb128 0x7
- 2288 013b 7E010000 		.4byte	.LASF20
+ 2288 013b 70010000 		.4byte	.LASF20
  2289 013f 01       		.byte	0x1
  2290 0140 31       		.byte	0x31
  2291 0141 A4000000 		.4byte	0xa4
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2296 014a 6900     		.ascii	"i\000"
  2297 014c 01       		.byte	0x1
  2298 014d 33       		.byte	0x33
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 48
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 48
 
 
  2299 014e 68000000 		.4byte	0x68
@@ -2826,7 +2826,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2301 0153 91       		.byte	0x91
  2302 0154 74       		.sleb128 -12
  2303 0155 0D       		.uleb128 0xd
- 2304 0156 20020000 		.4byte	.LASF21
+ 2304 0156 6D020000 		.4byte	.LASF21
  2305 015a 01       		.byte	0x1
  2306 015b 36       		.byte	0x36
  2307 015c 95020000 		.4byte	0x295
@@ -2834,7 +2834,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2309 0161 91       		.byte	0x91
  2310 0162 D86D     		.sleb128 -2344
  2311 0164 0D       		.uleb128 0xd
- 2312 0165 56010000 		.4byte	.LASF22
+ 2312 0165 48010000 		.4byte	.LASF22
  2313 0169 01       		.byte	0x1
  2314 016a 37       		.byte	0x37
  2315 016b 68000000 		.4byte	0x68
@@ -2842,7 +2842,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2317 0170 91       		.byte	0x91
  2318 0171 70       		.sleb128 -16
  2319 0172 0D       		.uleb128 0xd
- 2320 0173 EC010000 		.4byte	.LASF23
+ 2320 0173 39020000 		.4byte	.LASF23
  2321 0177 01       		.byte	0x1
  2322 0178 37       		.byte	0x37
  2323 0179 68000000 		.4byte	0x68
@@ -2850,7 +2850,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2325 017e 91       		.byte	0x91
  2326 017f 6C       		.sleb128 -20
  2327 0180 0D       		.uleb128 0xd
- 2328 0181 5C010000 		.4byte	.LASF24
+ 2328 0181 4E010000 		.4byte	.LASF24
  2329 0185 01       		.byte	0x1
  2330 0186 38       		.byte	0x38
  2331 0187 AC020000 		.4byte	0x2ac
@@ -2858,7 +2858,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2333 018c 91       		.byte	0x91
  2334 018d B86B     		.sleb128 -2632
  2335 018f 0D       		.uleb128 0xd
- 2336 0190 73010000 		.4byte	.LASF25
+ 2336 0190 65010000 		.4byte	.LASF25
  2337 0194 01       		.byte	0x1
  2338 0195 40       		.byte	0x40
  2339 0196 C2020000 		.4byte	0x2c2
@@ -2866,7 +2866,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2341 019b 91       		.byte	0x91
  2342 019c C462     		.sleb128 -3772
  2343 019e 0D       		.uleb128 0xd
- 2344 019f 0F010000 		.4byte	.LASF26
+ 2344 019f 01010000 		.4byte	.LASF26
  2345 01a3 01       		.byte	0x1
  2346 01a4 45       		.byte	0x45
  2347 01a5 C2020000 		.4byte	0x2c2
@@ -2874,18 +2874,18 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2349 01aa 91       		.byte	0x91
  2350 01ab D059     		.sleb128 -4912
  2351 01ad 0D       		.uleb128 0xd
- 2352 01ae 4D010000 		.4byte	.LASF27
+ 2352 01ae 3F010000 		.4byte	.LASF27
  2353 01b2 01       		.byte	0x1
  2354 01b3 53       		.byte	0x53
  2355 01b4 68000000 		.4byte	0x68
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 49
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 49
 
 
  2356 01b8 02       		.uleb128 0x2
  2357 01b9 91       		.byte	0x91
  2358 01ba 4C       		.sleb128 -52
  2359 01bb 0D       		.uleb128 0xd
- 2360 01bc 26010000 		.4byte	.LASF28
+ 2360 01bc 18010000 		.4byte	.LASF28
  2361 01c0 01       		.byte	0x1
  2362 01c1 55       		.byte	0x55
  2363 01c2 68000000 		.4byte	0x68
@@ -2893,7 +2893,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2365 01c7 91       		.byte	0x91
  2366 01c8 60       		.sleb128 -32
  2367 01c9 0D       		.uleb128 0xd
- 2368 01ca 0E000000 		.4byte	.LASF29
+ 2368 01ca 00000000 		.4byte	.LASF29
  2369 01ce 01       		.byte	0x1
  2370 01cf 56       		.byte	0x56
  2371 01d0 68000000 		.4byte	0x68
@@ -2901,7 +2901,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2373 01d5 91       		.byte	0x91
  2374 01d6 5C       		.sleb128 -36
  2375 01d7 0D       		.uleb128 0xd
- 2376 01d8 C1000000 		.4byte	.LASF30
+ 2376 01d8 B3000000 		.4byte	.LASF30
  2377 01dc 01       		.byte	0x1
  2378 01dd A2       		.byte	0xa2
  2379 01de 68000000 		.4byte	0x68
@@ -2909,7 +2909,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2381 01e3 91       		.byte	0x91
  2382 01e4 54       		.sleb128 -44
  2383 01e5 0D       		.uleb128 0xd
- 2384 01e6 C7000000 		.4byte	.LASF31
+ 2384 01e6 B9000000 		.4byte	.LASF31
  2385 01ea 01       		.byte	0x1
  2386 01eb A3       		.byte	0xa3
  2387 01ec 68000000 		.4byte	0x68
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2410 021a 68000000 		.4byte	0x68
  2411 021e 02       		.uleb128 0x2
  2412 021f 91       		.byte	0x91
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 50
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 50
 
 
  2413 0220 64       		.sleb128 -28
@@ -2949,7 +2949,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2418 0228 32040000 		.4byte	.LBE5-.LBB5
  2419 022c 7C020000 		.4byte	0x27c
  2420 0230 0D       		.uleb128 0xd
- 2421 0231 BA020000 		.4byte	.LASF32
+ 2421 0231 AD020000 		.4byte	.LASF32
  2422 0235 01       		.byte	0x1
  2423 0236 64       		.byte	0x64
  2424 0237 D8020000 		.4byte	0x2d8
@@ -2971,7 +2971,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2440 0255 A8020000 		.4byte	.LBB7
  2441 0259 8A020000 		.4byte	.LBE7-.LBB7
  2442 025d 0D       		.uleb128 0xd
- 2443 025e 79010000 		.4byte	.LASF33
+ 2443 025e 6B010000 		.4byte	.LASF33
  2444 0262 01       		.byte	0x1
  2445 0263 74       		.byte	0x74
  2446 0264 68000000 		.4byte	0x68
@@ -2979,7 +2979,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2448 0269 91       		.byte	0x91
  2449 026a 48       		.sleb128 -56
  2450 026b 0D       		.uleb128 0xd
- 2451 026c 64010000 		.4byte	.LASF34
+ 2451 026c 56010000 		.4byte	.LASF34
  2452 0270 01       		.byte	0x1
  2453 0271 75       		.byte	0x75
  2454 0272 68000000 		.4byte	0x68
@@ -2993,12 +2993,12 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2462 027d 3C060000 		.4byte	.LBB8
  2463 0281 10010000 		.4byte	.LBE8-.LBB8
  2464 0285 0D       		.uleb128 0xd
- 2465 0286 DC020000 		.4byte	.LASF35
+ 2465 0286 CF020000 		.4byte	.LASF35
  2466 028a 01       		.byte	0x1
  2467 028b AB       		.byte	0xab
  2468 028c 68000000 		.4byte	0x68
  2469 0290 02       		.uleb128 0x2
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 51
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 51
 
 
  2470 0291 91       		.byte	0x91
@@ -3046,7 +3046,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2512 02ec 01       		.byte	0x1
  2513 02ed 00       		.byte	0
  2514 02ee 10       		.uleb128 0x10
- 2515 02ef 9C020000 		.4byte	.LASF36
+ 2515 02ef 8F020000 		.4byte	.LASF36
  2516 02f3 01       		.byte	0x1
  2517 02f4 C1       		.byte	0xc1
  2518 02f5 00000000 		.4byte	.LFB66
@@ -3055,10 +3055,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2521 02fe 9C       		.byte	0x9c
  2522 02ff F6030000 		.4byte	0x3f6
  2523 0303 07       		.uleb128 0x7
- 2524 0304 F6020000 		.4byte	.LASF16
+ 2524 0304 E9020000 		.4byte	.LASF16
  2525 0308 01       		.byte	0x1
  2526 0309 C1       		.byte	0xc1
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 52
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 52
 
 
  2527 030a A4000000 		.4byte	0xa4
@@ -3066,7 +3066,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2529 030f 91       		.byte	0x91
  2530 0310 EC77     		.sleb128 -1044
  2531 0312 07       		.uleb128 0x7
- 2532 0313 17010000 		.4byte	.LASF17
+ 2532 0313 09010000 		.4byte	.LASF17
  2533 0317 01       		.byte	0x1
  2534 0318 C1       		.byte	0xc1
  2535 0319 A4000000 		.4byte	0xa4
@@ -3074,7 +3074,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2537 031e 91       		.byte	0x91
  2538 031f E877     		.sleb128 -1048
  2539 0321 07       		.uleb128 0x7
- 2540 0322 CA020000 		.4byte	.LASF18
+ 2540 0322 BD020000 		.4byte	.LASF18
  2541 0326 01       		.byte	0x1
  2542 0327 C1       		.byte	0xc1
  2543 0328 10010000 		.4byte	0x110
@@ -3082,7 +3082,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2545 032d 91       		.byte	0x91
  2546 032e E477     		.sleb128 -1052
  2547 0330 0D       		.uleb128 0xd
- 2548 0331 50030000 		.4byte	.LASF37
+ 2548 0331 43030000 		.4byte	.LASF37
  2549 0335 01       		.byte	0x1
  2550 0336 C2       		.byte	0xc2
  2551 0337 F6030000 		.4byte	0x3f6
@@ -3090,7 +3090,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2553 033c 91       		.byte	0x91
  2554 033d F477     		.sleb128 -1036
  2555 033f 0D       		.uleb128 0xd
- 2556 0340 B4020000 		.4byte	.LASF38
+ 2556 0340 A7020000 		.4byte	.LASF38
  2557 0344 01       		.byte	0x1
  2558 0345 C3       		.byte	0xc3
  2559 0346 68000000 		.4byte	0x68
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2581 0375 6900     		.ascii	"i\000"
  2582 0377 01       		.byte	0x1
  2583 0378 D0       		.byte	0xd0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 53
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 53
 
 
  2584 0379 68000000 		.4byte	0x68
@@ -3141,7 +3141,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2601 0397 E6000000 		.4byte	.LBB12
  2602 039b DA040000 		.4byte	.LBE12-.LBB12
  2603 039f 0D       		.uleb128 0xd
- 2604 03a0 1A000000 		.4byte	.LASF39
+ 2604 03a0 0C000000 		.4byte	.LASF39
  2605 03a4 01       		.byte	0x1
  2606 03a5 D7       		.byte	0xd7
  2607 03a6 2C000000 		.4byte	0x2c
@@ -3149,7 +3149,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2609 03ab 91       		.byte	0x91
  2610 03ac 5F       		.sleb128 -33
  2611 03ad 0D       		.uleb128 0xd
- 2612 03ae 93020000 		.4byte	.LASF40
+ 2612 03ae 86020000 		.4byte	.LASF40
  2613 03b2 01       		.byte	0x1
  2614 03b3 D8       		.byte	0xd8
  2615 03b4 2C000000 		.4byte	0x2c
@@ -3157,7 +3157,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2617 03b9 91       		.byte	0x91
  2618 03ba 5E       		.sleb128 -34
  2619 03bb 0D       		.uleb128 0xd
- 2620 03bc 44030000 		.4byte	.LASF41
+ 2620 03bc 37030000 		.4byte	.LASF41
  2621 03c0 01       		.byte	0x1
  2622 03c1 D9       		.byte	0xd9
  2623 03c2 2C000000 		.4byte	0x2c
@@ -3165,7 +3165,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2625 03c7 91       		.byte	0x91
  2626 03c8 67       		.sleb128 -25
  2627 03c9 0D       		.uleb128 0xd
- 2628 03ca 0B020000 		.4byte	.LASF42
+ 2628 03ca 58020000 		.4byte	.LASF42
  2629 03ce 01       		.byte	0x1
  2630 03cf DA       		.byte	0xda
  2631 03d0 2C000000 		.4byte	0x2c
@@ -3173,18 +3173,18 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2633 03d5 91       		.byte	0x91
  2634 03d6 66       		.sleb128 -26
  2635 03d7 0D       		.uleb128 0xd
- 2636 03d8 69010000 		.4byte	.LASF43
+ 2636 03d8 5B010000 		.4byte	.LASF43
  2637 03dc 01       		.byte	0x1
  2638 03dd DC       		.byte	0xdc
  2639 03de 2C000000 		.4byte	0x2c
  2640 03e2 02       		.uleb128 0x2
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 54
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 54
 
 
  2641 03e3 91       		.byte	0x91
  2642 03e4 65       		.sleb128 -27
  2643 03e5 0D       		.uleb128 0xd
- 2644 03e6 20030000 		.4byte	.LASF44
+ 2644 03e6 13030000 		.4byte	.LASF44
  2645 03ea 01       		.byte	0x1
  2646 03eb F1       		.byte	0xf1
  2647 03ec 68000000 		.4byte	0x68
@@ -3205,7 +3205,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2662 040b 01       		.byte	0x1
  2663 040c 00       		.byte	0
  2664 040d 11       		.uleb128 0x11
- 2665 040e 8D010000 		.4byte	.LASF45
+ 2665 040e 7F010000 		.4byte	.LASF45
  2666 0412 04       		.byte	0x4
  2667 0413 1207     		.2byte	0x712
  2668 0415 19040000 		.4byte	0x419
@@ -3220,7 +3220,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2677 042a 03       		.byte	0x3
  2678 042b 00000000 		.4byte	map
  2679 042f 14       		.uleb128 0x14
- 2680 0430 EA000000 		.4byte	.LASF46
+ 2680 0430 DC000000 		.4byte	.LASF46
  2681 0434 05       		.byte	0x5
  2682 0435 1F       		.byte	0x1f
  2683 0436 00010000 		.4byte	0x100
@@ -3238,10 +3238,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2695 0454 01       		.byte	0x1
  2696 0455 00       		.byte	0
  2697 0456 14       		.uleb128 0x14
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 55
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 55
 
 
- 2698 0457 B5010000 		.4byte	.LASF47
+ 2698 0457 02020000 		.4byte	.LASF47
  2699 045b 05       		.byte	0x5
  2700 045c 21       		.byte	0x21
  2701 045d 40040000 		.4byte	0x440
@@ -3249,7 +3249,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2703 0462 03       		.byte	0x3
  2704 0463 00000000 		.4byte	food_list
  2705 0467 14       		.uleb128 0x14
- 2706 0468 F4000000 		.4byte	.LASF48
+ 2706 0468 E6000000 		.4byte	.LASF48
  2707 046c 01       		.byte	0x1
  2708 046d 17       		.byte	0x17
  2709 046e 68000000 		.4byte	0x68
@@ -3257,7 +3257,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2711 0473 03       		.byte	0x3
  2712 0474 00000000 		.4byte	instructionCounter
  2713 0478 14       		.uleb128 0x14
- 2714 0479 B1000000 		.4byte	.LASF49
+ 2714 0479 A3000000 		.4byte	.LASF49
  2715 047d 01       		.byte	0x1
  2716 047e 18       		.byte	0x18
  2717 047f 68000000 		.4byte	0x68
@@ -3265,7 +3265,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2719 0484 03       		.byte	0x3
  2720 0485 00000000 		.4byte	distanceCounter
  2721 0489 14       		.uleb128 0x14
- 2722 048a E7020000 		.4byte	.LASF50
+ 2722 048a DA020000 		.4byte	.LASF50
  2723 048e 01       		.byte	0x1
  2724 048f 19       		.byte	0x19
  2725 0490 68000000 		.4byte	0x68
@@ -3273,7 +3273,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2727 0495 03       		.byte	0x3
  2728 0496 00000000 		.4byte	squaresCounter
  2729 049a 14       		.uleb128 0x14
- 2730 049b F1010000 		.4byte	.LASF51
+ 2730 049b 3E020000 		.4byte	.LASF51
  2731 049f 01       		.byte	0x1
  2732 04a0 1A       		.byte	0x1a
  2733 04a1 68000000 		.4byte	0x68
@@ -3281,7 +3281,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2735 04a6 03       		.byte	0x3
  2736 04a7 00000000 		.4byte	robotDirection
  2737 04ab 14       		.uleb128 0x14
- 2738 04ac D6010000 		.4byte	.LASF52
+ 2738 04ac 23020000 		.4byte	.LASF52
  2739 04b0 01       		.byte	0x1
  2740 04b1 1B       		.byte	0x1b
  2741 04b2 68000000 		.4byte	0x68
@@ -3296,9 +3296,9 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2750 04ca 01       		.byte	0x1
  2751 04cb 00       		.byte	0
  2752 04cc 14       		.uleb128 0x14
- 2753 04cd 32010000 		.4byte	.LASF53
+ 2753 04cd 24010000 		.4byte	.LASF53
  2754 04d1 01       		.byte	0x1
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 56
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 56
 
 
  2755 04d2 1D       		.byte	0x1d
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2809 002e 0B       		.uleb128 0xb
  2810 002f 0B       		.uleb128 0xb
  2811 0030 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 57
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 57
 
 
  2812 0031 0B       		.uleb128 0xb
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2866 0068 08       		.uleb128 0x8
  2867 0069 0B       		.uleb128 0xb
  2868 006a 01       		.byte	0x1
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 58
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 58
 
 
  2869 006b 11       		.uleb128 0x11
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2923 00a1 12       		.uleb128 0x12
  2924 00a2 06       		.uleb128 0x6
  2925 00a3 40       		.uleb128 0x40
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 59
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 59
 
 
  2926 00a4 18       		.uleb128 0x18
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  2980 00db 19       		.uleb128 0x19
  2981 00dc 11       		.uleb128 0x11
  2982 00dd 01       		.uleb128 0x1
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 60
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 60
 
 
  2983 00de 12       		.uleb128 0x12
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  3037 0115 03       		.uleb128 0x3
  3038 0116 0E       		.uleb128 0xe
  3039 0117 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 61
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 61
 
 
  3040 0118 0B       		.uleb128 0xb
@@ -3646,277 +3646,274 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 1
  3080      00000201 
  3080      FB0E0D00 
  3080      01010101 
- 3081              	.LASF6:
- 3082 0000 6C6F6E67 		.ascii	"long long int\000"
- 3082      206C6F6E 
- 3082      6720696E 
- 3082      7400
- 3083              	.LASF29:
- 3084 000e 63757272 		.ascii	"current_col\000"
- 3084      656E745F 
- 3084      636F6C00 
- 3085              	.LASF39:
- 3086 001a 73746172 		.ascii	"startRow\000"
- 3086      74526F77 
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 62
+ 3081              	.LASF29:
+ 3082 0000 63757272 		.ascii	"current_col\000"
+ 3082      656E745F 
+ 3082      636F6C00 
+ 3083              	.LASF39:
+ 3084 000c 73746172 		.ascii	"startRow\000"
+ 3084      74526F77 
+ 3084      00
+ 3085              	.LASF54:
+ 3086 0015 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 3086      43313120 
+ 3086      352E342E 
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 62
 
 
- 3086      00
- 3087              	.LASF54:
- 3088 0023 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 3088      43313120 
- 3088      352E342E 
- 3088      31203230 
- 3088      31363036 
- 3089 0056 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 3089      20726576 
- 3089      6973696F 
- 3089      6E203233 
- 3089      37373135 
- 3090 0089 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 3090      66756E63 
- 3090      74696F6E 
- 3090      2D736563 
- 3090      74696F6E 
- 3091              	.LASF49:
- 3092 00b1 64697374 		.ascii	"distanceCounter\000"
- 3092      616E6365 
- 3092      436F756E 
- 3092      74657200 
- 3093              	.LASF30:
- 3094 00c1 66706F73 		.ascii	"fpos1\000"
- 3094      3100
- 3095              	.LASF31:
- 3096 00c7 66706F73 		.ascii	"fpos2\000"
- 3096      3200
- 3097              	.LASF9:
- 3098 00cd 5F5F696E 		.ascii	"__int32_t\000"
- 3098      7433325F 
- 3098      7400
- 3099              	.LASF3:
- 3100 00d7 73686F72 		.ascii	"short unsigned int\000"
- 3100      7420756E 
- 3100      7369676E 
- 3100      65642069 
- 3100      6E7400
- 3101              	.LASF46:
- 3102 00ea 73746172 		.ascii	"start_pos\000"
- 3102      745F706F 
- 3102      7300
- 3103              	.LASF48:
- 3104 00f4 696E7374 		.ascii	"instructionCounter\000"
- 3104      72756374 
- 3104      696F6E43 
- 3104      6F756E74 
- 3104      657200
- 3105              	.LASF10:
- 3106 0107 696E7433 		.ascii	"int32_t\000"
- 3106      325F7400 
- 3107              	.LASF26:
- 3108 010f 70617265 		.ascii	"parents\000"
- 3108      6E747300 
- 3109              	.LASF17:
- 3110 0117 64697374 		.ascii	"distance\000"
- 3110      616E6365 
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 63
+ 3086      31203230 
+ 3086      31363036 
+ 3087 0048 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 3087      20726576 
+ 3087      6973696F 
+ 3087      6E203233 
+ 3087      37373135 
+ 3088 007b 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 3088      66756E63 
+ 3088      74696F6E 
+ 3088      2D736563 
+ 3088      74696F6E 
+ 3089              	.LASF49:
+ 3090 00a3 64697374 		.ascii	"distanceCounter\000"
+ 3090      616E6365 
+ 3090      436F756E 
+ 3090      74657200 
+ 3091              	.LASF30:
+ 3092 00b3 66706F73 		.ascii	"fpos1\000"
+ 3092      3100
+ 3093              	.LASF31:
+ 3094 00b9 66706F73 		.ascii	"fpos2\000"
+ 3094      3200
+ 3095              	.LASF9:
+ 3096 00bf 5F5F696E 		.ascii	"__int32_t\000"
+ 3096      7433325F 
+ 3096      7400
+ 3097              	.LASF3:
+ 3098 00c9 73686F72 		.ascii	"short unsigned int\000"
+ 3098      7420756E 
+ 3098      7369676E 
+ 3098      65642069 
+ 3098      6E7400
+ 3099              	.LASF46:
+ 3100 00dc 73746172 		.ascii	"start_pos\000"
+ 3100      745F706F 
+ 3100      7300
+ 3101              	.LASF48:
+ 3102 00e6 696E7374 		.ascii	"instructionCounter\000"
+ 3102      72756374 
+ 3102      696F6E43 
+ 3102      6F756E74 
+ 3102      657200
+ 3103              	.LASF10:
+ 3104 00f9 696E7433 		.ascii	"int32_t\000"
+ 3104      325F7400 
+ 3105              	.LASF26:
+ 3106 0101 70617265 		.ascii	"parents\000"
+ 3106      6E747300 
+ 3107              	.LASF17:
+ 3108 0109 64697374 		.ascii	"distance\000"
+ 3108      616E6365 
+ 3108      00
+ 3109              	.LASF11:
+ 3110 0112 666C6F61 		.ascii	"float\000"
+ 3110      7400
+ 3111              	.LASF28:
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 63
 
 
- 3110      00
- 3111              	.LASF11:
- 3112 0120 666C6F61 		.ascii	"float\000"
- 3112      7400
- 3113              	.LASF28:
- 3114 0126 63757272 		.ascii	"current_row\000"
- 3114      656E745F 
- 3114      726F7700 
- 3115              	.LASF53:
- 3116 0132 73746172 		.ascii	"startPos\000"
- 3116      74506F73 
- 3116      00
- 3117              	.LASF5:
- 3118 013b 6C6F6E67 		.ascii	"long unsigned int\000"
- 3118      20756E73 
- 3118      69676E65 
- 3118      6420696E 
- 3118      7400
- 3119              	.LASF27:
- 3120 014d 66696E69 		.ascii	"finished\000"
- 3120      73686564 
- 3120      00
- 3121              	.LASF22:
- 3122 0156 66726F6E 		.ascii	"front\000"
- 3122      7400
- 3123              	.LASF24:
- 3124 015c 76697369 		.ascii	"visited\000"
- 3124      74656400 
- 3125              	.LASF34:
- 3126 0164 6E436F6C 		.ascii	"nCol\000"
- 3126      00
- 3127              	.LASF43:
- 3128 0169 74726176 		.ascii	"travelDir\000"
- 3128      656C4469 
- 3128      7200
- 3129              	.LASF25:
- 3130 0173 73746570 		.ascii	"steps\000"
- 3130      7300
- 3131              	.LASF33:
- 3132 0179 6E526F77 		.ascii	"nRow\000"
- 3132      00
- 3133              	.LASF20:
- 3134 017e 74617267 		.ascii	"targetlocation\000"
- 3134      65746C6F 
- 3134      63617469 
- 3134      6F6E00
- 3135              	.LASF45:
- 3136 018d 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 3136      52784275 
- 3136      66666572 
- 3136      00
- 3137              	.LASF1:
- 3138 019a 756E7369 		.ascii	"unsigned char\000"
+ 3112 0118 63757272 		.ascii	"current_row\000"
+ 3112      656E745F 
+ 3112      726F7700 
+ 3113              	.LASF53:
+ 3114 0124 73746172 		.ascii	"startPos\000"
+ 3114      74506F73 
+ 3114      00
+ 3115              	.LASF5:
+ 3116 012d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3116      20756E73 
+ 3116      69676E65 
+ 3116      6420696E 
+ 3116      7400
+ 3117              	.LASF27:
+ 3118 013f 66696E69 		.ascii	"finished\000"
+ 3118      73686564 
+ 3118      00
+ 3119              	.LASF22:
+ 3120 0148 66726F6E 		.ascii	"front\000"
+ 3120      7400
+ 3121              	.LASF24:
+ 3122 014e 76697369 		.ascii	"visited\000"
+ 3122      74656400 
+ 3123              	.LASF34:
+ 3124 0156 6E436F6C 		.ascii	"nCol\000"
+ 3124      00
+ 3125              	.LASF43:
+ 3126 015b 74726176 		.ascii	"travelDir\000"
+ 3126      656C4469 
+ 3126      7200
+ 3127              	.LASF25:
+ 3128 0165 73746570 		.ascii	"steps\000"
+ 3128      7300
+ 3129              	.LASF33:
+ 3130 016b 6E526F77 		.ascii	"nRow\000"
+ 3130      00
+ 3131              	.LASF20:
+ 3132 0170 74617267 		.ascii	"targetlocation\000"
+ 3132      65746C6F 
+ 3132      63617469 
+ 3132      6F6E00
+ 3133              	.LASF45:
+ 3134 017f 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 3134      52784275 
+ 3134      66666572 
+ 3134      00
+ 3135              	.LASF1:
+ 3136 018c 756E7369 		.ascii	"unsigned char\000"
+ 3136      676E6564 
+ 3136      20636861 
+ 3136      7200
+ 3137              	.LASF8:
+ 3138 019a 756E7369 		.ascii	"unsigned int\000"
  3138      676E6564 
- 3138      20636861 
- 3138      7200
- 3139              	.LASF8:
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 64
+ 3138      20696E74 
+ 3138      00
+ 3139              	.LASF56:
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 64
 
 
- 3140 01a8 756E7369 		.ascii	"unsigned int\000"
- 3140      676E6564 
- 3140      20696E74 
- 3140      00
- 3141              	.LASF47:
- 3142 01b5 666F6F64 		.ascii	"food_list\000"
- 3142      5F6C6973 
- 3142      7400
- 3143              	.LASF7:
- 3144 01bf 6C6F6E67 		.ascii	"long long unsigned int\000"
- 3144      206C6F6E 
- 3144      6720756E 
- 3144      7369676E 
- 3144      65642069 
- 3145              	.LASF52:
- 3146 01d6 66697273 		.ascii	"firstValidInstruction\000"
- 3146      7456616C 
- 3146      6964496E 
- 3146      73747275 
- 3146      6374696F 
- 3147              	.LASF23:
- 3148 01ec 72656172 		.ascii	"rear\000"
- 3148      00
- 3149              	.LASF51:
- 3150 01f1 726F626F 		.ascii	"robotDirection\000"
- 3150      74446972 
- 3150      65637469 
- 3150      6F6E00
- 3151              	.LASF55:
- 3152 0200 70617468 		.ascii	"pathfind.c\000"
- 3152      66696E64 
- 3152      2E6300
- 3153              	.LASF42:
- 3154 020b 6E657874 		.ascii	"nextMoveCol\000"
- 3154      4D6F7665 
- 3154      436F6C00 
- 3155              	.LASF15:
- 3156 0217 73697A65 		.ascii	"sizetype\000"
- 3156      74797065 
- 3156      00
- 3157              	.LASF21:
- 3158 0220 71756575 		.ascii	"queue\000"
- 3158      6500
- 3159              	.LASF56:
- 3160 0226 483A5C44 		.ascii	"H:\\Documents\\301\\Post-Benchmark\\team14\\301_lab"
- 3160      6F63756D 
- 3160      656E7473 
- 3160      5C333031 
- 3160      5C506F73 
- 3161 0254 5F746173 		.ascii	"_tasks\\psoc student pack\\psoc_code_base\\CS301_Cl"
- 3161      6B735C70 
- 3161      736F6320 
- 3161      73747564 
- 3161      656E7420 
- 3162 0284 6173732E 		.ascii	"ass.cydsn\000"
- 3162      63796473 
- 3162      6E00
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 65
+ 3140 01a7 483A5C44 		.ascii	"H:\\Desktop\\Team 14\\team14\\301_lab_tasks\\psoc s"
+ 3140      65736B74 
+ 3140      6F705C54 
+ 3140      65616D20 
+ 3140      31345C74 
+ 3141 01d5 74756465 		.ascii	"tudent pack\\psoc_code_base\\CS301_Class.cydsn\000"
+ 3141      6E742070 
+ 3141      61636B5C 
+ 3141      70736F63 
+ 3141      5F636F64 
+ 3142              	.LASF47:
+ 3143 0202 666F6F64 		.ascii	"food_list\000"
+ 3143      5F6C6973 
+ 3143      7400
+ 3144              	.LASF7:
+ 3145 020c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3145      206C6F6E 
+ 3145      6720756E 
+ 3145      7369676E 
+ 3145      65642069 
+ 3146              	.LASF52:
+ 3147 0223 66697273 		.ascii	"firstValidInstruction\000"
+ 3147      7456616C 
+ 3147      6964496E 
+ 3147      73747275 
+ 3147      6374696F 
+ 3148              	.LASF23:
+ 3149 0239 72656172 		.ascii	"rear\000"
+ 3149      00
+ 3150              	.LASF51:
+ 3151 023e 726F626F 		.ascii	"robotDirection\000"
+ 3151      74446972 
+ 3151      65637469 
+ 3151      6F6E00
+ 3152              	.LASF55:
+ 3153 024d 70617468 		.ascii	"pathfind.c\000"
+ 3153      66696E64 
+ 3153      2E6300
+ 3154              	.LASF42:
+ 3155 0258 6E657874 		.ascii	"nextMoveCol\000"
+ 3155      4D6F7665 
+ 3155      436F6C00 
+ 3156              	.LASF15:
+ 3157 0264 73697A65 		.ascii	"sizetype\000"
+ 3157      74797065 
+ 3157      00
+ 3158              	.LASF21:
+ 3159 026d 71756575 		.ascii	"queue\000"
+ 3159      6500
+ 3160              	.LASF6:
+ 3161 0273 6C6F6E67 		.ascii	"long long int\000"
+ 3161      206C6F6E 
+ 3161      6720696E 
+ 3161      7400
+ 3162              	.LASF13:
+ 3163 0281 63686172 		.ascii	"char\000"
+ 3163      00
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 65
 
 
- 3163              	.LASF13:
- 3164 028e 63686172 		.ascii	"char\000"
- 3164      00
- 3165              	.LASF40:
- 3166 0293 73746172 		.ascii	"startCol\000"
- 3166      74436F6C 
- 3166      00
- 3167              	.LASF36:
- 3168 029c 67656E65 		.ascii	"generateInstructionList\000"
- 3168      72617465 
- 3168      496E7374 
- 3168      72756374 
- 3168      696F6E4C 
- 3169              	.LASF38:
- 3170 02b4 636F756E 		.ascii	"count\000"
- 3170      7400
- 3171              	.LASF32:
- 3172 02ba 6E656967 		.ascii	"neighbour_array\000"
- 3172      68626F75 
- 3172      725F6172 
- 3172      72617900 
- 3173              	.LASF18:
- 3174 02ca 73717561 		.ascii	"squares\000"
- 3174      72657300 
- 3175              	.LASF2:
- 3176 02d2 73686F72 		.ascii	"short int\000"
- 3176      7420696E 
- 3176      7400
- 3177              	.LASF35:
- 3178 02dc 70617265 		.ascii	"parent_dir\000"
- 3178      6E745F64 
- 3178      697200
- 3179              	.LASF50:
- 3180 02e7 73717561 		.ascii	"squaresCounter\000"
- 3180      72657343 
- 3180      6F756E74 
- 3180      657200
- 3181              	.LASF16:
- 3182 02f6 696E7374 		.ascii	"instruction\000"
- 3182      72756374 
- 3182      696F6E00 
- 3183              	.LASF19:
- 3184 0302 70617468 		.ascii	"pathfind\000"
- 3184      66696E64 
- 3184      00
- 3185              	.LASF4:
- 3186 030b 6C6F6E67 		.ascii	"long int\000"
- 3186      20696E74 
- 3186      00
- 3187              	.LASF14:
- 3188 0314 6C6F6E67 		.ascii	"long double\000"
- 3188      20646F75 
- 3188      626C6500 
- 3189              	.LASF44:
- 3190 0320 656E644F 		.ascii	"endOfInstruction\000"
- 3190      66496E73 
- 3190      74727563 
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccgLUxGU.s 			page 66
+ 3164              	.LASF40:
+ 3165 0286 73746172 		.ascii	"startCol\000"
+ 3165      74436F6C 
+ 3165      00
+ 3166              	.LASF36:
+ 3167 028f 67656E65 		.ascii	"generateInstructionList\000"
+ 3167      72617465 
+ 3167      496E7374 
+ 3167      72756374 
+ 3167      696F6E4C 
+ 3168              	.LASF38:
+ 3169 02a7 636F756E 		.ascii	"count\000"
+ 3169      7400
+ 3170              	.LASF32:
+ 3171 02ad 6E656967 		.ascii	"neighbour_array\000"
+ 3171      68626F75 
+ 3171      725F6172 
+ 3171      72617900 
+ 3172              	.LASF18:
+ 3173 02bd 73717561 		.ascii	"squares\000"
+ 3173      72657300 
+ 3174              	.LASF2:
+ 3175 02c5 73686F72 		.ascii	"short int\000"
+ 3175      7420696E 
+ 3175      7400
+ 3176              	.LASF35:
+ 3177 02cf 70617265 		.ascii	"parent_dir\000"
+ 3177      6E745F64 
+ 3177      697200
+ 3178              	.LASF50:
+ 3179 02da 73717561 		.ascii	"squaresCounter\000"
+ 3179      72657343 
+ 3179      6F756E74 
+ 3179      657200
+ 3180              	.LASF16:
+ 3181 02e9 696E7374 		.ascii	"instruction\000"
+ 3181      72756374 
+ 3181      696F6E00 
+ 3182              	.LASF19:
+ 3183 02f5 70617468 		.ascii	"pathfind\000"
+ 3183      66696E64 
+ 3183      00
+ 3184              	.LASF4:
+ 3185 02fe 6C6F6E67 		.ascii	"long int\000"
+ 3185      20696E74 
+ 3185      00
+ 3186              	.LASF14:
+ 3187 0307 6C6F6E67 		.ascii	"long double\000"
+ 3187      20646F75 
+ 3187      626C6500 
+ 3188              	.LASF44:
+ 3189 0313 656E644F 		.ascii	"endOfInstruction\000"
+ 3189      66496E73 
+ 3189      74727563 
+ 3189      74696F6E 
+ 3189      00
+ 3190              	.LASF0:
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccu7wruq.s 			page 66
 
 
- 3190      74696F6E 
- 3190      00
- 3191              	.LASF0:
- 3192 0331 7369676E 		.ascii	"signed char\000"
- 3192      65642063 
- 3192      68617200 
- 3193              	.LASF12:
- 3194 033d 646F7562 		.ascii	"double\000"
- 3194      6C6500
- 3195              	.LASF41:
- 3196 0344 6E657874 		.ascii	"nextMoveRow\000"
- 3196      4D6F7665 
- 3196      526F7700 
- 3197              	.LASF37:
- 3198 0350 72657665 		.ascii	"reversedSquares\000"
- 3198      72736564 
- 3198      53717561 
- 3198      72657300 
- 3199              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 3191 0324 7369676E 		.ascii	"signed char\000"
+ 3191      65642063 
+ 3191      68617200 
+ 3192              	.LASF12:
+ 3193 0330 646F7562 		.ascii	"double\000"
+ 3193      6C6500
+ 3194              	.LASF41:
+ 3195 0337 6E657874 		.ascii	"nextMoveRow\000"
+ 3195      4D6F7665 
+ 3195      526F7700 
+ 3196              	.LASF37:
+ 3197 0343 72657665 		.ascii	"reversedSquares\000"
+ 3197      72736564 
+ 3197      53717561 
+ 3197      72657300 
+ 3198              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
