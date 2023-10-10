@@ -239,6 +239,7 @@ void generateInstructionList(unsigned char * instruction, unsigned char * distan
         // Work out at what point we need a new instruction. 
         // Either the square is at an intersection or a change in target direction 
         int endOfInstruction = 0;
+        int distanceInstruction = 0;
         while (endOfInstruction == 0) {
             if (startRow == 55) {
                 i++;
@@ -259,21 +260,25 @@ void generateInstructionList(unsigned char * instruction, unsigned char * distan
             if (travelDir == 1 ) {
                 if (squares[i][0]  -1!= nextMoveRow){
                     // END OF INSTRUCTION
+                    distanceInstruction = 1;
                     endOfInstruction = 1;
                 }
             } else if (travelDir == 2 ) {
                 if (squares[i][0] +1!= nextMoveRow){
                     // END OF INSTRUCTION
+                    distanceInstruction = 1;
                     endOfInstruction = 1;
                 }
             } else if (travelDir == 3 ) {
                 if (squares[i][1]+1 != nextMoveCol){
                     // END OF INSTRUCTION
+                    distanceInstruction = 1;
                     endOfInstruction = 1;
                 }
             } else if (travelDir == 4 ) {
                 if (squares[i][1] -1!= nextMoveCol ) {
                     // END OF INSTRUCTION
+                    distanceInstruction = 1;
                     endOfInstruction = 1;
                 }
             }
@@ -339,6 +344,11 @@ void generateInstructionList(unsigned char * instruction, unsigned char * distan
         } else {
             instruction[instructionCounter] = 0;
         }
+        
+        if (distanceInstruction == 1) {
+            instruction[instructionCounter] = instruction[instructionCounter] + 4;
+        }
+        
         if (travelDir != 0) {
             robotDirection = travelDir;
         }

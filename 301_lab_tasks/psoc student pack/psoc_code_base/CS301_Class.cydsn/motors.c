@@ -18,8 +18,8 @@ volatile int currentFRightSpeed = 165;// fresh 163, normal 165, old 167
 
 
 void initMotors() {
-    PWM_1_WritePeriod(250);
-    PWM_2_WritePeriod(250);
+    PWM_1_WritePeriod(255);
+    PWM_2_WritePeriod(255);
     PWM_1_Start();
     PWM_2_Start();
 }
