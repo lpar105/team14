@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 1
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 1
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 1
 
 
    1              		.syntax unified
@@ -66,15 +58,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
   15:motors.c      **** 
   16:motors.c      **** volatile int currentFLeftSpeed = 165;
   17:motors.c      **** volatile int currentFRightSpeed = 165;// fresh 163, normal 165, old 167
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 2
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 2
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 2
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 2
 
 
   18:motors.c      **** 
@@ -134,15 +118,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
   28:motors.c      ****     return currentFLeftSpeed;
   85              		.loc 1 28 0
   86 0004 024B     		ldr	r3, .L4
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 3
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 3
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 3
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 3
 
 
   87 0006 1B68     		ldr	r3, [r3]
@@ -202,15 +178,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  136              	.L8:
  137 0010 00000000 		.word	currentFRightSpeed
  138              		.cfi_endproc
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 4
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 4
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 4
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 4
 
 
  139              	.LFE65:
@@ -270,15 +238,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  177 0024 0837     		adds	r7, r7, #8
  178              		.cfi_def_cfa_offset 8
  179 0026 BD46     		mov	sp, r7
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 5
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 5
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 5
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 5
 
 
  180              		.cfi_def_cfa_register 13
@@ -338,15 +298,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
   55:motors.c      **** 
   56:motors.c      **** void adjustLeft() {
  229              		.loc 1 56 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 6
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 6
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 6
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 6
 
 
  230              		.cfi_startproc
@@ -406,15 +358,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  279              		.cfi_def_cfa_offset 8
  280              		.cfi_offset 7, -8
  281              		.cfi_offset 14, -4
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 7
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 7
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 7
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 7
 
 
  282 0002 00AF     		add	r7, sp, #0
@@ -474,15 +418,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  331 0006 1B68     		ldr	r3, [r3]
  332 0008 DBB2     		uxtb	r3, r3
  333 000a 053B     		subs	r3, r3, #5
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 8
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 8
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 8
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 8
 
 
  334 000c DBB2     		uxtb	r3, r3
@@ -542,15 +478,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  382              		.loc 1 72 0
  383 0014 054B     		ldr	r3, .L24+4
  384 0016 1B68     		ldr	r3, [r3]
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 9
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 9
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 9
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 9
 
 
  385 0018 DBB2     		uxtb	r3, r3
@@ -610,15 +538,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  432 001e 6FF00403 		mvn	r3, #4
  433 0022 9B1A     		subs	r3, r3, r2
  434 0024 DBB2     		uxtb	r3, r3
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 10
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 10
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 10
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 10
 
 
  435 0026 1846     		mov	r0, r3
@@ -678,15 +598,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  482 0028 FFF7FEFF 		bl	PWM_2_WriteCompare
   87:motors.c      **** }
  483              		.loc 1 87 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 11
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 11
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 11
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 11
 
 
  484 002c 00BF     		nop
@@ -746,15 +658,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  533              		.cfi_endproc
  534              	.LFE74:
  535              		.size	findTrack, .-findTrack
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 12
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 12
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 12
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 12
 
 
  536              		.section	.text.turnLeft,"ax",%progbits
@@ -814,15 +718,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  584              		.thumb
  585              		.thumb_func
  586              		.type	turnRight, %function
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 13
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 13
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 13
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 13
 
 
  587              	turnRight:
@@ -882,15 +778,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  634              		.loc 1 105 0
  635              		.cfi_startproc
  636              		@ args = 0, pretend = 0, frame = 8
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 14
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 14
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 14
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 14
 
 
  637              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -950,15 +838,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  684 0044 80BD     		pop	{r7, pc}
  685              	.L45:
  686 0046 00BF     		.align	2
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 15
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 15
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 15
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 15
 
 
  687              	.L44:
@@ -1018,15 +898,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  741 005a 02       		.uleb128 0x2
  742 005b 08       		.byte	0x8
  743 005c 05       		.byte	0x5
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 16
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 16
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 16
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 16
 
 
  744 005d 00000000 		.4byte	.LASF6
@@ -1085,18 +957,8 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  797 00c8 01       		.uleb128 0x1
  798 00c9 9C       		.byte	0x9c
  799 00ca 06       		.uleb128 0x6
-<<<<<<< HEAD
-<<<<<<< HEAD
  800 00cb B5020000 		.4byte	.LASF17
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 17
-=======
- 800 00cb A8020000 		.4byte	.LASF17
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 17
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
- 800 00cb B5020000 		.4byte	.LASF17
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 17
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 17
 
 
  801 00cf 01       		.byte	0x1
@@ -1156,15 +1018,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  855 013e 30000000 		.4byte	.LFE69-.LFB69
  856 0142 01       		.uleb128 0x1
  857 0143 9C       		.byte	0x9c
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 18
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 18
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 18
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 18
 
 
  858 0144 05       		.uleb128 0x5
@@ -1224,15 +1078,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  912 01b9 01       		.uleb128 0x1
  913 01ba 9C       		.byte	0x9c
  914 01bb 07       		.uleb128 0x7
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 19
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 19
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 19
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 19
 
 
  915 01bc 06010000 		.4byte	.LASF32
@@ -1292,15 +1138,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  969 0009 1B       		.uleb128 0x1b
  970 000a 0E       		.uleb128 0xe
  971 000b 55       		.uleb128 0x55
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 20
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 20
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 20
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 20
 
 
  972 000c 17       		.uleb128 0x17
@@ -1360,15 +1198,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  1026 0042 01       		.uleb128 0x1
  1027 0043 12       		.uleb128 0x12
  1028 0044 06       		.uleb128 0x6
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 21
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 21
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 21
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 21
 
 
  1029 0045 40       		.uleb128 0x40
@@ -1428,15 +1258,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  1083 007e 00       		.byte	0
  1084 007f 00       		.byte	0
  1085 0080 08       		.uleb128 0x8
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 22
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 22
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 22
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 22
 
 
  1086 0081 05       		.uleb128 0x5
@@ -1496,15 +1318,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  1140 00b7 00       		.byte	0
  1141 00b8 00       		.byte	0
  1142              		.section	.debug_aranges,"",%progbits
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 23
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 23
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 23
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 23
 
 
  1143 0000 8C000000 		.4byte	0x8c
@@ -1564,15 +1378,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  1197 0034 30000000 		.4byte	.LFE69
  1198 0038 00000000 		.4byte	.LFB70
  1199 003c 30000000 		.4byte	.LFE70
-<<<<<<< HEAD
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 24
-=======
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 24
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 24
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 24
 
 
  1200 0040 00000000 		.4byte	.LFB71
@@ -1598,10 +1404,6 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  1218      00000201 
  1218      FB0E0D00 
  1218      01010101 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
  1219              	.LASF6:
  1220 0000 6C6F6E67 		.ascii	"long long int\000"
  1220      206C6F6E 
@@ -1636,8 +1438,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  1229              	.LASF25:
  1230 00bb 68617264 		.ascii	"hardAdjustRight\000"
  1230      41646A75 
-<<<<<<< HEAD
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 25
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 25
 
 
  1230      73745269 
@@ -1697,7 +1498,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  1256      00
  1257              	.LASF34:
  1258 0156 49544D5F 		.ascii	"ITM_RxBuffer\000"
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 26
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 26
 
 
  1258      52784275 
@@ -1757,228 +1558,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 1
  1280 01f4 696E7433 		.ascii	"int32_t\000"
  1280      325F7400 
  1281              	.LASF15:
-ARM GAS  C:\Users\LPAR105\AppData\Local\Temp\cchObMRg.s 			page 27
-=======
- 1219              	.LASF23:
- 1220 0000 61646A75 		.ascii	"adjustRight\000"
- 1220      73745269 
- 1220      67687400 
- 1221              	.LASF37:
- 1222 000c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1222      43313120 
- 1222      352E342E 
- 1222      31203230 
- 1222      31363036 
- 1223 003f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1223      20726576 
- 1223      6973696F 
- 1223      6E203233 
- 1223      37373135 
- 1224 0072 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 1224      66756E63 
- 1224      74696F6E 
- 1224      2D736563 
- 1224      74696F6E 
- 1225              	.LASF36:
- 1226 009a 63757272 		.ascii	"currentFRightSpeed\000"
- 1226      656E7446 
- 1226      52696768 
- 1226      74537065 
- 1226      656400
- 1227              	.LASF25:
- 1228 00ad 68617264 		.ascii	"hardAdjustRight\000"
- 1228      41646A75 
- 1228      73745269 
- 1228      67687400 
- 1229              	.LASF26:
- 1230 00bd 72657374 		.ascii	"restoreLeft\000"
- 1230      6F72654C 
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 25
-=======
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 25
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
-
-
- 1230      73745269 
- 1230      67687400 
- 1231              	.LASF26:
- 1232 00cb 72657374 		.ascii	"restoreLeft\000"
- 1232      6F72654C 
- 1232      65667400 
- 1233              	.LASF9:
- 1234 00d7 5F5F696E 		.ascii	"__int32_t\000"
- 1234      7433325F 
- 1234      7400
- 1235              	.LASF30:
- 1236 00e1 7475726E 		.ascii	"turnRight\000"
- 1236      52696768 
- 1236      7400
- 1237              	.LASF12:
- 1238 00eb 646F7562 		.ascii	"double\000"
- 1238      6C6500
- 1239              	.LASF11:
- 1240 00f2 666C6F61 		.ascii	"float\000"
- 1240      7400
- 1241              	.LASF1:
- 1242 00f8 756E7369 		.ascii	"unsigned char\000"
- 1242      676E6564 
- 1242      20636861 
- 1242      7200
- 1243              	.LASF32:
- 1244 0106 72657665 		.ascii	"reverse\000"
- 1244      72736500 
- 1245              	.LASF28:
- 1246 010e 66696E64 		.ascii	"findTrack\000"
- 1246      54726163 
- 1246      6B00
- 1247              	.LASF27:
- 1248 0118 72657374 		.ascii	"restoreRight\000"
- 1248      6F726552 
- 1248      69676874 
- 1248      00
- 1249              	.LASF3:
- 1250 0125 73686F72 		.ascii	"short unsigned int\000"
- 1250      7420756E 
- 1250      7369676E 
- 1250      65642069 
- 1250      6E7400
- 1251              	.LASF19:
- 1252 0138 74617267 		.ascii	"targetSpeed\000"
- 1252      65745370 
- 1252      65656400 
- 1253              	.LASF31:
- 1254 0144 64726976 		.ascii	"driveForward\000"
- 1254      65466F72 
- 1254      77617264 
- 1254      00
- 1255              	.LASF21:
- 1256 0151 73746F70 		.ascii	"stop\000"
- 1256      00
- 1257              	.LASF34:
- 1258 0156 49544D5F 		.ascii	"ITM_RxBuffer\000"
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 26
-
-
-<<<<<<< HEAD
- 1255      00
- 1256              	.LASF21:
- 1257 019e 73746F70 		.ascii	"stop\000"
- 1257      00
- 1258              	.LASF34:
- 1259 01a3 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 1259      52784275 
- 1259      66666572 
- 1259      00
- 1260              	.LASF5:
- 1261 01b0 6C6F6E67 		.ascii	"long unsigned int\000"
- 1261      20756E73 
- 1261      69676E65 
- 1261      6420696E 
- 1261      7400
- 1262              	.LASF20:
- 1263 01c2 696E6974 		.ascii	"initMotors\000"
- 1263      4D6F746F 
- 1263      727300
- 1264              	.LASF22:
- 1265 01cd 61646A75 		.ascii	"adjustLeft\000"
- 1265      73744C65 
- 1265      667400
- 1266              	.LASF38:
- 1267 01d8 6D6F746F 		.ascii	"motors.c\000"
- 1267      72732E63 
- 1267      00
- 1268              	.LASF8:
- 1269 01e1 756E7369 		.ascii	"unsigned int\000"
- 1269      676E6564 
- 1269      20696E74 
- 1269      00
- 1270              	.LASF24:
- 1271 01ee 68617264 		.ascii	"hardAdjustLeft\000"
- 1271      41646A75 
- 1271      73744C65 
- 1271      667400
- 1272              	.LASF7:
- 1273 01fd 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1273      206C6F6E 
- 1273      6720756E 
- 1273      7369676E 
- 1273      65642069 
- 1274              	.LASF35:
- 1275 0214 63757272 		.ascii	"currentFLeftSpeed\000"
- 1275      656E7446 
- 1275      4C656674 
- 1275      53706565 
- 1275      6400
- 1276              	.LASF18:
- 1277 0226 64697374 		.ascii	"distanceTravelled\000"
- 1277      616E6365 
- 1277      54726176 
- 1277      656C6C65 
- 1277      6400
- 1278              	.LASF29:
- 1279 0238 7475726E 		.ascii	"turnLeft\000"
-ARM GAS  C:\Users\lger522\AppData\Local\Temp\cck6DNWW.s 			page 27
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
- 1258      52784275 
- 1258      66666572 
- 1258      00
- 1259              	.LASF5:
- 1260 0163 6C6F6E67 		.ascii	"long unsigned int\000"
- 1260      20756E73 
- 1260      69676E65 
- 1260      6420696E 
- 1260      7400
- 1261              	.LASF20:
- 1262 0175 696E6974 		.ascii	"initMotors\000"
- 1262      4D6F746F 
- 1262      727300
- 1263              	.LASF22:
- 1264 0180 61646A75 		.ascii	"adjustLeft\000"
- 1264      73744C65 
- 1264      667400
- 1265              	.LASF38:
- 1266 018b 6D6F746F 		.ascii	"motors.c\000"
- 1266      72732E63 
- 1266      00
- 1267              	.LASF8:
- 1268 0194 756E7369 		.ascii	"unsigned int\000"
- 1268      676E6564 
- 1268      20696E74 
- 1268      00
- 1269              	.LASF24:
- 1270 01a1 68617264 		.ascii	"hardAdjustLeft\000"
- 1270      41646A75 
- 1270      73744C65 
- 1270      667400
- 1271              	.LASF7:
- 1272 01b0 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1272      206C6F6E 
- 1272      6720756E 
- 1272      7369676E 
- 1272      65642069 
- 1273              	.LASF35:
- 1274 01c7 63757272 		.ascii	"currentFLeftSpeed\000"
- 1274      656E7446 
- 1274      4C656674 
- 1274      53706565 
- 1274      6400
- 1275              	.LASF18:
- 1276 01d9 64697374 		.ascii	"distanceTravelled\000"
- 1276      616E6365 
- 1276      54726176 
- 1276      656C6C65 
- 1276      6400
- 1277              	.LASF29:
- 1278 01eb 7475726E 		.ascii	"turnLeft\000"
- 1278      4C656674 
- 1278      00
- 1279              	.LASF10:
- 1280 01f4 696E7433 		.ascii	"int32_t\000"
- 1280      325F7400 
- 1281              	.LASF15:
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccXRag7v.s 			page 27
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccfpayqv.s 			page 27
 
 
  1282 01fc 73697A65 		.ascii	"sizetype\000"

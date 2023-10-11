@@ -123,43 +123,19 @@ int main() {
   unsigned char instruction[500];
   unsigned char distance[500];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
 // Loop through the arrays and set each element to 55 or 0
     for (int i = 0; i < 500; i++) {
         squares[i][0] = 55;
         squares[i][1] = 55;
         instruction[i] = 0;
-<<<<<<< HEAD
         distance[i] = 0;
-=======
         distance[i] = 55;
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
     }
-
-
-
-<<<<<<< HEAD
-=======
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
-  CyDelay(4000);
+ CyDelay(4000);
   usbPutString("Starting Pathfind\r\n");
   pathfind(instruction, distance, squares);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    usbPutString("SQUARES\r\n");
-    for (int i = 0; i < 500; i++) {
-        if (squares[i][0] != 55) {
-            char squareStr[10]; 
-            snprintf(squareStr, sizeof(squareStr), "%u %u \r\n", (unsigned char)squares[i][0], (unsigned char)squares[i][1]);
-            usbPutString(squareStr);
-        }
-=======
+
   usbPutString("SQUARES\r\n");
   for (int i = 0; i < 500; i++) {
     char squareStr[10];
@@ -167,19 +143,6 @@ int main() {
     usbPutString(squareStr);
   }
 
-    int index = 0;
-    while (instruction[index] == '0') {
-        index++;
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-    }
-
-    // Now 'index' holds the index of the first element in 'instruction' that is not '0'
-    usbPutString("Index of the first non-zero element: ");
-    char indexChar[10];
-    snprintf(indexChar, sizeof(indexChar), "%d\r\n", index);
-    usbPutString(indexChar);
-    
-<<<<<<< HEAD
 usbPutString("INSTRUCTIONS - DISTANCES\r\n");
 // Print all instructions
     int started = 0;
@@ -206,58 +169,6 @@ usbPutString("INSTRUCTIONS - DISTANCES\r\n");
             }
         }
     }
-    
-
-
-    /*usbPutString("DISTANCES\r\n");
-=======
-    usbPutString("SQUARES\r\n");
-for (int i = 0; i < 500; i++) {
-        char squareStr[10]; 
-        snprintf(squareStr, sizeof(squareStr), "%u %u \r\n", (unsigned char)squares[i][0], (unsigned char)squares[i][1]);
-        usbPutString(squareStr);
-    }
-    
-usbPutString("INSTRUCTIONS\r\n");
-// Print all instructions
-    for (int i = 0; i < 500; i++) {
-        char instStr[10]; 
-        snprintf(instStr, sizeof(instStr), "%u \r\n", (unsigned char)instruction[i]);
-        usbPutString(instStr);
-
-    }
-
-    usbPutString("DISTANCES\r\n");
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
-    // Print all distances
-    for (int i = 0; i < 500; i++) {
-        char distanceStr[10];  // Assuming distances are integers and can fit in 10 characters
-        snprintf(distanceStr, sizeof(distanceStr), "%u", (unsigned int)distance[i]);
-        usbPutString(distanceStr);
-        usbPutString("\r\n");
-<<<<<<< HEAD
-    }*/
-=======
-  usbPutString("INSTRUCTIONS\r\n");
-  // Print all instructions
-  for (int i = 0; i < 500; i++) {
-    char instStr[10];
-    snprintf(instStr, sizeof(instStr), "%u \r\n", (unsigned char) instruction[i]);
-    usbPutString(instStr);
-  }
-
-  usbPutString("DISTANCES\r\n");
-  // Print all distances
-  for (int i = 0; i < 500; i++) {
-    char distanceStr[10]; // Assuming distances are integers and can fit in 10 characters
-    snprintf(distanceStr, sizeof(distanceStr), "%u", (unsigned int) distance[i]);
-    usbPutString(distanceStr);
-    usbPutString("\r\n");
-  }
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-    }
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
 
   for (;;) {
 

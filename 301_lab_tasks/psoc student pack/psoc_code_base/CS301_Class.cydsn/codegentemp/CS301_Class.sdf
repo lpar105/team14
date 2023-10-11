@@ -1,14 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
-<<<<<<< HEAD
-<<<<<<< HEAD
- (DATE "2023-10-10T22:22:48Z")
-=======
- (DATE "2023-10-09T05:38:14Z")
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
- (DATE "2023-10-03T03:58:16Z")
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+ (DATE "2023-10-11T06:20:46Z")
  (DESIGN "CS301_Class")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")

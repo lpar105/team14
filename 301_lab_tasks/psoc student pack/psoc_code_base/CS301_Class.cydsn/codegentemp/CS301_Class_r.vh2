@@ -1,13 +1,5 @@
 -- Project:   CS301_Class
-<<<<<<< HEAD
-<<<<<<< HEAD
--- Generated: 10/11/2023 11:22:39
-=======
--- Generated: 10/09/2023 18:38:04
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
--- Generated: 10/03/2023 16:58:07
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+-- Generated: 10/11/2023 19:20:37
 -- PSoC Creator  4.2
 
 ENTITY CS301_Class IS

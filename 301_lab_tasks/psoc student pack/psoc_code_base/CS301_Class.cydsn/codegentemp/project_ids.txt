@@ -1,28 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj|7f7b4a8c-f7a7-432e-baa7-a4b1bc83808e
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|53e93f28-a782-426d-8778-54f5e7c368f3
-C:\Users\LPAR105\OneDrive - The University of Auckland\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|79fedcf2-268f-454f-bb8f-5a5d84940f4f
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|1549ffa4-0759-4858-9e46-d98aa7615135
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|bd6f974c-30cc-407b-a37a-6b08ef1ef672
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|06b34066-8e37-42cf-ad14-482305c6e6e3
-H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\demo.cyprj|9828dad4-9dd5-44a7-b37c-a8764fc6bd21
-=======
-H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj|f32010a3-5a4e-43c5-8d44-25d00cbcc91b
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|0a7f39e1-6f46-444e-957c-010ec1a63d02
-C:\Users\lger522\OneDrive - The University of Auckland\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|7686a338-2d27-4aef-aa35-ff6710cb74e3
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|5708cae4-198d-4c30-b41e-fe931219e503
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b5afe779-bf54-4e6a-b38c-5057c991bbf7
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9ffd147a-81f0-4772-99b5-d9e85354009e
-H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\demo.cyprj|cf9f35ac-72de-4541-b33f-211e872ffc8e
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj|5b4acbfb-673b-4d50-8781-15b2a4d90eea
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|f98f7284-658a-47f4-8586-3a5110d88149
-C:\Users\lpar105\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|76383b58-24ad-4922-a361-2760b4dd8387
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|7956050c-64f6-4def-8678-7cf73dfca774
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|04a3fc33-f91e-4370-95fe-ca13f5340ce9
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|c58fad0b-fcd5-4ac4-a83e-0be7cd413d67
-H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\demo.cyprj|d1db1e78-2415-4b2d-a937-66a85f4fb56f
-C:\Users\lpar105\OneDrive - The University of Auckland\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|e193a361-b0fc-44bc-88a3-398d63cf95e6
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj|7204c80b-5ddd-493a-985b-a5f808c2d04e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|e106c169-298e-4e7c-b34e-9782ae6fcc54
+C:\Users\lpar105\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|6e36d275-e0fe-4a2d-a41d-d11bec289152
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|fb07299d-31e1-44a2-ab90-418b695bff62
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|df20dd8f-6a8d-420c-987e-417bcca1264c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|fe150476-5cd9-4cc9-97e2-26411111efea
+H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\demo.cyprj|f4485468-d2f7-4d15-b736-c5f41a0a872a
+C:\Users\lpar105\OneDrive - The University of Auckland\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|066973fa-da0c-48b2-9699-f1323d833009

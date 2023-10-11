@@ -6,15 +6,7 @@
 
 #Build Date:         Dec  5 2017 15:35:27
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-#File Generated:     Oct 11 2023 11:21:49
-=======
-#File Generated:     Oct 9 2023 18:37:07
->>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
-=======
-#File Generated:     Oct 3 2023 16:57:20
->>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
+#File Generated:     Oct 11 2023 19:19:43
 
 #Purpose:            
 
@@ -128,7 +120,7 @@ Clock: UART_IntClock        | Frequency:  36.8 MHz | Target:   0.5 MHz
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 1.9 (sec)
+D2088: Phase 7, elapsed time : 1.8 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	33
@@ -181,5 +173,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 2.8 sec.
+I2076: Total run-time: 2.9 sec.
 
