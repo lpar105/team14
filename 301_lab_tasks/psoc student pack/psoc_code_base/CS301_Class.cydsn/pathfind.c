@@ -196,7 +196,6 @@ void generateInstructionList(unsigned char * instruction, unsigned char * distan
     
     // Reverse and filter the entries
     for (int i = 499; i >= 0; i--) {
-        distance[i] = 70; //TODO remove
         //if (squares[i][0] != 111 || squares[i][1] != 111) {
             // Copy non-matching entry to the new array
             reversedSquares[count][0] = squares[i][0];
@@ -240,7 +239,9 @@ void generateInstructionList(unsigned char * instruction, unsigned char * distan
         // Either the square is at an intersection or a change in target direction 
         int endOfInstruction = 0;
         int distanceInstruction = 0;
+        int squaresChecked = 0;
         while (endOfInstruction == 0) {
+            squaresChecked++;
             if (startRow == 55) {
                 i++;
                 break;
@@ -349,6 +350,15 @@ void generateInstructionList(unsigned char * instruction, unsigned char * distan
             instruction[instructionCounter] = instruction[instructionCounter] + 4;
         }
         
+        if (instruction[instructionCounter] == 5 || instruction[instructionCounter] == 7) {
+            distance[instructionCounter] = squaresChecked -1; // todo check if 6 and 8 should be inclded
+        } else {
+            distance[instructionCounter] = squaresChecked;
+        }
+
+        
+        
+        
         if (travelDir != 0) {
             robotDirection = travelDir;
         }
@@ -356,6 +366,7 @@ void generateInstructionList(unsigned char * instruction, unsigned char * distan
         if (instruction[instructionCounter] != 0) {  
             if (!firstValidInstruction) {
                 instruction[instructionCounter-1] = 2;
+                distance[instructionCounter-1] = distance[instructionCounter-1] +1; // test this holds true for different map layouts 
                 firstValidInstruction = 1;
             }
         }

@@ -128,7 +128,7 @@ int main() {
         squares[i][0] = 55;
         squares[i][1] = 55;
         instruction[i] = 0;
-        distance[i] = 55;
+        distance[i] = 0;
     }
 
 
@@ -138,29 +138,51 @@ int main() {
   pathfind(instruction, distance, squares);
 
     usbPutString("SQUARES\r\n");
-for (int i = 0; i < 500; i++) {
-        char squareStr[10]; 
-        snprintf(squareStr, sizeof(squareStr), "%u %u \r\n", (unsigned char)squares[i][0], (unsigned char)squares[i][1]);
-        usbPutString(squareStr);
+    for (int i = 0; i < 500; i++) {
+        if (squares[i][0] != 55) {
+            char squareStr[10]; 
+            snprintf(squareStr, sizeof(squareStr), "%u %u \r\n", (unsigned char)squares[i][0], (unsigned char)squares[i][1]);
+            usbPutString(squareStr);
+        }
     }
     
-usbPutString("INSTRUCTIONS\r\n");
+usbPutString("INSTRUCTIONS - DISTANCES\r\n");
 // Print all instructions
+    int started = 0;
+    int consecStops = 0;
+    int desired[] = {4,2,2,2,2,2,2,2,2,2,2,1,2,4,1,2,6,2,6,2,4,4,2,6,2,2,2,4,2,0,0,0,0,0,0};
+    int d = 0;
+
     for (int i = 0; i < 500; i++) {
-        char instStr[10]; 
-        snprintf(instStr, sizeof(instStr), "%u \r\n", (unsigned char)instruction[i]);
-        usbPutString(instStr);
-
+        if (instruction[i] == 0 && (started == 0 || consecStops >= 6)) {
+        } else {
+            started = 4;
+            char instStr[24]; 
+            if ((unsigned char) distance[i] == (unsigned char)desired[d]) {
+            snprintf(instStr, sizeof(instStr), "%u - %u \r\n", (unsigned char)instruction[i], (unsigned char)distance[i]);
+            } else {
+                snprintf(instStr, sizeof(instStr), "%u - %u FALSE %u \r\n", (unsigned char)instruction[i], (unsigned char)distance[i],  (unsigned char)desired[d]);
+            }
+            usbPutString(instStr);
+            d++;
+            if (instruction[i] == 0) {
+                consecStops++;
+            } else {
+                consecStops = 0;
+            }
+        }
     }
+    
 
-    usbPutString("DISTANCES\r\n");
+
+    /*usbPutString("DISTANCES\r\n");
     // Print all distances
     for (int i = 0; i < 500; i++) {
         char distanceStr[10];  // Assuming distances are integers and can fit in 10 characters
         snprintf(distanceStr, sizeof(distanceStr), "%u", (unsigned int)distance[i]);
         usbPutString(distanceStr);
         usbPutString("\r\n");
-    }
+    }*/
 
   for (;;) {
 
