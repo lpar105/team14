@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cydevice.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CS301_Class-000\CS301_Class\Generated_Source\PSoC5\ADC">
 <ExpandedNodeIds>
 <v>CS301_Class-000</v>
 <v>CS301_Class-000\CS301_Class</v>
@@ -40,57 +40,57 @@
 <v>CS301_Class-000\CS301_Class\Generated_Source</v>
 <v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5</v>
 <v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\PWM_1</v>
-<v>CS301_Class-000\demo\TopDesign</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>CS301_Class-000</v>
+<v>CS301_Class-000\CS301_Class</v>
+<v>CS301_Class-000\CS301_Class\TopDesign</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Pins</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Analog</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Clocks</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Interrupts</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\DMA</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\System</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Directives</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\Flash Security</v>
+<v>CS301_Class-000\CS301_Class\CS301_Class.cydwr\EEPROM</v>
+<v>CS301_Class-000\CS301_Class\Header Files</v>
+<v>CS301_Class-000\CS301_Class\Header Files\defines.h</v>
+<v>CS301_Class-000\CS301_Class\Header Files\vars.h</v>
+<v>CS301_Class-000\CS301_Class\Source Files</v>
+<v>CS301_Class-000\CS301_Class\Source Files\main.c</v>
+<v>CS301_Class-000\CS301_Class\Source Files\motors.c</v>
+<v>CS301_Class-000\CS301_Class\Source Files\motors.h</v>
+<v>CS301_Class-000\CS301_Class\Source Files\tacho.c</v>
+<v>CS301_Class-000\CS301_Class\commands</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\ADC</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\ADC_FinalBuf</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\ADC_IntClock</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\ADC_IRQ</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\ADC_SAR</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\ADC_TempBuf</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\Clock_PWM</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\Clock_QENC</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\Clock2</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cy_boot</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\DB0</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\DB1</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\DB2</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\eoc</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\isr_TS</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\LED_PIN_1</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\LED_PIN_2</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\LED_PIN_3</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\LED_PIN_4</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\LED_PIN_5</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\LED_PIN_6</v>
+<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\leftIntersectionSensor</v>
 <v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\leftLineSensor</v>
 <v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M1_IN1</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M1_IN2</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M1_QA</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M1_QB</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M2_IN1</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M2_IN2</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M2_QA</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\M2_QB</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\middleLineSensor</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\PWM_1</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\PWM_1\PWM_1.c</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\PWM_1\PWM_1.h</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\PWM_1\PWM_1_PM.c</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\PWM_2</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M1</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M1_Cnt16</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M2</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\QuadDec_M2_Cnt16</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\RF_BT_SELECT</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\rightIntersectionSensor</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\rightLineSensor</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\Timer_TS</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\turnCompleteSensor</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\UART</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\UART_IntClock</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\USBUART</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\USBUART_Dm</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\USBUART_Dp</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cycodeshareexport.ld</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cycodeshareimport.ld</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cycodeshareimport.scat</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cydevice.h</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cydevice_trm.h</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cydevicegnu.inc</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cydeviceiar.inc</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cydevicerv.inc</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cydisabledsheets.h</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cyfitter.h</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cyfitter_cfg.c</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cyfitter_cfg.h</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cyfittergnu.inc</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cyfitteriar.inc</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cyfitterrv.inc</v>
-<v>CS301_Class-000\CS301_Class\Generated_Source\PSoC5\cymetadata.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -105,7 +105,6 @@
 <v>CS301_Class-000\CS301_Class</v>
 <v>CS301_Class-000\CS301_Class\TopDesign</v>
 <v>CS301_Class-000\CS301_Class\TopDesign\TopDesign.cysch</v>
-<v>CS301_Class-000\demo</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -164,7 +163,6 @@
 <v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 <v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\middleLineSensor.lst</v>
 <v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\motors.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\pathfind.lst</v>
 <v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_1.lst</v>
 <v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_1_PM.lst</v>
 <v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_2.lst</v>
@@ -212,58 +210,10 @@
 <v>CS301_Class-000\CS301_Class\CS301_Class.gpdsc</v>
 <v>CS301_Class-000\CS301_Class\CS301_Class.rpt</v>
 <v>CS301_Class-000\CS301_Class\CS301_Class_timing.html</v>
-<v>CS301_Class-000\demo</v>
-<v>CS301_Class-000\demo\demo.gpdsc</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>CS301_Class-000</v>
 <v>CS301_Class-000\CS301_Class</v>
-<v>CS301_Class-000\CS301_Class\CortexM3</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_FinalBuf_dma.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IntClock.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_INT.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_PM.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_TempBuf_dma.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_QENC.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock2.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\DB0.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\DB1.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\DB2.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\eoc.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_TS.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\LED_PIN_1.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\LED_PIN_2.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\LED_PIN_3.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\LED_PIN_4.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\LED_PIN_5.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\LED_PIN_6.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\leftIntersectionSensor.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\leftLineSensor.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\M1_IN1.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\M1_IN2.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\M1_QA.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\M1_QB.lst</v>
-<v>CS301_Class-000\CS301_Class\CortexM3\ARM_GCC_541\Debug\Listing Files\M2_IN1.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -299,12 +249,6 @@
 <v>CS301_Class-000\CS301_Class\UART_v2_50.pdf</v>
 <v>CS301_Class-000\CS301_Class\USBFS_v3_20.pdf</v>
 <v>CS301_Class-000\CS301_Class\ZeroTerminal.pdf</v>
-<v>CS301_Class-000\demo\PSoC 5LP Architecture TRM</v>
-<v>CS301_Class-000\demo\CY8C58LP Family Datasheet</v>
-<v>CS301_Class-000\demo\System Reference Guides</v>
-<v>CS301_Class-000\demo\System Reference Guides\cy_boot_v5_82</v>
-<v>CS301_Class-000\demo\cy_pins_v2_20</v>
-<v>CS301_Class-000\demo\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>CS301_Class-000</v>
@@ -333,7 +277,6 @@
 <v>CS301_Class-000\CS301_Class\UART_v2_50.pdf</v>
 <v>CS301_Class-000\CS301_Class\USBFS_v3_20.pdf</v>
 <v>CS301_Class-000\CS301_Class\ZeroTerminal.pdf</v>
-<v>CS301_Class-000\demo</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -350,8 +293,6 @@
 <name v=".\vars.h" />
 <name v=".\motors.c" />
 <name v=".\motors.h" />
-<name v=".\pathfind.c" />
-<name v=".\pathfind.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -359,7 +300,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1439, 711" SelectedTabbedMdiWindow="b0851af3-d2cc-470b-912d-3e1151cee9ba"><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\main.c" Guid="b0851af3-d2cc-470b-912d-3e1151cee9ba" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\TopDesign\TopDesign.cysch" Guid="1d8f4dd8-0344-4532-a93a-dbf5919f613f" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cydwr" Guid="d115c137-bad2-4f36-92fb-0f53ead5bf9e" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\defines.h" Guid="11a3b329-776a-4e40-b521-3af6e30fa565" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\vars.h" Guid="31a89b3b-9b1e-450d-81d9-7f7d8b291d98" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\motors.c" Guid="1f6cf811-8eb9-426c-8b09-e03f538f2901" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\motors.h" Guid="a2235659-132b-4e21-b50c-73e3e3536fef" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="ecf8749b-fc32-48dc-8c0b-dc46eb3062a1" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\pathfind.c" Guid="a71a0766-6ab1-4e39-ba7f-232602937b77" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\pathfind.h" Guid="0fa7b9a3-527e-413b-8547-e933c3be87a0" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1392, 711" SelectedTabbedMdiWindow="b0851af3-d2cc-470b-912d-3e1151cee9ba"><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\main.c" Guid="b0851af3-d2cc-470b-912d-3e1151cee9ba" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\TopDesign\TopDesign.cysch" Guid="1d8f4dd8-0344-4532-a93a-dbf5919f613f" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cydwr" Guid="d115c137-bad2-4f36-92fb-0f53ead5bf9e" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\defines.h" Guid="11a3b329-776a-4e40-b521-3af6e30fa565" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\vars.h" Guid="31a89b3b-9b1e-450d-81d9-7f7d8b291d98" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\motors.c" Guid="1f6cf811-8eb9-426c-8b09-e03f538f2901" /><DocumentWindow Key="H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\motors.h" Guid="a2235659-132b-4e21-b50c-73e3e3536fef" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="ecf8749b-fc32-48dc-8c0b-dc46eb3062a1" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

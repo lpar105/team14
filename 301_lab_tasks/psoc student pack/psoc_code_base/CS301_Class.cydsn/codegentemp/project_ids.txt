@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj|7f7b4a8c-f7a7-432e-baa7-a4b1bc83808e
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|53e93f28-a782-426d-8778-54f5e7c368f3
 C:\Users\LPAR105\OneDrive - The University of Auckland\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|79fedcf2-268f-454f-bb8f-5a5d84940f4f
@@ -15,3 +16,13 @@ C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomp
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9ffd147a-81f0-4772-99b5-d9e85354009e
 H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\demo.cyprj|cf9f35ac-72de-4541-b33f-211e872ffc8e
 >>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
+=======
+H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj|5b4acbfb-673b-4d50-8781-15b2a4d90eea
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|f98f7284-658a-47f4-8586-3a5110d88149
+C:\Users\lpar105\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|76383b58-24ad-4922-a361-2760b4dd8387
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|7956050c-64f6-4def-8678-7cf73dfca774
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|04a3fc33-f91e-4370-95fe-ca13f5340ce9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|c58fad0b-fcd5-4ac4-a83e-0be7cd413d67
+H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\demo.cyprj|d1db1e78-2415-4b2d-a937-66a85f4fb56f
+C:\Users\lpar105\OneDrive - The University of Auckland\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|e193a361-b0fc-44bc-88a3-398d63cf95e6
+>>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()

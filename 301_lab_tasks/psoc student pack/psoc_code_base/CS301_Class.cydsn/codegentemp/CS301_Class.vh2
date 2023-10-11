@@ -3,10 +3,14 @@
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
 <<<<<<< HEAD
+<<<<<<< HEAD
 --	Wed Oct 11 11:20:58 2023
 =======
 --	Mon Oct 09 18:36:10 2023
 >>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
+=======
+--	Tue Oct 03 16:56:33 2023
+>>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
 --
 
 USE cypress.cypress.all;

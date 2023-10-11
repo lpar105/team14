@@ -1,10 +1,15 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 -- Project:   H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj
 -- Generated: 10/11/2023 11:22:48
 =======
 -- Project:   H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj
 -- Generated: 10/09/2023 18:38:14
 >>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
+=======
+-- Project:   H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj
+-- Generated: 10/03/2023 16:58:16
+>>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
 -- PSoC Creator  4.2
 
 ENTITY CS301_Class IS

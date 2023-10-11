@@ -7,10 +7,14 @@
 #Build Date:         Dec  5 2017 15:35:27
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #File Generated:     Oct 11 2023 11:21:49
 =======
 #File Generated:     Oct 9 2023 18:37:07
 >>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
+=======
+#File Generated:     Oct 3 2023 16:57:20
+>>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
 
 #Purpose:            
 

@@ -1,9 +1,13 @@
 # CS301_Class
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 2023-10-10 22:22:39Z
 =======
 # 2023-10-09 05:38:04Z
 >>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
+=======
+# 2023-10-03 03:58:07Z
+>>>>>>> parent of ecb78dc (Reading output of instruction function into motor, trying to index the instruction array from the first non-zero but am stuck :()
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
