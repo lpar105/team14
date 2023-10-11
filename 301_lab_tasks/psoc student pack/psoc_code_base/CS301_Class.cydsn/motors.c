@@ -32,20 +32,9 @@ int getRightPWM(void) {
     return currentFRightSpeed;
 }
 
-//void updateForwardSpeed(int currentSpeed, int targetSpeed) {
-//    if (currentSpeed > targetSpeed) {
-//        currentFLeftSpeed = currentFLeftSpeed + 1;
-//        currentFRightSpeed = currentFRightSpeed + 1;
-//    }
-//    else {
-//        currentFLeftSpeed = currentFLeftSpeed - 1;
-//        currentFRightSpeed = currentFRightSpeed - 1;
-//    }
-//}
-
 void driveForward(int distanceTravelled, int targetSpeed) {  
-        PWM_1_WriteCompare(175); 
-        PWM_2_WriteCompare(175); 
+        PWM_1_WriteCompare(165); 
+        PWM_2_WriteCompare(165); 
 }
 
 void stop() {
@@ -62,34 +51,6 @@ void adjustRight() {
     PWM_1_WriteCompare(currentFLeftSpeed + 2);
     PWM_2_WriteCompare(currentFRightSpeed - 2);
 }
-void hardAdjustLeft() {
-    PWM_1_WriteCompare(currentFLeftSpeed - 5); //was 6, changed it as was too drastic
-    PWM_2_WriteCompare(currentFRightSpeed + 5);
-}
-
-void hardAdjustRight() {
-    PWM_1_WriteCompare(currentFLeftSpeed + 5);
-    PWM_2_WriteCompare(currentFRightSpeed - 5);
-}
-
-
-void restoreLeft() {
-    // 125 - currentFLeftSpeed - 125
-    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125) - 1);
-    PWM_2_WriteCompare(125 - (currentFLeftSpeed - 125) + 1);
-    
-
-}
-
-void restoreRight() {
-    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125) + 1);
-    PWM_2_WriteCompare(125 - (currentFLeftSpeed - 125) - 1);
-}
-
-void findTrack() {
-    PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125));
-    PWM_2_WriteCompare(currentFLeftSpeed);
-}
 
 void turnLeft() {
    
@@ -102,11 +63,4 @@ void turnRight() {
     PWM_2_WriteCompare(125 - (currentFRightSpeed - 125) + 7 ); //was 11, changed as I think the value becomes too small to move the motor
 }
 
-void reverse(int reverseCount) {
-    while (reverseCount !=0){
-        PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125));
-        PWM_2_WriteCompare(125 - (currentFRightSpeed - 125));
-        reverseCount--;
-    }
-}
 /* [] END OF FILE */

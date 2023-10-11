@@ -112,7 +112,6 @@ int main() {
   initMotors();
 
   stop();
-
   //isr_TS_StartEx(MyISR);
   //Timer_TS_Start();
     
@@ -128,7 +127,7 @@ int main() {
     pathfind(instruction, distance, squares);
 
   for (;;) {
-
+      LED_PIN_4_Write(0);
       if (flag == 1) {
 
         ADC1_IRQ_Disable();
@@ -141,6 +140,7 @@ int main() {
 
         count++;
         if (count == ADC_COUNT) {
+            LED_PIN_4_Write(1);
           count = 0;
           int highCountLeftIntersection = 0;
           int highCountLeftLine = 0;
@@ -186,7 +186,7 @@ int main() {
           shouldUpdate = 0;
           turnTimer = 0;
         if (instruction[instCounter] == 0 && (started == 0 || consecStops >= 6)) {
-            LED_PIN_1_Write(!LED_PIN_1_Read());
+            //LED_PIN_1_Write(!LED_PIN_1_Read());
             // Look for start using a coarse grain approach, gradually get more fine
             if(instruction[instCounter+248] == 0 && instruction[instCounter+249] == 0&& instruction[instCounter+250] == 0){
                 instCounter = instCounter+250;
@@ -213,47 +213,112 @@ int main() {
             }
 
         } else {
-
+            turnTimer = 0;
             started = 1;
             
-            // DRIVING LOGIC GOES HERE
             char currentInst = instruction[instCounter];
             if (currentInst == 0) {
                 LED_PIN_1_Write(0);
                 LED_PIN_6_Write(0);
+                // Stop
+                
             } else if (currentInst == 1) {
                 LED_PIN_1_Write(1);
                 LED_PIN_6_Write(0);
+                // Complete a left turn, then follow line
+               
             } else if (currentInst == 2) {
                 LED_PIN_1_Write(1);
                 LED_PIN_6_Write(1);
+                // Drive straight
             } else if (currentInst == 3) {
                 LED_PIN_1_Write(0);
                 LED_PIN_6_Write(1);
+                // Complete a right turn then follow line
+                
             } else if (currentInst == 4) {
                 LED_PIN_1_Write(0);
                 LED_PIN_6_Write(0);
+                // Do a 180, then follow line
             } else if (currentInst == 5) {
                 LED_PIN_1_Write(1);
                 LED_PIN_6_Write(0);
+                // Complete a left turn, then follow line until end of encoder position
             } else if (currentInst == 6) {
                 LED_PIN_1_Write(1);
                 LED_PIN_6_Write(1);
+                // Follow line until end of encoder position
             } else if (currentInst == 7) {
                 LED_PIN_1_Write(0);
                 LED_PIN_6_Write(1);
+                // Complete a right turn, then follow line until end of encoder position
+            } else if (currentInst == 8) {
+                LED_PIN_1_Write(0);
+                LED_PIN_6_Write(0);
+                // Complete a 180 turn, then follow line until end of encoder position
             }
             
+            
+                if (M_LINE_BLACK && L_LINE_BLACK) { // if robot slightly too far right
+            adjustLeft();
+            
+            lastAdjustDirection = 0;
+
+          } else if (M_LINE_BLACK && R_LINE_BLACK) { //  if robot slightly too far left
+            adjustRight();
+            lastAdjustDirection = 2;
+            
+
+          } else if (M_LINE_BLACK) { // if robot in the center keep moving straight
+            
+            lastAdjustDirection = 1;
+            
+            driveForward(distanceTravelled, TARGET_SPEED);
+
+          } else if (R_LINE_BLACK) { // if robot too far left
+            adjustRight();
+            
+            lastAdjustDirection = 2;
+
+          } else if (L_LINE_BLACK) { // if robot too far right
+            adjustLeft();
+            
+            lastAdjustDirection = 0;
+
+          } else { // completely lost find way
+            if (lastAdjustDirection == 0) {
+              turnLeft();
+            } else if (lastAdjustDirection == 1) { // last movement was forward (middle sensor sensed)
+              //hardAdjustLeft();
+              turnRight();
+            } else {
+              turnRight();
+            }
+            
+        }
+            
+           
             // UPDATE INSTRUCTION LOGIC GOES HERE this needs dramatic improving
+            LED_PIN_2_Write(0);
+            LED_PIN_3_Write(0);
             if (L_INT_BLACK || R_INT_BLACK) {
-                instCounter++;
+                instCounter ++;
+            }
+            if (L_INT_BLACK) {
+                LED_PIN_2_Write(1);
+            }
+        
+            if (R_INT_BLACK) {
+                LED_PIN_3_Write(1);
             }
             
-            if (instruction[instCounter] == 0) {
+            
+            
+            /*if (instruction[instCounter] == 0) {
                 consecStops++;
             } else {
                 consecStops = 0;
-            }
+            }*/
         }
         }
 
