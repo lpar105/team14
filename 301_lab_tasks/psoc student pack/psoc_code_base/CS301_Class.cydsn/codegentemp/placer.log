@@ -6,7 +6,7 @@
 
 #Build Date:         Dec  5 2017 15:35:27
 
-#File Generated:     Oct 11 2023 19:19:43
+#File Generated:     Oct 11 2023 20:46:49
 
 #Purpose:            
 
@@ -80,8 +80,8 @@ analysis after routing.
                      Clock Summary 
 ======================================================================
 Number of clocks: 12
-Clock: ADC_IntClock         | Frequency:  31.8 MHz | Target:   1.0 MHz
-Clock: ADC_IntClock(routed) | Frequency: N/A       | Target:   1.0 MHz
+Clock: ADC1_IntClock        | Frequency:  31.8 MHz | Target:   1.0 MHz
+Clock: ADC1_IntClock(routed) | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock2               | Frequency:  43.5 MHz | Target:   1.0 MHz
 Clock: Clock_PWM            | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_PWM(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
@@ -104,8 +104,8 @@ Phase 7
                      Clock Summary 
 ======================================================================
 Number of clocks: 12
-Clock: ADC_IntClock         | Frequency:  34.1 MHz | Target:   1.0 MHz
-Clock: ADC_IntClock(routed) | Frequency: N/A       | Target:   1.0 MHz
+Clock: ADC1_IntClock        | Frequency:  34.1 MHz | Target:   1.0 MHz
+Clock: ADC1_IntClock(routed) | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock2               | Frequency:  44.6 MHz | Target:   1.0 MHz
 Clock: Clock_PWM            | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_PWM(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
@@ -151,8 +151,8 @@ analysis after routing.
                      Clock Summary 
 ======================================================================
 Number of clocks: 12
-Clock: ADC_IntClock         | Frequency:  30.4 MHz | Target:   1.0 MHz
-Clock: ADC_IntClock(routed) | Frequency: N/A       | Target:   1.0 MHz
+Clock: ADC1_IntClock        | Frequency:  30.4 MHz | Target:   1.0 MHz
+Clock: ADC1_IntClock(routed) | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock2               | Frequency:  44.6 MHz | Target:   1.0 MHz
 Clock: Clock_PWM            | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_PWM(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
@@ -173,5 +173,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 2.9 sec.
+I2076: Total run-time: 2.7 sec.
 

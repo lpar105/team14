@@ -28,7 +28,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>ADC_SAR</name>
+      <name>ADC1_SAR</name>
       <description>SAR ADC</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>

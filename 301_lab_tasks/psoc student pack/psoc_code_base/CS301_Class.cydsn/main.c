@@ -80,6 +80,9 @@ volatile int turnState = 0;
 volatile int turnEnable = 0;
 volatile int turnTimer = 0;
 int lastAdjustDirection = 0;
+  unsigned char squares[500][2];
+  unsigned char instruction[500];
+  unsigned char distance[500];
 
 CY_ISR(eoc) {
   flag = 1;
@@ -90,12 +93,7 @@ CY_ISR(MyISR) {
 }
 
 int main() {
-
-  // --------------------------------    
-  // ----- INITIALIZATIONS ----------
   CYGlobalIntEnable;
-
-  // ------USB SETUP ----------------    
 
   USBUART_Start(0, USBUART_5V_OPERATION);
   UART_Start();
@@ -107,8 +105,8 @@ int main() {
 
   RF_BT_SELECT_Write(1);
 
-  ADC_Start();
-  ADC_StartConvert();
+  ADC1_Start();
+  ADC1_StartConvert();
   eoc_StartEx(eoc);
 
   initMotors();
@@ -118,56 +116,13 @@ int main() {
   isr_TS_StartEx(MyISR);
   Timer_TS_Start();
 
-  unsigned char squares[500][2];
-
-  unsigned char instruction[500];
-  unsigned char distance[500];
-
-// Loop through the arrays and set each element to 55 or 0
+    // Loop through the arrays and set each element to 55 or 0
     for (int i = 0; i < 500; i++) {
         squares[i][0] = 55;
         squares[i][1] = 55;
         instruction[i] = 0;
         distance[i] = 0;
         distance[i] = 55;
-    }
- CyDelay(4000);
-  usbPutString("Starting Pathfind\r\n");
-  pathfind(instruction, distance, squares);
-
-
-  usbPutString("SQUARES\r\n");
-  for (int i = 0; i < 500; i++) {
-    char squareStr[10];
-    snprintf(squareStr, sizeof(squareStr), "%u %u \r\n", (unsigned char) squares[i][0], (unsigned char) squares[i][1]);
-    usbPutString(squareStr);
-  }
-
-usbPutString("INSTRUCTIONS - DISTANCES\r\n");
-// Print all instructions
-    int started = 0;
-    int consecStops = 0;
-    int desired[] = {4,2,2,2,2,2,2,2,2,2,2,1,2,4,1,2,6,2,6,2,4,4,2,6,2,2,2,4,2,0,0,0,0,0,0};
-    int d = 0;
-
-    for (int i = 0; i < 500; i++) {
-        if (instruction[i] == 0 && (started == 0 || consecStops >= 6)) {
-        } else {
-            started = 4;
-            char instStr[24]; 
-            if ((unsigned char) distance[i] == (unsigned char)desired[d]) {
-            snprintf(instStr, sizeof(instStr), "%u - %u \r\n", (unsigned char)instruction[i], (unsigned char)distance[i]);
-            } else {
-                snprintf(instStr, sizeof(instStr), "%u - %u FALSE %u \r\n", (unsigned char)instruction[i], (unsigned char)distance[i],  (unsigned char)desired[d]);
-            }
-            usbPutString(instStr);
-            d++;
-            if (instruction[i] == 0) {
-                consecStops++;
-            } else {
-                consecStops = 0;
-            }
-        }
     }
 
   for (;;) {
@@ -210,13 +165,13 @@ usbPutString("INSTRUCTIONS - DISTANCES\r\n");
       LED_PIN_4_Write(0);
       if (flag == 1) {
 
-        ADC_IRQ_Disable();
-        valuesLeftIntersection[count] = ADC_GetResult16(0);
-        valuesLeftLine[count] = ADC_GetResult16(1);
-        valuesMiddleLine[count] = ADC_GetResult16(2);
-        valuesTurnComplete[count] = ADC_GetResult16(3);
-        valuesRightLine[count] = ADC_GetResult16(4);
-        valuesRightIntersection[count] = ADC_GetResult16(5);
+        ADC1_IRQ_Disable();
+        valuesLeftIntersection[count] = ADC1_GetResult16(0);
+        valuesLeftLine[count] = ADC1_GetResult16(1);
+        valuesMiddleLine[count] = ADC1_GetResult16(2);
+        valuesTurnComplete[count] = ADC1_GetResult16(3);
+        valuesRightLine[count] = ADC1_GetResult16(4);
+        valuesRightIntersection[count] = ADC1_GetResult16(5);
 
         count++;
         if (count == ADC_COUNT) {
@@ -376,7 +331,7 @@ usbPutString("INSTRUCTIONS - DISTANCES\r\n");
         }
 
         flag = 0;
-        ADC_IRQ_Enable();
+        ADC1_IRQ_Enable();
       }
     }
   }

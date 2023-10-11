@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: ADC_INT.c
+* File Name: ADC1_INT.c
 * Version 2.10
 *
 *  Description:
@@ -15,7 +15,7 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "ADC.h"
+#include "ADC1.h"
 
 
 
@@ -28,11 +28,11 @@
 
 /* `#END`  */
 
-#if(ADC_IRQ_REMOVE == 0u)
+#if(ADC1_IRQ_REMOVE == 0u)
 
 
     /******************************************************************************
-    * Function Name: ADC_ISR
+    * Function Name: ADC1_ISR
     *******************************************************************************
     *
     * Summary:
@@ -48,11 +48,11 @@
     *  No.
     *
     ******************************************************************************/
-    CY_ISR( ADC_ISR )
+    CY_ISR( ADC1_ISR )
     {
-        #ifdef ADC_ISR_INTERRUPT_CALLBACK
-            ADC_ISR_InterruptCallback();
-        #endif /* ADC_ISR_INTERRUPT_CALLBACK */
+        #ifdef ADC1_ISR_INTERRUPT_CALLBACK
+            ADC1_ISR_InterruptCallback();
+        #endif /* ADC1_ISR_INTERRUPT_CALLBACK */
         
         
         /************************************************************************
@@ -64,6 +64,6 @@
           /* `#END`  */
     }
 
-#endif   /* End ADC_IRQ_REMOVE */
+#endif   /* End ADC1_IRQ_REMOVE */
 
 /* [] END OF FILE */

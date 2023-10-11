@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: ADC.c
+* File Name: ADC1.c
 * Version 2.10
 *
 * Description:
@@ -15,21 +15,21 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "ADC.h"
-#if(ADC_IRQ_REMOVE == 0u)
-    #include "ADC_IRQ.h"
-#endif   /* End ADC_IRQ_REMOVE */
+#include "ADC1.h"
+#if(ADC1_IRQ_REMOVE == 0u)
+    #include "ADC1_IRQ.h"
+#endif   /* End ADC1_IRQ_REMOVE */
 
-int16  ADC_finalArray[ADC_NUMBER_OF_CHANNELS];
-uint32 ADC_initVar = 0u;
-static uint8 ADC_tempChan;
-static uint8 ADC_finalChan;
-static uint8 ADC_tempTD = CY_DMA_INVALID_TD;
-static uint8 ADC_finalTD = CY_DMA_INVALID_TD;
+int16  ADC1_finalArray[ADC1_NUMBER_OF_CHANNELS];
+uint32 ADC1_initVar = 0u;
+static uint8 ADC1_tempChan;
+static uint8 ADC1_finalChan;
+static uint8 ADC1_tempTD = CY_DMA_INVALID_TD;
+static uint8 ADC1_finalTD = CY_DMA_INVALID_TD;
 
 
 /****************************************************************************
-* Function Name: ADC_Disable()
+* Function Name: ADC1_Disable()
 *****************************************************************************
 *
 * Summary:
@@ -48,22 +48,22 @@ static uint8 ADC_finalTD = CY_DMA_INVALID_TD;
 *  No.
 *
 ****************************************************************************/
-void ADC_Disable(void)
+void ADC1_Disable(void)
 {
-    ADC_CONTROL_REG &= ((uint8)(~ADC_BASE_COMPONENT_ENABLE));
+    ADC1_CONTROL_REG &= ((uint8)(~ADC1_BASE_COMPONENT_ENABLE));
 
-    (void) CyDmaChDisable(ADC_tempChan);
-    CyDmaTdFree(ADC_tempTD);
-    ADC_tempTD = CY_DMA_INVALID_TD;
+    (void) CyDmaChDisable(ADC1_tempChan);
+    CyDmaTdFree(ADC1_tempTD);
+    ADC1_tempTD = CY_DMA_INVALID_TD;
 
-    (void) CyDmaChDisable(ADC_finalChan);
-    CyDmaTdFree(ADC_finalTD);
-    ADC_finalTD = CY_DMA_INVALID_TD;
+    (void) CyDmaChDisable(ADC1_finalChan);
+    CyDmaTdFree(ADC1_finalTD);
+    ADC1_finalTD = CY_DMA_INVALID_TD;
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_Init
+* Function Name: ADC1_Init
 ********************************************************************************
 *
 * Summary:
@@ -80,28 +80,28 @@ void ADC_Disable(void)
 *  No.
 *
 *******************************************************************************/
-void ADC_Init(void)
+void ADC1_Init(void)
 {
     /* Init DMA, 2 bytes bursts, each burst requires a request */
-    ADC_tempChan = ADC_TempBuf_DmaInitialize(ADC_TEMP_BYTES_PER_BURST,
-        ADC_REQUEST_PER_BURST, (uint16)(HI16(CYDEV_PERIPH_BASE)), (uint16)(HI16(CYDEV_SRAM_BASE)));
+    ADC1_tempChan = ADC1_TempBuf_DmaInitialize(ADC1_TEMP_BYTES_PER_BURST,
+        ADC1_REQUEST_PER_BURST, (uint16)(HI16(CYDEV_PERIPH_BASE)), (uint16)(HI16(CYDEV_SRAM_BASE)));
 
-    /* Init DMA, (ADC_NUMBER_OF_CHANNELS << 1u) bytes bursts, each burst requires a request */
-    ADC_finalChan = ADC_FinalBuf_DmaInitialize((uint8)ADC_FINAL_BYTES_PER_BURST,
-        ADC_REQUEST_PER_BURST, (uint16)(HI16(CYDEV_SRAM_BASE)), (uint16)(HI16(CYDEV_SRAM_BASE)));
+    /* Init DMA, (ADC1_NUMBER_OF_CHANNELS << 1u) bytes bursts, each burst requires a request */
+    ADC1_finalChan = ADC1_FinalBuf_DmaInitialize((uint8)ADC1_FINAL_BYTES_PER_BURST,
+        ADC1_REQUEST_PER_BURST, (uint16)(HI16(CYDEV_SRAM_BASE)), (uint16)(HI16(CYDEV_SRAM_BASE)));
 
-    #if(ADC_IRQ_REMOVE == 0u)
-        /* Set the ISR to point to the ADC_IRQ Interrupt. */
-        ADC_IRQ_SetVector(&ADC_ISR);
+    #if(ADC1_IRQ_REMOVE == 0u)
+        /* Set the ISR to point to the ADC1_IRQ Interrupt. */
+        ADC1_IRQ_SetVector(&ADC1_ISR);
         /* Set the priority. */
-        ADC_IRQ_SetPriority((uint8)ADC_INTC_NUMBER);
-    #endif   /* End ADC_IRQ_REMOVE */
+        ADC1_IRQ_SetPriority((uint8)ADC1_INTC_NUMBER);
+    #endif   /* End ADC1_IRQ_REMOVE */
 
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_Enable
+* Function Name: ADC1_Enable
 ********************************************************************************
 *
 * Summary:
@@ -120,14 +120,14 @@ void ADC_Init(void)
 *  No.
 *
 *******************************************************************************/
-void ADC_Enable(void)
+void ADC1_Enable(void)
 {
     uint8 enableInterrupts;
 
-    static int16 ADC_tempArray[ADC_NUMBER_OF_CHANNELS];
+    static int16 ADC1_tempArray[ADC1_NUMBER_OF_CHANNELS];
     
-    (void)CyDmaClearPendingDrq(ADC_tempChan);
-    (void)CyDmaClearPendingDrq(ADC_finalChan);
+    (void)CyDmaClearPendingDrq(ADC1_tempChan);
+    (void)CyDmaClearPendingDrq(ADC1_finalChan);
     
     
     /* Provides initialization procedure for the TempBuf DMA
@@ -136,20 +136,20 @@ void ADC_Enable(void)
     *  - Increment the destination address, but not the source address
     */
 
-    if (ADC_tempTD == DMA_INVALID_TD)
+    if (ADC1_tempTD == DMA_INVALID_TD)
     {
-        ADC_tempTD = CyDmaTdAllocate();
+        ADC1_tempTD = CyDmaTdAllocate();
     }
 
-    (void) CyDmaTdSetConfiguration(ADC_tempTD, ADC_TEMP_TRANSFER_COUNT,
-        ADC_tempTD, ((uint8)ADC_TempBuf__TD_TERMOUT_EN | (uint8)TD_INC_DST_ADR));
+    (void) CyDmaTdSetConfiguration(ADC1_tempTD, ADC1_TEMP_TRANSFER_COUNT,
+        ADC1_tempTD, ((uint8)ADC1_TempBuf__TD_TERMOUT_EN | (uint8)TD_INC_DST_ADR));
 
     /* From the SAR to the TempArray */
-    (void) CyDmaTdSetAddress(ADC_tempTD, (uint16)(LO16((uint32)ADC_SAR_DATA_ADDR_0)),
-        (uint16)(LO16((uint32)ADC_tempArray)));
+    (void) CyDmaTdSetAddress(ADC1_tempTD, (uint16)(LO16((uint32)ADC1_SAR_DATA_ADDR_0)),
+        (uint16)(LO16((uint32)ADC1_tempArray)));
 
     /* Associate the TD with the channel */
-    (void) CyDmaChSetInitialTd(ADC_tempChan, ADC_tempTD);
+    (void) CyDmaChSetInitialTd(ADC1_tempChan, ADC1_tempTD);
 
 
     /* Provides initialization procedure for the FinalBuf DMA
@@ -158,43 +158,43 @@ void ADC_Enable(void)
     *  - Increment the source and destination address
     */
 
-    if (ADC_finalTD == DMA_INVALID_TD)
+    if (ADC1_finalTD == DMA_INVALID_TD)
     {
-        ADC_finalTD = CyDmaTdAllocate();
+        ADC1_finalTD = CyDmaTdAllocate();
     }
     
-    (void) CyDmaTdSetConfiguration(ADC_finalTD, (ADC_FINAL_BYTES_PER_BURST),
-        ADC_finalTD, ((uint8)(ADC_FinalBuf__TD_TERMOUT_EN) | (uint8)TD_INC_SRC_ADR |
+    (void) CyDmaTdSetConfiguration(ADC1_finalTD, (ADC1_FINAL_BYTES_PER_BURST),
+        ADC1_finalTD, ((uint8)(ADC1_FinalBuf__TD_TERMOUT_EN) | (uint8)TD_INC_SRC_ADR |
             (uint8)TD_INC_DST_ADR));
 
     /* From the the TempArray to Final Array */
-    (void) CyDmaTdSetAddress(ADC_finalTD, (uint16)(LO16((uint32)ADC_tempArray)),
-        (uint16)(LO16((uint32)ADC_finalArray)));
+    (void) CyDmaTdSetAddress(ADC1_finalTD, (uint16)(LO16((uint32)ADC1_tempArray)),
+        (uint16)(LO16((uint32)ADC1_finalArray)));
 
     /* Associate the TD with the channel */
-    (void) CyDmaChSetInitialTd(ADC_finalChan, ADC_finalTD);
+    (void) CyDmaChSetInitialTd(ADC1_finalChan, ADC1_finalTD);
     
-    (void) CyDmaChEnable(ADC_tempChan, 1u);
-    (void) CyDmaChEnable(ADC_finalChan, 1u);
+    (void) CyDmaChEnable(ADC1_tempChan, 1u);
+    (void) CyDmaChEnable(ADC1_finalChan, 1u);
 
     /* Enable Counter and give Enable pulse to set an address of the last channel */
     enableInterrupts = CyEnterCriticalSection();
-    ADC_CYCLE_COUNTER_AUX_CONTROL_REG |= ((uint8)(ADC_CYCLE_COUNTER_ENABLE));
+    ADC1_CYCLE_COUNTER_AUX_CONTROL_REG |= ((uint8)(ADC1_CYCLE_COUNTER_ENABLE));
     CyExitCriticalSection(enableInterrupts);
 
     /* Enable FSM of the Base Component */
-    ADC_CONTROL_REG |= ((uint8)(ADC_BASE_COMPONENT_ENABLE));
-    ADC_CONTROL_REG |= ((uint8)(ADC_LOAD_COUNTER_PERIOD));
+    ADC1_CONTROL_REG |= ((uint8)(ADC1_BASE_COMPONENT_ENABLE));
+    ADC1_CONTROL_REG |= ((uint8)(ADC1_LOAD_COUNTER_PERIOD));
 
-    #if(ADC_IRQ_REMOVE == 0u)
+    #if(ADC1_IRQ_REMOVE == 0u)
         /* Clear a pending interrupt */
-        CyIntClearPending(ADC_INTC_NUMBER);
-    #endif   /* End ADC_IRQ_REMOVE */
+        CyIntClearPending(ADC1_INTC_NUMBER);
+    #endif   /* End ADC1_IRQ_REMOVE */
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_Start
+* Function Name: ADC1_Start
 ********************************************************************************
 *
 * Summary:
@@ -208,28 +208,28 @@ void ADC_Enable(void)
 *
 * Side Effects:
 *  If the initVar variable is already set, this function only calls the 
-*  ADC_Enable() function
+*  ADC1_Enable() function
 *
 * Reentrant:
 *  No.
 *
 *******************************************************************************/
-void ADC_Start(void)
+void ADC1_Start(void)
 {
-    if(ADC_initVar == 0u)
+    if(ADC1_initVar == 0u)
     {
-        ADC_Init();
-        ADC_initVar = 1u;
+        ADC1_Init();
+        ADC1_initVar = 1u;
     }
 
-    ADC_SAR_Start();
-    ADC_Enable();
-    (void) CY_GET_REG8(ADC_STATUS_PTR);
+    ADC1_SAR_Start();
+    ADC1_Enable();
+    (void) CY_GET_REG8(ADC1_STATUS_PTR);
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_Stop
+* Function Name: ADC1_Stop
 ********************************************************************************
 *
 * Summary:
@@ -248,16 +248,16 @@ void ADC_Start(void)
 *  No.
 *
 *******************************************************************************/
-void ADC_Stop(void)
+void ADC1_Stop(void)
 {
-    ADC_SAR_Stop();
-    ADC_Disable();
+    ADC1_SAR_Stop();
+    ADC1_Disable();
 }
 
-#if(ADC_SAMPLE_MODE != ADC_SAMPLE_MODE_HW_TRIGGERED)
+#if(ADC1_SAMPLE_MODE != ADC1_SAMPLE_MODE_HW_TRIGGERED)
 
     /*******************************************************************************
-    * Function Name: ADC_StartConvert
+    * Function Name: ADC1_StartConvert
     ********************************************************************************
     *
     * Summary:
@@ -272,31 +272,31 @@ void ADC_Stop(void)
     *  None.
     *
     * Side Effects:
-    *  Calling ADC_StartConvert() disables the external SOC pin.
+    *  Calling ADC1_StartConvert() disables the external SOC pin.
     *
     * Reentrant:
     *  No.
     *
     *******************************************************************************/
-    void ADC_StartConvert(void)
+    void ADC1_StartConvert(void)
     {
-        #if(ADC_SAMPLE_MODE != ADC_SAMPLE_MODE_FREE_RUNNING)
+        #if(ADC1_SAMPLE_MODE != ADC1_SAMPLE_MODE_FREE_RUNNING)
 
-            ADC_CONTROL_REG |= ((uint8)(ADC_SOFTWARE_SOC_PULSE));
+            ADC1_CONTROL_REG |= ((uint8)(ADC1_SOFTWARE_SOC_PULSE));
 
         #else
 
-            ADC_SAR_StartConvert();
+            ADC1_SAR_StartConvert();
 
         #endif /*
-                 #if(ADC_SAMPLE_MODE !=
-                 ADC_SAMPLE_MODE_FREE_RUNNING)
+                 #if(ADC1_SAMPLE_MODE !=
+                 ADC1_SAMPLE_MODE_FREE_RUNNING)
                */
     }
 
 
     /*******************************************************************************
-    * Function Name: ADC_StopConvert
+    * Function Name: ADC1_StopConvert
     ********************************************************************************
     *
     * Summary:
@@ -317,16 +317,16 @@ void ADC_Stop(void)
     *  No.
     *
     *******************************************************************************/
-    void ADC_StopConvert(void)
+    void ADC1_StopConvert(void)
     {
-        ADC_SAR_StopConvert();
+        ADC1_SAR_StopConvert();
     }
 
-#endif /* ADC_SAMPLE_MODE != ADC_SAMPLE_MODE_HW_TRIGGERED */
+#endif /* ADC1_SAMPLE_MODE != ADC1_SAMPLE_MODE_HW_TRIGGERED */
 
 
 /*******************************************************************************
-* Function Name: ADC_IsEndConversion
+* Function Name: ADC1_IsEndConversion
 ********************************************************************************
 *
 * Summary:
@@ -336,9 +336,9 @@ void ADC_Stop(void)
 * Parameters:
 *  retMode: Check conversion return mode
 *   Values:
-*         - ADC_RETURN_STATUS      - Immediately returns the 
+*         - ADC1_RETURN_STATUS      - Immediately returns the 
 *                                                 status
-*         - ADC_WAIT_FOR_RESULT    - Does not return a result 
+*         - ADC1_WAIT_FOR_RESULT    - Does not return a result 
 *                                                 until the conversion 
 *                                                 is complete
 *
@@ -353,21 +353,21 @@ void ADC_Stop(void)
 *  No.
 *
 *******************************************************************************/
-uint32 ADC_IsEndConversion(uint8 retMode)
+uint32 ADC1_IsEndConversion(uint8 retMode)
 {
     uint8 status;
 
     do
     {
-      status = ADC_STATUS_REG;
-    } while ((status == 0u) && (retMode == ADC_WAIT_FOR_RESULT));
+      status = ADC1_STATUS_REG;
+    } while ((status == 0u) && (retMode == ADC1_WAIT_FOR_RESULT));
 
     return((uint32)status);
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_GetResult16
+* Function Name: ADC1_GetResult16
 ********************************************************************************
 *
 * Summary:
@@ -387,14 +387,14 @@ uint32 ADC_IsEndConversion(uint8 retMode)
 *  No.
 *
 *******************************************************************************/
-int16 ADC_GetResult16(uint16 chan)
+int16 ADC1_GetResult16(uint16 chan)
 {
-    return (ADC_finalArray[ADC_GET_RESULT_INDEX_OFFSET - chan] - ADC_SAR_shift);
+    return (ADC1_finalArray[ADC1_GET_RESULT_INDEX_OFFSET - chan] - ADC1_SAR_shift);
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_GetAdcResult
+* Function Name: ADC1_GetAdcResult
 ********************************************************************************
 *
 * Summary:
@@ -413,14 +413,14 @@ int16 ADC_GetResult16(uint16 chan)
 *  No.
 *
 *******************************************************************************/
-int16 ADC_GetAdcResult(void)
+int16 ADC1_GetAdcResult(void)
 {
-    return (ADC_SAR_GetResult16());
+    return (ADC1_SAR_GetResult16());
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_SetOffset
+* Function Name: ADC1_SetOffset
 ********************************************************************************
 *
 * Summary:
@@ -436,22 +436,22 @@ int16 ADC_GetAdcResult(void)
 *  None.
 *
 * Side Effects:
-*  Affects ADC_CountsTo_Volts(), 
-*  ADC_CountsTo_mVolts(), and ADC_CountsTo_uVolts() 
+*  Affects ADC1_CountsTo_Volts(), 
+*  ADC1_CountsTo_mVolts(), and ADC1_CountsTo_uVolts() 
 *  by subtracting the given offset.
 *
 * Reentrant:
 *  No.
 *
 *******************************************************************************/
-void ADC_SetOffset(int32 offset)
+void ADC1_SetOffset(int32 offset)
 {
-    ADC_SAR_SetOffset((int16)offset);
+    ADC1_SAR_SetOffset((int16)offset);
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_SetResolution
+* Function Name: ADC1_SetResolution
 ********************************************************************************
 *
 * Summary:
@@ -470,31 +470,31 @@ void ADC_SetOffset(int32 offset)
 * Side Effects:
 *  The ADC_SAR_Seq resolution cannot be changed during a conversion cycle. The
 *  recommended best practice is to stop conversions with
-*  ADC_StopConvert(), change the resolution, then restart the
-*  conversions with ADC_StartConvert().
+*  ADC1_StopConvert(), change the resolution, then restart the
+*  conversions with ADC1_StartConvert().
 *  If you decide not to stop conversions before calling this API, you
-*  should use ADC_IsEndConversion() to wait until conversion is 
+*  should use ADC1_IsEndConversion() to wait until conversion is 
 *  complete  before changing the resolution.
 *  If you call ADC_SetResolution() during a conversion, the resolution will
 *  not be changed until the current conversion is complete. Data will not be
 *  available in the new resolution for another 6 + "New Resolution(in bits)"
 *  clock cycles.
 *  You may need add a delay of this number of clock cycles after
-*  ADC_SetResolution() is called before data is valid again.
-*  Affects ADC_CountsTo_Volts(), ADC_CountsTo_mVolts(), 
-*  and ADC_CountsTo_uVolts() by calculating the correct conversion 
+*  ADC1_SetResolution() is called before data is valid again.
+*  Affects ADC1_CountsTo_Volts(), ADC1_CountsTo_mVolts(), 
+*  and ADC1_CountsTo_uVolts() by calculating the correct conversion 
 *  between ADC counts and the applied input voltage. Calculation depends on 
 *  resolution, input range, and voltage reference.
 *
 *******************************************************************************/
-void ADC_SetResolution(uint8 resolution)
+void ADC1_SetResolution(uint8 resolution)
 {
-    ADC_SAR_SetResolution(resolution);
+    ADC1_SAR_SetResolution(resolution);
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_SetGain
+* Function Name: ADC1_SetGain
 ********************************************************************************
 *
 * Summary:
@@ -513,14 +513,14 @@ void ADC_SetResolution(uint8 resolution)
 *  No.
 *
 *******************************************************************************/
-void ADC_SetGain(int32 adcGain)
+void ADC1_SetGain(int32 adcGain)
 {
-    ADC_SAR_SetGain((int16)adcGain);
+    ADC1_SAR_SetGain((int16)adcGain);
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_SetScaledGain
+* Function Name: ADC1_SetScaledGain
 ********************************************************************************
 *
 * Summary:
@@ -536,22 +536,22 @@ void ADC_SetGain(int32 adcGain)
 *  None.
 *
 * Side Effects:
-*  Affects ADC_CountsTo_Volts(), ADC_CountsTo_mVolts(),
-*  ADC_CountsTo_uVolts() by supplying the correct conversion 
+*  Affects ADC1_CountsTo_Volts(), ADC1_CountsTo_mVolts(),
+*  ADC1_CountsTo_uVolts() by supplying the correct conversion 
 *  between ADC counts and the applied input voltage
 *
 * Reentrant:
 *  No.
 *
 *******************************************************************************/
-void ADC_SetScaledGain(int32 adcGain)
+void ADC1_SetScaledGain(int32 adcGain)
 {
-    ADC_SAR_SetScaledGain(adcGain);
+    ADC1_SAR_SetScaledGain(adcGain);
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_CountsTo_mVolts
+* Function Name: ADC1_CountsTo_mVolts
 ********************************************************************************
 *
 * Summary:
@@ -570,14 +570,14 @@ void ADC_SetScaledGain(int32 adcGain)
 *  No.
 *
 *******************************************************************************/
-int32 ADC_CountsTo_mVolts(int16 adcCounts)
+int32 ADC1_CountsTo_mVolts(int16 adcCounts)
 {
-    return ((int32) ADC_SAR_CountsTo_mVolts(adcCounts));
+    return ((int32) ADC1_SAR_CountsTo_mVolts(adcCounts));
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_CountsTo_uVolts
+* Function Name: ADC1_CountsTo_uVolts
 ********************************************************************************
 *
 * Summary:
@@ -596,14 +596,14 @@ int32 ADC_CountsTo_mVolts(int16 adcCounts)
 *  No.
 *
 *******************************************************************************/
-int32 ADC_CountsTo_uVolts(int16 adcCounts)
+int32 ADC1_CountsTo_uVolts(int16 adcCounts)
 {
-    return (ADC_SAR_CountsTo_uVolts(adcCounts));
+    return (ADC1_SAR_CountsTo_uVolts(adcCounts));
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_CountsTo_Volts
+* Function Name: ADC1_CountsTo_Volts
 ********************************************************************************
 *
 * Summary:
@@ -622,9 +622,9 @@ int32 ADC_CountsTo_uVolts(int16 adcCounts)
 *  No.
 *
 *******************************************************************************/
-float32 ADC_CountsTo_Volts(int16 adcCounts)
+float32 ADC1_CountsTo_Volts(int16 adcCounts)
 {
-    return (ADC_SAR_CountsTo_Volts(adcCounts));
+    return (ADC1_SAR_CountsTo_Volts(adcCounts));
 }
 
 

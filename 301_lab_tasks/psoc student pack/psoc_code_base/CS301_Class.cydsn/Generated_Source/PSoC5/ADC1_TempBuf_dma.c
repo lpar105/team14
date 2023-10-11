@@ -1,5 +1,5 @@
 /***************************************************************************
-* File Name: ADC_FinalBuf_dma.c  
+* File Name: ADC1_TempBuf_dma.c  
 * Version 1.70
 *
 *  Description:
@@ -19,7 +19,7 @@
 ********************************************************************************/
 #include <CYLIB.H>
 #include <CYDMAC.H>
-#include <ADC_FinalBuf_dma.H>
+#include <ADC1_TempBuf_dma.H>
 
 
 
@@ -29,47 +29,47 @@
 * 
 * 
 * 
-* ADC_FinalBuf__DRQ_CTL_REG
+* ADC1_TempBuf__DRQ_CTL_REG
 * 
 * 
-* ADC_FinalBuf__DRQ_NUMBER
+* ADC1_TempBuf__DRQ_NUMBER
 * 
 * Number of TD's used by this channel.
-* ADC_FinalBuf__NUMBEROF_TDS
+* ADC1_TempBuf__NUMBEROF_TDS
 * 
 * Priority of this channel.
-* ADC_FinalBuf__PRIORITY
+* ADC1_TempBuf__PRIORITY
 * 
-* True if ADC_FinalBuf_TERMIN_SEL is used.
-* ADC_FinalBuf__TERMIN_EN
+* True if ADC1_TempBuf_TERMIN_SEL is used.
+* ADC1_TempBuf__TERMIN_EN
 * 
 * TERMIN interrupt line to signal terminate.
-* ADC_FinalBuf__TERMIN_SEL
+* ADC1_TempBuf__TERMIN_SEL
 * 
 * 
-* True if ADC_FinalBuf_TERMOUT0_SEL is used.
-* ADC_FinalBuf__TERMOUT0_EN
+* True if ADC1_TempBuf_TERMOUT0_SEL is used.
+* ADC1_TempBuf__TERMOUT0_EN
 * 
 * 
 * TERMOUT0 interrupt line to signal completion.
-* ADC_FinalBuf__TERMOUT0_SEL
+* ADC1_TempBuf__TERMOUT0_SEL
 * 
 * 
-* True if ADC_FinalBuf_TERMOUT1_SEL is used.
-* ADC_FinalBuf__TERMOUT1_EN
+* True if ADC1_TempBuf_TERMOUT1_SEL is used.
+* ADC1_TempBuf__TERMOUT1_EN
 * 
 * 
 * TERMOUT1 interrupt line to signal completion.
-* ADC_FinalBuf__TERMOUT1_SEL
+* ADC1_TempBuf__TERMOUT1_SEL
 * 
 ****************************************************************************/
 
 
-/* Zero based index of ADC_FinalBuf dma channel */
-uint8 ADC_FinalBuf_DmaHandle = DMA_INVALID_CHANNEL;
+/* Zero based index of ADC1_TempBuf dma channel */
+uint8 ADC1_TempBuf_DmaHandle = DMA_INVALID_CHANNEL;
 
 /*********************************************************************
-* Function Name: uint8 ADC_FinalBuf_DmaInitalize
+* Function Name: uint8 ADC1_TempBuf_DmaInitalize
 **********************************************************************
 * Summary:
 *   Allocates and initialises a channel of the DMAC to be used by the
@@ -94,34 +94,34 @@ uint8 ADC_FinalBuf_DmaHandle = DMA_INVALID_CHANNEL;
 *
 *
 *******************************************************************/
-uint8 ADC_FinalBuf_DmaInitialize(uint8 BurstCount, uint8 ReqestPerBurst, uint16 UpperSrcAddress, uint16 UpperDestAddress) 
+uint8 ADC1_TempBuf_DmaInitialize(uint8 BurstCount, uint8 ReqestPerBurst, uint16 UpperSrcAddress, uint16 UpperDestAddress) 
 {
 
     /* Allocate a DMA channel. */
-    ADC_FinalBuf_DmaHandle = (uint8)ADC_FinalBuf__DRQ_NUMBER;
+    ADC1_TempBuf_DmaHandle = (uint8)ADC1_TempBuf__DRQ_NUMBER;
 
     /* Configure the channel. */
-    (void)CyDmaChSetConfiguration(ADC_FinalBuf_DmaHandle,
+    (void)CyDmaChSetConfiguration(ADC1_TempBuf_DmaHandle,
                                   BurstCount,
                                   ReqestPerBurst,
-                                  (uint8)ADC_FinalBuf__TERMOUT0_SEL,
-                                  (uint8)ADC_FinalBuf__TERMOUT1_SEL,
-                                  (uint8)ADC_FinalBuf__TERMIN_SEL);
+                                  (uint8)ADC1_TempBuf__TERMOUT0_SEL,
+                                  (uint8)ADC1_TempBuf__TERMOUT1_SEL,
+                                  (uint8)ADC1_TempBuf__TERMIN_SEL);
 
     /* Set the extended address for the transfers */
-    (void)CyDmaChSetExtendedAddress(ADC_FinalBuf_DmaHandle, UpperSrcAddress, UpperDestAddress);
+    (void)CyDmaChSetExtendedAddress(ADC1_TempBuf_DmaHandle, UpperSrcAddress, UpperDestAddress);
 
     /* Set the priority for this channel */
-    (void)CyDmaChPriority(ADC_FinalBuf_DmaHandle, (uint8)ADC_FinalBuf__PRIORITY);
+    (void)CyDmaChPriority(ADC1_TempBuf_DmaHandle, (uint8)ADC1_TempBuf__PRIORITY);
     
-    return ADC_FinalBuf_DmaHandle;
+    return ADC1_TempBuf_DmaHandle;
 }
 
 /*********************************************************************
-* Function Name: void ADC_FinalBuf_DmaRelease
+* Function Name: void ADC1_TempBuf_DmaRelease
 **********************************************************************
 * Summary:
-*   Frees the channel associated with ADC_FinalBuf.
+*   Frees the channel associated with ADC1_TempBuf.
 *
 *
 * Parameters:
@@ -133,9 +133,9 @@ uint8 ADC_FinalBuf_DmaInitialize(uint8 BurstCount, uint8 ReqestPerBurst, uint16 
 *   void.
 *
 *******************************************************************/
-void ADC_FinalBuf_DmaRelease(void) 
+void ADC1_TempBuf_DmaRelease(void) 
 {
     /* Disable the channel */
-    (void)CyDmaChDisable(ADC_FinalBuf_DmaHandle);
+    (void)CyDmaChDisable(ADC1_TempBuf_DmaHandle);
 }
 
