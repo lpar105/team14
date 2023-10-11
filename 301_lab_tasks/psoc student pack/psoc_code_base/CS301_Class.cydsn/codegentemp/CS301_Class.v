@@ -1,6 +1,6 @@
 // ======================================================================
 // CS301_Class.v generated from TopDesign.cysch
-// 10/11/2023 at 20:45
+// 10/12/2023 at 09:11
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -4380,13 +4380,6 @@ module top ;
 
 	assign tmpOE__rightIntersectionSensor_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		eoc
-		 (.int_signal(Net_4670));
-
-
 	wire [0:0] tmpOE__LED_PIN_4_net;
 	wire [0:0] tmpFB_0__LED_PIN_4_net;
 	wire [0:0] tmpIO_0__LED_PIN_4_net;
@@ -4540,8 +4533,8 @@ module top ;
 
 	cy_isr_v1_0
 		#(.int_type(2'b10))
-		isr_TS
-		 (.int_signal(Net_1619));
+		eoc
+		 (.int_signal(Net_4670));
 
 
 

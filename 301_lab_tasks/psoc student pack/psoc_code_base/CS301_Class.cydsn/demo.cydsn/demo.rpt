@@ -1,0 +1,17 @@
+Loading plugins phase: Elapsed time ==> 0s.331ms
+<CYPRESSTAG name="CyDsfit arguments...">
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\demo.cyprj -d CY8C5888LTI-LP097 -s H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+</CYPRESSTAG>
+<CYPRESSTAG name="Design elaboration results...">
+ADD: sdb.M0065: information: Analog terminal "circuit_result.analog_0" on TopDesign is unconnected.
+ * H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1)
+ * H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\TopDesign\TopDesign.cysch (Shape_7.1)
+
+ADD: sdb.M0065: information: Analog terminal "LED.analog_0" on TopDesign is unconnected.
+ * H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\TopDesign\TopDesign.cysch (Signal: Net_3)
+ * H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\demo.cydsn\TopDesign\TopDesign.cysch (Shape_2.1)
+
+ADD: sdb.M0052: error: Unable to find component "cy_boot_v5_82".
+
+</CYPRESSTAG>
+Elaboration phase: Elapsed time ==> 0s.585ms

@@ -44,6 +44,9 @@ int turningCount = 30;
 volatile int shouldUpdate = 1;
 #define MOVE_DISTANCE 9999999 //cm
 volatile int dotsTravelled = 0;
+int consecStops = 0;
+int started = 0;
+int instCounter = 0;
 //* ========================================
 void usbPutString(char * s);
 void usbPutChar(char c);
@@ -88,33 +91,33 @@ CY_ISR(eoc) {
   flag = 1;
 }
 
-CY_ISR(MyISR) {
-  motorFlag = 1;
-}
-
 int main() {
   CYGlobalIntEnable;
+    LED_PIN_6_Write(1);
+    LED_PIN_1_Write(1);
+  //USBUART_Start(0, USBUART_5V_OPERATION);
+  //UART_Start();
 
-  USBUART_Start(0, USBUART_5V_OPERATION);
-  UART_Start();
+  //QuadDec_M1_Start();
+  //QuadDec_M2_Start();
 
-  QuadDec_M1_Start();
-  QuadDec_M2_Start();
+  //isr_TS_StartEx(MyISR);
 
-  isr_TS_StartEx(MyISR);
-
-  RF_BT_SELECT_Write(1);
-
+  //RF_BT_SELECT_Write(1);
+    //ADC1_IRQ_Enable();
   ADC1_Start();
+
   ADC1_StartConvert();
+  
   eoc_StartEx(eoc);
 
   initMotors();
 
   stop();
 
-  isr_TS_StartEx(MyISR);
-  Timer_TS_Start();
+  //isr_TS_StartEx(MyISR);
+  //Timer_TS_Start();
+    
 
     // Loop through the arrays and set each element to 55 or 0
     for (int i = 0; i < 500; i++) {
@@ -124,45 +127,10 @@ int main() {
         distance[i] = 0;
         distance[i] = 55;
     }
+    pathfind(instruction, distance, squares);
 
   for (;;) {
 
-    if (motorFlag == 1) { // timer has counted 0.1s 
-
-      isr_TS_Disable(); // disabling the interrupts
-      if (step == 0) { //takes the first measurement, sets steps to 2, the next time the timer goes off, it will do the second measurement
-        v1L = QuadDec_M1_GetCounter(); // first measurement taken - LEFT
-        v1R = QuadDec_M2_GetCounter(); // first measurement taken - RIGHT
-        step++;
-      } else { // second measure
-        step = 0;
-
-        v2L = QuadDec_M1_GetCounter(); // second measurement taken - LEFT
-        v2R = QuadDec_M2_GetCounter(); // second measurement taken - RIGHT
-
-        numRotationsL = (v2L - v1L);
-        numRotationsR = (v2R - v1R);
-
-        int changeInDots = (((abs(numRotationsR) + abs(numRotationsL)) ) / 2);
-        dotsTravelled = changeInDots + dotsTravelled;
-        distanceTravelled = (dotsTravelled * (float)(1.217375 / 6.105)); //increase 6.1 to go further, decrease to go shorter
-                                                                         //6.2 for low, 6.1 for normal, 6 for full
-
-        QuadDec_M1_SetCounter(0); // set quad counter to 0 to avoid overflow
-        QuadDec_M2_SetCounter(0); // set quad counter to 0 to avoid overflow 
-
-      }
-      motorFlag = 0; // interrupt flag is back to 0
-      isr_TS_Enable(); // interrupt enabled
-
-    }
-
-    if (distanceTravelled > MOVE_DISTANCE) {
-      stop();
-
-    } else {
-
-      LED_PIN_4_Write(0);
       if (flag == 1) {
 
         ADC1_IRQ_Disable();
@@ -175,7 +143,6 @@ int main() {
 
         count++;
         if (count == ADC_COUNT) {
-          LED_PIN_4_Write(1);
           count = 0;
           int highCountLeftIntersection = 0;
           int highCountLeftLine = 0;
@@ -217,142 +184,30 @@ int main() {
 
           }
 
-          if (L_LINE_BLACK) {
-            LED_PIN_1_Write(0);
-          } else {
-            LED_PIN_1_Write(1);
-          }
-
-          if (M_LINE_BLACK) {
-            LED_PIN_2_Write(0);
-          } else {
-            LED_PIN_2_Write(1);
-          }
-
-          if (R_LINE_BLACK) {
-            LED_PIN_3_Write(0);
-          } else {
-            LED_PIN_3_Write(1);
-          }
-
+         
           shouldUpdate = 0;
           turnTimer = 0;
-
-          // If all the sensors are under black light, stop the robot
-          if (L_INT_BLACK && M_LINE_BLACK && R_INT_BLACK && TC_BLACK && L_LINE_BLACK && R_LINE_BLACK) {
-
-            stop();
-
-          } else if (turningLeft == 1) { // if robot is turning left
-            while (turnTimer != 10000) {
-              turnLeft();
-              turnTimer++;
-            }
-            turnEnable = 0;
-            turningLeft = 0;
-
-          } else if (turningRight == 1) { // if robot is turning right
-            while (turnTimer != 10000) {
-              turnRight();
-              turnTimer++;
-            }
-            turnEnable = 0;
-            turningRight = 0;
-
-          } else if (L_INT_BLACK && (M_LINE_BLACK || L_LINE_BLACK) && turnEnable == 1) { //initiate the turn left 
-
-            turnTimer++;
-            turningLeft = 1;
-            lastAdjustDirection = 0;
-
-          } else if (R_INT_BLACK && (M_LINE_BLACK || R_LINE_BLACK) && turnEnable == 1) { //initiate the right turn
-
-            turnTimer++;
-            turningRight = 1;
-            lastAdjustDirection = 2;
-
-          } else if (R_LINE_BLACK && L_LINE_BLACK) {
-            // do nothing for now
-
-          } else if (L_INT_BLACK && R_INT_BLACK) {
-            // do nothing for now
-
-          } else if (M_LINE_BLACK && L_LINE_BLACK) { // if robot slightly too far right
-            adjustLeft();
-            turnEnable = 1;
-            lastAdjustDirection = 0;
-
-          } else if (M_LINE_BLACK && R_LINE_BLACK) { //  if robot slightly too far left
-            adjustRight();
-            lastAdjustDirection = 2;
-            turnEnable = 1;
-
-          } else if (M_LINE_BLACK) { // if robot in the center keep moving straight
-            shouldUpdate = 1;
-            lastAdjustDirection = 1;
-            turnEnable = 1;
-            driveForward(distanceTravelled, TARGET_SPEED);
-
-          } else if (R_LINE_BLACK) { // if robot too far left
-            adjustRight();
-            turnEnable = 1;
-            lastAdjustDirection = 2;
-
-          } else if (L_LINE_BLACK) { // if robot too far right
-            adjustLeft();
-            turnEnable = 1;
-            lastAdjustDirection = 0;
-
-          } else if (L_INT_BLACK) {
-            //hardAdjustLeft();
-            turningLeft = 1;
-            lastAdjustDirection = 0;
-
-          } else if (R_INT_BLACK) {
-            //hardAdjustRight();
-            turningRight = 1;
-            lastAdjustDirection = 2;
-//          } else if (highCountLeftIntersection > 150 && highCountRightIntersection > 150 && highCountLeftLine > 150 && highCountRightLine > 150 && highCountMiddleLine > 150 && highCountTurnComplete > 150){
-//            driveForward(distanceTravelled, TARGET_SPEED);
-//            
-//        }
-        }
-            else { // completely lost find way
-            if (lastAdjustDirection == 0) {
-              turnLeft();
-            } else if (lastAdjustDirection == 1) { // last movement was forward (middle sensor sensed)
-              //hardAdjustLeft();
-              turnRight();
-              //reverse(3000); // random number 3000
+        LED_PIN_6_Write(!LED_PIN_6_Read());
+        if (instruction[instCounter] == 0 && (started == 0 || consecStops >= 6)) {
+            //count = 1000;
+            instCounter++;
+            LED_PIN_1_Write(1);
+        } else {
+            LED_PIN_1_Write(0);
+            started = 1;
+            driveForward(0,0);
+            // DRIVING LOGIC GOES HERE
+            if (instruction[instCounter] == 0) {
+                consecStops++;
             } else {
-              turnRight();
+                consecStops = 0;
             }
-            }
+        }
         }
 
         flag = 0;
         ADC1_IRQ_Enable();
       }
-    }
+    
   }
-}
-
-void usbPutString(char * s) {
-  // !! Assumes that *s is a string with allocated space >=64 chars     
-  //  Since USB implementation retricts data packets to 64 chars, this function truncates the
-  //  length to 62 char (63rd char is a '!')
-
-  #ifdef USE_USB
-  while (USBUART_CDCIsReady() == 0);
-  s[63] = '\0';
-  s[62] = '!';
-  USBUART_PutData((uint8 * ) s, strlen(s));
-  #endif
-}
-//* ========================================
-void usbPutChar(char c) {
-  #ifdef USE_USB
-  while (USBUART_CDCIsReady() == 0);
-  USBUART_PutChar(c);
-  #endif
 }

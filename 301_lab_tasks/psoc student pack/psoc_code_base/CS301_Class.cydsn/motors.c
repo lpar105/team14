@@ -44,8 +44,8 @@ int getRightPWM(void) {
 //}
 
 void driveForward(int distanceTravelled, int targetSpeed) {  
-        PWM_1_WriteCompare(currentFLeftSpeed); 
-        PWM_2_WriteCompare(currentFRightSpeed); 
+        PWM_1_WriteCompare(175); 
+        PWM_2_WriteCompare(175); 
 }
 
 void stop() {
