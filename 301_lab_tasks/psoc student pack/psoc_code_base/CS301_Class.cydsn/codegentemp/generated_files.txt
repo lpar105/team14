@@ -112,10 +112,10 @@
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_1_aliases.h" value="HEADER;;;;;LED_PIN_1" />
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_1.c" value="SOURCE_C;CortexM3;;;;LED_PIN_1" />
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\LED_PIN_1.h" value="HEADER;;;;;LED_PIN_1" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC.c" value="SOURCE_C;CortexM3;;;;ADC" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC.h" value="HEADER;;;;;ADC" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_PM.c" value="SOURCE_C;CortexM3;;;;ADC" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_INT.c" value="SOURCE_C;CortexM3;;;;ADC" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1.c" value="SOURCE_C;CortexM3;;;;ADC1" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1.h" value="HEADER;;;;;ADC1" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_PM.c" value="SOURCE_C;CortexM3;;;;ADC1" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_INT.c" value="SOURCE_C;CortexM3;;;;ADC1" />
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\leftLineSensor_aliases.h" value="HEADER;;;;;leftLineSensor" />
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\leftLineSensor.c" value="SOURCE_C;CortexM3;;;;leftLineSensor" />
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\leftLineSensor.h" value="HEADER;;;;;leftLineSensor" />
@@ -161,18 +161,18 @@
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\USBUART_Dp.h" value="HEADER;;;;;USBUART_Dp" />
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\UART_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_IntClock" />
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\UART_IntClock.h" value="HEADER;;;;;UART_IntClock" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_SAR.c" value="SOURCE_C;CortexM3;;;;ADC_SAR" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_SAR.h" value="HEADER;;;;;ADC_SAR" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_SAR_INT.c" value="SOURCE_C;CortexM3;;;;ADC_SAR" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_SAR_PM.c" value="SOURCE_C;CortexM3;;;;ADC_SAR" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_IntClock.c" value="SOURCE_C;CortexM3;;;;ADC_IntClock" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_IntClock.h" value="HEADER;;;;;ADC_IntClock" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_TempBuf_dma.c" value="SOURCE_C;CortexM3;;;;ADC_TempBuf" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_TempBuf_dma.h" value="HEADER;;;;;ADC_TempBuf" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_FinalBuf_dma.c" value="SOURCE_C;CortexM3;;;;ADC_FinalBuf" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_FinalBuf_dma.h" value="HEADER;;;;;ADC_FinalBuf" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_IRQ" />
-  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC_IRQ.h" value="HEADER;;;;;ADC_IRQ" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_SAR.c" value="SOURCE_C;CortexM3;;;;ADC1_SAR" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_SAR.h" value="HEADER;;;;;ADC1_SAR" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_SAR_INT.c" value="SOURCE_C;CortexM3;;;;ADC1_SAR" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_SAR_PM.c" value="SOURCE_C;CortexM3;;;;ADC1_SAR" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_IntClock.c" value="SOURCE_C;CortexM3;;;;ADC1_IntClock" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_IntClock.h" value="HEADER;;;;;ADC1_IntClock" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_TempBuf_dma.c" value="SOURCE_C;CortexM3;;;;ADC1_TempBuf" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_TempBuf_dma.h" value="HEADER;;;;;ADC1_TempBuf" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_FinalBuf_dma.c" value="SOURCE_C;CortexM3;;;;ADC1_FinalBuf" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_FinalBuf_dma.h" value="HEADER;;;;;ADC1_FinalBuf" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC1_IRQ" />
+  <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\ADC1_IRQ.h" value="HEADER;;;;;ADC1_IRQ" />
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM3;;;;Em_EEPROM_Dynamic" />
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\cy_em_eeprom.h" value="HEADER;;;;;Em_EEPROM_Dynamic" />
   <file name="H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />

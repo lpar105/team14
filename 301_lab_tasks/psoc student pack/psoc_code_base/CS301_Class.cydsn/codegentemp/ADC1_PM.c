@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: ADC_PM.c
+* File Name: ADC1_PM.c
 * Version 2.10
 *
 * Description:
@@ -15,15 +15,15 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "ADC.h"
-#include "ADC_SAR.h"
-#if(ADC_CLOCK_SOURCE == ADC_CLOCK_INTERNAL)
-    #include "ADC_IntClock.h"
-#endif   /* ADC_CLOCK_SOURCE == ADC_CLOCK_INTERNAL */
+#include "ADC1.h"
+#include "ADC1_SAR.h"
+#if(ADC1_CLOCK_SOURCE == ADC1_CLOCK_INTERNAL)
+    #include "ADC1_IntClock.h"
+#endif   /* ADC1_CLOCK_SOURCE == ADC1_CLOCK_INTERNAL */
 
 
 /*******************************************************************************
-* Function Name: ADC_Sleep
+* Function Name: ADC1_Sleep
 ********************************************************************************
 *
 * Summary:
@@ -43,20 +43,20 @@
 *  No.
 *
 *******************************************************************************/
-void ADC_Sleep(void)
+void ADC1_Sleep(void)
 {
-    ADC_SAR_Stop();
-    ADC_SAR_Sleep();
-    ADC_Disable();
+    ADC1_SAR_Stop();
+    ADC1_SAR_Sleep();
+    ADC1_Disable();
 
-    #if(ADC_CLOCK_SOURCE == ADC_CLOCK_INTERNAL)
-        ADC_IntClock_Stop();
-    #endif   /* ADC_CLOCK_SOURCE == ADC_CLOCK_INTERNAL */
+    #if(ADC1_CLOCK_SOURCE == ADC1_CLOCK_INTERNAL)
+        ADC1_IntClock_Stop();
+    #endif   /* ADC1_CLOCK_SOURCE == ADC1_CLOCK_INTERNAL */
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_Wakeup
+* Function Name: ADC1_Wakeup
 ********************************************************************************
 *
 * Summary:
@@ -76,30 +76,30 @@ void ADC_Sleep(void)
 *  No.
 *
 *******************************************************************************/
-void ADC_Wakeup(void)
+void ADC1_Wakeup(void)
 {
-    ADC_SAR_Wakeup();
-    ADC_SAR_Enable();
+    ADC1_SAR_Wakeup();
+    ADC1_SAR_Enable();
 
-    #if(ADC_CLOCK_SOURCE == ADC_CLOCK_INTERNAL)
-        ADC_IntClock_Start();
-    #endif   /* ADC_CLOCK_SOURCE == ADC_CLOCK_INTERNAL */
+    #if(ADC1_CLOCK_SOURCE == ADC1_CLOCK_INTERNAL)
+        ADC1_IntClock_Start();
+    #endif   /* ADC1_CLOCK_SOURCE == ADC1_CLOCK_INTERNAL */
 
     /* The block is ready to use 10 us after the SAR enable signal is set high. */
     CyDelayUs(10u);
     
-    ADC_Enable();
+    ADC1_Enable();
 
-    #if(ADC_SAMPLE_MODE == ADC_SAMPLE_MODE_FREE_RUNNING)
-        ADC_SAR_StartConvert();
-    #endif /* (ADC_SAMPLE_MODE == ADC_SAMPLE_MODE_FREE_RUNNING) */
+    #if(ADC1_SAMPLE_MODE == ADC1_SAMPLE_MODE_FREE_RUNNING)
+        ADC1_SAR_StartConvert();
+    #endif /* (ADC1_SAMPLE_MODE == ADC1_SAMPLE_MODE_FREE_RUNNING) */
 
-    (void) CY_GET_REG8(ADC_STATUS_PTR);
+    (void) CY_GET_REG8(ADC1_STATUS_PTR);
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_SaveConfig
+* Function Name: ADC1_SaveConfig
 ********************************************************************************
 *
 * Summary:
@@ -118,14 +118,14 @@ void ADC_Wakeup(void)
 *  No.
 *
 *******************************************************************************/
-void ADC_SaveConfig(void)
+void ADC1_SaveConfig(void)
 {
 
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_RestoreConfig
+* Function Name: ADC1_RestoreConfig
 ********************************************************************************
 *
 * Summary:
@@ -144,7 +144,7 @@ void ADC_SaveConfig(void)
 *  No.
 *
 *******************************************************************************/
-void ADC_RestoreConfig(void)
+void ADC1_RestoreConfig(void)
 {
 
 }

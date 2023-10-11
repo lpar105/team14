@@ -6,7 +6,7 @@
   <block name="RX_Mux" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="LED_PIN_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="leftLineSensor" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="ADC" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+  <block name="ADC1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="or_internal" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="BusClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="FinalBuf" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -15,7 +15,7 @@
     <block name="ZeroTerminal_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="TempBuf" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="cy_analog_virtualmux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="ADC_SAR" BASE="0x0" SIZE="0x0" desc="SAR ADC" visible="true" hidden="false">
+    <block name="ADC1_SAR" BASE="0x0" SIZE="0x0" desc="SAR ADC" visible="true" hidden="false">
       <block name="ZeroTerminal_7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
       <block name="ZeroTerminal_6" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
       <block name="Clock_VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
