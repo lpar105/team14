@@ -93,8 +93,6 @@ CY_ISR(eoc) {
 
 int main() {
   CYGlobalIntEnable;
-    LED_PIN_6_Write(1);
-    LED_PIN_1_Write(1);
   //USBUART_Start(0, USBUART_5V_OPERATION);
   //UART_Start();
 
@@ -187,16 +185,70 @@ int main() {
          
           shouldUpdate = 0;
           turnTimer = 0;
-        LED_PIN_6_Write(!LED_PIN_6_Read());
         if (instruction[instCounter] == 0 && (started == 0 || consecStops >= 6)) {
-            //count = 1000;
-            instCounter++;
-            LED_PIN_1_Write(1);
+            LED_PIN_1_Write(!LED_PIN_1_Read());
+            // Look for start using a coarse grain approach, gradually get more fine
+            if(instruction[instCounter+248] == 0 && instruction[instCounter+249] == 0&& instruction[instCounter+250] == 0){
+                instCounter = instCounter+250;
+            } else if(instruction[instCounter+98] == 0 && instruction[instCounter+99] == 0&& instruction[instCounter+100] == 0){
+                instCounter = instCounter+100;
+            } else if(instruction[instCounter+48] == 0 && instruction[instCounter+49] == 0&& instruction[instCounter+50] == 0){
+                instCounter = instCounter+50;
+            } else if(instruction[instCounter+23] == 0 && instruction[instCounter+24] == 0&& instruction[instCounter+25] == 0){
+                instCounter = instCounter+25;
+            } else if(instruction[instCounter+8] == 0 && instruction[instCounter+9] == 0&& instruction[instCounter+10] == 0){
+                instCounter = instCounter+10;
+            } else if (instruction[instCounter+3] == 0 && instruction[instCounter+4] == 0&& instruction[instCounter+5] == 0){
+                instCounter = instCounter+5;
+            } else {
+                if(instruction[instCounter + 1] == 0) {
+                    instCounter++; 
+                } else if(instruction[instCounter + 2] == 0) {
+                    instCounter = instCounter +2;
+                } else if(instruction[instCounter + 3] == 0) {
+                    instCounter = instCounter +3;
+                } else if(instruction[instCounter + 4] == 0) {
+                    instCounter = instCounter +4;
+                } 
+            }
+
         } else {
-            LED_PIN_1_Write(0);
+
             started = 1;
-            driveForward(0,0);
+            
             // DRIVING LOGIC GOES HERE
+            char currentInst = instruction[instCounter];
+            if (currentInst == 0) {
+                LED_PIN_1_Write(0);
+                LED_PIN_6_Write(0);
+            } else if (currentInst == 1) {
+                LED_PIN_1_Write(1);
+                LED_PIN_6_Write(0);
+            } else if (currentInst == 2) {
+                LED_PIN_1_Write(1);
+                LED_PIN_6_Write(1);
+            } else if (currentInst == 3) {
+                LED_PIN_1_Write(0);
+                LED_PIN_6_Write(1);
+            } else if (currentInst == 4) {
+                LED_PIN_1_Write(0);
+                LED_PIN_6_Write(0);
+            } else if (currentInst == 5) {
+                LED_PIN_1_Write(1);
+                LED_PIN_6_Write(0);
+            } else if (currentInst == 6) {
+                LED_PIN_1_Write(1);
+                LED_PIN_6_Write(1);
+            } else if (currentInst == 7) {
+                LED_PIN_1_Write(0);
+                LED_PIN_6_Write(1);
+            }
+            
+            // UPDATE INSTRUCTION LOGIC GOES HERE this needs dramatic improving
+            if (L_INT_BLACK || R_INT_BLACK) {
+                instCounter++;
+            }
+            
             if (instruction[instCounter] == 0) {
                 consecStops++;
             } else {
