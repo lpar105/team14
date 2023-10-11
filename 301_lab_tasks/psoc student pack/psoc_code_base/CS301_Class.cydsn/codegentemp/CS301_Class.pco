@@ -1,5 +1,9 @@
 # CS301_Class
+<<<<<<< HEAD
 # 2023-10-10 22:22:39Z
+=======
+# 2023-10-09 05:38:04Z
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0

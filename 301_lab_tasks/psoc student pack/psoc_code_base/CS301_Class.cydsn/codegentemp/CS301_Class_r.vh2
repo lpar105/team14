@@ -1,5 +1,9 @@
 -- Project:   CS301_Class
+<<<<<<< HEAD
 -- Generated: 10/11/2023 11:22:39
+=======
+-- Generated: 10/09/2023 18:38:04
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 -- PSoC Creator  4.2
 
 ENTITY CS301_Class IS

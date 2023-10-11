@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 Loading plugins phase: Elapsed time ==> 0s.172ms
+=======
+Loading plugins phase: Elapsed time ==> 0s.162ms
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 <CYPRESSTAG name="CyDsfit arguments...">
-cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -d CY8C5888LTI-LP097 -s H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -d CY8C5888LTI-LP097 -s H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 ADD: sdb.M0065: information: Analog terminal "vdac_ref" on ADC_SAR_SEQ_v2_10 is unconnected.
@@ -9,10 +13,17 @@ ADD: sdb.M0065: information: Analog terminal "vdac_ref" on ADC_SAR_SEQ_v2_10 is 
  * C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_885)
 
 </CYPRESSTAG>
+<<<<<<< HEAD
 Elaboration phase: Elapsed time ==> 1s.506ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
 HDL generation phase: Elapsed time ==> 0s.130ms
+=======
+Elaboration phase: Elapsed time ==> 1s.402ms
+<CYPRESSTAG name="HDL generation results...">
+</CYPRESSTAG>
+HDL generation phase: Elapsed time ==> 0s.493ms
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -30,23 +41,27 @@ HDL generation phase: Elapsed time ==> 0s.130ms
 ======================================================================
 Compiling:  CS301_Class.v
 Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -dcpsoc3 CS301_Class.v -verilog
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -dcpsoc3 CS301_Class.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  CS301_Class.v
 Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -dcpsoc3 CS301_Class.v -verilog
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -dcpsoc3 CS301_Class.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  CS301_Class.v
 Program  :   vlogfe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -dcpsoc3 -verilog CS301_Class.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -dcpsoc3 -verilog CS301_Class.v
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
+<<<<<<< HEAD
 Wed Oct 11 11:20:56 2023
+=======
+Mon Oct 09 18:36:09 2023
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 
 
 ======================================================================
@@ -56,7 +71,11 @@ Options  :    -yv2 -q10 CS301_Class.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
+<<<<<<< HEAD
 Wed Oct 11 11:20:56 2023
+=======
+Mon Oct 09 18:36:09 2023
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
@@ -121,11 +140,15 @@ vlogfe:  No errors.
 ======================================================================
 Compiling:  CS301_Class.v
 Program  :   tovif
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -dcpsoc3 -verilog CS301_Class.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -dcpsoc3 -verilog CS301_Class.v
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
+<<<<<<< HEAD
 Wed Oct 11 11:20:57 2023
+=======
+Mon Oct 09 18:36:09 2023
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -136,9 +159,9 @@ Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\c
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\CS301_Class.ctl'.
+Linking 'H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\CS301_Class.ctl'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
-Linking 'H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\CS301_Class.v'.
+Linking 'H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\CS301_Class.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'.
@@ -169,11 +192,15 @@ tovif:  No errors.
 ======================================================================
 Compiling:  CS301_Class.v
 Program  :   topld
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -dcpsoc3 -verilog CS301_Class.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -dcpsoc3 -verilog CS301_Class.v
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
+<<<<<<< HEAD
 Wed Oct 11 11:20:57 2023
+=======
+Mon Oct 09 18:36:10 2023
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -184,9 +211,9 @@ Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\c
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\CS301_Class.ctl'.
+Linking 'H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\CS301_Class.ctl'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
-Linking 'H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\CS301_Class.v'.
+Linking 'H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\CS301_Class.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'.
@@ -1383,8 +1410,9 @@ topld:  No errors.
 
 CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
-Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj" -dcpsoc3 CS301_Class.v -verilog
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj" -dcpsoc3 CS301_Class.v -verilog
 </CYPRESSTAG>
+<<<<<<< HEAD
 Warp synthesis phase: Elapsed time ==> 3s.236ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
@@ -1393,6 +1421,16 @@ Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Documents\301\Po
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
 Design parsing phase: Elapsed time ==> 0s.076ms
+=======
+Warp synthesis phase: Elapsed time ==> 3s.569ms
+<CYPRESSTAG name="Fitter results...">
+<CYPRESSTAG name="Fitter startup details...">
+cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Monday, 09 October 2023 18:36:12
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Desktop\Team 14\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CS301_Class.cyprj -d CY8C5888LTI-LP097 CS301_Class.v -verilog
+</CYPRESSTAG>
+<CYPRESSTAG name="Design parsing">
+Design parsing phase: Elapsed time ==> 0s.070ms
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -6282,8 +6320,13 @@ Analog (SC/CT) Blocks         :    0 :    4 :    4 :  0.00 %
 DAC                           :      :      :      :        
   VIDAC                       :    0 :    4 :    4 :  0.00 %
 </CYPRESSTAG>
+<<<<<<< HEAD
 Technology Mapping: Elapsed time ==> 45s.431ms
 Tech Mapping phase: Elapsed time ==> 45s.529ms
+=======
+Technology Mapping: Elapsed time ==> 50s.517ms
+Tech Mapping phase: Elapsed time ==> 50s.606ms
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 Info: apr.M0002: Analog signal "Net_4680" is connected to one terminal only. (App=cydsfit)
@@ -6411,7 +6454,11 @@ SAR[0]@[FFB(SAR,0)] : \ADC:SAR:ADC_SAR\
 Vref[3]@[FFB(Vref,3)] : \ADC:SAR:vRef_1024\
 USB[0]@[FFB(USB,0)] : \USBUART:USB\
 
+<<<<<<< HEAD
 Analog Placement phase: Elapsed time ==> 2s.807ms
+=======
+Analog Placement phase: Elapsed time ==> 2s.745ms
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 Analog Routing phase: Elapsed time ==> 0s.008ms
@@ -7121,7 +7168,11 @@ Dump of CyP35AnalogRoutingResultsDB
 IsVddaHalfUsedForComp = False
 IsVddaHalfUsedForSar0 = False
 IsVddaHalfUsedForSar1 = False
+<<<<<<< HEAD
 Analog Code Generation phase: Elapsed time ==> 0s.692ms
+=======
+Analog Code Generation phase: Elapsed time ==> 0s.737ms
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
@@ -7149,14 +7200,22 @@ PLD Packing Summary
 <CYPRESSTAG name="Packed PLD Contents">
 Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
 </CYPRESSTAG>
+<<<<<<< HEAD
 PLD Packing: Elapsed time ==> 0s.107ms
+=======
+PLD Packing: Elapsed time ==> 0s.118ms
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
+<<<<<<< HEAD
 Partitioning: Elapsed time ==> 0s.200ms
+=======
+Partitioning: Elapsed time ==> 0s.204ms
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -12896,12 +12955,18 @@ Port | Pin | Fixed |      Type |       Drive Mode |                       Name |
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
+<<<<<<< HEAD
 Digital component placer commit/Report: Elapsed time ==> 46s.050ms
 Digital Placement phase: Elapsed time ==> 49s.761ms
+=======
+Digital component placer commit/Report: Elapsed time ==> 54s.076ms
+Digital Placement phase: Elapsed time ==> 57s.663ms
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata" --vh2-path "CS301_Class_r.vh2" --pcf-path "CS301_Class.pco" --des-name "CS301_Class" --dsf-path "CS301_Class.dsf" --sdc-path "CS301_Class.sdc" --lib-path "CS301_Class_r.lib"
 Routing successful.
+<<<<<<< HEAD
 Digital Routing phase: Elapsed time ==> 7s.892ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
@@ -12913,11 +12978,25 @@ Bitstream Verification phase: Elapsed time ==> 0s.063ms
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in CS301_Class_timing.html.
 Static timing analysis phase: Elapsed time ==> 0s.921ms
+=======
+Digital Routing phase: Elapsed time ==> 8s.748ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Bitstream Generation">
+Bitstream Generation phase: Elapsed time ==> 0s.837ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Bitstream Verification">
+Bitstream Verification phase: Elapsed time ==> 0s.057ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Static timing analysis">
+Timing report is in CS301_Class_timing.html.
+Static timing analysis phase: Elapsed time ==> 0s.918ms
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
-Data reporting phase: Elapsed time ==> 0s.004ms
+Data reporting phase: Elapsed time ==> 0s.005ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
+<<<<<<< HEAD
 Design database save phase: Elapsed time ==> 0s.159ms
 </CYPRESSTAG>
 cydsfit: Elapsed time ==> 108s.906ms
@@ -12926,3 +13005,13 @@ Fitter phase: Elapsed time ==> 108s.916ms
 API generation phase: Elapsed time ==> 9s.504ms
 Dependency generation phase: Elapsed time ==> 0s.078ms
 Cleanup phase: Elapsed time ==> 0s.021ms
+=======
+Design database save phase: Elapsed time ==> 0s.162ms
+</CYPRESSTAG>
+cydsfit: Elapsed time ==> 122s.676ms
+</CYPRESSTAG>
+Fitter phase: Elapsed time ==> 122s.683ms
+API generation phase: Elapsed time ==> 4s.280ms
+Dependency generation phase: Elapsed time ==> 0s.051ms
+Cleanup phase: Elapsed time ==> 0s.017ms
+>>>>>>> ecb78dc10bf25d11465bb9c4ad7837e06c6cc6c6
