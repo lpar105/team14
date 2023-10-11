@@ -103,6 +103,7 @@ volatile int i = 0;
 volatile int hitFood = 0;
 volatile int hitWall = 0;
 volatile int turnComplete = 0;
+volatile int start = 0;
 unsigned char currentInstruction;
 
 CY_ISR(eoc) {
@@ -157,33 +158,33 @@ int main() {
     usbPutString(squareStr);
   }
 
-    int index = 0;
-    while (instruction[index] == '0') {
-        index++;
-    }
-
-    // Now 'index' holds the index of the first element in 'instruction' that is not '0'
-    usbPutString("Index of the first non-zero element: ");
-    char indexChar[10];
-    snprintf(indexChar, sizeof(indexChar), "%d\r\n", index);
-    usbPutString(indexChar);
-    
-  usbPutString("INSTRUCTIONS\r\n");
-  // Print all instructions
-  for (int i = 0; i < 500; i++) {
-    char instStr[10];
-    snprintf(instStr, sizeof(instStr), "%u \r\n", (unsigned char) instruction[i]);
-    usbPutString(instStr);
-  }
-
-  usbPutString("DISTANCES\r\n");
-  // Print all distances
-  for (int i = 0; i < 500; i++) {
-    char distanceStr[10]; // Assuming distances are integers and can fit in 10 characters
-    snprintf(distanceStr, sizeof(distanceStr), "%u", (unsigned int) distance[i]);
-    usbPutString(distanceStr);
-    usbPutString("\r\n");
-  }
+  //    int index = 0;
+  //    while (instruction[index] == '0') {
+  //        index++;
+  //    }
+  //
+  //    // Now 'index' holds the index of the first element in 'instruction' that is not '0'
+  //    usbPutString("Index of the first non-zero element: ");
+  //    char indexChar[10];
+  //    snprintf(indexChar, sizeof(indexChar), "%d\r\n", index);
+  //    usbPutString(indexChar);
+  //    
+  //  usbPutString("INSTRUCTIONS\r\n");
+  //  // Print all instructions
+  //  for (int i = 0; i < 500; i++) {
+  //    char instStr[10];
+  //    snprintf(instStr, sizeof(instStr), "%u \r\n", (unsigned char) instruction[i]);
+  //    usbPutString(instStr);
+  //  }
+  //
+  //  usbPutString("DISTANCES\r\n");
+  //  // Print all distances
+  //  for (int i = 0; i < 500; i++) {
+  //    char distanceStr[10]; // Assuming distances are integers and can fit in 10 characters
+  //    snprintf(distanceStr, sizeof(distanceStr), "%u", (unsigned int) distance[i]);
+  //    usbPutString(distanceStr);
+  //    usbPutString("\r\n");
+  //  }
 
   for (;;) {
 
@@ -282,11 +283,14 @@ int main() {
 
           //start code functions here
 
+          if (start == 0) {
+
+          }
           if (distanceTravelled > MOVE_DISTANCE) {
             stop();
           } else {
             if (currentInstruction == '0') { //stop
-              stop();
+              currentInstruction = instruction[i + 1];
             } else if (currentInstruction == '1' && turnComplete == 0) { //leftTurn and then go forward until hit a wall
               if (R_INT_BLACK) { //code that senses when the turn is done, can be optimised
                 turnComplete = 1;

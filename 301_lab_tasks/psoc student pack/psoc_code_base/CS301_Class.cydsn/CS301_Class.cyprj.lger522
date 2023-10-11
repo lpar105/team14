@@ -2679,102 +2679,7 @@
 <name v="link_deps">
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" xml_contents_version="2">
-<CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM3\ARM_GCC_541\Debug\CS301_Class.hex">
-<dep name=".\CortexM3\ARM_GCC_541\Debug\main.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\tacho.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\motors.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\pathfind.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\cymetadata.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\ADC.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\ADC_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\ADC_INT.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\isr_TS.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\Timer_TS.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\Timer_TS_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_audio.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_boot.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_cdc.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_cls.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_descr.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_drv.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_episr.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_hid.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_pm.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_std.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_vnd.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_midi.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_msc.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\Clock2.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\ADC_SAR.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\ADC_SAR_INT.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\ADC_SAR_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\ADC_IntClock.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\ADC_TempBuf_dma.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\ADC_FinalBuf_dma.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\ADC_IRQ.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_Dm.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\USBUART_Dp.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\Cm3Start.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\CyDmac.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\CyFlash.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\CyLib.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\cyPm.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\CySpc.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\cyutils.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_1.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_1_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\Clock_PWM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\Clock_QENC.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\M1_IN1.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\M1_IN2.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\M2_IN1.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\M2_IN2.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\M1_QA.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\M1_QB.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\M2_QA.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\M2_QB.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_2.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_2_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\QuadDec_M1.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\QuadDec_M1_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\QuadDec_M2.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\QuadDec_M2_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\QuadDec_M1_Cnt16.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\QuadDec_M1_Cnt16_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\QuadDec_M2_Cnt16.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\QuadDec_M2_Cnt16_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\DB0.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\DB1.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\DB2.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\UART.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\UART_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\UART_INT.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\UART_BOOT.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\UART_IntClock.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\RF_BT_SELECT.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\RF_BT_SELECT_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\eoc.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\LED_PIN_2.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\leftIntersectionSensor.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\leftLineSensor.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\LED_PIN_3.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\middleLineSensor.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\turnCompleteSensor.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\rightLineSensor.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\rightIntersectionSensor.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\LED_PIN_4.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\LED_PIN_1.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\LED_PIN_5.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\LED_PIN_6.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\CS301_Class.a" />
-<dep name="${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" />
-</file>
-</CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021>
+<CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1" />
 </dependency_info>
 </CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256>
 </name>
@@ -2888,7 +2793,7 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="133413107141264529" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="133414633328821112" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
