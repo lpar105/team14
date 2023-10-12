@@ -103,10 +103,10 @@ void turnRight() {
 }
 
 void reverse(int reverseCount) {
-    while (reverseCount !=0){
+    //while (reverseCount !=0){
         PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125));
         PWM_2_WriteCompare(125 - (currentFRightSpeed - 125));
-        reverseCount--;
-    }
+      //  reverseCount--;
+    //}
 }
 /* [] END OF FILE */

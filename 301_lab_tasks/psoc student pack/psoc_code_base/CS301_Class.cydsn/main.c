@@ -41,7 +41,7 @@ int restoring = 30;
 int turningDirection = 0;
 int turningCount = 30;
 volatile int shouldUpdate = 1;
-#define MOVE_DISTANCE 9999999 //cm
+#define MOVE_DISTANCE 999999 //cm
 volatile int dotsTravelled = 0;
 //* ========================================
 void usbPutString(char * s);
@@ -137,7 +137,7 @@ int main() {
 
         int changeInDots = (((abs(numRotationsR) + abs(numRotationsL)) ) / 2);
         dotsTravelled = changeInDots + dotsTravelled;
-        distanceTravelled = (dotsTravelled * (float)(1.217375 / 6.105)); //increase 6.1 to go further, decrease to go shorter
+        distanceTravelled = (dotsTravelled * (float)(1.217375 / 5.95)); //increase 6.1 to go further, decrease to go shorter
                                                                          //6.2 for low, 6.1 for normal, 6 for full
 
         QuadDec_M1_SetCounter(0); // set quad counter to 0 to avoid overflow
@@ -236,7 +236,7 @@ int main() {
             stop();
 
           } else if (turningLeft == 1) { // if robot is turning left
-            while (turnTimer != 10000) {
+            while (turnTimer != 40000) {
               turnLeft();
               turnTimer++;
             }
@@ -244,7 +244,7 @@ int main() {
             turningLeft = 0;
 
           } else if (turningRight == 1) { // if robot is turning right
-            while (turnTimer != 10000) {
+            while (turnTimer != 40000) {
               turnRight();
               turnTimer++;
             }
@@ -264,9 +264,11 @@ int main() {
             lastAdjustDirection = 2;
 
           } else if (R_LINE_BLACK && L_LINE_BLACK) {
+            // if at intersectio
             // do nothing for now
 
           } else if (L_INT_BLACK && R_INT_BLACK) {
+            // if at intersection
             // do nothing for now
 
           } else if (M_LINE_BLACK && L_LINE_BLACK) { // if robot slightly too far right
@@ -314,8 +316,8 @@ int main() {
               turnLeft();
             } else if (lastAdjustDirection == 1) { // last movement was forward (middle sensor sensed)
               //hardAdjustLeft();
-              turnRight();
-              //reverse(3000); // random number 3000
+              //turnRight();
+              reverse(); // random number 3000
             } else {
               turnRight();
             }
