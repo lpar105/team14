@@ -228,9 +228,9 @@ int main() {
 
                         char instStr[24];
 
-                        snprintf(instStr, sizeof(instStr), "%u - %u \r\n", (unsigned char) instruction[i], (unsigned char) distance[i]);
+                        //snprintf(instStr, sizeof(instStr), "%u - %u \r\n", (unsigned char) instruction[i], (unsigned char) distance[i]);
 
-                        usbPutString(instStr);
+                        //usbPutString(instStr);
                     }
                     started = 1;
                 } else {
@@ -328,14 +328,14 @@ int main() {
                     itoa((pulsesTravelled), pulses, 10);
                     itoa(pulsesTravelled * 20.42 / 57 / 2, second, 10);
                     itoa(distance[instCounter], dist, 10);
-                    usbPutString(dist);
+                    /*usbPutString(dist);
                     usbPutString(" - ");
                     usbPutString(pulses);
                     usbPutString("       ");
                     usbPutString(first);
                     usbPutString(" <= ");
                     usbPutString(second);
-                    usbPutString("\r\n");
+                    usbPutString("\r\n");*/
                     //if (distance[instCounter] * 13.25 * 228 <= (pulsesTravelled) * 20.42 * 0.5) {
                     //57 pulses on 1 motor = 20.42 cm
                     char instStr[24];
@@ -346,26 +346,26 @@ int main() {
                         if (currentInst == 0) {
                             LED_PIN_4_Write(1);
                             instCounter++;
-                            snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
-                            usbPutString("INSTCHANGE - ");
-                            usbPutString(instStr);
+                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
+                            //usbPutString("INSTCHANGE - ");
+                            //usbPutString(instStr);
                             pulsesTravelled = 0;
-                        } else if (L_INT_BLACK && (currentInst == 1 || currentInst == 2 || currentInst == 4 || currentInst == 5 || currentInst == 6 || currentInst == 8)) {
+                        
 
                             LED_PIN_4_Write(1);
                             instCounter++;
-                            snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
-                            usbPutString("INSTCHANGE - ");
-                            usbPutString(instStr);
+                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
+                            //usbPutString("INSTCHANGE - ");
+                            //usbPutString(instStr);
                             pulsesTravelled = 0;
 
                         } else if (R_INT_BLACK && (currentInst == 3 || currentInst == 2 || currentInst == 4 || currentInst == 7 || currentInst == 6 || currentInst == 8)) {
 
                             LED_PIN_4_Write(1);
                             instCounter++;
-                            snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
-                            usbPutString("INSTCHANGE - ");
-                            usbPutString(instStr);
+                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
+                            //usbPutString("INSTCHANGE - ");
+                            //usbPutString(instStr);
                             pulsesTravelled = 0;
 
                         }
