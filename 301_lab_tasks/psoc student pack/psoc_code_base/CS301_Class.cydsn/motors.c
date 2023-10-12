@@ -52,8 +52,7 @@ void adjustRight() {
     PWM_2_WriteCompare(currentFRightSpeed - 2);
 }
 
-void turnLeft() {
-   
+void turnLeft() { 
     PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125)+ 7); //was 11, changed as I think the value becomes too small to move the motor
     PWM_2_WriteCompare(currentFRightSpeed - 7); //was 11, changed as I think the value becomes too small to move the motor
 }

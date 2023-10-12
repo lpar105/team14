@@ -9,6 +9,17 @@
  *
  * ========================================
 */
+/* ========================================
+ *
+ * Copyright YOUR COMPANY, THE YEAR
+ * All Rights Reserved
+ * UNPUBLISHED, LICENSED SOFTWARE.
+ *
+ * CONFIDENTIAL AND PROPRIETARY INFORMATION
+ * WHICH IS THE PROPERTY OF your company.
+ *
+ * ========================================
+*/
 
 unsigned char map[15][19] = {
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -37,5 +48,7 @@ unsigned char food_list[5][2]= {
 	{13,5},
 	{9,9}
 };
+
+/* [] END OF FILE */
 
 /* [] END OF FILE */

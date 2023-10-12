@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
   15:motors.c      **** 
   16:motors.c      **** volatile int currentFLeftSpeed = 165;
   17:motors.c      **** volatile int currentFRightSpeed = 165;// fresh 163, normal 165, old 167
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 2
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 2
 
 
   18:motors.c      **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
   28:motors.c      ****     return currentFLeftSpeed;
   85              		.loc 1 28 0
   86 0004 024B     		ldr	r3, .L4
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 3
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 3
 
 
   87 0006 1B68     		ldr	r3, [r3]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  136              	.L8:
  137 0010 00000000 		.word	currentFRightSpeed
  138              		.cfi_endproc
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 4
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 4
 
 
  139              	.LFE65:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
   39:motors.c      **** 
   40:motors.c      **** void stop() {
  188              		.loc 1 40 0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 5
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 5
 
 
  189              		.cfi_startproc
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  236              		.loc 1 47 0
  237 0014 054B     		ldr	r3, .L13+4
  238 0016 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 6
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 6
 
 
  239 0018 DBB2     		uxtb	r3, r3
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  288 0020 FFF7FEFF 		bl	PWM_2_WriteCompare
   53:motors.c      **** }
  289              		.loc 1 53 0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 7
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 7
 
 
  290 0024 00BF     		nop
@@ -380,7 +380,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  306              	turnLeft:
  307              	.LFB70:
   54:motors.c      **** 
-  55:motors.c      **** void turnLeft() {
+  55:motors.c      **** void turnLeft() { 
  308              		.loc 1 55 0
  309              		.cfi_startproc
  310              		@ args = 0, pretend = 0, frame = 0
@@ -391,9 +391,8 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  315              		.cfi_offset 14, -4
  316 0002 00AF     		add	r7, sp, #0
  317              		.cfi_def_cfa_register 7
-  56:motors.c      ****    
-  57:motors.c      ****     PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125)+ 7); //was 11, changed as I think the value 
- 318              		.loc 1 57 0
+  56:motors.c      ****     PWM_1_WriteCompare(125 - (currentFLeftSpeed - 125)+ 7); //was 11, changed as I think the value 
+ 318              		.loc 1 56 0
  319 0004 094B     		ldr	r3, .L19
  320 0006 1B68     		ldr	r3, [r3]
  321 0008 DBB2     		uxtb	r3, r3
@@ -401,8 +400,8 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  323 000e DBB2     		uxtb	r3, r3
  324 0010 1846     		mov	r0, r3
  325 0012 FFF7FEFF 		bl	PWM_1_WriteCompare
-  58:motors.c      ****     PWM_2_WriteCompare(currentFRightSpeed - 7); //was 11, changed as I think the value becomes too 
- 326              		.loc 1 58 0
+  57:motors.c      ****     PWM_2_WriteCompare(currentFRightSpeed - 7); //was 11, changed as I think the value becomes too 
+ 326              		.loc 1 57 0
  327 0016 064B     		ldr	r3, .L19+4
  328 0018 1B68     		ldr	r3, [r3]
  329 001a DBB2     		uxtb	r3, r3
@@ -410,18 +409,18 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  331 001e DBB2     		uxtb	r3, r3
  332 0020 1846     		mov	r0, r3
  333 0022 FFF7FEFF 		bl	PWM_2_WriteCompare
-  59:motors.c      **** }
- 334              		.loc 1 59 0
+  58:motors.c      **** }
+ 334              		.loc 1 58 0
  335 0026 00BF     		nop
  336 0028 80BD     		pop	{r7, pc}
  337              	.L20:
  338 002a 00BF     		.align	2
  339              	.L19:
  340 002c 00000000 		.word	currentFLeftSpeed
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 8
-
-
  341 0030 00000000 		.word	currentFRightSpeed
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 8
+
+
  342              		.cfi_endproc
  343              	.LFE70:
  344              		.size	turnLeft, .-turnLeft
@@ -433,9 +432,9 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  350              		.type	turnRight, %function
  351              	turnRight:
  352              	.LFB71:
-  60:motors.c      **** //193 144
-  61:motors.c      **** void turnRight() { 
- 353              		.loc 1 61 0
+  59:motors.c      **** //193 144
+  60:motors.c      **** void turnRight() { 
+ 353              		.loc 1 60 0
  354              		.cfi_startproc
  355              		@ args = 0, pretend = 0, frame = 0
  356              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -445,8 +444,8 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  360              		.cfi_offset 14, -4
  361 0002 00AF     		add	r7, sp, #0
  362              		.cfi_def_cfa_register 7
-  62:motors.c      ****     PWM_1_WriteCompare(currentFLeftSpeed - 7);  //was 11, changed as I think the value becomes too 
- 363              		.loc 1 62 0
+  61:motors.c      ****     PWM_1_WriteCompare(currentFLeftSpeed - 7);  //was 11, changed as I think the value becomes too 
+ 363              		.loc 1 61 0
  364 0004 094B     		ldr	r3, .L22
  365 0006 1B68     		ldr	r3, [r3]
  366 0008 DBB2     		uxtb	r3, r3
@@ -454,8 +453,8 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  368 000c DBB2     		uxtb	r3, r3
  369 000e 1846     		mov	r0, r3
  370 0010 FFF7FEFF 		bl	PWM_1_WriteCompare
-  63:motors.c      ****     PWM_2_WriteCompare(125 - (currentFRightSpeed - 125) + 7 ); //was 11, changed as I think the val
- 371              		.loc 1 63 0
+  62:motors.c      ****     PWM_2_WriteCompare(125 - (currentFRightSpeed - 125) + 7 ); //was 11, changed as I think the val
+ 371              		.loc 1 62 0
  372 0014 064B     		ldr	r3, .L22+4
  373 0016 1B68     		ldr	r3, [r3]
  374 0018 DBB2     		uxtb	r3, r3
@@ -463,8 +462,8 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  376 001e DBB2     		uxtb	r3, r3
  377 0020 1846     		mov	r0, r3
  378 0022 FFF7FEFF 		bl	PWM_2_WriteCompare
-  64:motors.c      **** }
- 379              		.loc 1 64 0
+  63:motors.c      **** }
+ 379              		.loc 1 63 0
  380 0026 00BF     		nop
  381 0028 80BD     		pop	{r7, pc}
  382              	.L23:
@@ -478,10 +477,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  390              		.text
  391              	.Letext0:
  392              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 9
-
-
  393              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 9
+
+
  394              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
  395              		.section	.debug_info,"",%progbits
  396              	.Ldebug_info0:
@@ -538,10 +537,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  447 0069 04       		.byte	0x4
  448 006a 05       		.byte	0x5
  449 006b 696E7400 		.ascii	"int\000"
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 10
-
-
  450 006f 02       		.uleb128 0x2
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 10
+
+
  451 0070 04       		.byte	0x4
  452 0071 07       		.byte	0x7
  453 0072 59010000 		.4byte	.LASF8
@@ -598,10 +597,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  504 00de 9C       		.byte	0x9c
  505 00df 07       		.uleb128 0x7
  506 00e0 14010000 		.4byte	.LASF32
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 11
-
-
  507 00e4 01       		.byte	0x1
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 11
+
+
  508 00e5 23       		.byte	0x23
  509 00e6 00000000 		.4byte	.LFB66
  510 00ea 1E000000 		.4byte	.LFE66-.LFB66
@@ -658,12 +657,12 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  561 0153 01       		.uleb128 0x1
  562 0154 9C       		.byte	0x9c
  563 0155 05       		.uleb128 0x5
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 12
-
-
  564 0156 C5000000 		.4byte	.LASF25
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 12
+
+
  565 015a 01       		.byte	0x1
- 566 015b 3D       		.byte	0x3d
+ 566 015b 3C       		.byte	0x3c
  567 015c 00000000 		.4byte	.LFB71
  568 0160 34000000 		.4byte	.LFE71-.LFB71
  569 0164 01       		.uleb128 0x1
@@ -718,10 +717,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  618 0013 02       		.uleb128 0x2
  619 0014 24       		.uleb128 0x24
  620 0015 00       		.byte	0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 13
-
-
  621 0016 0B       		.uleb128 0xb
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 13
+
+
  622 0017 0B       		.uleb128 0xb
  623 0018 3E       		.uleb128 0x3e
  624 0019 0B       		.uleb128 0xb
@@ -778,10 +777,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  675 004d 2E       		.uleb128 0x2e
  676 004e 00       		.byte	0
  677 004f 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 14
-
-
  678 0050 19       		.uleb128 0x19
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 14
+
+
  679 0051 03       		.uleb128 0x3
  680 0052 0E       		.uleb128 0xe
  681 0053 3A       		.uleb128 0x3a
@@ -838,10 +837,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  732 0088 0B       		.uleb128 0xb
  733 0089 49       		.uleb128 0x49
  734 008a 13       		.uleb128 0x13
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 15
-
-
  735 008b 02       		.uleb128 0x2
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 15
+
+
  736 008c 18       		.uleb128 0x18
  737 008d 00       		.byte	0
  738 008e 00       		.byte	0
@@ -898,10 +897,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  789 0010 00000000 		.4byte	.LFB63
  790 0014 1C000000 		.4byte	.LFE63-.LFB63
  791 0018 00000000 		.4byte	.LFB64
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 16
-
-
  792 001c 14000000 		.4byte	.LFE64-.LFB64
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 16
+
+
  793 0020 00000000 		.4byte	.LFB65
  794 0024 14000000 		.4byte	.LFE65-.LFB65
  795 0028 00000000 		.4byte	.LFB66
@@ -958,10 +957,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  837      67687400 
  838              	.LASF29:
  839 001a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 17
-
-
  839      43313120 
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 17
+
+
  839      352E342E 
  839      31203230 
  839      31363036 
@@ -1018,10 +1017,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  859      65466F72 
  859      77617264 
  859      00
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 18
-
-
  860              	.LASF21:
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 18
+
+
  861 0121 73746F70 		.ascii	"stop\000"
  861      00
  862              	.LASF26:
@@ -1078,10 +1077,10 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 1
  885 01b2 73697A65 		.ascii	"sizetype\000"
  885      74797065 
  885      00
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\cc7pqREB.s 			page 19
-
-
  886              	.LASF31:
+ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccacEXBg.s 			page 19
+
+
  887 01bb 483A5C44 		.ascii	"H:\\Documents\\301\\Post-Benchmark\\team14\\301_lab"
  887      6F63756D 
  887      656E7473 

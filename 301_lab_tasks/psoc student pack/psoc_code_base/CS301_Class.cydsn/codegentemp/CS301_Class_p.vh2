@@ -1,5 +1,5 @@
 -- Project:   CS301_Class
--- Generated: 10/12/2023 09:12:40
+-- Generated: 10/13/2023 10:03:25
 -- PSoC Creator  4.2
 
 ENTITY CS301_Class IS
@@ -80,6 +80,7 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class IS
     ATTRIBUTE GROUND OF Net_2183 : SIGNAL IS true;
     SIGNAL Net_2404 : bit;
     SIGNAL Net_2460 : bit;
+    SIGNAL Net_3249 : bit;
     SIGNAL Net_3405 : bit;
     SIGNAL Net_3405_SYNCOUT : bit;
     SIGNAL Net_3437 : bit;
@@ -90,6 +91,7 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class IS
     SIGNAL Net_4669 : bit;
     SIGNAL Net_4670 : bit;
     SIGNAL Net_4790 : bit;
+    SIGNAL Net_4806 : bit;
     SIGNAL Net_724 : bit;
     SIGNAL Net_724_SYNCOUT : bit;
     SIGNAL Net_725 : bit;
@@ -4009,6 +4011,14 @@ BEGIN
             main_0 => Net_4669,
             main_1 => \ADC1:bSAR_SEQ:load_period\);
 
+    \QuadDec_M1:isr\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_4806,
+            clock => ClockBlock_BUS_CLK);
+
     __ONE__:macrocell
         GENERIC MAP(
             eqn_main => "1'b0",
@@ -4237,7 +4247,16 @@ BEGIN
             status_3 => \QuadDec_M1:bQuadDec:error\,
             status_2 => \QuadDec_M1:Net_1260\,
             status_1 => \QuadDec_M1:Net_611\,
-            status_0 => \QuadDec_M1:Net_530\);
+            status_0 => \QuadDec_M1:Net_530\,
+            interrupt => Net_4806);
+
+    \QuadDec_M2:isr\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_3249,
+            clock => ClockBlock_BUS_CLK);
 
     \QuadDec_M2:Cnt16:CounterUDB:sCTRLReg:ctrlreg\:controlcell
         GENERIC MAP(
@@ -4459,7 +4478,8 @@ BEGIN
             status_3 => \QuadDec_M2:bQuadDec:error\,
             status_2 => \QuadDec_M2:Net_1260\,
             status_1 => \QuadDec_M2:Net_611\,
-            status_0 => \QuadDec_M2:Net_530\);
+            status_0 => \QuadDec_M2:Net_530\,
+            interrupt => Net_3249);
 
     \Timer_TS:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:controlcell
         GENERIC MAP(

@@ -2,7 +2,7 @@
 --	Conversion of CS301_Class.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Oct 12 09:11:50 2023
+--	Fri Oct 13 10:02:32 2023
 --
 
 USE cypress.cypress.all;
@@ -40,6 +40,7 @@ SIGNAL tmpFB_0__M2_IN2_net_0 : bit;
 SIGNAL tmpIO_0__M2_IN2_net_0 : bit;
 TERMINAL tmpSIOVREF__M2_IN2_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__M2_IN2_net_0 : bit;
+SIGNAL Net_4806 : bit;
 SIGNAL \QuadDec_M1:Net_1129\ : bit;
 SIGNAL \QuadDec_M1:Cnt16:Net_43\ : bit;
 SIGNAL \QuadDec_M1:Net_1275\ : bit;
@@ -263,12 +264,12 @@ SIGNAL \QuadDec_M1:bQuadDec:status_3\ : bit;
 SIGNAL \QuadDec_M1:bQuadDec:status_4\ : bit;
 SIGNAL \QuadDec_M1:bQuadDec:status_5\ : bit;
 SIGNAL \QuadDec_M1:bQuadDec:status_6\ : bit;
-SIGNAL Net_4806 : bit;
 SIGNAL \QuadDec_M1:Net_1151\ : bit;
 SIGNAL \QuadDec_M1:Net_1248\ : bit;
 SIGNAL \QuadDec_M1:Net_1229\ : bit;
 SIGNAL \QuadDec_M1:Net_1272\ : bit;
 SIGNAL \QuadDec_M1:Net_1287\ : bit;
+SIGNAL Net_3249 : bit;
 SIGNAL \QuadDec_M2:Net_1129\ : bit;
 SIGNAL \QuadDec_M2:Cnt16:Net_43\ : bit;
 SIGNAL \QuadDec_M2:Net_1275\ : bit;
@@ -491,7 +492,6 @@ SIGNAL \QuadDec_M2:bQuadDec:status_3\ : bit;
 SIGNAL \QuadDec_M2:bQuadDec:status_4\ : bit;
 SIGNAL \QuadDec_M2:bQuadDec:status_5\ : bit;
 SIGNAL \QuadDec_M2:bQuadDec:status_6\ : bit;
-SIGNAL Net_3249 : bit;
 SIGNAL \QuadDec_M2:Net_1151\ : bit;
 SIGNAL \QuadDec_M2:Net_1248\ : bit;
 SIGNAL \QuadDec_M2:Net_1229\ : bit;
@@ -2563,6 +2563,10 @@ M2_IN2:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__M1_IN1_net_0,
 		out_reset=>Net_2183,
 		interrupt=>tmpINTERRUPT_0__M2_IN2_net_0);
+\QuadDec_M1:isr\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_4806);
 \QuadDec_M1:Cnt16:CounterUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
 	PORT MAP(clock_in=>Net_1850,
@@ -2802,6 +2806,10 @@ M2_IN2:cy_psoc3_pins_v1_10
 		status=>(Net_2183, Net_2183, Net_2183, \QuadDec_M1:bQuadDec:error\,
 			\QuadDec_M1:Net_1260\, \QuadDec_M1:Net_611\, \QuadDec_M1:Net_530\),
 		interrupt=>Net_4806);
+\QuadDec_M2:isr\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_3249);
 \QuadDec_M2:Cnt16:CounterUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
 	PORT MAP(clock_in=>Net_1850,

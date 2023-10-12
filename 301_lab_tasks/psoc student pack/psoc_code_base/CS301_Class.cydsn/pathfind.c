@@ -293,15 +293,15 @@ void generateInstructionList(unsigned char * instruction, unsigned char * distan
         }
         
         // Work out which instruction
-            // 0 - Stop 
-            // 1 - Left
-            // 2 - Straight
-            // 3 - Right
-            // 4 - 180
-            // 5 - Left w/distance
-            // 6 - Straight w/distance
-            // 7 - Right w/distance
-            // 8 - 180 w/distance
+          // 0 - Stop 
+          // 1 - Left
+          // 2 - Straight
+          // 3 - Right
+          // 4 - 180
+          // 5 - Left w/distance
+          // 6 - Straight w/distance
+          // 7 - Right w/distance
+          // 8 - 180 w/distance
         if(travelDir == 1) {
             if(robotDirection == 1) {
                 instruction[instructionCounter] = 2;
