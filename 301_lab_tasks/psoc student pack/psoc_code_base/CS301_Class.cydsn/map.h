@@ -1,25 +1,3 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
 unsigned char map[15][19] = {
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -38,14 +16,10 @@ unsigned char map[15][19] = {
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 };
 unsigned char start_pos[2] = {1,1};
-unsigned char food_list[5][2]= {
-{1,9},
+unsigned char food_list[5][2]= { // MAKE SURE TO SWITCH X and Y if you change!
+{9,1},
 {5,5},
-{7,1},
-{13,5},
+{1,7},
+{5,13},
 {9,9}
 };
-
-/* [] END OF FILE */
-
-/* [] END OF FILE */
