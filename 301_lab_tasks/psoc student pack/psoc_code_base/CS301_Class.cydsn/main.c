@@ -302,10 +302,31 @@ int main() {
                             CyDelay(200);
                         }
                         pulsesTravelled = 0;
-                    } else if (currentInst == 4) {
+                    } else if (currentInst == 4 && turnComplete == -1) {
+                        LED_PIN_1_Write(0);
+                        LED_PIN_6_Write(0);
+                        turnComplete = 0;
+                        turnRight();
+                        LED_PIN_4_Write(0);
+                        CyDelay(300);
+                        pulsesTravelled = 0;
+
+                    } else if (currentInst == 4 && turnComplete == 0) {
                         LED_PIN_1_Write(0);
                         LED_PIN_6_Write(0);
                         // Do a 180, then follow line
+                        if (R_LINE_BLACK) { //code that senses when the turn is done, can be optimised
+                            turnComplete = 1;
+                            stop();
+                            CyDelay(200);
+                            
+                            adjustLeft();
+                            CyDelay(225);
+                            
+                            stop();
+                            CyDelay(200);
+                        }
+                        pulsesTravelled = 0;
                     } else if (currentInst == 5) {
                         LED_PIN_1_Write(1);
                         LED_PIN_6_Write(0);
