@@ -13,8 +13,8 @@
 #include <project.h>
 #include "motors.h"
 
-volatile int currentFLeftSpeed = 165;
-volatile int currentFRightSpeed = 165;// fresh 163, normal 165, old 167
+volatile int currentFLeftSpeed = 160;
+volatile int currentFRightSpeed = 160;// fresh 163, normal 165, old 167
 
 
 void initMotors() {
@@ -33,8 +33,8 @@ int getRightPWM(void) {
 }
 
 void driveForward(int distanceTravelled, int targetSpeed) {  
-        PWM_1_WriteCompare(165); 
-        PWM_2_WriteCompare(165); 
+        PWM_1_WriteCompare(currentFLeftSpeed); 
+        PWM_2_WriteCompare(currentFLeftSpeed); 
 }
 
 void stop() {
