@@ -32,12 +32,12 @@
 #include "vars.h"
 
 #define ADC_COUNT 1000
-#define L_INT_BLACK highCountLeftIntersection < 150
-#define R_INT_BLACK highCountRightIntersection < 150
-#define L_LINE_BLACK highCountLeftLine < 150
-#define R_LINE_BLACK highCountRightLine < 150
-#define M_LINE_BLACK highCountMiddleLine < 150
-#define TC_BLACK highCountTurnComplete < 150
+#define L_INT_BLACK highCountLeftIntersection < 75
+#define R_INT_BLACK highCountRightIntersection < 75
+#define L_LINE_BLACK highCountLeftLine < 75
+#define R_LINE_BLACK highCountRightLine < 75
+#define M_LINE_BLACK highCountMiddleLine < 75
+#define TC_BLACK highCountTurnComplete < 75
 
 int consecStops = 0;
 int started = 0;
@@ -62,7 +62,7 @@ volatile int v1M1;
 volatile int v1M2;
 volatile int v2M1;
 volatile int v2M2;
-volatile int turnComplete;
+volatile int turnComplete = -1;
 int pulsesTravelled = 0;
 volatile int checkDistance = 0;
 volatile int step = 0;
@@ -139,42 +139,43 @@ int main() {
                     char result1[24];
                     char result2[24];
                     if (motorUpdateCount == 1) {
+                        if (turnComplete == -1 || turnComplete == 1) {
                         v2M1 = QuadDec_M1_GetCounter() * -1;
                         v2M2 = QuadDec_M2_GetCounter() * -1;
                         pulsesTravelled = pulsesTravelled + v2M1 + v2M2;
                         itoa((v2M1 - v1M1), result1, 10);
                         itoa((v2M2 - v1M2), result2, 10);
-
+                        }
                         QuadDec_M1_SetCounter(0);
                         QuadDec_M2_SetCounter(0);
                         motorUpdateCount = 0;
                     }
-                    if (valuesLeftIntersection[i] > 3000) {
+                    if (valuesLeftIntersection[i] > 2000) {
                         highCountLeftIntersection++;
 
                     }
 
-                    if (valuesLeftLine[i] > 3000) {
+                    if (valuesLeftLine[i] > 2000) {
                         highCountLeftLine++;
 
                     }
 
-                    if (valuesMiddleLine[i] > 3000) {
+                    if (valuesMiddleLine[i] > 2000) {
                         highCountMiddleLine++;
 
                     }
 
-                    if (valuesTurnComplete[i] > 3000) {
+                    if (valuesTurnComplete[i] > 2000) {
                         highCountTurnComplete++;
 
                     }
 
-                    if (valuesRightLine[i] > 3000) {
+                    if (valuesRightLine[i] > 2000) {
                         highCountRightLine++;
 
                     }
 
-                    if (valuesRightIntersection[i] > 3000) {
+                    if (valuesRightIntersection[i] > 2000) {
                         highCountRightIntersection++;
 
                     }
@@ -235,7 +236,7 @@ int main() {
                         //usbPutString(instStr);
                     }
                     started = 1;
-                    turnComplete = 1; //let the robot travel forward first
+                    turnComplete = -1; //let the robot travel forward first
                     checkDistance = 0; //robot checks/stops distance when this is on
                 } else {
 
@@ -247,38 +248,43 @@ int main() {
                         LED_PIN_1_Write(0);
                         LED_PIN_6_Write(0);
                         // Stop
-
-                    } else if (currentInst == 1 && turnComplete == 0) {
+                        CyDelay(1000);
+                    } else if (currentInst == 1 && turnComplete == -1) {
                         LED_PIN_1_Write(1);
                         LED_PIN_6_Write(0);
+                        turnComplete = 0;
+                        turnLeft();
+                        LED_PIN_4_Write(0);
+                        CyDelay(150);
+                        pulsesTravelled = 0;
                         // Complete a left turn, then follow line
-                        if (turnComplete == 0) {
-                            if (R_INT_BLACK) { //code that senses when the turn is done, can be optimised
-                                turnComplete = 1;
-                                pulsesTravelled = 0;
-                            } else {
-                                turnLeft();
-                            }
-                        }
 
+                    } else if (currentInst == 1 && turnComplete == 0){
+                        lastAdjustDirection = 0;
+                        if (L_LINE_BLACK) { //code that senses when the turn is done, can be optimised
+                            turnComplete = 1;
+                        }
+                        pulsesTravelled = 0;
                     } else if (currentInst == 2) {
                         LED_PIN_1_Write(1);
                         LED_PIN_6_Write(1);
                         // Drive straight
-                    } else if (currentInst == 3 && turnComplete == 0) { 
+                    } else if (currentInst == 3 && turnComplete == -1) { 
                         LED_PIN_1_Write(0);
                         LED_PIN_6_Write(1);
-                        // Complete a right turn then follow line
-                        if (turnComplete == 0) {
-                            if (L_INT_BLACK) { //code that senses when the turn is done, can be optimised
-                                turnComplete = 1;
-                                pulsesTravelled = 0;
-                            } else {
-                                turnRight();
-                            }
-                        }
+                        turnComplete = 0;
+                        turnRight();
+                        LED_PIN_4_Write(0);
+                        CyDelay(150);
+                        pulsesTravelled = 0;
                         
-                    } else if (currentInst == 4) {
+                    } else if (currentInst == 3 && turnComplete == 0){
+                        lastAdjustDirection = 2;
+                        if (R_LINE_BLACK) { //code that senses when the turn is done, can be optimised
+                            turnComplete = 1;
+                        }
+                        pulsesTravelled = 0;
+                    }  else if (currentInst == 4) {
                         LED_PIN_1_Write(0);
                         LED_PIN_6_Write(0);
                         // Do a 180, then follow line
@@ -304,7 +310,7 @@ int main() {
                     }
 
                     //only allow code to straighten if turn is complete
-                    if (turnComplete == 1) {
+                    if (turnComplete == 1 || (turnComplete == -1 && (currentInst == 0 || currentInst == 2 || currentInst == 6 ))) {
                     if ((M_LINE_BLACK && L_LINE_BLACK)) { // if robot slightly too far right
                         adjustLeft();
                         lastAdjustDirection = 0;
@@ -327,7 +333,7 @@ int main() {
                     }
                     else {
                     }
-                    }
+                    
 
                     /*} else { // completely lost find way
                         if (lastAdjustDirection == 0) {
@@ -350,10 +356,10 @@ int main() {
                     char pulses[24];
                     char first[24];
                     char second[24];
-                    itoa(distance[instCounter] * 9.13333, first, 10);
-                    itoa((pulsesTravelled), pulses, 10);
-                    itoa(pulsesTravelled * 20.42 / 57 / 2, second, 10);
-                    itoa(distance[instCounter], dist, 10);
+                    //itoa(distance[instCounter] * 9.13333, first, 10);
+                    //itoa((pulsesTravelled), pulses, 10);
+                    //itoa(pulsesTravelled * 20.42 / 57 / 2, second, 10);
+                    //itoa(distance[instCounter], dist, 10);
                     /*usbPutString(dist);
                     usbPutString(" - ");
                     usbPutString(pulses);
@@ -367,14 +373,14 @@ int main() {
                     char instStr[24];
                     char cVal[24];
 
-                    itoa(instCounter, cVal, 10);
-                    if ((distance[instCounter] * 9.13333 <= pulsesTravelled * 20.42 / 57 / 2) && (turnComplete == 1 || currentInst == 2)) { //turn complete and distance has been reached
-                        if (R_INT_BLACK || L_INT_BLACK) { //reached an intersection
-                            LED_PIN_4_Write(1);
-                            instCounter++;
-                            turnComplete = 0;
-                            pulsesTravelled = 0;
-                        }
+                  //  itoa(instCounter, cVal, 10);
+                  //  if ((distance[instCounter] * 9.13333 <= pulsesTravelled * 20.42 / 57 / 2) && (turnComplete == 1)) { //turn complete and distance has been reached */
+                 //       if ((R_INT_BLACK || L_INT_BLACK)) { //reached an intersection
+                 //           LED_PIN_4_Write(1);
+                 //           instCounter++;
+                 //           turnComplete = -1;
+                  //          pulsesTravelled = 0;
+                 //       }
 //                        if (checkDistance == 1) {
 //                            if (distance[instCounter] * 9.13333 <= pulsesTravelled * 20.42 / 57 / 2) {
 //                                LED_PIN_4_Write(1);
@@ -384,38 +390,43 @@ int main() {
 //                            }
 //                        }
                         
-                    }
+                    //}
                     
                     //if distance has been covered and ready to switch
-//                        if (currentInst == 0) {
-//                            LED_PIN_4_Write(1);
-//                            instCounter++;
+                    if (turnComplete != 0 &&(distance[instCounter] * 9.13333 <= pulsesTravelled * 20.42 / 57 / 2)) {
+                        if (currentInst == 0) {
+                            LED_PIN_4_Write(1);
+                            instCounter++;
+                            turnComplete = -1;
 //                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
 //                            //usbPutString("INSTCHANGE - ");
 //                            //usbPutString(instStr);
-//                            pulsesTravelled = 0;
+                            pulsesTravelled = 0;
 //
-//                        } else if (R_INT_BLACK && (currentInst == 3 || currentInst == 2 || currentInst == 4 || currentInst == 7 || currentInst == 6 || currentInst == 8)) { //reached an intersection and turning right next time
+                        } else if (R_INT_BLACK && (currentInst == 3 || currentInst == 2 || currentInst == 4 || currentInst == 7 || currentInst == 6 || currentInst == 8)) { //reached an intersection and turning right next time
 //
-//                            LED_PIN_4_Write(1);
-//                            instCounter++;
+                            LED_PIN_4_Write(1);
+                            instCounter++;
+                            turnComplete = -1;
 //                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
 //                            //usbPutString("INSTCHANGE - ");
 //                            //usbPutString(instStr);
-//                            pulsesTravelled = 0;
-//                        }
-//                        else if (L_INT_BLACK && (currentInst == 1 || currentInst == 5)) { //reached an intersection and turning left next time
-//                            LED_PIN_4_Write(1);
-//                            instCounter++;
+                            pulsesTravelled = 0;
+                        }
+                        else if (L_INT_BLACK && (currentInst == 1 || currentInst == 2 || currentInst == 5|| currentInst == 4 ||currentInst == 6 ||currentInst == 8)) { //reached an intersection and turning left next time
+                            LED_PIN_4_Write(1);
+                            instCounter++;
+                            turnComplete = -1;
 //                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
 //                            //usbPutString("INSTCHANGE - ");
 //                            //usbPutString(instStr);
-//                            pulsesTravelled = 0;
-//                        }
-//                        else {
-//                            
-//                        }
-//                    }
+                            pulsesTravelled = 0;
+                        }
+                        else {
+                            
+                        }
+                    }
+                    }
 
                     if (L_INT_BLACK) {
                         LED_PIN_2_Write(1);
