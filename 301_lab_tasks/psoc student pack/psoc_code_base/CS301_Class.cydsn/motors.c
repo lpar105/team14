@@ -43,13 +43,13 @@ void stop() {
 }
 
 void adjustLeft() {
-    PWM_1_WriteCompare(currentFLeftSpeed - 2);
-    PWM_2_WriteCompare(currentFRightSpeed + 2);
+    PWM_1_WriteCompare(currentFLeftSpeed - 4);
+    PWM_2_WriteCompare(currentFRightSpeed + 4);
 }
 
 void adjustRight() {
-    PWM_1_WriteCompare(currentFLeftSpeed + 2);
-    PWM_2_WriteCompare(currentFRightSpeed - 2);
+    PWM_1_WriteCompare(currentFLeftSpeed + 4);
+    PWM_2_WriteCompare(currentFRightSpeed - 4);
 }
 
 void turnLeft() { 
