@@ -251,6 +251,10 @@ int main() {
                         stop();
                         // Stop
                         CyDelay(1000);
+                        if (nextInst == 1 || nextInst == 5) {
+                            turnLeft();
+                            CyDelay(50);
+                        }
                     } else if (currentInst == 1 && turnComplete == -1) {
                         LED_PIN_1_Write(1);
                         LED_PIN_6_Write(0);
