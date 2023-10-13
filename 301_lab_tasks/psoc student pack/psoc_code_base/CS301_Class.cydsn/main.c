@@ -62,7 +62,9 @@ volatile int v1M1;
 volatile int v1M2;
 volatile int v2M1;
 volatile int v2M2;
+volatile int turnComplete;
 int pulsesTravelled = 0;
+volatile int checkDistance = 0;
 volatile int step = 0;
 volatile int interruptFlag = 0;
 
@@ -108,7 +110,7 @@ int main() {
         distance[i] = 55;
     }
     pathfind(instruction, distance, squares);
-    CyDelay(2000);
+    //CyDelay(2000);
     for (;;) {
 
         if (flag == 1) {
@@ -233,9 +235,12 @@ int main() {
                         //usbPutString(instStr);
                     }
                     started = 1;
+                    turnComplete = 1; //let the robot travel forward first
+                    checkDistance = 0; //robot checks/stops distance when this is on
                 } else {
 
                     started = 1;
+                    
 
                     char currentInst = instruction[instCounter];
                     if (currentInst == 0) {
@@ -243,20 +248,36 @@ int main() {
                         LED_PIN_6_Write(0);
                         // Stop
 
-                    } else if (currentInst == 1) {
+                    } else if (currentInst == 1 && turnComplete == 0) {
                         LED_PIN_1_Write(1);
                         LED_PIN_6_Write(0);
                         // Complete a left turn, then follow line
+                        if (turnComplete == 0) {
+                            if (R_INT_BLACK) { //code that senses when the turn is done, can be optimised
+                                turnComplete = 1;
+                                pulsesTravelled = 0;
+                            } else {
+                                turnLeft();
+                            }
+                        }
 
                     } else if (currentInst == 2) {
                         LED_PIN_1_Write(1);
                         LED_PIN_6_Write(1);
                         // Drive straight
-                    } else if (currentInst == 3) {
+                    } else if (currentInst == 3 && turnComplete == 0) { 
                         LED_PIN_1_Write(0);
                         LED_PIN_6_Write(1);
                         // Complete a right turn then follow line
-
+                        if (turnComplete == 0) {
+                            if (L_INT_BLACK) { //code that senses when the turn is done, can be optimised
+                                turnComplete = 1;
+                                pulsesTravelled = 0;
+                            } else {
+                                turnRight();
+                            }
+                        }
+                        
                     } else if (currentInst == 4) {
                         LED_PIN_1_Write(0);
                         LED_PIN_6_Write(0);
@@ -265,6 +286,9 @@ int main() {
                         LED_PIN_1_Write(1);
                         LED_PIN_6_Write(0);
                         // Complete a left turn, then follow line until end of encoder position
+                        if (turnComplete == 0) { 
+                            turnLeft();
+                        }
                     } else if (currentInst == 6) {
                         LED_PIN_1_Write(1);
                         LED_PIN_6_Write(1);
@@ -279,9 +303,10 @@ int main() {
                         // Complete a 180 turn, then follow line until end of encoder position
                     }
 
-                    if (M_LINE_BLACK && L_LINE_BLACK) { // if robot slightly too far right
+                    //only allow code to straighten if turn is complete
+                    if (turnComplete == 1) {
+                    if ((M_LINE_BLACK && L_LINE_BLACK)) { // if robot slightly too far right
                         adjustLeft();
-
                         lastAdjustDirection = 0;
 
                     } else if (M_LINE_BLACK && R_LINE_BLACK) { //  if robot slightly too far left
@@ -289,22 +314,22 @@ int main() {
                         lastAdjustDirection = 2;
 
                     } else if (M_LINE_BLACK) { // if robot in the center keep moving straight
-
                         lastAdjustDirection = 1;
-
                         driveForward(0, 0);
 
                     } else if (R_LINE_BLACK) { // if robot too far left
                         adjustRight();
-
                         lastAdjustDirection = 2;
 
                     } else if (L_LINE_BLACK) { // if robot too far right
                         adjustLeft();
-
                         lastAdjustDirection = 0;
+                    }
+                    else {
+                    }
+                    }
 
-                    } else { // completely lost find way
+                    /*} else { // completely lost find way
                         if (lastAdjustDirection == 0) {
                             turnLeft();
                         } else if (lastAdjustDirection == 1) { // last movement was forward (middle sensor sensed)
@@ -315,6 +340,7 @@ int main() {
                         }
 
                     }
+                    */
 
                     // UPDATE INSTRUCTION LOGIC GOES HERE this needs dramatic improving
                     LED_PIN_2_Write(0);
@@ -342,34 +368,54 @@ int main() {
                     char cVal[24];
 
                     itoa(instCounter, cVal, 10);
-                    if ((distance[instCounter] * 9.13333 <= pulsesTravelled * 20.42 / 57 / 2)) {
-                        if (currentInst == 0) {
+                    if ((distance[instCounter] * 9.13333 <= pulsesTravelled * 20.42 / 57 / 2) && (turnComplete == 1 || currentInst == 2)) { //turn complete and distance has been reached
+                        if (R_INT_BLACK || L_INT_BLACK) { //reached an intersection
                             LED_PIN_4_Write(1);
                             instCounter++;
-                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
-                            //usbPutString("INSTCHANGE - ");
-                            //usbPutString(instStr);
+                            turnComplete = 0;
                             pulsesTravelled = 0;
-                        
-
-                            LED_PIN_4_Write(1);
-                            instCounter++;
-                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
-                            //usbPutString("INSTCHANGE - ");
-                            //usbPutString(instStr);
-                            pulsesTravelled = 0;
-
-                        } else if (R_INT_BLACK && (currentInst == 3 || currentInst == 2 || currentInst == 4 || currentInst == 7 || currentInst == 6 || currentInst == 8)) {
-
-                            LED_PIN_4_Write(1);
-                            instCounter++;
-                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
-                            //usbPutString("INSTCHANGE - ");
-                            //usbPutString(instStr);
-                            pulsesTravelled = 0;
-
                         }
+//                        if (checkDistance == 1) {
+//                            if (distance[instCounter] * 9.13333 <= pulsesTravelled * 20.42 / 57 / 2) {
+//                                LED_PIN_4_Write(1);
+//                                instCounter++;
+//                                turnComplete = 0;
+//                                pulsesTravelled = 0;
+//                            }
+//                        }
+                        
                     }
+                    
+                    //if distance has been covered and ready to switch
+//                        if (currentInst == 0) {
+//                            LED_PIN_4_Write(1);
+//                            instCounter++;
+//                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
+//                            //usbPutString("INSTCHANGE - ");
+//                            //usbPutString(instStr);
+//                            pulsesTravelled = 0;
+//
+//                        } else if (R_INT_BLACK && (currentInst == 3 || currentInst == 2 || currentInst == 4 || currentInst == 7 || currentInst == 6 || currentInst == 8)) { //reached an intersection and turning right next time
+//
+//                            LED_PIN_4_Write(1);
+//                            instCounter++;
+//                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
+//                            //usbPutString("INSTCHANGE - ");
+//                            //usbPutString(instStr);
+//                            pulsesTravelled = 0;
+//                        }
+//                        else if (L_INT_BLACK && (currentInst == 1 || currentInst == 5)) { //reached an intersection and turning left next time
+//                            LED_PIN_4_Write(1);
+//                            instCounter++;
+//                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
+//                            //usbPutString("INSTCHANGE - ");
+//                            //usbPutString(instStr);
+//                            pulsesTravelled = 0;
+//                        }
+//                        else {
+//                            
+//                        }
+//                    }
 
                     if (L_INT_BLACK) {
                         LED_PIN_2_Write(1);

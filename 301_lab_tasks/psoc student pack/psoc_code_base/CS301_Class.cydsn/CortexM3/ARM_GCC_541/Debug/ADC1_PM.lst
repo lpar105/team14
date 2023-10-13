@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
   28:Generated_Source\PSoC5/ADC1_PM.c **** *
   29:Generated_Source\PSoC5/ADC1_PM.c **** * Summary:
   30:Generated_Source\PSoC5/ADC1_PM.c **** *  Stops the ADC operation and saves the configuration registers and component
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 2
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 2
 
 
   31:Generated_Source\PSoC5/ADC1_PM.c **** *  enable state. Should be called just prior to entering sleep
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
   57              		.type	ADC1_Wakeup, %function
   58              	ADC1_Wakeup:
   59              	.LFB1:
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 3
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 3
 
 
   56:Generated_Source\PSoC5/ADC1_PM.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
   91:Generated_Source\PSoC5/ADC1_PM.c ****     ADC1_Enable();
   79              		.loc 1 91 0
   80 0016 FFF7FEFF 		bl	ADC1_Enable
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 4
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 4
 
 
   92:Generated_Source\PSoC5/ADC1_PM.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
  104              		.loc 1 122 0
  105              		.cfi_startproc
  106              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 5
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 5
 
 
  107              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
  135              		.cfi_startproc
  136              		@ args = 0, pretend = 0, frame = 0
  137              		@ frame_needed = 1, uses_anonymous_args = 0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 6
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 6
 
 
  138              		@ link register save eliminated.
@@ -334,14 +334,14 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
  166 000c 7C000000 		.4byte	.LASF20
  167 0010 0C       		.byte	0xc
  168 0011 3E000000 		.4byte	.LASF21
- 169 0015 5C010000 		.4byte	.LASF22
+ 169 0015 87010000 		.4byte	.LASF22
  170 0019 00000000 		.4byte	.Ldebug_ranges0+0
  171 001d 00000000 		.4byte	0
  172 0021 00000000 		.4byte	.Ldebug_line0
  173 0025 02       		.uleb128 0x2
  174 0026 01       		.byte	0x1
  175 0027 06       		.byte	0x6
- 176 0028 D7010000 		.4byte	.LASF0
+ 176 0028 6F010000 		.4byte	.LASF0
  177 002c 02       		.uleb128 0x2
  178 002d 01       		.byte	0x1
  179 002e 08       		.byte	0x8
@@ -349,16 +349,16 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
  181 0033 02       		.uleb128 0x2
  182 0034 02       		.byte	0x2
  183 0035 05       		.byte	0x5
- 184 0036 EF010000 		.4byte	.LASF2
+ 184 0036 E2010000 		.4byte	.LASF2
  185 003a 02       		.uleb128 0x2
  186 003b 02       		.byte	0x2
  187 003c 07       		.byte	0x7
- 188 003d C4010000 		.4byte	.LASF3
+ 188 003d 5C010000 		.4byte	.LASF3
  189 0041 02       		.uleb128 0x2
  190 0042 04       		.byte	0x4
  191 0043 05       		.byte	0x5
  192 0044 3C010000 		.4byte	.LASF4
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 7
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 7
 
 
  193 0048 02       		.uleb128 0x2
@@ -399,7 +399,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
  228 0087 08       		.byte	0x8
  229 0088 18010000 		.4byte	.LASF11
  230 008c 04       		.uleb128 0x4
- 231 008d F9010000 		.4byte	.LASF13
+ 231 008d EC010000 		.4byte	.LASF13
  232 0091 02       		.byte	0x2
  233 0092 9102     		.2byte	0x291
  234 0094 98000000 		.4byte	0x98
@@ -408,17 +408,17 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
  237 009d 02       		.uleb128 0x2
  238 009e 08       		.byte	0x8
  239 009f 04       		.byte	0x4
- 240 00a0 E3010000 		.4byte	.LASF14
+ 240 00a0 7B010000 		.4byte	.LASF14
  241 00a4 02       		.uleb128 0x2
  242 00a5 04       		.byte	0x4
  243 00a6 07       		.byte	0x7
- 244 00a7 FE010000 		.4byte	.LASF15
+ 244 00a7 F1010000 		.4byte	.LASF15
  245 00ab 06       		.uleb128 0x6
  246 00ac 1B000000 		.4byte	.LASF16
  247 00b0 01       		.byte	0x1
  248 00b1 2E       		.byte	0x2e
  249 00b2 00000000 		.4byte	.LFB0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 8
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 8
 
 
  250 00b6 18000000 		.4byte	.LFE0-.LFB0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
  304 0018 3E       		.uleb128 0x3e
  305 0019 0B       		.uleb128 0xb
  306 001a 03       		.uleb128 0x3
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 9
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 9
 
 
  307 001b 0E       		.uleb128 0xe
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
  361 0052 19       		.uleb128 0x19
  362 0053 00       		.byte	0
  363 0054 00       		.byte	0
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 10
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 10
 
 
  364 0055 07       		.uleb128 0x7
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
  418              		.section	.debug_line,"",%progbits
  419              	.Ldebug_line0:
  420 0000 98000000 		.section	.debug_str,"MS",%progbits,1
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 11
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 11
 
 
  420      02004400 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
  440      66756E63 
  440      74696F6E 
  440      2D736563 
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 12
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 12
 
 
  440      74696F6E 
@@ -692,46 +692,43 @@ ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 1
  453              	.LASF10:
  454 0155 646F7562 		.ascii	"double\000"
  454      6C6500
- 455              	.LASF22:
- 456 015c 483A5C44 		.ascii	"H:\\Documents\\301\\Post-Benchmark\\team14\\301_lab"
- 456      6F63756D 
- 456      656E7473 
- 456      5C333031 
- 456      5C506F73 
- 457 018a 5F746173 		.ascii	"_tasks\\psoc student pack\\psoc_code_base\\CS301_Cl"
- 457      6B735C70 
- 457      736F6320 
- 457      73747564 
- 457      656E7420 
- 458 01ba 6173732E 		.ascii	"ass.cydsn\000"
- 458      63796473 
- 458      6E00
- 459              	.LASF3:
- 460 01c4 73686F72 		.ascii	"short unsigned int\000"
- 460      7420756E 
- 460      7369676E 
- 460      65642069 
- 460      6E7400
- 461              	.LASF0:
- 462 01d7 7369676E 		.ascii	"signed char\000"
- 462      65642063 
- 462      68617200 
- 463              	.LASF14:
- 464 01e3 6C6F6E67 		.ascii	"long double\000"
-ARM GAS  C:\Users\lpar105\AppData\Local\Temp\ccq6ToDN.s 			page 13
+ 455              	.LASF3:
+ 456 015c 73686F72 		.ascii	"short unsigned int\000"
+ 456      7420756E 
+ 456      7369676E 
+ 456      65642069 
+ 456      6E7400
+ 457              	.LASF0:
+ 458 016f 7369676E 		.ascii	"signed char\000"
+ 458      65642063 
+ 458      68617200 
+ 459              	.LASF14:
+ 460 017b 6C6F6E67 		.ascii	"long double\000"
+ 460      20646F75 
+ 460      626C6500 
+ 461              	.LASF22:
+ 462 0187 483A5C44 		.ascii	"H:\\Desktop\\Team 14\\team14\\301_lab_tasks\\psoc s"
+ 462      65736B74 
+ 462      6F705C54 
+ 462      65616D20 
+ 462      31345C74 
+ 463 01b5 74756465 		.ascii	"tudent pack\\psoc_code_base\\CS301_Class.cydsn\000"
+ 463      6E742070 
+ 463      61636B5C 
+ 463      70736F63 
+ 463      5F636F64 
+ 464              	.LASF2:
+ARM GAS  C:\Users\lger522\AppData\Local\Temp\ccGTUeWO.s 			page 13
 
 
- 464      20646F75 
- 464      626C6500 
- 465              	.LASF2:
- 466 01ef 73686F72 		.ascii	"short int\000"
- 466      7420696E 
- 466      7400
- 467              	.LASF13:
- 468 01f9 72656738 		.ascii	"reg8\000"
- 468      00
- 469              	.LASF15:
- 470 01fe 73697A65 		.ascii	"sizetype\000"
- 470      74797065 
- 470      00
- 471              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 465 01e2 73686F72 		.ascii	"short int\000"
+ 465      7420696E 
+ 465      7400
+ 466              	.LASF13:
+ 467 01ec 72656738 		.ascii	"reg8\000"
+ 467      00
+ 468              	.LASF15:
+ 469 01f1 73697A65 		.ascii	"sizetype\000"
+ 469      74797065 
+ 469      00
+ 470              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
