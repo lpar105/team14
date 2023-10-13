@@ -377,8 +377,8 @@ int main() {
 
 
                         //if distance has been covered and ready to switch
-                        if (turnComplete != 0 && ((distance[instCounter] * 9.13333 <= pulsesTravelled * 20.42 / 57 / 2) ||currentInst == 0)) {
-                            if (currentInst == 0) {
+                        if (turnComplete != 0 && ((distance[instCounter] * 9.13333 *1.2 <= pulsesTravelled * 20.42 / 57 / 2) ||currentInst == 0)) {
+                            if (currentInst == 0 || currentInst == 6) {
                                 LED_PIN_4_Write(1);
                                 instCounter++;
                                 turnComplete = -1;
@@ -386,6 +386,10 @@ int main() {
                                 //                            //usbPutString("INSTCHANGE - ");
                                 //                            //usbPutString(instStr);
                                 pulsesTravelled = 0;
+                                if (currentInst == 6) {
+                                    stop();
+                                    CyDelay(1000);
+                                }
                                 //
                             } else if (R_INT_BLACK && (nextInst == 0 || nextInst == 3 || nextInst == 2 || nextInst == 4 || nextInst == 7 || nextInst == 6 || nextInst == 8)) { //reached an intersection and turning right next time
                                 //

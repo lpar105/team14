@@ -1,4 +1,4 @@
---------------- Build Started: 10/13/2023 19:08:41 Project: CS301_Class, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 10/13/2023 19:34:08 Project: CS301_Class, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
 main.c: In function 'main':
@@ -31,6 +31,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S "H:\Documents\301\Post-Benchmark\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\CortexM3\ARM_GCC_541\Debug\CS301_Class.elf"
-Flash used: 25080 of 262144 bytes (9.6%).
+Flash used: 25128 of 262144 bytes (9.6%).
 SRAM used: 29573 of 65536 bytes (45.1%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 10/13/2023 19:08:43 ---------------
+--------------- Build Succeeded: 10/13/2023 19:34:10 ---------------
