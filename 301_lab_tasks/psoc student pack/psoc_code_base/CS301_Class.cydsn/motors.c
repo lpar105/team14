@@ -13,7 +13,7 @@
 #include <project.h>
 #include "motors.h"
 
-volatile int currentFLeftSpeed = 160;
+volatile int currentFLeftSpeed = 159;
 volatile int currentFRightSpeed = 160;// fresh 163, normal 165, old 167
 
 

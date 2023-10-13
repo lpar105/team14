@@ -265,7 +265,13 @@ int main() {
                         lastAdjustDirection = 0;
                         if (L_LINE_BLACK) { //code that senses when the turn is done, can be optimised
                             turnComplete = 1;
-                            turnRight();
+                            stop();
+                            CyDelay(200);
+                            
+                            adjustRight();
+                            CyDelay(225);
+                            
+                            stop();
                             CyDelay(200);
                         }
                         pulsesTravelled = 0;
@@ -286,7 +292,13 @@ int main() {
                         lastAdjustDirection = 2;
                         if (R_LINE_BLACK) { //code that senses when the turn is done, can be optimised
                             turnComplete = 1;
-                            turnLeft();
+                            stop();
+                            CyDelay(200);
+                            
+                            adjustLeft();
+                            CyDelay(225);
+                            
+                            stop();
                             CyDelay(200);
                         }
                         pulsesTravelled = 0;
@@ -316,7 +328,7 @@ int main() {
                     }
 
                     //only allow code to straighten if turn is complete
-                    if (turnComplete != 0) {
+                    if (turnComplete != 0 ) {
                         if ((M_LINE_BLACK && L_LINE_BLACK)) { // if robot slightly too far right
                             adjustLeft();
                             lastAdjustDirection = 0;
@@ -365,7 +377,7 @@ int main() {
 
 
                         //if distance has been covered and ready to switch
-                        if (turnComplete != 0 && (distance[instCounter] * 9.13333 <= pulsesTravelled * 20.42 / 57 / 2)) {
+                        if (turnComplete != 0 && ((distance[instCounter] * 9.13333 <= pulsesTravelled * 20.42 / 57 / 2) ||currentInst == 0)) {
                             if (currentInst == 0) {
                                 LED_PIN_4_Write(1);
                                 instCounter++;
@@ -375,7 +387,7 @@ int main() {
                                 //                            //usbPutString(instStr);
                                 pulsesTravelled = 0;
                                 //
-                            } else if (R_INT_BLACK && (nextInst == 3 || nextInst == 2 || nextInst == 4 || nextInst == 7 || nextInst == 6 || nextInst == 8)) { //reached an intersection and turning right next time
+                            } else if (R_INT_BLACK && (nextInst == 0 || nextInst == 3 || nextInst == 2 || nextInst == 4 || nextInst == 7 || nextInst == 6 || nextInst == 8)) { //reached an intersection and turning right next time
                                 //
                                 LED_PIN_4_Write(1);
                                 instCounter++;
@@ -384,7 +396,7 @@ int main() {
                                 //                            //usbPutString("INSTCHANGE - ");
                                 //                            //usbPutString(instStr);
                                 pulsesTravelled = 0;
-                            } else if (L_INT_BLACK && (nextInst == 1 || nextInst == 2 || nextInst == 5 || nextInst == 4 || nextInst == 6 || nextInst == 8)) { //reached an intersection and turning left next time
+                            } else if (L_INT_BLACK && (nextInst == 0 || nextInst == 1 || nextInst == 2 || nextInst == 5 || nextInst == 4 || nextInst == 6 || nextInst == 8)) { //reached an intersection and turning left next time
                                 LED_PIN_4_Write(1);
                                 instCounter++;
                                 turnComplete = -1;
