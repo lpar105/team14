@@ -1,5 +1,5 @@
 -- Project:   CS301_Class
--- Generated: 10/15/2023 11:35:31
+-- Generated: 10/15/2023 22:13:39
 -- PSoC Creator  4.2
 
 ENTITY CS301_Class IS
@@ -402,7 +402,6 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class IS
     SIGNAL rightLineSensor(0)__PA : bit;
     SIGNAL tmpOE__M1_IN1_net_0 : bit;
     ATTRIBUTE POWER OF tmpOE__M1_IN1_net_0 : SIGNAL IS true;
-    SIGNAL turnCompleteSensor(0)__PA : bit;
     SIGNAL \ClockBlock.dclk_glb_ff_2__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.ce0__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.cl0__sig\ : bit;
@@ -500,15 +499,13 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class IS
     ATTRIBUTE Location OF LED_PIN_3(0) : LABEL IS "P12[7]";
     ATTRIBUTE lib_model OF middleLineSensor(0) : LABEL IS "iocell23";
     ATTRIBUTE Location OF middleLineSensor(0) : LABEL IS "P1[6]";
-    ATTRIBUTE lib_model OF turnCompleteSensor(0) : LABEL IS "iocell24";
-    ATTRIBUTE Location OF turnCompleteSensor(0) : LABEL IS "P2[0]";
-    ATTRIBUTE lib_model OF rightLineSensor(0) : LABEL IS "iocell25";
+    ATTRIBUTE lib_model OF rightLineSensor(0) : LABEL IS "iocell24";
     ATTRIBUTE Location OF rightLineSensor(0) : LABEL IS "P2[2]";
-    ATTRIBUTE lib_model OF rightIntersectionSensor(0) : LABEL IS "iocell26";
+    ATTRIBUTE lib_model OF rightIntersectionSensor(0) : LABEL IS "iocell25";
     ATTRIBUTE Location OF rightIntersectionSensor(0) : LABEL IS "P2[1]";
-    ATTRIBUTE lib_model OF LED_PIN_4(0) : LABEL IS "iocell27";
+    ATTRIBUTE lib_model OF LED_PIN_4(0) : LABEL IS "iocell26";
     ATTRIBUTE Location OF LED_PIN_4(0) : LABEL IS "P12[1]";
-    ATTRIBUTE lib_model OF LED_PIN_6(0) : LABEL IS "iocell28";
+    ATTRIBUTE lib_model OF LED_PIN_6(0) : LABEL IS "iocell27";
     ATTRIBUTE Location OF LED_PIN_6(0) : LABEL IS "P15[5]";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:reload\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:status_0\ : LABEL IS "macrocell3";
@@ -3259,96 +3256,6 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    turnCompleteSensor:logicalport
-        GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
-            id => "ab786460-d150-42a8-889d-e929748aa01f",
-            init_dr_st => "0",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "1",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "A",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "0",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    turnCompleteSensor(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "turnCompleteSensor",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
-        PORT MAP(
-            pa_out => turnCompleteSensor(0)__PA,
-            oe => open,
-            in_clock => open,
-            pin_input => \ADC1:AMuxHw_2_Decoder_one_hot_3\,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
     rightLineSensor:logicalport
         GENERIC MAP(
             drive_mode => "000",
@@ -3432,7 +3339,7 @@ BEGIN
             pa_out => rightLineSensor(0)__PA,
             oe => open,
             in_clock => open,
-            pin_input => \ADC1:AMuxHw_2_Decoder_one_hot_4\,
+            pin_input => \ADC1:AMuxHw_2_Decoder_one_hot_3\,
             in_clock_en => '1',
             in_reset => '0',
             out_clock => open,
@@ -3522,7 +3429,7 @@ BEGIN
             pa_out => rightIntersectionSensor(0)__PA,
             oe => open,
             in_clock => open,
-            pin_input => \ADC1:AMuxHw_2_Decoder_one_hot_5\,
+            pin_input => \ADC1:AMuxHw_2_Decoder_one_hot_4\,
             in_clock_en => '1',
             in_reset => '0',
             out_clock => open,
@@ -5035,7 +4942,7 @@ BEGIN
         GENERIC MAP(
             cy_alt_mode => 0,
             cy_init_value => "0000000",
-            cy_period => "0000101",
+            cy_period => "0000100",
             cy_route_en => 1,
             cy_route_ld => 1,
             clk_inv => '0',

@@ -11,7 +11,7 @@
 */
 
 void initMotors();
-void driveForward(int dotsTravelled, int targetSpeed);
+void driveForward();
 void updateForwardSpeed(int dotsTravelled, int targetSpeed);
 void stop();
 void adjustLeft();

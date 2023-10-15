@@ -76,8 +76,6 @@
 #include "LED_PIN_3.h"
 #include "middleLineSensor_aliases.h"
 #include "middleLineSensor.h"
-#include "turnCompleteSensor_aliases.h"
-#include "turnCompleteSensor.h"
 #include "rightLineSensor_aliases.h"
 #include "rightLineSensor.h"
 #include "rightIntersectionSensor_aliases.h"

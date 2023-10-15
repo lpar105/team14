@@ -218,9 +218,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\middleLineSensor_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\middleLineSensor.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\middleLineSensor.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\turnCompleteSensor_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\turnCompleteSensor.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\turnCompleteSensor.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\rightLineSensor_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\rightLineSensor.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\rightLineSensor.h</File>

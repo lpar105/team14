@@ -13,13 +13,13 @@
 #include <project.h>
 #include "motors.h"
 
-volatile int currentFLeftSpeed = 159+2;
-volatile int currentFRightSpeed = 160+2;// fresh 163, normal 165, old 167
+volatile int currentFLeftSpeed = 161+1; //was 161 + 2
+volatile int currentFRightSpeed = 162+2;// was 162 + 2
 
 
 void initMotors() {
-    PWM_1_WritePeriod(250);
-    PWM_2_WritePeriod(250);
+    PWM_1_WritePeriod(165);
+    PWM_2_WritePeriod(165);
     PWM_1_Start();
     PWM_2_Start();
 }
@@ -32,9 +32,9 @@ int getRightPWM(void) {
     return currentFRightSpeed;
 }
 
-void driveForward(int distanceTravelled, int targetSpeed) {  
+void driveForward() {  
         PWM_1_WriteCompare(currentFLeftSpeed); 
-        PWM_2_WriteCompare(currentFLeftSpeed); 
+        PWM_2_WriteCompare(currentFRightSpeed); 
 }
 
 void stop() {
@@ -43,24 +43,24 @@ void stop() {
 }
 
 void adjustLeft() {
-    PWM_1_WriteCompare(currentFLeftSpeed - 4);
-    PWM_2_WriteCompare(currentFRightSpeed + 4);
+    PWM_1_WriteCompare(currentFLeftSpeed - 3);
+    PWM_2_WriteCompare(currentFRightSpeed + 3);
 }
 
 void adjustRight() {
-    PWM_1_WriteCompare(currentFLeftSpeed + 4);
-    PWM_2_WriteCompare(currentFRightSpeed - 4);
+    PWM_1_WriteCompare(currentFLeftSpeed + 2);
+    PWM_2_WriteCompare(currentFRightSpeed - 2);
 }
 
 void turnLeft() { 
     
-    PWM_1_WriteCompare(125 - (currentFRightSpeed - 125)+2) ; //was 11, changed as I think the value becomes too small to move the motor
-    PWM_2_WriteCompare(currentFRightSpeed-2); //was 11, changed as I think the value becomes too small to move the motor
+    PWM_1_WriteCompare(125 - (currentFRightSpeed - 125) + 2) ; //was 11, changed as I think the value becomes too small to move the motor
+    PWM_2_WriteCompare(currentFRightSpeed - 2); //was 11, changed as I think the value becomes too small to move the motor
 }
 //193 144
 void turnRight() { 
-    PWM_1_WriteCompare(currentFLeftSpeed-2);  //was 11, changed as I think the value becomes too small to move the motor
-    PWM_2_WriteCompare(125 - (currentFRightSpeed - 125) +2); //was 11, changed as I think the value becomes too small to move the motor
+    PWM_1_WriteCompare(currentFRightSpeed - 2);  //was 11, changed as I think the value becomes too small to move the motor
+    PWM_2_WriteCompare(125 - (currentFRightSpeed - 125) + 2); //was 11, changed as I think the value becomes too small to move the motor
 }
 
 /* [] END OF FILE */

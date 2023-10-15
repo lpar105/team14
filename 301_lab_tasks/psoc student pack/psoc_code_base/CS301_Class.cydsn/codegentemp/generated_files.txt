@@ -132,9 +132,6 @@
   <file name="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\middleLineSensor_aliases.h" value="HEADER;;;;;middleLineSensor" />
   <file name="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\middleLineSensor.c" value="SOURCE_C;CortexM3;;;;middleLineSensor" />
   <file name="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\middleLineSensor.h" value="HEADER;;;;;middleLineSensor" />
-  <file name="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\turnCompleteSensor_aliases.h" value="HEADER;;;;;turnCompleteSensor" />
-  <file name="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\turnCompleteSensor.c" value="SOURCE_C;CortexM3;;;;turnCompleteSensor" />
-  <file name="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\turnCompleteSensor.h" value="HEADER;;;;;turnCompleteSensor" />
   <file name="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\rightLineSensor_aliases.h" value="HEADER;;;;;rightLineSensor" />
   <file name="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\rightLineSensor.c" value="SOURCE_C;CortexM3;;;;rightLineSensor" />
   <file name="H:\Documents\GitHub\team14\301_lab_tasks\psoc student pack\psoc_code_base\CS301_Class.cydsn\codegentemp\rightLineSensor.h" value="HEADER;;;;;rightLineSensor" />

@@ -31,7 +31,7 @@
 
 #include "vars.h"
 
-#define ADC_COUNT 1000
+#define ADC_COUNT 500
 #define L_INT_BLACK highCountLeftIntersection < 75
 #define R_INT_BLACK highCountRightIntersection < 75
 #define L_LINE_BLACK highCountLeftLine < 75
@@ -51,7 +51,6 @@ volatile int flag = 0;
 volatile int valuesLeftIntersection[ADC_COUNT];
 volatile int valuesLeftLine[ADC_COUNT];
 volatile int valuesMiddleLine[ADC_COUNT];
-volatile int valuesTurnComplete[ADC_COUNT];
 volatile int valuesRightLine[ADC_COUNT];
 volatile int valuesRightIntersection[ADC_COUNT];
 volatile int count = 0;
@@ -120,9 +119,8 @@ int main() {
             valuesLeftIntersection[count] = ADC1_GetResult16(0);
             valuesLeftLine[count] = ADC1_GetResult16(1);
             valuesMiddleLine[count] = ADC1_GetResult16(2);
-            valuesTurnComplete[count] = ADC1_GetResult16(3);
-            valuesRightLine[count] = ADC1_GetResult16(4);
-            valuesRightIntersection[count] = ADC1_GetResult16(5);
+            valuesRightLine[count] = ADC1_GetResult16(3);
+            valuesRightIntersection[count] = ADC1_GetResult16(4);
 
             count++;
             if (count == ADC_COUNT) {
@@ -163,11 +161,6 @@ int main() {
 
                     if (valuesMiddleLine[i] > 2000) {
                         highCountMiddleLine++;
-
-                    }
-
-                    if (valuesTurnComplete[i] > 2000) {
-                        highCountTurnComplete++;
 
                     }
 
@@ -223,14 +216,14 @@ int main() {
                     checkDistance = 0; //robot checks/stops distance when this is on
                     
                 } else {
-
+                    LED_PIN_1_Write(!LED_PIN_1_Read());
                     started = 1;
 
                     char currentInst = instruction[instCounter];
                     char nextInst = instruction[instCounter + 1];
                     if (currentInst == 0) {
-                        LED_PIN_1_Write(0);
-                        LED_PIN_6_Write(0);
+                        //LED_PIN_1_Write(0);
+                        //LED_PIN_6_Write(0);
                         stop();
                         // Stop
                         CyDelay(1000);
@@ -239,18 +232,18 @@ int main() {
                             CyDelay(50);
                         }
                     } else if ((currentInst == 1 || currentInst == 5)&& turnComplete == -1) {
-                        LED_PIN_1_Write(1);
-                        LED_PIN_6_Write(0);
+                        //LED_PIN_1_Write(1);
+                        //LED_PIN_6_Write(0);
                         turnComplete = 0;
                         turnLeft();
                         LED_PIN_4_Write(0);
-                        CyDelay(150);
+                        CyDelay(300);
                         pulsesTravelled = 0;
                         // Complete a left turn, then follow line
 
                     } else if ((currentInst == 1 || currentInst == 5) && turnComplete == 0) {
                         lastAdjustDirection = 0;
-                        if (L_LINE_BLACK) { //code that senses when the turn is done, can be optimised
+                        if (R_LINE_BLACK) { //code that senses when the turn is done, can be optimised
                             turnComplete = 1;
                             stop();
                             CyDelay(200);
@@ -263,37 +256,40 @@ int main() {
                         }
                         pulsesTravelled = 0;
                     } else if (currentInst == 2 || currentInst == 6) {
-                        LED_PIN_1_Write(1);
-                        LED_PIN_6_Write(1);
+                        //LED_PIN_1_Write(1);
+                        //LED_PIN_6_Write(1);
                         // Drive straight
                         
                         
                     } else if ((currentInst == 3||currentInst == 7) && turnComplete == -1) {
-                        LED_PIN_1_Write(0);
-                        LED_PIN_6_Write(1);
+                        //LED_PIN_1_Write(0);
+                        //LED_PIN_6_Write(1);
                         turnComplete = 0;
                         turnRight();
                         LED_PIN_4_Write(0);
-                        CyDelay(150);
+                        CyDelay(300);
                         pulsesTravelled = 0;
 
                     } else if ((currentInst == 3||currentInst == 7) && turnComplete == 0) {
                         lastAdjustDirection = 2;
-                        if (R_LINE_BLACK) { //code that senses when the turn is done, can be optimised
+                        if (L_LINE_BLACK) { //code that senses when the turn is done, can be optimised
                             turnComplete = 1;
                             stop();
                             CyDelay(200);
+                            pulsesTravelled = 0;
                             
                             adjustLeft();
                             CyDelay(225);
+                            pulsesTravelled = 0;
                             
                             stop();
                             CyDelay(200);
+                            pulsesTravelled = 0;
                         }
                         pulsesTravelled = 0;
                     } else if ((currentInst == 4||currentInst == 8) && turnComplete == -1) {
-                        LED_PIN_1_Write(0);
-                        LED_PIN_6_Write(0);
+                        //LED_PIN_1_Write(0);
+                        //LED_PIN_6_Write(0);
                         turnComplete = 0;
                         turnRight();
                         LED_PIN_4_Write(0);
@@ -301,8 +297,8 @@ int main() {
                         pulsesTravelled = 0;
 
                     } else if ((currentInst == 4||currentInst == 8) && turnComplete == 0) {
-                        LED_PIN_1_Write(0);
-                        LED_PIN_6_Write(0);
+                        //LED_PIN_1_Write(0);
+                        //LED_PIN_6_Write(0);
                         // Do a 180, then follow line
                         if (R_LINE_BLACK) { //code that senses when the turn is done, can be optimised
                             turnComplete = 1;
@@ -344,12 +340,12 @@ int main() {
 
                         } else { // completely lost find way
                             if (lastAdjustDirection == 0) {
-                                turnLeft();
+                                adjustLeft();
                             } else if (lastAdjustDirection == 1) { // last movement was forward (middle sensor sensed)
                                 //hardAdjustLeft();
-                                turnRight();
+                                adjustRight();
                             } else {
-                                turnRight();
+                                adjustRight();
                             }
 
                         }
@@ -370,7 +366,8 @@ int main() {
 
                         //if distance has been covered and ready to switch
                         // if stop instruction or not turning and distance has been travelled
-                        if (turnComplete != 0 && ((distance[instCounter] * 9.13333 *1.2 <= pulsesTravelled * 20.42 / 57 / 2) ||currentInst == 0)) {
+                        int pulsesToTravel[] = {0, 62, 123, 184, 245, 305, 367, 429, 489, 550};
+                        if (turnComplete != 0 && (pulsesTravelled * 0.7 > pulsesToTravel[distance[instCounter]] ||currentInst == 0)) {
                             // if distance reached then stop
                             if (currentInst == 0 || currentInst == 6 || currentInst == 7 || currentInst == 8 || currentInst == 5) {
                                 LED_PIN_4_Write(1);
@@ -381,6 +378,7 @@ int main() {
                                 //                            //usbPutString(instStr);
                                 pulsesTravelled = 0;
                                 if (currentInst != 0) {
+                                    CyDelay(400);
                                     stop();
                                     CyDelay(1000);
                                 }

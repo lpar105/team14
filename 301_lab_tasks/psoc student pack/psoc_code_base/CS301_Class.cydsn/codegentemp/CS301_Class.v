@@ -1,6 +1,6 @@
 // ======================================================================
 // CS301_Class.v generated from TopDesign.cysch
-// 10/15/2023 at 11:34
+// 10/15/2023 at 22:12
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1594,7 +1594,7 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_sync_v1_0\cy_sync_v1_0.v"
 `endif
 
-// ADC_SAR_SEQ_v2_10(ADC_Clock_Frequency=1000000, Adjust=0, ClockSource=0, InputRange=0, NumChannels=6, Reference=0, Resolution=12, rm_int=false, SampleMode=0, SamplePrecharge=4, SampleRate=62500, SampleRate_def=631579, VrefValue=1.024, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=ADC_SAR_SEQ_v2_10, CY_CONFIG_TITLE=ADC1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC1, CY_INSTANCE_SHORT_NAME=ADC1, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=ADC1, )
+// ADC_SAR_SEQ_v2_10(ADC_Clock_Frequency=1000000, Adjust=0, ClockSource=0, InputRange=0, NumChannels=5, Reference=0, Resolution=12, rm_int=false, SampleMode=0, SamplePrecharge=4, SampleRate=62500, SampleRate_def=631579, VrefValue=1.024, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=ADC_SAR_SEQ_v2_10, CY_CONFIG_TITLE=ADC1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC1, CY_INSTANCE_SHORT_NAME=ADC1, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=ADC1, )
 module ADC_SAR_SEQ_v2_10_10 (
     soc,
     aclk,
@@ -2053,7 +2053,7 @@ module ADC_SAR_SEQ_v2_10_10 (
         .soc(soc),
         .soc_out(soc_out),
         .sar_eoc(Net_3830));
-    defparam bSAR_SEQ.NumChannels = 6;
+    defparam bSAR_SEQ.NumChannels = 5;
     defparam bSAR_SEQ.SampleMode = 0;
 
 	// VirtualMux_4 (cy_virtualmux_v1_0)
@@ -2215,11 +2215,11 @@ module top ;
     electrical  Net_4682;
     electrical  Net_4681;
     electrical  Net_4680;
-    electrical  Net_4779;
+    electrical  Net_4807;
     electrical  Net_4678;
     electrical  Net_4778;
     electrical  Net_4676;
-    electrical  Net_4777;
+    electrical  Net_4808;
     electrical  Net_4776;
     electrical  Net_4673;
     electrical  Net_4775;
@@ -3045,7 +3045,7 @@ module top ;
 		#(.id("4c992dc7-2721-4e82-beca-fd2bdf776a66"),
 		  .source_clock_id("39D5E4C2-EBFC-44ab-AE3D-19F9BBFD674D"),
 		  .divisor(0),
-		  .period("1000000000"),
+		  .period("400000000"),
 		  .is_direct(0),
 		  .is_digital(1))
 		Clock2
@@ -3771,11 +3771,11 @@ module top ;
         .AIN1(Net_4775),
         .AIN_20(Net_4673),
         .AIN_21(Net_4776),
-        .AIN_30(Net_4777),
+        .AIN_30(Net_4808),
         .AIN_31(Net_4676),
         .AIN3(Net_4778),
         .AIN_40(Net_4678),
-        .AIN_41(Net_4779),
+        .AIN_41(Net_4807),
         .AIN_50(Net_4680),
         .AIN_51(Net_4681),
         .AIN5(Net_4682),
@@ -4166,82 +4166,6 @@ module top ;
 
 	assign tmpOE__middleLineSensor_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-	wire [0:0] tmpOE__turnCompleteSensor_net;
-	wire [0:0] tmpFB_0__turnCompleteSensor_net;
-	wire [0:0] tmpIO_0__turnCompleteSensor_net;
-	wire [0:0] tmpINTERRUPT_0__turnCompleteSensor_net;
-	electrical [0:0] tmpSIOVREF__turnCompleteSensor_net;
-
-	cy_psoc3_pins_v1_10
-		#(.id("ab786460-d150-42a8-889d-e929748aa01f"),
-		  .drive_mode(3'b000),
-		  .ibuf_enabled(1'b0),
-		  .init_dr_st(1'b0),
-		  .input_clk_en(0),
-		  .input_sync(1'b1),
-		  .input_sync_mode(1'b0),
-		  .intr_mode(2'b00),
-		  .invert_in_clock(0),
-		  .invert_in_clock_en(0),
-		  .invert_in_reset(0),
-		  .invert_out_clock(0),
-		  .invert_out_clock_en(0),
-		  .invert_out_reset(0),
-		  .io_voltage(""),
-		  .layout_mode("CONTIGUOUS"),
-		  .oe_conn(1'b0),
-		  .oe_reset(0),
-		  .oe_sync(1'b0),
-		  .output_clk_en(0),
-		  .output_clock_mode(1'b0),
-		  .output_conn(1'b0),
-		  .output_mode(1'b0),
-		  .output_reset(0),
-		  .output_sync(1'b0),
-		  .pa_in_clock(-1),
-		  .pa_in_clock_en(-1),
-		  .pa_in_reset(-1),
-		  .pa_out_clock(-1),
-		  .pa_out_clock_en(-1),
-		  .pa_out_reset(-1),
-		  .pin_aliases(""),
-		  .pin_mode("A"),
-		  .por_state(4),
-		  .sio_group_cnt(0),
-		  .sio_hyst(1'b1),
-		  .sio_ibuf(""),
-		  .sio_info(2'b00),
-		  .sio_obuf(""),
-		  .sio_refsel(""),
-		  .sio_vtrip(""),
-		  .sio_hifreq(""),
-		  .sio_vohsel(""),
-		  .slew_rate(1'b0),
-		  .spanning(0),
-		  .use_annotation(1'b0),
-		  .vtrip(2'b10),
-		  .width(1),
-		  .ovt_hyst_trim(1'b0),
-		  .ovt_needed(1'b0),
-		  .ovt_slew_control(2'b00),
-		  .input_buffer_sel(2'b00))
-		turnCompleteSensor
-		 (.oe(tmpOE__turnCompleteSensor_net),
-		  .y({1'b0}),
-		  .fb({tmpFB_0__turnCompleteSensor_net[0:0]}),
-		  .analog({Net_4777}),
-		  .io({tmpIO_0__turnCompleteSensor_net[0:0]}),
-		  .siovref(tmpSIOVREF__turnCompleteSensor_net),
-		  .interrupt({tmpINTERRUPT_0__turnCompleteSensor_net[0:0]}),
-		  .in_clock({1'b0}),
-		  .in_clock_en({1'b1}),
-		  .in_reset({1'b0}),
-		  .out_clock({1'b0}),
-		  .out_clock_en({1'b1}),
-		  .out_reset({1'b0}));
-
-	assign tmpOE__turnCompleteSensor_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
 	wire [0:0] tmpOE__rightLineSensor_net;
 	wire [0:0] tmpFB_0__rightLineSensor_net;
 	wire [0:0] tmpIO_0__rightLineSensor_net;
@@ -4305,7 +4229,7 @@ module top ;
 		 (.oe(tmpOE__rightLineSensor_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__rightLineSensor_net[0:0]}),
-		  .analog({Net_4778}),
+		  .analog({Net_4808}),
 		  .io({tmpIO_0__rightLineSensor_net[0:0]}),
 		  .siovref(tmpSIOVREF__rightLineSensor_net),
 		  .interrupt({tmpINTERRUPT_0__rightLineSensor_net[0:0]}),
@@ -4381,7 +4305,7 @@ module top ;
 		 (.oe(tmpOE__rightIntersectionSensor_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__rightIntersectionSensor_net[0:0]}),
-		  .analog({Net_4779}),
+		  .analog({Net_4778}),
 		  .io({tmpIO_0__rightIntersectionSensor_net[0:0]}),
 		  .siovref(tmpSIOVREF__rightIntersectionSensor_net),
 		  .interrupt({tmpINTERRUPT_0__rightIntersectionSensor_net[0:0]}),
