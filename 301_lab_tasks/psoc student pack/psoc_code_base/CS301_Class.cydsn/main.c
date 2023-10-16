@@ -77,11 +77,6 @@ CY_ISR(eoc) {
 }
 
 int main() {
-    LED_PIN_1_Write(1);
-    LED_PIN_2_Write(1);
-    LED_PIN_3_Write(1);
-    LED_PIN_4_Write(1);
-    LED_PIN_6_Write(1);
     CYGlobalIntEnable;
     USBUART_Start(0, USBUART_5V_OPERATION);
     //UART_Start();
@@ -221,23 +216,22 @@ int main() {
 
                         char instStr[24];
 
-                      //  snprintf(instStr, sizeof(instStr), "%u - %u \r\n", (unsigned char) instruction[i], (unsigned char) distance[i]);
+                         //snprintf(instStr, sizeof(instStr), "%u - %u \r\n", (unsigned char) instruction[i], (unsigned char) distance[i]);
 
-                       // usbPutString(instStr);
+                         //usbPutString(instStr);
                     }
                     started = 1;
                     turnComplete = -1; //let the robot travel forward first
                     checkDistance = 0; //robot checks/stops distance when this is on
                     
                 } else {
-                    //LED_PIN_1_Write(!LED_PIN_1_Read());
                     started = 1;
 
                     char currentInst = instruction[instCounter];
                     char nextInst = instruction[instCounter + 1];
                     if (currentInst == 0) {
-                        //LED_PIN_1_Write(0);
-                        //LED_PIN_6_Write(0);
+                        LED_PIN_1_Write(0);
+                        LED_PIN_6_Write(0);
                         stop();
                         // Stop
                         CyDelay(1000);
@@ -246,18 +240,18 @@ int main() {
                             CyDelay(50);
                         }
                     } else if ((currentInst == 1 || currentInst == 5)&& turnComplete == -1) {
-                        //LED_PIN_1_Write(1);
-                        //LED_PIN_6_Write(0);
+                        LED_PIN_6_Write(0);
                         turnComplete = 0;
                         turnLeft();
-                        //LED_PIN_4_Write(0);
-                        CyDelay(300);
+                        LED_PIN_4_Write(0);
+                        CyDelay(350);
                         pulsesTravelled = 0;
                         // Complete a left turn, then follow line
 
                     } else if ((currentInst == 1 || currentInst == 5) && turnComplete == 0) {
                         lastAdjustDirection = 0;
                         if (R_LINE_BLACK) { //code that senses when the turn is done, can be optimised
+                            LED_PIN_6_Write(1);
                             turnComplete = 1;
                             stop();
                             CyDelay(200);
@@ -270,23 +264,22 @@ int main() {
                         }
                         pulsesTravelled = 0;
                     } else if (currentInst == 2 || currentInst == 6) {
-                        //LED_PIN_1_Write(1);
-                        //LED_PIN_6_Write(1);
+                        LED_PIN_6_Write(1);
                         // Drive straight
                         
                         
                     } else if ((currentInst == 3||currentInst == 7) && turnComplete == -1) {
-                        //LED_PIN_1_Write(0);
-                        //LED_PIN_6_Write(1);
+                        LED_PIN_1_Write(0);
                         turnComplete = 0;
                         turnRight();
-                        //LED_PIN_4_Write(0);
-                        CyDelay(300);
+                        LED_PIN_4_Write(0);
+                        CyDelay(350);
                         pulsesTravelled = 0;
 
                     } else if ((currentInst == 3||currentInst == 7) && turnComplete == 0) {
                         lastAdjustDirection = 2;
                         if (L_LINE_BLACK) { //code that senses when the turn is done, can be optimised
+                            LED_PIN_1_Write(1);
                             turnComplete = 1;
                             stop();
                             CyDelay(200);
@@ -302,24 +295,24 @@ int main() {
                         }
                         pulsesTravelled = 0;
                     } else if ((currentInst == 4||currentInst == 8) && turnComplete == -1) {
-                        //LED_PIN_1_Write(0);
-                        //LED_PIN_6_Write(0);
+                        LED_PIN_1_Write(0);
+                        LED_PIN_6_Write(0);
                         turnComplete = 0;
-                        turnRight();
-                        //LED_PIN_4_Write(0);
-                        CyDelay(500);
+                        turnLeft();
+                        LED_PIN_4_Write(0);
+                        CyDelay(600);
                         pulsesTravelled = 0;
 
                     } else if ((currentInst == 4||currentInst == 8) && turnComplete == 0) {
-                        //LED_PIN_1_Write(0);
-                        //LED_PIN_6_Write(0);
+                        LED_PIN_1_Write(0);
+                        LED_PIN_6_Write(0);
                         // Do a 180, then follow line
                         if (R_LINE_BLACK) { //code that senses when the turn is done, can be optimised
                             turnComplete = 1;
                             stop();
                             CyDelay(200);
                             
-                            adjustLeft();
+                            adjustRight();
                             CyDelay(225);
                             
                             stop();
@@ -366,9 +359,9 @@ int main() {
                         
 
                         // UPDATE INSTRUCTION LOGIC GOES HERE
-                        //LED_PIN_2_Write(0);
-                        //LED_PIN_3_Write(0);
-                        //LED_PIN_4_Write(0);
+                        LED_PIN_2_Write(0);
+                        LED_PIN_3_Write(0);
+                        LED_PIN_4_Write(0);
                         char dist[24];
                         char pulses[24];
                         char first[24];
@@ -380,12 +373,12 @@ int main() {
 
                         //if distance has been covered and ready to switch
                         // if stop instruction or not turning and distance has been travelled
-                        int pulsesToTravel[] = {0, 62, 123, 150, 570, 700, 570, 570, 570}; //
+                        int pulsesToTravel[] = {0, 62, 123, 150, 530, 700, 700, 1000, 570}; //
                         //                                   g    g        
                         if (turnComplete != 0 && (pulsesTravelled * 0.7 > pulsesToTravel[distance[instCounter]] ||currentInst == 0)) {
                             // if distance reached then stop
                             if (currentInst == 0 || currentInst == 6 || currentInst == 7 || currentInst == 8 || currentInst == 5) {
-                                //LED_PIN_4_Write(1);
+                                LED_PIN_4_Write(1);
                                 instCounter++;
                                 turnComplete = -1;
                                 //                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
@@ -402,7 +395,7 @@ int main() {
                             // ignoring if right sensor sensed when the next instruction doesnt make sense
                             else if (R_INT_BLACK && (nextInst != 1 && nextInst != 5)) { //reached an intersection and turning right next time
                                 //
-                                //LED_PIN_4_Write(1);
+                                LED_PIN_4_Write(1);
                                 instCounter++;
                                 turnComplete = -1;
                                 //                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
@@ -412,7 +405,7 @@ int main() {
                             }
                             // ignoring if left sensor sensed when the next instruction doesnt make sense
                             else if (L_INT_BLACK && (nextInst != 3 && nextInst != 5)) { //reached an intersection and turning left next time
-                                //LED_PIN_4_Write(1);
+                                LED_PIN_4_Write(1);
                                 instCounter++;
                                 turnComplete = -1;
                                 //                            //snprintf(instStr, sizeof(instStr), "%u - %u c:%s\r\n", (unsigned char) instruction[instCounter], (unsigned char) distance[instCounter], cVal);
@@ -426,11 +419,11 @@ int main() {
                     }
 
                     if (L_INT_BLACK) {
-                        //LED_PIN_2_Write(1);
+                        LED_PIN_2_Write(1);
                     }
 
                     if (R_INT_BLACK) {
-                        //LED_PIN_3_Write(1);
+                        LED_PIN_3_Write(1);
                     }
                 }
             }

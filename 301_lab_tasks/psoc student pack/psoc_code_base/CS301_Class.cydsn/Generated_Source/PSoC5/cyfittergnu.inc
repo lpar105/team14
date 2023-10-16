@@ -1554,11 +1554,11 @@
 .set RF_BT_SELECT_Sync_ctrl_reg__PERIOD_REG, CYREG_B0_UDB10_MSK
 
 /* leftLineSensor */
-.set leftLineSensor__0__INTTYPE, CYREG_PICU2_INTTYPE6
-.set leftLineSensor__0__MASK, 0x40
-.set leftLineSensor__0__PC, CYREG_PRT2_PC6
+.set leftLineSensor__0__INTTYPE, CYREG_PICU2_INTTYPE0
+.set leftLineSensor__0__MASK, 0x01
+.set leftLineSensor__0__PC, CYREG_PRT2_PC0
 .set leftLineSensor__0__PORT, 2
-.set leftLineSensor__0__SHIFT, 6
+.set leftLineSensor__0__SHIFT, 0
 .set leftLineSensor__AG, CYREG_PRT2_AG
 .set leftLineSensor__AMUX, CYREG_PRT2_AMUX
 .set leftLineSensor__BIE, CYREG_PRT2_BIE
@@ -1573,7 +1573,7 @@
 .set leftLineSensor__INTTYPE_BASE, CYDEV_PICU_INTTYPE_PICU2_BASE
 .set leftLineSensor__LCD_COM_SEG, CYREG_PRT2_LCD_COM_SEG
 .set leftLineSensor__LCD_EN, CYREG_PRT2_LCD_EN
-.set leftLineSensor__MASK, 0x40
+.set leftLineSensor__MASK, 0x01
 .set leftLineSensor__PORT, 2
 .set leftLineSensor__PRT, CYREG_PRT2_PRT
 .set leftLineSensor__PRTDSI__CAPS_SEL, CYREG_PRT2_CAPS_SEL
@@ -1584,7 +1584,7 @@
 .set leftLineSensor__PRTDSI__OUT_SEL1, CYREG_PRT2_OUT_SEL1
 .set leftLineSensor__PRTDSI__SYNC_OUT, CYREG_PRT2_SYNC_OUT
 .set leftLineSensor__PS, CYREG_PRT2_PS
-.set leftLineSensor__SHIFT, 6
+.set leftLineSensor__SHIFT, 0
 .set leftLineSensor__SLW, CYREG_PRT2_SLW
 
 /* rightLineSensor */

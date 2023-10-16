@@ -1553,11 +1553,11 @@ RF_BT_SELECT_Sync_ctrl_reg__PER_CTL_AUX_CTL_REG EQU CYREG_B0_UDB10_MSK_ACTL
 RF_BT_SELECT_Sync_ctrl_reg__PERIOD_REG EQU CYREG_B0_UDB10_MSK
 
 /* leftLineSensor */
-leftLineSensor__0__INTTYPE EQU CYREG_PICU2_INTTYPE6
-leftLineSensor__0__MASK EQU 0x40
-leftLineSensor__0__PC EQU CYREG_PRT2_PC6
+leftLineSensor__0__INTTYPE EQU CYREG_PICU2_INTTYPE0
+leftLineSensor__0__MASK EQU 0x01
+leftLineSensor__0__PC EQU CYREG_PRT2_PC0
 leftLineSensor__0__PORT EQU 2
-leftLineSensor__0__SHIFT EQU 6
+leftLineSensor__0__SHIFT EQU 0
 leftLineSensor__AG EQU CYREG_PRT2_AG
 leftLineSensor__AMUX EQU CYREG_PRT2_AMUX
 leftLineSensor__BIE EQU CYREG_PRT2_BIE
@@ -1572,7 +1572,7 @@ leftLineSensor__INP_DIS EQU CYREG_PRT2_INP_DIS
 leftLineSensor__INTTYPE_BASE EQU CYDEV_PICU_INTTYPE_PICU2_BASE
 leftLineSensor__LCD_COM_SEG EQU CYREG_PRT2_LCD_COM_SEG
 leftLineSensor__LCD_EN EQU CYREG_PRT2_LCD_EN
-leftLineSensor__MASK EQU 0x40
+leftLineSensor__MASK EQU 0x01
 leftLineSensor__PORT EQU 2
 leftLineSensor__PRT EQU CYREG_PRT2_PRT
 leftLineSensor__PRTDSI__CAPS_SEL EQU CYREG_PRT2_CAPS_SEL
@@ -1583,7 +1583,7 @@ leftLineSensor__PRTDSI__OUT_SEL0 EQU CYREG_PRT2_OUT_SEL0
 leftLineSensor__PRTDSI__OUT_SEL1 EQU CYREG_PRT2_OUT_SEL1
 leftLineSensor__PRTDSI__SYNC_OUT EQU CYREG_PRT2_SYNC_OUT
 leftLineSensor__PS EQU CYREG_PRT2_PS
-leftLineSensor__SHIFT EQU 6
+leftLineSensor__SHIFT EQU 0
 leftLineSensor__SLW EQU CYREG_PRT2_SLW
 
 /* rightLineSensor */

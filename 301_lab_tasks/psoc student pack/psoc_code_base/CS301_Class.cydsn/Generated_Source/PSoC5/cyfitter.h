@@ -1554,11 +1554,11 @@
 #define RF_BT_SELECT_Sync_ctrl_reg__PERIOD_REG CYREG_B0_UDB10_MSK
 
 /* leftLineSensor */
-#define leftLineSensor__0__INTTYPE CYREG_PICU2_INTTYPE6
-#define leftLineSensor__0__MASK 0x40u
-#define leftLineSensor__0__PC CYREG_PRT2_PC6
+#define leftLineSensor__0__INTTYPE CYREG_PICU2_INTTYPE0
+#define leftLineSensor__0__MASK 0x01u
+#define leftLineSensor__0__PC CYREG_PRT2_PC0
 #define leftLineSensor__0__PORT 2u
-#define leftLineSensor__0__SHIFT 6u
+#define leftLineSensor__0__SHIFT 0u
 #define leftLineSensor__AG CYREG_PRT2_AG
 #define leftLineSensor__AMUX CYREG_PRT2_AMUX
 #define leftLineSensor__BIE CYREG_PRT2_BIE
@@ -1573,7 +1573,7 @@
 #define leftLineSensor__INTTYPE_BASE CYDEV_PICU_INTTYPE_PICU2_BASE
 #define leftLineSensor__LCD_COM_SEG CYREG_PRT2_LCD_COM_SEG
 #define leftLineSensor__LCD_EN CYREG_PRT2_LCD_EN
-#define leftLineSensor__MASK 0x40u
+#define leftLineSensor__MASK 0x01u
 #define leftLineSensor__PORT 2u
 #define leftLineSensor__PRT CYREG_PRT2_PRT
 #define leftLineSensor__PRTDSI__CAPS_SEL CYREG_PRT2_CAPS_SEL
@@ -1584,7 +1584,7 @@
 #define leftLineSensor__PRTDSI__OUT_SEL1 CYREG_PRT2_OUT_SEL1
 #define leftLineSensor__PRTDSI__SYNC_OUT CYREG_PRT2_SYNC_OUT
 #define leftLineSensor__PS CYREG_PRT2_PS
-#define leftLineSensor__SHIFT 6u
+#define leftLineSensor__SHIFT 0u
 #define leftLineSensor__SLW CYREG_PRT2_SLW
 
 /* rightLineSensor */

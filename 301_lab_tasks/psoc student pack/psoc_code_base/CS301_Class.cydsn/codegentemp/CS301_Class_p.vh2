@@ -1,5 +1,5 @@
 -- Project:   CS301_Class
--- Generated: 10/15/2023 22:13:39
+-- Generated: 10/16/2023 17:46:53
 -- PSoC Creator  4.2
 
 ENTITY CS301_Class IS
@@ -492,7 +492,7 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class IS
     ATTRIBUTE lib_model OF LED_PIN_1(0) : LABEL IS "iocell19";
     ATTRIBUTE Location OF LED_PIN_1(0) : LABEL IS "P15[4]";
     ATTRIBUTE lib_model OF leftLineSensor(0) : LABEL IS "iocell20";
-    ATTRIBUTE Location OF leftLineSensor(0) : LABEL IS "P2[6]";
+    ATTRIBUTE Location OF leftLineSensor(0) : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF LED_PIN_2(0) : LABEL IS "iocell21";
     ATTRIBUTE Location OF LED_PIN_2(0) : LABEL IS "P0[3]";
     ATTRIBUTE lib_model OF LED_PIN_3(0) : LABEL IS "iocell22";

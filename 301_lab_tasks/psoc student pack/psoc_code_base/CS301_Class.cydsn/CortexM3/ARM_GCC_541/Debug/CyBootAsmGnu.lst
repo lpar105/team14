@@ -12932,11 +12932,11 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  1554              	.set RF_BT_SELECT_Sync_ctrl_reg__PERIOD_REG, CYREG_B0_UDB10_MSK
  1555              	
  1556              	/* leftLineSensor */
- 1557              	.set leftLineSensor__0__INTTYPE, CYREG_PICU2_INTTYPE6
- 1558              	.set leftLineSensor__0__MASK, 0x40
- 1559              	.set leftLineSensor__0__PC, CYREG_PRT2_PC6
+ 1557              	.set leftLineSensor__0__INTTYPE, CYREG_PICU2_INTTYPE0
+ 1558              	.set leftLineSensor__0__MASK, 0x01
+ 1559              	.set leftLineSensor__0__PC, CYREG_PRT2_PC0
  1560              	.set leftLineSensor__0__PORT, 2
- 1561              	.set leftLineSensor__0__SHIFT, 6
+ 1561              	.set leftLineSensor__0__SHIFT, 0
  1562              	.set leftLineSensor__AG, CYREG_PRT2_AG
  1563              	.set leftLineSensor__AMUX, CYREG_PRT2_AMUX
  1564              	.set leftLineSensor__BIE, CYREG_PRT2_BIE
@@ -12951,7 +12951,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  1573              	.set leftLineSensor__INTTYPE_BASE, CYDEV_PICU_INTTYPE_PICU2_BASE
  1574              	.set leftLineSensor__LCD_COM_SEG, CYREG_PRT2_LCD_COM_SEG
  1575              	.set leftLineSensor__LCD_EN, CYREG_PRT2_LCD_EN
- 1576              	.set leftLineSensor__MASK, 0x40
+ 1576              	.set leftLineSensor__MASK, 0x01
  1577              	.set leftLineSensor__PORT, 2
  1578              	.set leftLineSensor__PRT, CYREG_PRT2_PRT
  1579              	.set leftLineSensor__PRTDSI__CAPS_SEL, CYREG_PRT2_CAPS_SEL
@@ -12965,7 +12965,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  1584              	.set leftLineSensor__PRTDSI__OUT_SEL1, CYREG_PRT2_OUT_SEL1
  1585              	.set leftLineSensor__PRTDSI__SYNC_OUT, CYREG_PRT2_SYNC_OUT
  1586              	.set leftLineSensor__PS, CYREG_PRT2_PS
- 1587              	.set leftLineSensor__SHIFT, 6
+ 1587              	.set leftLineSensor__SHIFT, 0
  1588              	.set leftLineSensor__SLW, CYREG_PRT2_SLW
  1589              	
  1590              	/* rightLineSensor */

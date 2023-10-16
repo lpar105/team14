@@ -13,8 +13,8 @@
 #include <project.h>
 #include "motors.h"
 
-volatile int currentFLeftSpeed = 161+1; //was 161 + 2
-volatile int currentFRightSpeed = 162+2;// was 162 + 2
+volatile int currentFLeftSpeed = 163; //was 161 + 2
+volatile int currentFRightSpeed = 164;// was 162 + 2
 
 
 void initMotors() {
@@ -54,13 +54,13 @@ void adjustRight() {
 
 void turnLeft() { 
     
-    PWM_1_WriteCompare(125 - (currentFRightSpeed - 125) + 2) ; //was 11, changed as I think the value becomes too small to move the motor
-    PWM_2_WriteCompare(currentFRightSpeed - 2); //was 11, changed as I think the value becomes too small to move the motor
+    PWM_1_WriteCompare(125 - (currentFRightSpeed - 125) + 1) ; //was 11, changed as I think the value becomes too small to move the motor
+    PWM_2_WriteCompare(currentFRightSpeed - 1); //was 11, changed as I think the value becomes too small to move the motor
 }
 //193 144
 void turnRight() { 
-    PWM_1_WriteCompare(currentFRightSpeed - 2);  //was 11, changed as I think the value becomes too small to move the motor
-    PWM_2_WriteCompare(125 - (currentFRightSpeed - 125) + 2); //was 11, changed as I think the value becomes too small to move the motor
+    PWM_1_WriteCompare(currentFRightSpeed - 1);  //was 11, changed as I think the value becomes too small to move the motor
+    PWM_2_WriteCompare(125 - (currentFRightSpeed - 125) + 1); //was 11, changed as I think the value becomes too small to move the motor
 }
 
 /* [] END OF FILE */
